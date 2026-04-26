@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OmniScan — legOmnia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600&family=Exo+2:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── DESIGN TOKENS (UNIVERSAL) ─── */
+    :root {
+      --vi:          #7C5CFC;
+      --vi-light:    #A48BFD;
+      --vi-dim:      rgba(124,92,252,.12);
+      --vi-border:   rgba(124,92,252,.28);
+      --gold:        #C9A84C;
+      --gold-dim:    rgba(201,168,76,.12);
+      --blue:        #4A8FD4;
+      --blue-dim:    rgba(74,143,212,.12);
+      --green:       #3CC47C;
+      --green-dim:   rgba(60,196,124,.12);
+      --amber:       #D4A82A;
+      --r-sm: 6px; --r-md: 14px; --r-lg: 20px; --r-xl: 28px; --r-pill: 100px;
+      --nav-h: 64px;
+    }
+
+    [data-theme="dark"] {
+      --bg:#0C0B14; --bg-card:#131220; --bg-card-2:#1A1928; --bg-dark:#08070F;
+      --border:rgba(255,255,255,.08); --text-1:#EEE9F8; --text-2:#7A788E; --text-3:#3D3C50;
+      --shadow:0 8px 32px rgba(0,0,0,.5); --shadow-vi:0 8px 32px rgba(124,92,252,.2);
+      --nav-bg:rgba(12,11,20,.92);
+    }
+
+    [data-theme="light"] {
+      --bg:#F8F9FA; --bg-card:#FFFFFF; --bg-card-2:#F1F3F5; --bg-dark:#E9ECEF;
+      --border:rgba(0,0,0,.08); --text-1:#212529; --text-2:#495057; --text-3:#ADB5BD;
+      --shadow:0 10px 40px rgba(0,0,0,.04); --shadow-vi:0 10px 40px rgba(124,92,252,.1);
+      --nav-bg:rgba(255,255,255,.96);
+    }
+
+    /* ─── RESET & GLOBALS ─── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-1);
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    .icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: var(--r-md);
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-vi { background: var(--vi); color: #fff; }
+    .btn-outline { background: transparent; color: var(--text-1); border-color: var(--border); }
+    .btn-outline:hover { border-color: var(--vi); color: var(--vi); }
+
+    /* ─── NAVBAR ─── */
+    nav#navbar {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+      background: var(--nav-bg); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); z-index: 1000; transition: all 0.3s;
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 20px;
+      display: flex; align-items: center; justify-content: space-between; height: 100%;
+    }
+    .nav-logo-wrap { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--text-1); text-decoration: none; }
+    .nav-logo .icon { width: 28px; height: 28px; color: var(--vi); stroke-width: 0; fill: currentColor; }
+
+    .nav-center { display: flex; align-items: center; gap: 32px; flex: 1; justify-content: center; }
+    @media (max-width: 1100px) { .nav-center { gap: 16px; } }
+    @media (max-width: 900px) { .nav-center { display: none; } }
+
+    .nav-link { position: relative; color: var(--text-1); font-size: 15px; font-weight: 500; cursor: pointer; transition: color 0.2s; white-space: nowrap; }
+    .nav-link:hover { color: var(--vi); }
+
+    .nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+
+    /* Mega Menu */
+    .mega-menu {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-8px);
+      opacity: 0; visibility: hidden; transition: all 0.2s; pointer-events: none;
+      background: var(--bg-card); border: 1px solid var(--vi-border); border-radius: var(--r-xl);
+      padding: 24px; margin-top: 8px; box-shadow: var(--shadow-vi); min-width: 520px; z-index: 1001;
+    }
+    .nav-link:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+    .mega-menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .mega-item { display: flex; gap: 12px; padding: 12px; border-radius: var(--r-md); transition: background 0.2s; text-align: left; }
+    .mega-item:hover { background: var(--vi-dim); }
+    .mega-item-icon { width: 36px; height: 36px; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .mega-item-icon { background: var(--bg); border: 2px solid var(--text-1); color: var(--text-1); }
+
+    .mega-item-content h4 { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; color: var(--text-1); margin: 0; }
+    .mega-item-content p { font-size: 12px; color: var(--text-2); line-height: 1.4; margin: 0; }
+
+    .theme-btn {
+      background: var(--bg-card-2); border: 1px solid var(--border);
+      border-radius: var(--r-md); padding: 8px 12px; cursor: pointer; display: flex; align-items: center; gap: 8px;
+      color: var(--text-1); font-weight: 600; font-size: 11px; transition: all 0.2s;
+    }
+    .theme-btn:hover { border-color: var(--vi); }
+
+    @media (max-width: 1100px) {
+      .nav-center { gap: 16px !important; }
+      .nav-link { font-size: 14px !important; }
+      .nav-right .theme-btn span { display: none !important; }
+    }
+    @media (max-width: 920px) {
+      .nav-center { display: none !important; }
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 120px 4rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(200,151,58,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,151,58,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events:none;
+    }
+    .hero::after {
+      content:'';
+      position:absolute;
+      width: 700px; height:700px;
+      border-radius:50%;
+      background: radial-gradient(circle, rgba(200,151,58,0.08) 0%, transparent 65%);
+      right: -100px; top:50%;
+      transform: translateY(-50%);
+      pointer-events:none;
+    }
+
+    .hero-content { position:relative; z-index:2; }
+
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:.7rem;
+      font-size:0.7rem; font-weight:500; letter-spacing:.22em;
+      text-transform:uppercase; color:var(--gold);
+      margin-bottom:1.6rem;
+    }
+    .eyebrow-line { width:28px; height:1px; background:var(--gold); }
+
+    h1 {
+      font-family: var(--font-main);
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -.01em;
+      margin-bottom: 1.6rem;
+    }
+    h1 em { font-style:italic; color:var(--gold); font-weight: 300; }
+
+    .hero-lead {
+      font-size:1rem; line-height:1.8;
+      color: var(--muted);
+      max-width:520px;
+      margin-bottom:2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-btns { display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+    .btn-gold {
+      display:inline-block;
+      background: var(--gold);
+      color: #0B0E14;
+      padding:.85rem 2rem;
+      font-size:.8rem; font-weight:500;
+      letter-spacing:.1em; text-transform:uppercase;
+      text-decoration:none; border-radius:var(--radius);
+      transition: background .2s, transform .2s;
+    }
+    .btn-gold:hover { background:var(--gold-lt); transform:translateY(-2px); }
+    .btn-outline {
+      display:inline-flex; align-items:center; gap:.5rem;
+      color:var(--white); font-size:.8rem; font-weight:400;
+      letter-spacing:.1em; text-transform:uppercase;
+      text-decoration:none; border:1px solid var(--border);
+      padding:.85rem 2rem; border-radius:var(--radius);
+      transition: border-color .2s, color .2s;
+    }
+    .btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+
+    /* HERO VISUAL */
+    .hero-visual { position:relative; z-index:2; display:flex; justify-content:center; }
+
+    .doc-card {
+      width:360px;
+      background: var(--bg3);
+      border:1px solid var(--border);
+      border-radius:6px;
+      padding:1.8rem;
+      box-shadow: 0 40px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(200,151,58,0.08);
+      animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+    .doc-card-header {
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:1.4rem;
+      padding-bottom:1rem;
+      border-bottom:1px solid var(--border);
+    }
+    .doc-card-title {
+      font-family: var(--font-main);
+      font-size:.82rem; font-weight:400;
+      color:var(--gold);
+    }
+    .doc-card-sub { font-size:.68rem; color:var(--muted); margin-top:.15rem; }
+    .doc-stamp {
+      font-size:.6rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
+      border:1px solid var(--gold); color:var(--gold);
+      padding:.2rem .55rem; border-radius:2px;
+    }
+
+    .doc-rows { display:flex; flex-direction:column; gap:.5rem; margin-bottom:1.4rem; }
+    .doc-row { display:flex; align-items:center; gap:.6rem; }
+    .doc-label { font-size:.62rem; color:var(--muted); width:80px; flex-shrink:0; font-weight: 400; }
+    .doc-bar {
+      height:7px; background:rgba(240,237,232,0.08); border-radius:2px; flex:1;
+    }
+    .doc-bar.masked {
+      background: rgba(200,151,58,0.45);
+      position:relative; overflow:hidden;
+    }
+    .doc-bar.masked::after {
+      content:'';
+      position:absolute; top:0; left:-100%; width:50%; height:100%;
+      background: linear-gradient(90deg,transparent,rgba(232,184,96,.5),transparent);
+      animation: sweep 2.2s infinite;
+    }
+    @keyframes sweep { to { left:200%; } }
+
+    .doc-footer {
+      display:flex; align-items:center; gap:.6rem;
+      background:rgba(200,151,58,.08);
+      border:1px solid rgba(200,151,58,.2);
+      border-radius:3px;
+      padding:.55rem .9rem;
+    }
+    .dot-pulse {
+      width:7px; height:7px; border-radius:50%;
+      background:#4CAF50; flex-shrink:0;
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.85)} }
+    .doc-footer-txt { font-size:.65rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); }
+    .doc-footer-icon { margin-left:auto; color:var(--gold); }
+
+    /* POSITIONING */
+    .positioning {
+      background: var(--bg2);
+      padding: 5.5rem 4rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .positioning::before {
+      content:'';
+      position:absolute; left:0; top:10%; bottom:10%;
+      width:3px;
+      background: linear-gradient(180deg, transparent, var(--gold), transparent);
+    }
+    .pos-inner {
+      max-width:840px;
+      margin:0 auto;
+      text-align:center;
+    }
+    .section-tag {
+      font-size:.68rem; font-weight:500; letter-spacing:.22em;
+      text-transform:uppercase; color:var(--gold);
+      margin-bottom:1.2rem;
+      display:block;
+    }
+    .pos-text {
+      font-family: var(--font-main);
+      font-size:clamp(1.1rem,2vw,1.5rem);
+      font-weight:300;
+      line-height:1.75;
+      color:var(--white);
+    }
+    .pos-text strong { color:var(--gold); font-weight:400; }
+
+    /* STATS */
+    .stats {
+      background: var(--bg);
+      display:grid; grid-template-columns:repeat(3,1fr);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+    .stat {
+      padding:3.5rem 2rem;
+      text-align:center;
+      border-right:1px solid var(--border);
+    }
+    .stat:last-child { border-right:none; }
+    .stat-n {
+      font-family: var(--font-main);
+      font-size:3.2rem; font-weight:300;
+      color:var(--gold); line-height:1;
+      margin-bottom:.5rem;
+    }
+    .stat-l {
+      font-size:.73rem; font-weight:400;
+      letter-spacing:.1em; text-transform:uppercase;
+      color:var(--muted); line-height:1.5;
+    }
+
+    /* FEATURES */
+    .features {
+      background: var(--bg3);
+      padding:6rem 4rem;
+    }
+    .section-header {
+      max-width:580px; margin:0 auto 4.5rem; text-align:center;
+    }
+    .section-header h2 {
+      font-family: var(--font-main);
+      font-size:clamp(1.7rem,2.8vw,2.5rem);
+      font-weight:300; line-height:1.25;
+      margin-bottom:.9rem;
+    }
+    .section-header p {
+      font-size:.92rem; line-height:1.75; color:var(--muted);
+      font-weight: 300;
+    }
+
+    .feat-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      max-width:1100px; margin:0 auto;
+      background:var(--border);
+    }
+    .feat-card {
+      background:var(--bg3);
+      padding:2.5rem 2rem;
+      transition:background .25s;
+      position:relative;
+    }
+    .feat-card:hover { background:var(--bg2); }
+    .feat-card::after {
+      content:''; position:absolute;
+      bottom:0; left:0; right:0; height:2px;
+      background:var(--gold);
+      transform:scaleX(0); transform-origin:left;
+      transition:transform .3s;
+    }
+    .feat-card:hover::after { transform:scaleX(1); }
+
+    .feat-icon {
+      width:42px; height:42px;
+      background:var(--bg);
+      border:2px solid var(--text-1);
+      border-radius:4px;
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:1.3rem;
+      color:var(--gold);
+    }
+    .feat-icon svg { width:20px; height:20px; }
+    .feat-title {
+      font-family: var(--font-main);
+      font-size:1rem; font-weight:400;
+      margin-bottom:.65rem;
+    }
+    .feat-desc { font-size:.83rem; line-height:1.7; color:var(--muted); font-weight: 300; }
+
+    /* PROCESS */
+    .process {
+      background: var(--bg2);
+      padding:6rem 4rem;
+    }
+    .steps-grid {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:0;
+      max-width:1100px; margin:0 auto;
+      background:var(--border);
+    }
+    .step-card {
+      background:var(--bg2);
+      padding:2.5rem 1.8rem;
+      position:relative;
+    }
+    .step-card:not(:last-child)::after {
+      content:'';
+      position:absolute; top:50%; right:-16px;
+      width:32px; height:1px;
+      background:var(--gold);
+      z-index:10;
+    }
+    .step-num {
+      font-size:.65rem; font-weight:500; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--gold);
+      margin-bottom:1.2rem;
+    }
+    .step-icon {
+      width:44px; height:44px;
+      border:1px solid var(--border);
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:1.1rem;
+      color:var(--gold);
+    }
+    .step-icon svg { width:20px; height:20px; }
+    .step-title { font-family: var(--font-main); font-size:.95rem; font-weight:400; margin-bottom:.6rem; }
+    .step-desc { font-size:.78rem; line-height:1.65; color:var(--muted); font-weight: 300; }
+
+    /* BENTOBOX */
+    .bentobox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .bento-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .bento-card:hover {
+      border-color: var(--vi);
+      background: var(--bg-card-2);
+      transform: translateY(-4px);
+    }
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--vi), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .bento-card:hover::before { opacity: 1; }
+    .bento-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .bento-icon.vi { background: var(--vi-dim); color: var(--vi); }
+    .bento-icon.blue { background: var(--blue-dim); color: var(--blue); }
+    .bento-icon.green { background: var(--green-dim); color: var(--green); }
+    .bento-icon.amber { background: var(--gold-dim); color: var(--amber); }
+    .bento-icon svg { width: 24px; height: 24px; }
+    .bento-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-1);
+    }
+    .bento-desc {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-2);
+      font-weight: 300;
+    }
+    .bento-meta {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--vi);
+      font-weight: 500;
+      margin-top: auto;
+    }
+
+    @media(max-width:900px){
+      .bentobox-grid { grid-template-columns: 1fr; }
+    }
+
+    /* USE CASES */
+    .usecases {
+      background: var(--bg);
+      padding:6rem 4rem;
+    }
+    .uc-grid {
+      display:grid; grid-template-columns:repeat(2,1fr);
+      gap:1.5rem;
+      max-width:1000px; margin:0 auto;
+    }
+    .uc-card {
+      background:var(--bg3);
+      border:1px solid var(--border);
+      border-radius:4px;
+      padding:2.2rem;
+      transition:border-color .25s, background .25s;
+      display:flex; flex-direction:column; gap:.6rem;
+    }
+    .uc-card:hover { border-color:var(--gold); background:var(--bg2); }
+    .uc-icon-wrap {
+      width:40px; height:40px;
+      background:var(--gold-dim);
+      border:1px solid var(--border);
+      border-radius:4px;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold); margin-bottom:.4rem;
+    }
+    .uc-icon-wrap svg { width:18px; height:18px; }
+    .uc-tag {
+      font-size:.64rem; font-weight:500; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--gold);
+    }
+    .uc-title { font-family: var(--font-main); font-size:1rem; font-weight:400; }
+    .uc-desc { font-size:.82rem; line-height:1.7; color:var(--muted); font-weight: 300; }
+
+    /* CTA */
+    .cta-band {
+      background: linear-gradient(135deg, #1A1205 0%, #2A1E09 50%, #1A1205 100%);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      padding:5.5rem 4rem;
+      text-align:center;
+      position:relative; overflow:hidden;
+    }
+    .cta-band::before {
+      content:'';
+      position:absolute; inset:0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(200,151,58,.1) 0%, transparent 60%);
+      pointer-events:none;
+    }
+    .cta-inner { position:relative; z-index:1; }
+    .cta-band h2 {
+      font-family: var(--font-main);
+      font-size:clamp(1.8rem,3vw,3rem);
+      font-weight:300; line-height:1.2;
+      margin-bottom:1rem;
+    }
+    .cta-band h2 em { font-style:italic; color:var(--gold); font-weight: 300; }
+    .cta-band p {
+      font-size:.95rem; line-height:1.75;
+      color:var(--muted); max-width:480px; margin:0 auto 2.5rem;
+      font-weight: 300;
+    }
+
+    /* FOOTER */
+    footer {
+      background:#080A0F;
+      padding:2.5rem 4rem;
+      display:flex; align-items:center; justify-content:space-between;
+      border-top:1px solid rgba(200,151,58,.12);
+    }
+    footer img { height:30px; opacity:.8; }
+    .footer-txt { font-size:.72rem; color:rgba(240,237,232,.3); letter-spacing:.06em; font-weight: 300; }
+    .footer-links { display:flex; gap:1.5rem; }
+    .footer-links a { color:rgba(240,237,232,.3); text-decoration:none; font-size:.72rem; transition:color .2s; font-weight: 400; }
+    .footer-links a:hover { color:var(--gold); }
+
+    /* ANIMATIONS */
+    .anim { opacity:0; transform:translateY(20px); animation:up .65s ease forwards; }
+    .anim:nth-child(1){animation-delay:.05s}
+    .anim:nth-child(2){animation-delay:.18s}
+    .anim:nth-child(3){animation-delay:.3s}
+    .anim:nth-child(4){animation-delay:.42s}
+    @keyframes up { to { opacity:1; transform:translateY(0); } }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      nav { padding:0 1.5rem; }
+      .nav-links { display:none; }
+      .hero { grid-template-columns:1fr; padding:100px 1.5rem 4rem; }
+      .hero-visual { display:none; }
+      .stats { grid-template-columns:1fr; }
+      .stat { border-right:none; border-bottom:1px solid var(--border); }
+      .feat-grid,.steps-grid,.uc-grid { grid-template-columns:1fr; }
+      .step-card::after { display:none; }
+      .positioning,.features,.process,.usecases,.cta-band { padding:4rem 1.5rem; }
+      footer { flex-direction:column; gap:1rem; text-align:center; padding:2rem 1.5rem; }
+    }
+  </style>
+<script src="load-navbar.js"></script>
+</head>
+<body>
+
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect><path d="M7 7h10M7 17h10M7 12h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2"></path></symbol>
+    <symbol id="i-transform" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="none" stroke="currentColor" stroke-width="2"></path></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="9" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline><polyline points="17 6 23 6 23 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"></circle><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></symbol>
+  </svg>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="anim">
+      <span class="eyebrow"><span class="eyebrow-line"></span>OmniScan · Pipeline IA · Afrique</span>
+    </div>
+    <h1 class="anim">
+      Des données juridiques <em>brutes</em> à l'intelligence <em>structurée</em>
+    </h1>
+    <p class="hero-lead anim">
+      OmniScan transforme en quelques secondes tous vos documents juridiques — décisions imprimées, contrats PDF, textes législatifs — en données exploitables, enrichies et prêtes à l'indexation. Le socle technologique qui réveille le patrimoine légal africain.
+    </p>
+    <div class="hero-btns anim">
+      <a href="https://legomnia.com/contact/" class="btn-gold">Demander une démo</a>
+      <a href="#features" class="btn-outline">
+        Voir les capacités
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="doc-card">
+      <div class="doc-card-header">
+        <div>
+          <div class="doc-card-title">Jugement commercial — N°2024/487</div>
+          <div class="doc-card-sub">Tribunal de Dakar, Sénégal</div>
+        </div>
+        <div class="doc-stamp">OHADA</div>
+      </div>
+      <div class="doc-rows">
+        <div class="doc-row">
+          <span class="doc-label">OCR</span>
+          <div class="doc-bar" style="background: rgba(60,196,124,.3); flex:1"></div>
+        </div>
+        <div class="doc-row">
+          <span class="doc-label">Détection</span>
+          <div class="doc-bar masked" style="flex:1"></div>
+        </div>
+        <div class="doc-row">
+          <span class="doc-label">Métadonnées</span>
+          <div class="doc-bar" style="background: rgba(74,143,212,.3); flex:1"></div>
+        </div>
+        <div class="doc-row">
+          <span class="doc-label">Résumé IA</span>
+          <div class="doc-bar" style="background: rgba(124,92,252,.3); flex:1"></div>
+        </div>
+        <div class="doc-row">
+          <span class="doc-label">Indexation</span>
+          <div class="doc-bar" style="background: rgba(201,168,76,.3); flex:1"></div>
+        </div>
+      </div>
+      <div class="doc-footer">
+        <span class="dot-pulse"></span>
+        <span class="doc-footer-txt">Traitement complet · IA</span>
+        <span class="doc-footer-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONING PARAGRAPH -->
+<section class="positioning">
+  <div class="pos-inner">
+    <span class="section-tag">Le problème & la solution</span>
+    <p class="pos-text">
+      Le droit africain est une <strong>mine de données brutes inexploitées</strong> — des décisions papier aux archives PDF non structurées, une masse immense de patrimoine légal dort. OmniScan change la donne. <strong>En seconds, transformez n'importe quel document en intelligence juridique</strong> : reconnaître le texte, protéger les données sensibles, extraire la structure, résumer les enjeux. Un seul pipeline, un seul objectif : débloquer la valeur cachée de vos archives et accélérer l'accès à la justice en Afrique.
+    </p>
+  </div>
+</section>
+
+<!-- BENTOBOX SECTION -->
+<section style="background: var(--bg); padding: 4rem;">
+  <div style="max-width: 1280px; margin: 0 auto;">
+    <div class="bentobox-grid">
+      <div class="bento-card">
+        <div class="bento-icon vi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <line x1="9" y1="9" x2="15" y2="9"/>
+            <line x1="9" y1="15" x2="13" y2="15"/>
+          </svg>
+        </div>
+        <div class="bento-title">OCR & Numérisation</div>
+        <p class="bento-desc">Reconnaissance optique haute précision. Traite PDF, images, archives papier. Optimisé français, anglais, langues locales.</p>
+        <div class="bento-meta">PDF · TIFF · JPEG · PNG</div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-icon blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <line x1="9" y1="12" x2="15" y2="12"/>
+            <line x1="12" y1="9" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <div class="bento-title">Anonymisation RGPD</div>
+        <p class="bento-desc">Détection & masquage automatique des données personnelles. Configurable par juridiction et type de cas. Conforme RGPD & OHADA.</p>
+        <div class="bento-meta">Noms · Adresses · Identifiants</div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="8" y1="13" x2="16" y2="13"/>
+            <line x1="8" y1="17" x2="16" y2="17"/>
+          </svg>
+        </div>
+        <div class="bento-title">Extraction Métadonnées</div>
+        <p class="bento-desc">Identification automatique : dates, juridictions, parties, domaines. Alimente indexation et recherche sémantique.</p>
+        <div class="bento-meta">Date · Juridiction · Parties</div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-icon amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </div>
+        <div class="bento-title">Résumés IA</div>
+        <p class="bento-desc">Synthèses exécutives auto-générées. LLM spécialisé droit africain. Qualifications juridiques intégrées.</p>
+        <div class="bento-meta">Synthèse · Enjeux · Qualifications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-n">4</div>
+    <div class="stat-l">étapes de transformation<br>en un seul pipeline</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">×1000</div>
+    <div class="stat-l">documents traités<br>en quelques heures</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">99%</div>
+    <div class="stat-l">précision OCR<br>sur archives africaines</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-header">
+    <span class="section-tag">Les 4 capacités clés</span>
+    <h2>Pipeline complet de transformation<br>des données juridiques</h2>
+    <p>OmniScan intègre un ensemble d'outils IA spécialisés en droit africain pour traiter chaque aspect de la digitalisation.</p>
+  </div>
+  <div class="feat-grid">
+
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <line x1="9" y1="9" x2="15" y2="9"/>
+          <line x1="9" y1="15" x2="13" y2="15"/>
+        </svg>
+      </div>
+      <div class="feat-title">1. OCR haute précision</div>
+      <p class="feat-desc">Reconnaissance optique de caractères entraînée sur documents juridiques africains et européens. Traite PDF, TIFF, JPEG, PNG. Optimisé pour français, anglais, langues locales. Gère même les archives scannées de faible qualité.</p>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <line x1="9" y1="12" x2="15" y2="12"/>
+          <line x1="12" y1="9" x2="12" y2="15"/>
+        </svg>
+      </div>
+      <div class="feat-title">2. Anonymisation RGPD</div>
+      <p class="feat-desc">Détection et masquage automatique des données personnelles (noms, adresses, numéros d'identification). Conforme RGPD et réglementations locales. Configuration flexible selon juridiction et type de document.</p>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="8" y1="13" x2="16" y2="13"/>
+          <line x1="8" y1="17" x2="16" y2="17"/>
+        </svg>
+      </div>
+      <div class="feat-title">3. Extraction de métadonnées</div>
+      <p class="feat-desc">Identification automatisée : dates, juridictions, types de documents, parties impliquées, références légales, domaines juridiques. Alimente directement indexation et recherche sémantique.</p>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </div>
+      <div class="feat-title">4. Résumés IA</div>
+      <p class="feat-desc">Génération automatique de synthèses exécutives, points clés et qualifications juridiques. Basé sur LLM spécialisés en droit africain. Chaque document obtient un résumé prêt à la publication.</p>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      </div>
+      <div class="feat-title">Formats de sortie multiples</div>
+      <p class="feat-desc"><strong>Base vectorielle</strong> (ElasticSearch) pour indexation sémantique · <strong>PDF enrichi</strong> avec métadonnées intégrées · <strong>JSON structuré</strong> pour intégrations API tierces.</p>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+          <line x1="6" y1="6" x2="6.01" y2="6"/>
+          <line x1="6" y1="18" x2="6.01" y2="18"/>
+        </svg>
+      </div>
+      <div class="feat-title">Souveraineté & conformité</div>
+      <p class="feat-desc">Vos documents restent sur votre infrastructure. Option on-premise disponible pour institutions requérant contrôle total. Rapports d'audit complets pour traçabilité RGPD & OHADA.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="processus">
+  <div class="section-header">
+    <span class="section-tag">Le pipeline OmniScan</span>
+    <h2>4 étapes pour transformer vos documents</h2>
+    <p>De l'import brut à la sortie structurée, chaque étape est optimisée pour vitesse, précision et conformité.</p>
+  </div>
+  <div class="steps-grid">
+
+    <div class="step-card">
+      <div class="step-num">Étape 01</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+      </div>
+      <div class="step-title">Import & OCR</div>
+      <p class="step-desc">Chargez vos documents en PDF, image, Word. L'OCR haute précision reconnaît le texte, même sur archives papier scannées de faible qualité.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">Étape 02</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          <line x1="11" y1="8" x2="11" y2="14"/>
+          <line x1="8" y1="11" x2="14" y2="11"/>
+        </svg>
+      </div>
+      <div class="step-title">Analyse multimodèle</div>
+      <p class="step-desc">Détection automatique des données sensibles · Extraction des métadonnées structurantes · Génération de résumé IA. Tout en parallèle, en quelques secondes.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">Étape 03</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+        </svg>
+      </div>
+      <div class="step-title">Validation & ajustement</div>
+      <p class="step-desc">Interface d'examen intuitive pour valider ou corriger les détections. Contrôle humain toujours présent. Audit complet de chaque modification.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">Étape 04</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </div>
+      <div class="step-title">Export multi-format</div>
+      <p class="step-desc">Téléchargez en PDF enrichi, JSON structuré ou versant vectoriel. Prêt pour publication, indexation, intégration API ou archivage sécurisé.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="usecases">
+  <div class="section-header">
+    <span class="section-tag">En pratique</span>
+    <h2>Qui utilise OmniScan ?</h2>
+    <p>Institutions judiciaires, ministères, universités, cabinets : tous ceux qui doivent valoriser et sécuriser leurs données juridiques brutes.</p>
+  </div>
+  <div class="uc-grid">
+
+    <div class="uc-card">
+      <div class="uc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+      </div>
+      <div class="uc-tag">📚 Tribunaux & Cours Suprêmes</div>
+      <div class="uc-title">Numérisation d'archives judiciaires</div>
+      <p class="uc-desc">Transformer des décennies de décisions papier en base de données searchable. OCR + indexation + résumés IA en quelques semaines au lieu de mois.</p>
+    </div>
+
+    <div class="uc-card">
+      <div class="uc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="2" x2="12" y2="6"/>
+          <line x1="12" y1="18" x2="12" y2="22"/>
+          <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/>
+          <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
+          <line x1="2" y1="12" x2="6" y2="12"/>
+          <line x1="18" y1="12" x2="22" y2="12"/>
+          <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/>
+          <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+        </svg>
+      </div>
+      <div class="uc-tag">🏛️ Ministères de la Justice</div>
+      <div class="uc-title">Publication de jurisprudences officielles</div>
+      <p class="uc-desc">Anonymiser, extraire métadonnées et publier massivement vos décisions en conformité RGPD & OHADA. Une chaîne complète, fin aux bouts.</p>
+    </div>
+
+    <div class="uc-card">
+      <div class="uc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div class="uc-tag">🎓 Écoles de droit & Barreaux</div>
+      <div class="uc-title">Cas réels pour la formation</div>
+      <p class="uc-desc">Créer des corpus de décisions authentiques anonymisées pour l'enseignement. Les étudiants apprennent sur des cas vrais, sécurisés.</p>
+    </div>
+
+    <div class="uc-card">
+      <div class="uc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <div class="uc-tag">🌍 Organisations internationales</div>
+      <div class="uc-title">Programmes d'accès à la justice</div>
+      <p class="uc-desc">Financer la mise en ligne sécurisée des jurisprudences africaines avec garanties de conformité et souveraineté des données.</p>
+    </div>
+
+    <div class="uc-card">
+      <div class="uc-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+      </div>
+      <div class="uc-tag">⚖️ Cabinets d'avocats</div>
+      <div class="uc-title">Gestion intelligente des dossiers</div>
+      <p class="uc-desc">Structurer et résumer automatiquement des centaines de contrats et jugements. Alimente Géode et accélère la recherche juridique interne.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-inner">
+    <span class="section-tag">Prêt à transformer vos archives ?</span>
+    <h2>Débloquez le potentiel de vos<br><em>données juridiques</em></h2>
+    <p>Rejoignez les institutions africaines qui utilisent OmniScan pour digitaliser, protéger et exploiter leurs décisions. Une seule plateforme. Toute la complexité, résolue.</p>
+    <a href="https://legomnia.com/contact/" class="btn-gold">Demander une démo</a>
+  </div>
+</section>
+
+<footer>
+  <div class="nav-logo-icon">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l8 6v8l-8 6-8-6V8l8-6z"/></svg>
+  </div>
+  <div class="footer-txt">© 2025–2026 legOmnia · Plateforme juridique IA · Afrique francophone</div>
+  <div class="footer-links">
+    <a href="https://legomnia.eu/mentions-legales">Mentions légales</a>
+    <a href="https://legomnia.eu/cgu">CGU</a>
+    <a href="https://legomnia.eu/politique-de-confidentialite">Confidentialité</a>
+  </div>
+</footer>
+
+<script>
+  // ─── THEME TOGGLE ─── //
+  const body = document.body;
+  const themeToggle = document.getElementById('theme-toggle');
+  const sunIcon = document.querySelector('.theme-icon-sun');
+  const moonIcon = document.querySelector('.theme-icon-moon');
+
+  function applyTheme(theme) {
+    body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if(sunIcon && moonIcon) {
+      if (theme === 'light') {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+    }
+  }
+
+  // Init
+  const initialTheme = localStorage.getItem('theme') || 'dark';
+  applyTheme(initialTheme);
+
+  themeToggle?.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    applyTheme(newTheme);
+  });
+
+  // ─── NAVBAR SCROLL ─── //
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // DROPDOWN MENU TOGGLE //
+  const produitsDropdown = document.getElementById('produits-dropdown');
+  const megaMenu = produitsDropdown.querySelector('.mega-menu');
+  let isDropdownOpen = false;
+
+  // Toggle dropdown on click
+  produitsDropdown.addEventListener('click', (e) => {
+    e.stopPropagation();
+    isDropdownOpen = !isDropdownOpen;
+    if (isDropdownOpen) {
+      megaMenu.style.opacity = '1';
+      megaMenu.style.visibility = 'visible';
+      megaMenu.style.transform = 'translateX(-50%) translateY(0)';
+    } else {
+      megaMenu.style.opacity = '0';
+      megaMenu.style.visibility = 'hidden';
+      megaMenu.style.transform = 'translateX(-50%) translateY(-10px)';
+    }
+  });
+
+  // Keep dropdown open on hover when already opened
+  produitsDropdown.addEventListener('mouseenter', () => {
+    if (isDropdownOpen) {
+      megaMenu.style.opacity = '1';
+      megaMenu.style.visibility = 'visible';
+      megaMenu.style.transform = 'translateX(-50%) translateY(0)';
+    }
+  });
+
+  produitsDropdown.addEventListener('mouseleave', () => {
+    if (!isDropdownOpen) {
+      megaMenu.style.opacity = '0';
+      megaMenu.style.visibility = 'hidden';
+      megaMenu.style.transform = 'translateX(-50%) translateY(-10px)';
+    }
+  });
+</script>
+
+</body>
+</html>

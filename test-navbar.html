@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Navbar</title>
+  <style>
+    :root {
+      --vi:          #7C5CFC;
+      --vi-light:    #A48BFD;
+      --vi-dim:      rgba(124,92,252,.12);
+      --vi-border:   rgba(124,92,252,.28);
+      --gold:        #C9A84C;
+      --gold-dim:    rgba(201,168,76,.12);
+      --blue:        #4A8FD4;
+      --blue-dim:    rgba(74,143,212,.12);
+      --green:       #3CC47C;
+      --green-dim:   rgba(60,196,124,.12);
+      --amber:       #D4A82A;
+      --r-sm: 6px; --r-md: 14px; --r-lg: 20px; --r-xl: 28px; --r-pill: 100px;
+      --nav-h: 64px;
+    }
+
+    [data-theme="light"] {
+      --bg:#F8F9FA; --bg-card:#FFFFFF; --bg-card-2:#F1F3F5; --bg-dark:#E9ECEF;
+      --border:rgba(0,0,0,.08); --text-1:#212529; --text-2:#495057; --text-3:#ADB5BD;
+      --shadow:0 10px 40px rgba(0,0,0,.04); --shadow-vi:0 10px 40px rgba(124,92,252,.1);
+      --nav-bg:rgba(255,255,255,.96);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { padding-top: 100px; font-family: Arial, sans-serif; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    svg.icon { display: inline-block; }
+
+    /* Test styles */
+    .test-section { margin: 40px 0; padding: 20px; background: #f0f0f0; border-radius: 8px; }
+    h1 { color: #333; margin-bottom: 20px; }
+    .test-item { margin: 10px 0; padding: 10px; background: white; border-left: 4px solid var(--vi); }
+  </style>
+  <script src="load-navbar.js"></script>
+</head>
+<body>
+  <svg style="display:none;">
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path fill="currentColor" d="M7 10l5 5 5-5z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" d="m21 21-4.35-4.35"/></symbol>
+    <symbol id="i-transform" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2"/><rect x="13" y="13" width="8" height="8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="11" y1="6" x2="13" y2="13" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 21v-2a4 4 0 014-4h6a4 4 0 014 4v2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 15h4v4a1 1 0 01-1 1h-3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 6l10 7 10-7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  </svg>
+
+  <div class="container">
+    <div class="test-section">
+      <h1>TEST NAVBAR</h1>
+      <div class="test-item">✓ Load-navbar.js est inclus</div>
+      <div class="test-item">✓ Tous les SVG icons sont présents</div>
+      <div class="test-item">Attendez le chargement de la navbar...</div>
+    </div>
+
+    <div class="test-section">
+      <h1>Points à tester:</h1>
+      <ol>
+        <li><strong>Produits dropdown:</strong> Cliquer → doit rester ouvert, pointer-events:auto activé</li>
+        <li><strong>Omnia:</strong> Cliquer → navigation vers omnia.html</li>
+        <li><strong>Transformation digitale:</strong> Cliquer → submenu s'ouvre, reste visible</li>
+        <li><strong>Présentation générale:</strong> Cliquer → navigation vers main.html#transformation</li>
+        <li><strong>Géode:</strong> Cliquer → navigation vers geode.html</li>
+        <li><strong>OmniScan:</strong> Cliquer → navigation vers omniscan.html</li>
+        <li><strong>Use Cases:</strong> Cliquer → navigation vers use-cases.html</li>
+        <li><strong>Blog dropdown:</strong> Cliquer → doit rester ouvert</li>
+        <li><strong>Articles, Webinaires, Ressources:</strong> Cliquer → navigation vers blog.html</li>
+        <li><strong>Theme toggle:</strong> Cliquer → bascule le thème et persiste</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    // Vérifier que la navbar est bien chargée
+    window.addEventListener('load', function() {
+      const navbar = document.getElementById('navbar');
+      const statusDiv = document.querySelector('.test-item:nth-child(3)');
+      if (navbar) {
+        statusDiv.innerHTML = '✓ NAVBAR CHARGÉE AVEC SUCCÈS';
+        statusDiv.style.borderLeftColor = '#3CC47C';
+
+        // Log pour debug
+        console.log('Navbar chargée:', navbar);
+        console.log('Produits dropdown:', document.getElementById('produits-dropdown'));
+        console.log('Blog dropdown:', document.getElementById('blog-dropdown'));
+        console.log('Contact dropdown:', document.getElementById('contact-dropdown'));
+      } else {
+        statusDiv.innerHTML = '✗ ERREUR: Navbar non chargée';
+        statusDiv.style.borderLeftColor = '#ff4444';
+        console.error('Navbar non trouvée!');
+      }
+    });
+
+    // Ajouter du logging pour les clics
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.mega-item')) {
+        const text = e.target.closest('.mega-item').textContent.trim();
+        console.log('Menu item cliqué:', text);
+      }
+    });
+  </script>
+</body>
+</html>

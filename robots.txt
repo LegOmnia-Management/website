@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /admin-api/
+Disallow: /.git/
+Disallow: /.svn/
+Disallow: /.hg/
+Disallow: /config.js
+Disallow: /api/
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://www.legomnia.com/sitemap.xml
