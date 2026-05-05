@@ -1,0 +1,59 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production.local
+!.env.example
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+
+# Cache / Temporary files
+*.tmp
+*.temp
+.cache/
+.parcel-cache/
+coverage/
+
+
+# =====================
+# Backend (future Node API)
+# =====================
+# backend/node_modules
+# backend/dist
+# backend/build
+
+# =====================
+# Docker (future use)
+# =====================
+# docker-compose.override.yml
+# *.env.docker
+
+# =====================
+# Divers
+# =====================
+# .vercel
+# netlify
