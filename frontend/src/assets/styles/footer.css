@@ -1,0 +1,127 @@
+footer {
+    background-color: var(--bgFooter);
+    border-top: 1px solid var(--black-outline);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    padding-block: 3rem; 
+}
+
+.footer__container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+    padding-inline: 2rem;
+}
+
+/***************** Logo *****************/
+.footer__logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/***************** Listes *****************/
+.footer__items--title {
+    display: inline-block;
+    font-family: 'Ibarra Real Nova',Georgia,"Times New Roman",serif;
+    font-size: 1.4rem;
+    padding-bottom: .5rem;
+    position: relative;
+    text-transform: uppercase;
+
+    &::after {
+        content: "";
+        background-color: var(--black-outline);
+        height: 1px;
+        width: 5rem;
+        bottom: 0;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, 0);
+    }
+}
+
+.footer__items ul {
+    list-style: none;
+
+    li {
+        padding-top: .5rem;
+    }
+}
+
+/***************** Crédits *****************/
+.footer__credits {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--black-outline);
+    padding-top: 2.4rem;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    > * {
+        width: 100%;
+    }
+}
+.footer__credits--droits {
+    text-align: center;
+}
+
+.footer__credits--contact {
+    display: flex;
+    gap: 1.6rem;
+    justify-content: center;
+}
+
+/***************** Breakpoints *****************/
+/* Custom : 38em *  16px => 608px */
+@media screen and (min-width: 38rem) {
+    
+    .footer__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer__logo {
+        grid-column: 1 / -1;
+    }
+
+    .footer__credits {
+        flex-wrap: nowrap;
+        margin-top: 2.4rem;
+    }
+
+    .footer__credits--droits {
+        text-align: left;
+    }
+
+    .footer__credits--contact {
+        justify-content: flex-end;
+    }
+}
+
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
+
+    footer {
+        padding-block: 5rem 3rem;
+    }
+    
+    .footer__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .footer__logo {
+        grid-column: span 1;
+        align-items: flex-start;
+    }
+
+    .footer__items--title {
+        padding-bottom: 1rem;
+    }
+
+    .footer__items ul li {
+        padding-top: 1rem;
+    }
+}

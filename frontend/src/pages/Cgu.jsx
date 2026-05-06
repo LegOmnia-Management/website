@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ConditionsGenerales = () => {
+const Cgu = () => {
     return (
         <h1>CGU</h1>
     );
 };
 
-export default ConditionsGenerales;
+export default Cgu;

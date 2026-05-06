@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 
-import Cgu from './pages/ConditionsGenerales';
+import Cgu from './pages/Cgu';
 import Confidentialite from './pages/Confidentialite';
 import Cookies from './pages/Cookies';
 import DemandeDemo from './pages/DemandeDemo';
@@ -19,6 +19,7 @@ import Ressources from './pages/blog/Ressources';
 import Webinaires from './pages/blog/Webinaires';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 import './assets/styles/general.css';
 
@@ -40,7 +41,7 @@ function App() {
                 <Route path="/produits/use-cases" element={<UseCases/>}></Route>
 
                 {/* Autres */}
-                <Route path="/conditions-generales-d-utilisation" element={<Cgu/>}></Route>
+                <Route path="/cgu" element={<Cgu/>}></Route>
                 <Route path="/confidentilite" element={<Confidentialite/>}></Route>
                 <Route path="/cookies" element={<Cookies/>}></Route>
                 <Route path="/contact" element={<DemandeDemo/>}></Route>
@@ -53,6 +54,8 @@ function App() {
                 <Route path="/blog/ressources" element={<Ressources/>}></Route>
                 <Route path="/blog/webinaires" element={<Webinaires/>}></Route>
             </Routes>
+
+            <Footer/>
         </BrowserRouter>
     )
 }

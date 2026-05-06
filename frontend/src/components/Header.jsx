@@ -45,12 +45,12 @@ const Header = () => {
 
     return (
         <header>
-            <div className='header__container'>
+            <div className='container header__container'>
                 {/* Logo */}
                 <Link to="/">
-                    <div className='header__logo'>
-                        <img className='header__logo--img' src={Logo} alt="Logo legOmnia" loading="lazy"/>
-                        <span className='header__logo--text'>legOmnia</span>
+                    <div className='nav__logo'>
+                        <span className='nav__logo--text'>legOmnia</span>
+                        <img className='nav__logo--img' src={Logo} alt="Logo legOmnia" loading="lazy"/>
                     </div>
                 </Link>  
 

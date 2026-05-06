@@ -17,13 +17,18 @@
     --green-soft: rgba(60,196,124,.12);
     --amber: #D4A82A;
     --red: #E05555;
-    --yellow: #F8F8E8;
+    --black: #000;
+    --black-outline: rgba(0,0,0,.08);
+
     --text-1: #212529; 
     --text-2: #495057; 
     --text-3: #ADB5BD;
 
     --bgMain: linear-gradient(135deg, #FDFDE1 0%, #F4F4EC 100%);
     --bgNav:rgba(255,255,255,.98); 
+    --bgFooter: #E9ECEF;
+    --bgHeroStart:#FDFDE1;
+    --bgHeroEnd:#F4F4EC;
 
     --boxShadow: 0 5px 20px rgba(124,92,252,.2);
     --boxShadow-hover: 0 5px 20px rgba(124,92,252,.5);
@@ -54,9 +59,8 @@
     --shadow:0 10px 40px rgba(0,0,0,.04);
     --shadow-vi:0 10px 40px rgba(124,92,252,.1);
     /* --nav-bg:rgba(255,255,255,.98); */
-    --h1-grad:linear-gradient(160deg,#212529 30%,#495057 100%);
-    --hero-bg-start:#FDFDE1;
-    --hero-bg-end:#F4F4EC;
+    /* --h1-grad:linear-gradient(160deg,#212529 30%,#495057 100%); */
+    
     --anim-bg-light:#F7F5E6;
     --anim-border-light:#c8c3a0;
   }
@@ -136,7 +140,7 @@
 /***************** Structure *****************/
 #root {
     color: var(--text-1);
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.6rem;
     line-height: 1.2;
     display: flex;
@@ -144,7 +148,35 @@
     justify-content: space-between;
 }
 
-/***************** Navigation *****************/
+.main > * {
+    padding-block: 6rem;
+}
+
+.container {
+    max-width: var(--width-xl);
+    margin-inline: auto;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+/***************** Logo *****************/
+.nav__logo {
+    font-family: 'Ibarra Real Nova',Georgia,"Times New Roman",serif;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.nav__logo--img {
+    width: 1.2rem;
+}
+
+.nav__logo--text {
+    font-size: 2.6rem;
+    letter-spacing: -0.5px;
+}
+
+/***************** Buttons *****************/
 [class^="ui__btn"] {
     display: flex;
     align-items: center;
@@ -152,7 +184,6 @@
     gap: .5rem;
     cursor: pointer;
     font-size: 1.4rem;
-    font-weight: 700;
     transition: all .3s ease;
 
     &:hover,
