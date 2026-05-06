@@ -1,104 +1,143 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import '../assets/styles/header.css';
 
 import Logo from '../assets/img/logos/logoLegomnia.svg';
-import DarkModeOff from '../assets/img/pictos/darkModeBlack.svg';
-import DarkModeHover from '../assets/img/pictos/darkModeViolet.svg';
-import DarkModeOn from '../assets/img/pictos/darkModeWhite.svg';
 
 const Header = () => {
 
     const location = useLocation();
-    const [menuOpen, setmenuOpen ] = useState(null);
+    const [menuOpen, setMenuOpen ] = useState(null);
+    const [subMenuOpen, setSubMenuOpen ] = useState(null);
 
-    /* ouverture sous-menus */
+    /* ouverture/fermeture sous-menus */
     const toggleMenu = (menu) => {
-        setmenuOpen(menu);
+
+        if (menuOpen === menu) {
+            setMenuOpen(null);
+        } else {
+            setMenuOpen(menu);
+        }
+    }
+    const toggleSubMenu = (e, menu) => {
+        
+        const next = e.target.nextElementSibling;
+
+        if (subMenuOpen === menu) {
+            setSubMenuOpen(null);
+
+            next.style.height = "";
+        } else {
+            setSubMenuOpen(menu);
+        
+            const height = next.scrollHeight;
+            next.style.height = height + "px";
+        }
+
+        
     }
 
     useEffect(() => {
-        setmenuOpen(null);
+        setMenuOpen(null);
+        setSubMenuOpen(null);
     }, [location]);
 
     return (
         <header>
             <div className='header__container'>
                 {/* Logo */}
-                <NavLink to="/">
+                <Link to="/">
                     <div className='header__logo'>
-                        <img className='header__logo--img' src={Logo} alt="Logo legOmnia" />
+                        <img className='header__logo--img' src={Logo} alt="Logo legOmnia" loading="lazy"/>
                         <span className='header__logo--text'>legOmnia</span>
                     </div>
-                </NavLink>  
+                </Link>  
 
                 {/* nav */}
                 <nav className='header__nav'>
                     <ul className='header__nav--list'>
+                        {/* produits */}
                         <li>
                             <button 
                                 onClick={ () => toggleMenu('products') }
-                                className={`link ${menuOpen === 'products' ? 'open' : ''}`}
+                                className={`link has-sublist ${menuOpen === 'products' ? 'open' : ''}`}
                             >Produits</button>
+
+                            {/* submenu produits */}
                             <ul className='header__nav--sublist'>
+                                {/* omnia */}
                                 <li>
-                                    <NavLink className='sublink' to="/produits/omnia">
+                                    <Link className='sublink' to="/produits/omnia">
                                         Omnia
                                         <p>la plateforme de recherche juridique</p>
-                                    </NavLink>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <span className='sublink'>Transformation digitale</span>
-                                    {/* <ul>
-                                        <li>Présentation générale</li>
-                                        <li>Géode</li>
-                                        <li>OmniScan</li>
-                                    </ul> */}
+                                    {/* transformation digitale */}
+                                    <button 
+                                        onClick={ (e) => toggleSubMenu(e, 'transformation') }
+                                        className={`sublink has-sublist ${subMenuOpen === 'transformation' ? 'open' : ''}`}
+                                    >Transformation digitale</button>
+
+                                        {/* submenu transformation digitale */}
+                                        <ul className='header__nav--sublist2'>
+                                            <li>
+                                                <Link className='sublink' to="/produits/transformation-digitale/presentation">Présentation générale</Link>
+                                            </li>
+                                            <li>
+                                                <Link className='sublink' to="/produits/transformation-digitale/geode">Géode</Link>
+                                            </li>
+                                            <li>
+                                                <Link className='sublink' to="/produits/transformation-digitale/omniscan">OmniScan</Link>
+                                            </li>
+                                        </ul>
                                 </li>
+
+                                {/* use cases */}
                                 <li>
-                                    <NavLink className='sublink' to="/produits/use-cases">
+                                    <Link className='sublink' to="/produits/use-cases">
                                         Use Cases
                                         <p>de réels articles de Use Case</p>
-                                    </NavLink>
+                                    </Link>
                                 </li>
                             </ul>
                         </li>
+
+                        {/* blog */}
                         <li>
                             <button 
                                 onClick={ () => toggleMenu('blog') }
-                                className={`link ${menuOpen === 'blog' ? 'open' : ''}`}
+                                className={`link has-sublist ${menuOpen === 'blog' ? 'open' : ''}`}
                             >Blog</button>
+
+                            {/* submenu blog */}
                             <ul className='header__nav--sublist'>
-                                <li><NavLink className='sublink' to="/blog/articles">Articles</NavLink></li>
-                                <li><NavLink className='sublink' to="/blog/webinaires">Webinaires</NavLink></li>
-                                <li><NavLink className='sublink' to="/blog/ressources">Ressources</NavLink></li>
+                                <li><Link className='sublink' to="/blog/articles">Articles</Link></li>
+                                <li><Link className='sublink' to="/blog/webinaires">Webinaires</Link></li>
+                                <li><Link className='sublink' to="/blog/ressources">Ressources</Link></li>
                             </ul>
                         </li>
+
+                        {/* contact */}
                         <li>
-                            <NavLink className='link hasNot-sublist' to="/contact">Nous contacter</NavLink>
+                            <Link className='link' to="/contact">Nous contacter</Link>
                         </li>
                     </ul>
                 </nav>
 
                 {/* btns */}
                 <div className='header__actions'>
-                    <button className='ui__btn--theme'>
-                        <img className='ui__btn--dark-off' src={DarkModeOff} alt="Passez en mode sombre" />
-                        <img className='ui__btn--dark-hover' src={DarkModeHover} alt="Passez en mode sombre" />
+                    <button 
+                        className='ui__btn--theme'
+                        // aria-label={darkMode ? "Passer en mode clair" : "Passer en mode sombre"}
+                    >
+                        <span className="iconify" data-icon="solar:moon-linear"></span>
+                        {/* <span className="iconify" data-icon="solar:sun-outline"></span> */}
+                        <span className="text">Mode</span>
                     </button>
-                    <a className='ui__btn' href="">Démo</a>
+                    <Link className='ui__btn' to="/contact">Démo</Link>
                 </div>
-                {/* <div className='header__actions'>
-                    <button class="theme-btn">
-                        <svg class="icon theme-icon-sun" width="16" height="16" style="display:none"><use href="#i-sun"/></svg>
-                        <svg class="icon theme-icon-moon" width="16" height="16" style="display:block"><use href="#i-moon"/></svg>
-                        <span>MODE</span>
-                    </button>
-                    <button class="btn btn-vi btn-sm" onclick="location.href='https://legOmnia.com/contact/'">
-                        Démo
-                    </button>
-                </div> */}
             </div>
         </header>
     );

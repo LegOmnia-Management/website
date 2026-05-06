@@ -17,6 +17,7 @@
     --green-soft: rgba(60,196,124,.12);
     --amber: #D4A82A;
     --red: #E05555;
+    --yellow: #F8F8E8;
     --text-1: #212529; 
     --text-2: #495057; 
     --text-3: #ADB5BD;
@@ -34,7 +35,7 @@
     --width-sm: 800px;
 
     /* radius */
-    /* --radius-sm: 6px; */
+    --radius-sm: .8rem;
     --radius-md: 1.4rem;
     /* --radius-lg: 20px; */
     /* --radius-xl: 28px; */
@@ -144,23 +145,35 @@
 }
 
 /***************** Navigation *****************/
-.ui__btn {
-    background-color: var(--violet);
-    border: none;
-    border-radius: var(--radius-md);
-    color: #fff;
+[class^="ui__btn"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
     cursor: pointer;
     font-size: 1.4rem;
     font-weight: 700;
-    padding: 1.2rem 2.4rem;
     transition: all .3s ease;
 
     &:hover,
     &:focus,
     &:active {
-        background-color: var(--violet-light);
         box-shadow: var(--boxShadow-hover);
         margin-top: -.2rem;
+    }
+  }
+
+.ui__btn {
+    background-color: var(--violet);
+    border: none;
+    border-radius: var(--radius-md);
+    color: #fff;
+    padding: 1.2rem 2.4rem;
+    
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--violet-light);
     }
 }
 
@@ -168,15 +181,13 @@
     background-color: #F1F3F5;
     border: 1px solid transparent;
     border-radius: var(--radius-md);
-    cursor: pointer;
     padding: .8rem 1.2rem;
-    transition: all .3s ease;
 
-    .ui__btn--dark-off {
-        display: block;
+    .iconify {
+        font-size: 2.4rem;
     }
 
-    .ui__btn--dark-hover {
+    .text {
         display: none;
     }
 
@@ -184,15 +195,15 @@
     &:focus,
     &:active {
         border: 1px solid var(--violet);
-        box-shadow: var(--boxShadow-hover);
-        margin-top: -.2rem;
+        color: var(--violet);
+    }
+}
 
-        .ui__btn--dark-off {
-            display: none;
-        }
+/***************** Breakpoints *****************/
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
     
-        .ui__btn--dark-hover {
-            display: block;
-        }
+    .ui__btn--theme .text {
+        display: block;
     }
 }
