@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../assets/styles/home.css';
 
 import HeroCanvas from '../components/HeroCanvas';
+import HeroBg from '../components/HeroBg';
 import AfricaMap from '../components/AfricaMap';
 import IconRing from '../components/IconRing';
 
@@ -33,6 +34,7 @@ const Home = () => {
             {/* Hero */}
             <section className="home__hero">
                 <HeroCanvas />
+                <HeroBg />
                 <div className="container home__hero__container">
                     <div className="home__hero--title">
                         <h1 className='main-title'>
