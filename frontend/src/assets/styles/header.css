@@ -1,6 +1,6 @@
 header {
     background-color: var(--bgNav);
-    border-bottom: 1px solid var(--violet-outline);
+    border-bottom: 1px solid var(--violetOutline);
     font-family: 'Inter', sans-serif;
 }
 
@@ -8,7 +8,7 @@ header button,
 header a {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    color: var(--text-1);
+    color: var(--text1);
 }
 
 .header__container {
@@ -104,9 +104,9 @@ header a {
 
 .header__nav--sublist {
     background-color: white;
-    border-radius: var(--radius-md);
+    border-radius: var(--radiusMd);
     box-shadow: var(--boxShadow);
-    border: 1px solid var(--violet-outline);
+    border: 1px solid var(--violetOutline);
     list-style: none;
     padding: 1.5rem;
     position: absolute;
@@ -135,7 +135,7 @@ header a {
 
             &:hover {
                 background: var(--bgMain); 
-                border-radius : var(--radius-sm);
+                border-radius : var(--radiusSm);
             }
 
             &.has-sublist {
@@ -153,7 +153,7 @@ header a {
             }
 
             p {
-                color: var(--text-2);
+                color: var(--text2);
                 font-size: 1.3rem;
             }
         }

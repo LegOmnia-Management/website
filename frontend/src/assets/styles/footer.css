@@ -1,6 +1,6 @@
 footer {
     background-color: var(--bgFooter);
-    border-top: 1px solid var(--black-outline);
+    border-top: 1px solid var(--blackOutline);
     font-family: 'Inter', sans-serif;
     font-size: 1.3rem;
     padding-block: 3rem; 
@@ -32,7 +32,7 @@ footer {
 
     &::after {
         content: "";
-        background-color: var(--black-outline);
+        background-color: var(--blackOutline);
         height: 1px;
         width: 5rem;
         bottom: 0;
@@ -53,7 +53,7 @@ footer {
 /***************** Crédits *****************/
 .footer__credits {
     grid-column: 1 / -1;
-    border-top: 1px solid var(--black-outline);
+    border-top: 1px solid var(--blackOutline);
     padding-top: 2.4rem;
     font-size: 1.2rem;
     display: flex;

@@ -6,63 +6,69 @@
 :root {
     /* couleurs */
     --violet: #7C5CFC;
-    --violet-light: #A48BFD;
-    --violet-soft: rgba(124,92,252,.12);
-    --violet-outline: rgba(124,92,252,.28);
+    --violetDark: #4a0f9d;
+    --violetLight: #A48BFD;
+    --violetSoft: rgba(124,92,252,.12);
+    --violetLightSoft: rgba(124,92,252,.05);
+    --violetOutline: rgba(124,92,252,.28);
     --gold: #C9A84C;
-    --gold-soft: rgba(201,168,76,.12);
+    --goldSoft: rgba(201,168,76,.12);
     --blue:  #4A8FD4;
-    --blue-soft: rgba(74,143,212,.12);
+    --blueSoft: rgba(74,143,212,.12);
     --green:  #3CC47C;
-    --green-soft: rgba(60,196,124,.12);
+    --greenSoft: rgba(60,196,124,.12);
     --amber: #D4A82A;
     --red: #E05555;
     --black: #000;
-    --black-outline: rgba(0,0,0,.08);
+    --blackOutline: rgba(0,0,0,.08);
 
-    --text-1: #212529; 
-    --text-2: #495057; 
-    --text-3: #ADB5BD;
+    --text1: #212529; 
+    --text2: #495057; 
+    --text3: #ADB5BD;
 
     --bgMain: linear-gradient(135deg, #FDFDE1 0%, #F4F4EC 100%);
     --bgNav:rgba(255,255,255,.98); 
     --bgFooter: #E9ECEF;
     --bgHeroStart:#FDFDE1;
     --bgHeroEnd:#F4F4EC;
+    --bgBtnGrey: #F1F3F5;
 
     --boxShadow: 0 5px 20px rgba(124,92,252,.2);
     --boxShadow-hover: 0 5px 20px rgba(124,92,252,.5);
+    --boxShadowBlack: 0 5px 20px rgba(0,0,0,.2);
+    --boxShadowBlack-hover: 0 5px 20px rgba(0,0,0,.5);
 
     /* width */
-    --width-xl: 1280px;
-    --width-lg: 1200px;
+    --widthXl: 1280px;
+    /* --width-lg: 1200px;
     --width-md: 1024px;
-    --width-sm: 800px;
+    --width-sm: 800px; */
 
     /* radius */
-    --radius-sm: .8rem;
-    --radius-md: 1.4rem;
+    --radiusSm: .8rem;
+    --radiusMd: 1.4rem;
+    --radiusPill: 10rem;
     /* --radius-lg: 20px; */
     /* --radius-xl: 28px; */
-    /* --radius-pill: 10rem; */
+    /* --radiusPill: 10rem; */
     /* --nav-h: 72px; */
 
     /* Default theme (light) */
     /* --bg:linear-gradient(135deg, #FDFDE1 0%, #F4F4EC 100%);  */
-    --bg-card:#FFFFFF; 
+    /* --bg-card:#FFFFFF; 
     --bg-card-2:#F1F3F5; 
     --bg-dark:#E9ECEF;
-    --border:rgba(0,0,0,.08); 
-    /* --text-1:#212529; 
-    --text-2:#495057; 
-    --text-3:#ADB5BD; */
-    --shadow:0 10px 40px rgba(0,0,0,.04);
-    --shadow-vi:0 10px 40px rgba(124,92,252,.1);
+    --border:rgba(0,0,0,.08);  */
+    /* --text1:#212529; 
+    --text2:#495057; 
+    --text3:#ADB5BD; */
+    /* --shadow:0 10px 40px rgba(0,0,0,.04);
+    --shadow-vi:0 10px 40px rgba(124,92,252,.1); */
     /* --nav-bg:rgba(255,255,255,.98); */
     /* --h1-grad:linear-gradient(160deg,#212529 30%,#495057 100%); */
     
-    --anim-bg-light:#F7F5E6;
-    --anim-border-light:#c8c3a0;
+    /* --anim-bg-light:#F7F5E6;
+    --anim-border-light:#c8c3a0; */
   }
 
 
@@ -73,9 +79,9 @@
     --bg-card-2:#1A1928; 
     --bg-dark:#08070F;
     --border:rgba(255,255,255,.08); 
-    --text-1:#EEE9F8; 
-    --text-2:#7A788E; 
-    --text-3:#3D3C50;
+    --text1:#EEE9F8; 
+    --text2:#7A788E; 
+    --text3:#3D3C50;
     --shadow:0 8px 32px rgba(0,0,0,.5); 
     --shadow-vi:0 8px 32px rgba(124,92,252,.35);
     --nav-bg:rgba(12,11,20,.95); 
@@ -123,9 +129,9 @@
     --bg-card-2:#F1F3F5; 
     --bg-dark:#E9ECEF;
     --border:rgba(0,0,0,.08); 
-    --text-1:#212529; 
-    --text-2:#495057; 
-    --text-3:#ADB5BD;
+    --text1:#212529; 
+    --text2:#495057; 
+    --text3:#ADB5BD;
     --shadow:0 10px 40px rgba(0,0,0,.04); 
     --shadow-vi:0 10px 40px rgba(124,92,252,.1);
     --nav-bg:rgba(255,255,255,.98); 
@@ -139,7 +145,7 @@
 
 /***************** Structure *****************/
 #root {
-    color: var(--text-1);
+    color: var(--text1);
     font-family: 'Inter', sans-serif;
     font-size: 1.6rem;
     line-height: 1.2;
@@ -148,12 +154,8 @@
     justify-content: space-between;
 }
 
-.main > * {
-    padding-block: 6rem;
-}
-
 .container {
-    max-width: var(--width-xl);
+    max-width: var(--widthXl);
     margin-inline: auto;
     width: 100%;
     padding: 0 2rem;
@@ -176,12 +178,13 @@
     letter-spacing: -0.5px;
 }
 
-/***************** Buttons *****************/
+/***************** Button *****************/
 [class^="ui__btn"] {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: .5rem;
+    border-radius: var(--radiusMd);
     cursor: pointer;
     font-size: 1.4rem;
     transition: all .3s ease;
@@ -190,28 +193,52 @@
     &:focus,
     &:active {
         box-shadow: var(--boxShadow-hover);
-        margin-top: -.2rem;
+        transform: translateY(-2px);
     }
   }
 
 .ui__btn {
     background-color: var(--violet);
     border: none;
-    border-radius: var(--radius-md);
     color: #fff;
     padding: 1.2rem 2.4rem;
     
     &:hover,
     &:focus,
     &:active {
-        background-color: var(--violet-light);
+        background-color: var(--violetLight);
+    }
+}
+
+.ui__btn--inline {
+    background-color: transparent;
+    border: 1px solid var(--violetLight);
+    padding: 1.2rem 2.4rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border: 1px solid var(--violet);
+        color: var(--violet);
+    }
+}
+
+.ui__btn--black {
+    background-color: var(--text1);
+    color: white;
+    padding: 1.2rem 2.4rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--text2);
+        box-shadow: var(--boxShadowBlack-hover);
     }
 }
 
 .ui__btn--theme {
-    background-color: #F1F3F5;
+    background-color: var(--bgBtnGrey);;
     border: 1px solid transparent;
-    border-radius: var(--radius-md);
     padding: .8rem 1.2rem;
 
     .iconify {
@@ -230,10 +257,69 @@
     }
 }
 
+/***************** Pictos *****************/
+.icon__ring {
+    border: 2px solid var(--violetSoft);
+    border-radius:50%;
+    width:60px;
+    height:60px;
+    margin:0 auto 16px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    [class^="point"] {
+        border-radius: 50%;
+        background: rgba(107, 92, 231, .55);
+        position: absolute;
+        width: 5px;
+        aspect-ratio: 1/1;
+    }
+
+    .point1 {
+        top: 0;
+        left: 0;
+        opacity: .75;
+    }
+
+    .point2 {
+        top: 10px;
+        right: 10px;
+        opacity: .45;
+        transform: scale(0.8);
+    }
+
+    .point3 {
+        bottom: 0;
+        right: 12px;
+        opacity: .7;
+    }
+
+    .point4 {
+        bottom: 10px;
+        left: 10px;
+        opacity: .45;
+        transform: scale(0.8);
+    }
+
+    .point5 {
+        bottom: 6px;
+        right: -12px;
+        opacity: .35;
+        transform: scale(0.6);
+    }
+
+    img {
+        width: 3.2rem;
+    }
+}
+
 /***************** Breakpoints *****************/
 /* Tablette : 48em *  16px => 768px */
 @media screen and (min-width: 48rem) {
     
+    /* Button */
     .ui__btn--theme .text {
         display: block;
     }
