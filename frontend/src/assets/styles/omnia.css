@@ -188,6 +188,15 @@
     background-color: var(--violetLightSoft);
 }
 
+.omnia__assistant--description > img {
+    border: 0;
+    box-shadow: none;
+    transform: none;
+    max-width: 450px;
+    width: 100%;
+    margin-inline: auto;
+}
+
 .omnia__assistant--description .omnia__structure--listTags {
     gap: 1rem;
     flex-direction: column;
@@ -260,12 +269,9 @@
         }
     }
 
-    .omnia__platform--description {
-    
-        > img {
-            box-shadow: var(--boxShadowBlack);
-            border: 1px solid white;
-        }
+    .omnia__platform--description > img {
+        box-shadow: var(--boxShadowBlack);
+        border: 1px solid white;
     }
 
     .omnia__search--description {
@@ -279,6 +285,11 @@
             flex-wrap: nowrap;
             gap: 2rem;
         }
+    }
+
+    .omnia__assistant--description > img {
+        box-shadow: var(--boxShadowBlack);
+        border: 1px solid white;
     }
 }
 

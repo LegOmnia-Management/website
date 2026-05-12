@@ -11,6 +11,8 @@ import SearchMobile from '../assets/img/application/searchMobile.svg';
 import SearchDesktop from '../assets/img/application/searchDesktop.png';
 import CadreLegalMobile from '../assets/img/application/cadreLegalMobile.svg';
 import CadreLegalDesktop from '../assets/img/application/cadreLegalDesktop.svg';
+import IaMobile from '../assets/img/application/iaMobile.svg';
+import IaDesktop from '../assets/img/application/iaDesktop.png';
 import Target from '../assets/img/pictos/target.svg';
 import Cadenas from '../assets/img/pictos/cadenas.svg';
 import World from '../assets/img/pictos/world.svg';
@@ -214,8 +216,8 @@ const Omnia = () => {
                 <div className="container">
                     <h2 className='home__titleH2'>Un assistant qui <em className='higlight'> connaît votre dossier</em> par cœur</h2>
                     <div className="omnia__structure--columns omnia__assistant--description">
-                        <img src={CadreLegalMobile} className='screen--mobile' alt="Application LegOmnia" />
-                        <img src={CadreLegalDesktop} className='screen--desktop' alt="Application LegOmnia" />
+                        <img src={IaMobile} className='screen--mobile' alt="Application LegOmnia" />
+                        <img src={IaDesktop} className='screen--desktop' alt="Application LegOmnia" />
                         <div className="omnia__structure--content">
                             <p>L'assistant IA Omnia s'appuie sur vos documents, vos notes et la jurisprudence pour construire une argumentation complète et structurée.</p>
                             <ul className="omnia__structure--listTags">
