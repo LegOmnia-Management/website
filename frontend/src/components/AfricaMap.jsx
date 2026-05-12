@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { Link } from "react-router-dom";
 
 import '../assets/styles/africaMap.css';
 
@@ -64,6 +65,10 @@ const COUNTRY_DATA = {
   LSO: { name: "Lesotho", orgs: ["UA"] },
   MRT: { name: "Mauritanie", orgs: ["UA"] },
 };
+
+const COUNTRY_OMNISCAN = [
+   "Bénin", "Côte d'Ivoire", "Cameroun", "République démocratique du Congo", "Congo", "Gabon", "Madagascar", "Sénégal", "Togo"
+]
 
 const ORG_COLORS = {
   OHADA:  "#22c55e",
@@ -302,6 +307,21 @@ export default function AfricaMap() {
               </div>
             ) : (
               <p className="africa-map-placeholder">Cliquez sur un pays</p>
+            )}
+          </div>
+
+          {/* ── Omniscan dispo ── */}
+          <div className="africa-map-country-omniscan">
+            {selected && COUNTRY_OMNISCAN.includes(selected.name) && (
+              <div className="africa-map-country-detail">
+                <h3 className="africa-map-country-name">Installation d'OmniScan possible</h3>
+                <p className="africa-map-country-orgs-label">
+                  Transformez tous vos documents juridiques en données exploitables et prêtes à l'indexation.
+                </p>
+                <Link to="/produits/transformation-digitale/omniscan" className="ui__btn--black">
+                  Découvrir OmniScan
+                </Link>
+              </div>
             )}
           </div>
 
