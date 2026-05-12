@@ -1,0 +1,326 @@
+@import url("./reset.css");
+
+/***************** Fonts *****************/
+
+/***************** Variables *****************/
+:root {
+    /* couleurs */
+    --violet: #7C5CFC;
+    --violetDark: #4a0f9d;
+    --violetLight: #A48BFD;
+    --violetSoft: rgba(124,92,252,.12);
+    --violetLightSoft: rgba(124,92,252,.05);
+    --violetOutline: rgba(124,92,252,.28);
+    --gold: #C9A84C;
+    --goldSoft: rgba(201,168,76,.12);
+    --blue:  #4A8FD4;
+    --blueSoft: rgba(74,143,212,.12);
+    --green:  #3CC47C;
+    --greenSoft: rgba(60,196,124,.12);
+    --amber: #D4A82A;
+    --red: #E05555;
+    --black: #000;
+    --blackOutline: rgba(0,0,0,.08);
+
+    --text1: #212529; 
+    --text2: #495057; 
+    --text3: #ADB5BD;
+
+    --bgMain: linear-gradient(135deg, #FDFDE1 0%, #F4F4EC 100%);
+    --bgNav:rgba(255,255,255,.98); 
+    --bgFooter: #E9ECEF;
+    --bgHeroStart:#FDFDE1;
+    --bgHeroEnd:#F4F4EC;
+    --bgBtnGrey: #F1F3F5;
+
+    --boxShadow: 0 5px 20px rgba(124,92,252,.2);
+    --boxShadow-hover: 0 5px 20px rgba(124,92,252,.5);
+    --boxShadowBlack: 0 5px 20px rgba(0,0,0,.2);
+    --boxShadowBlack-hover: 0 5px 20px rgba(0,0,0,.5);
+
+    /* width */
+    --widthXl: 1280px;
+    /* --width-lg: 1200px;
+    --width-md: 1024px;
+    --width-sm: 800px; */
+
+    /* radius */
+    --radiusSm: .8rem;
+    --radiusMd: 1.4rem;
+    --radiusPill: 10rem;
+    /* --radius-lg: 20px; */
+    /* --radius-xl: 28px; */
+    /* --radiusPill: 10rem; */
+    /* --nav-h: 72px; */
+
+    /* Default theme (light) */
+    /* --bg:linear-gradient(135deg, #FDFDE1 0%, #F4F4EC 100%);  */
+    /* --bg-card:#FFFFFF; 
+    --bg-card-2:#F1F3F5; 
+    --bg-dark:#E9ECEF;
+    --border:rgba(0,0,0,.08);  */
+    /* --text1:#212529; 
+    --text2:#495057; 
+    --text3:#ADB5BD; */
+    /* --shadow:0 10px 40px rgba(0,0,0,.04);
+    --shadow-vi:0 10px 40px rgba(124,92,252,.1); */
+    /* --nav-bg:rgba(255,255,255,.98); */
+    /* --h1-grad:linear-gradient(160deg,#212529 30%,#495057 100%); */
+    
+    /* --anim-bg-light:#F7F5E6;
+    --anim-border-light:#c8c3a0; */
+  }
+
+
+  /***************** Mode sombre *****************/
+  [data-theme="dark"] {
+    --bg:#0C0B14; 
+    --bg-card:#131220; 
+    --bg-card-2:#1A1928; 
+    --bg-dark:#08070F;
+    --border:rgba(255,255,255,.08); 
+    --text1:#EEE9F8; 
+    --text2:#7A788E; 
+    --text3:#3D3C50;
+    --shadow:0 8px 32px rgba(0,0,0,.5); 
+    --shadow-vi:0 8px 32px rgba(124,92,252,.35);
+    --nav-bg:rgba(12,11,20,.95); 
+    --h1-grad:linear-gradient(160deg,#EEE9F8 30%,#6A6880 100%);
+    --hero-bg-start:#0C0B14; 
+    --hero-bg-end:#1A1928;
+    --anim-bg-light:#1A1928; 
+    --anim-border-light:#3D3C50;
+  }
+
+  /* Enhance hero glows visibility in dark mode */
+  [data-theme="dark"] .hero-glow-1 {
+    background: rgba(124,92,252,.6) !important;
+    filter: blur(80px) brightness(1.4) !important;
+  }
+
+  [data-theme="dark"] .hero-glow-2 {
+    background: rgba(160,140,255,.5) !important;
+    filter: blur(80px) brightness(1.3) !important;
+  }
+
+  [data-theme="dark"] .hero-particles .particle-1 {
+    background: rgba(124,92,252,.15) !important;
+  }
+
+  [data-theme="dark"] .hero-particles .particle-2 {
+    background: rgba(74,143,212,.12) !important;
+  }
+
+  [data-theme="dark"] .hero-particles .particle-3 {
+    background: rgba(201,168,76,.1) !important;
+  }
+
+  [data-theme="dark"] .hero-particles .particle-4 {
+    background: rgba(60,196,124,.1) !important;
+  }
+
+  [data-theme="dark"] .mockup {
+    box-shadow: var(--shadow-vi) !important;
+  }
+
+  [data-theme="light"] {
+    --bg:linear-gradient(135deg, #FDFDE1 0%, #F4F4EC 100%); 
+    --bg-card:#FFFFFF; 
+    --bg-card-2:#F1F3F5; 
+    --bg-dark:#E9ECEF;
+    --border:rgba(0,0,0,.08); 
+    --text1:#212529; 
+    --text2:#495057; 
+    --text3:#ADB5BD;
+    --shadow:0 10px 40px rgba(0,0,0,.04); 
+    --shadow-vi:0 10px 40px rgba(124,92,252,.1);
+    --nav-bg:rgba(255,255,255,.98); 
+    --h1-grad:linear-gradient(160deg,#212529 30%,#495057 100%);
+    --hero-bg-start:#FDFDE1; 
+    --hero-bg-end:#F4F4EC;
+    --anim-bg-light:#F7F5E6; 
+    --anim-border-light:#c8c3a0;
+  }
+
+
+/***************** Structure *****************/
+#root {
+    color: var(--text1);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: var(--widthXl);
+    margin-inline: auto;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+/***************** Logo *****************/
+.nav__logo {
+    font-family: 'Ibarra Real Nova',Georgia,"Times New Roman",serif;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.nav__logo--img {
+    width: 1.2rem;
+}
+
+.nav__logo--text {
+    font-size: 2.6rem;
+    letter-spacing: -0.5px;
+}
+
+/***************** Button *****************/
+[class^="ui__btn"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    border-radius: var(--radiusMd);
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: all .3s ease;
+
+    &:hover,
+    &:focus,
+    &:active {
+        box-shadow: var(--boxShadow-hover);
+        transform: translateY(-2px);
+    }
+  }
+
+.ui__btn {
+    background-color: var(--violet);
+    border: none;
+    color: #fff;
+    padding: 1.2rem 2.4rem;
+    
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--violetLight);
+    }
+}
+
+.ui__btn--inline {
+    background-color: transparent;
+    border: 1px solid var(--violetLight);
+    padding: 1.2rem 2.4rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border: 1px solid var(--violet);
+        color: var(--violet);
+    }
+}
+
+.ui__btn--black {
+    background-color: var(--text1);
+    color: white;
+    padding: 1.2rem 2.4rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--text2);
+        box-shadow: var(--boxShadowBlack-hover);
+    }
+}
+
+.ui__btn--theme {
+    background-color: var(--bgBtnGrey);;
+    border: 1px solid transparent;
+    padding: .8rem 1.2rem;
+
+    .iconify {
+        font-size: 2.4rem;
+    }
+
+    .text {
+        display: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        border: 1px solid var(--violet);
+        color: var(--violet);
+    }
+}
+
+/***************** Pictos *****************/
+.icon__ring {
+    border: 2px solid var(--violetSoft);
+    border-radius:50%;
+    width:60px;
+    height:60px;
+    margin:0 auto 16px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    [class^="point"] {
+        border-radius: 50%;
+        background: rgba(107, 92, 231, .55);
+        position: absolute;
+        width: 5px;
+        aspect-ratio: 1/1;
+    }
+
+    .point1 {
+        top: 0;
+        left: 0;
+        opacity: .75;
+    }
+
+    .point2 {
+        top: 10px;
+        right: 10px;
+        opacity: .45;
+        transform: scale(0.8);
+    }
+
+    .point3 {
+        bottom: 0;
+        right: 12px;
+        opacity: .7;
+    }
+
+    .point4 {
+        bottom: 10px;
+        left: 10px;
+        opacity: .45;
+        transform: scale(0.8);
+    }
+
+    .point5 {
+        bottom: 6px;
+        right: -12px;
+        opacity: .35;
+        transform: scale(0.6);
+    }
+
+    img {
+        width: 3.2rem;
+    }
+}
+
+/***************** Breakpoints *****************/
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
+    
+    /* Button */
+    .ui__btn--theme .text {
+        display: block;
+    }
+}
