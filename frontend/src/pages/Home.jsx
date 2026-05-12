@@ -24,7 +24,6 @@ import Donnee from '../assets/img/pictos/donnee.svg';
 import AI from '../assets/img/pictos/AI.svg';
 import Secure from '../assets/img/pictos/secure.svg';
 
-
 const Home = () => {
 
     const [ showcase, setShowcase ] = useState("usages");
@@ -38,9 +37,9 @@ const Home = () => {
                 <div className="container home__hero__container">
                     <div className="home__hero--title">
                         <h1 className='main-title'>
-                            Le droit africain entre dans une nouvelle ère.
+                            Le droit africain entre dans une nouvelle ère
                         </h1>
-                        <h3 className='subtitle'>LegOmnia transforme la donnée juridique en intelligence exploitable.</h3>
+                        <h3 className='subtitle'>LegOmnia transforme la donnée juridique en intelligence exploitable</h3>
                     </div>
                     <div className="home__hero--search">
                         <input type="text" placeholder="Que recherchez-vous ?"/>
@@ -62,7 +61,7 @@ const Home = () => {
             {/* Présenation + vidéo */}
             <section className="home__presentation">
                 <div className="container home__presentation__container">
-                    <h2 className='home__titleH2'>Une vision simple : rendre le droit en Afrique francophone enfin accessible, structuré et actionnable.</h2>
+                    <h2 className='home__titleH2'>Une vision simple : rendre le droit en Afrique francophone enfin <em className='higlight'>accessible, structuré et actionnable</em></h2>
                     <div className="home__presentation--video">
                     <video
                         autoPlay
@@ -81,72 +80,6 @@ const Home = () => {
                         <p>
                             LegOmnia propose <strong>un écosystème complet</strong> permettant de passer de cette donnée non digitalisée à <strong>une intelligence juridique</strong> unifiée et structurée.
                         </p>
-                        {/* <ul className='home__presentation--steps'>
-                            <li>
-                                <div className="icon__ring">
-                                    <div className="point1"></div>
-                                    <div className="point2"></div>
-                                    <div className="point3"></div>
-                                    <div className="point4"></div>
-                                    <div className="point5"></div>
-                                    <img src={Disk} alt="" aria-hidden="true"/>
-                                </div>
-                                <h3 className="title">1- Collecter</h3>
-                                <ul className="list">
-                                    <li>Sources publiques</li>
-                                    <li>Archives physiques</li>
-                                    <li>Bases institutionnelles</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div className="icon__ring">
-                                    <div className="point1"></div>
-                                    <div className="point2"></div>
-                                    <div className="point3"></div>
-                                    <div className="point4"></div>
-                                    <div className="point5"></div>
-                                    <img src={Disk} alt="" aria-hidden="true"/>
-                                </div>
-                                <h3 className="title">2- Transformer</h3>
-                                <ul className="list">
-                                    <li>OCR avancé</li>
-                                    <li>Structuration</li>
-                                    <li>Normalisation juridique</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div className="icon__ring">
-                                    <div className="point1"></div>
-                                    <div className="point2"></div>
-                                    <div className="point3"></div>
-                                    <div className="point4"></div>
-                                    <div className="point5"></div>
-                                    <img src={Disk} alt="" aria-hidden="true"/>
-                                </div>
-                                <h3 className="title">3- Enrichir</h3>
-                                <ul className="list">
-                                    <li>IA sémantique</li>
-                                    <li>Métadonnées</li>
-                                    <li>Contextualisation</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div className="icon__ring">
-                                    <div className="point1"></div>
-                                    <div className="point2"></div>
-                                    <div className="point3"></div>
-                                    <div className="point4"></div>
-                                    <div className="point5"></div>
-                                    <img src={Disk} alt="" aria-hidden="true"/>
-                                </div>
-                                <h3 className="title">4- Exploiter</h3>
-                                <ul className="list">
-                                    <li>Recherche intelligente</li>
-                                    <li>Analyse</li>
-                                    <li>Prise de décision</li>
-                                </ul>
-                            </li>
-                        </ul> */}
                     </div>
                 </div>
             </section>
@@ -175,7 +108,7 @@ const Home = () => {
 
                 <p className='home__subtitle'>
                     L'application LegOmnia a déjà fait ses preuves auprès de nombreux partenaires,
-                    découvrez comment vous pouvez aussi en bénéficier.
+                    découvrez comment vous pouvez aussi en bénéficier
                 </p>
 
                 <nav className='home__showcase--nav'>
@@ -185,7 +118,7 @@ const Home = () => {
                             onClick={() => {
                                 setShowcase("valeur");
                             }}
-                        >&#60;</button>
+                        ><span className="iconify" data-icon="ep:arrow-left"></span></button>
                         <button 
                             onClick={() => setShowcase("usages")}
                         >Des usages stratégiques</button>
@@ -194,7 +127,7 @@ const Home = () => {
                             onClick={() => {
                                 setShowcase("partenaire");
                             }}
-                        >&#62;</button>
+                        ><span className="iconify" data-icon="ep:arrow-right"></span></button>
                     </div>
                     
                     <div className={`item ${showcase === 'partenaire' ? 'isActive' : ""}`}>
@@ -203,7 +136,7 @@ const Home = () => {
                             onClick={() => {
                                 setShowcase("usages");
                             }}
-                        >&#60;</button>
+                        ><span className="iconify" data-icon="ep:arrow-left"></span></button>
                         <button 
                             onClick={() => setShowcase("partenaire")}
                         >Un partenaire de transformation</button>
@@ -212,7 +145,7 @@ const Home = () => {
                             onClick={() => {
                                 setShowcase("valeur");
                             }}
-                        >&#62;</button>
+                        ><span className="iconify" data-icon="ep:arrow-right"></span></button>
                     </div>
 
                     <div className={`item ${showcase === 'valeur' ? 'isActive' : ""}`}>
@@ -221,7 +154,7 @@ const Home = () => {
                             onClick={() => {
                                 setShowcase("partenaire");
                             }}
-                        >&#60;</button>
+                        ><span className="iconify" data-icon="ep:arrow-left"></span></button>
                         <button 
                             onClick={() => setShowcase("valeur")}
                         >Une valeur ajoutée</button>
@@ -230,7 +163,7 @@ const Home = () => {
                             onClick={() => {
                                 setShowcase("usages");
                             }}
-                        >&#62;</button>
+                        ><span className="iconify" data-icon="ep:arrow-right"></span></button>
                     </div>
                 </nav>
 
@@ -238,7 +171,6 @@ const Home = () => {
 
                     {/* Usages stratégiques */}
                     <article className={showcase != 'usages' ? 'isHidden' : ""}>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
                         <ul className='home__showcase--list--usages'>
                             <li className='card'>
                                 <IconRing

@@ -74,7 +74,6 @@
   
   /* ── Zone info pays ── */
   .africa-map-country-info {
-    flex: 1;
     margin-top: 32px;
   }
   
@@ -82,7 +81,7 @@
   .africa-map-country-detail {
     animation: fadeIn 0.3s ease;
     position: relative;
-    padding-top: 1.5rem;
+    padding-top: 32px;
 
     &::after {
         content: "";
@@ -191,6 +190,10 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  .africa-map-country-omniscan {
+    margin-top: 32px;
   }
   
 

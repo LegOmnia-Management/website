@@ -1,0 +1,316 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#F4F6FB"/>
+
+  <!-- Browser -->
+  <rect x="40" y="40" width="1200" height="640" rx="26" fill="white" stroke="#E5E7EB"/>
+
+  <!-- Top bar -->
+  <rect x="40" y="40" width="1200" height="56" rx="26" fill="#F3F4F6"/>
+
+  <circle cx="78" cy="68" r="7" fill="#FF5F57"/>
+  <circle cx="102" cy="68" r="7" fill="#FEBC2E"/>
+  <circle cx="126" cy="68" r="7" fill="#28C840"/>
+
+  <rect x="180" y="54" width="420" height="28" rx="14" fill="white" stroke="#E5E7EB"/>
+
+  <text x="205" y="72"
+        font-family="Arial"
+        font-size="13"
+        fill="#6B7280">
+    LEgOmnia.com · Tribunal de Commerce d'Abidjan
+  </text>
+
+  <!-- LEFT PANEL -->
+  <rect x="40" y="96" width="720" height="584" fill="white"/>
+
+  <!-- Document header -->
+  <rect x="62" y="118" width="676" height="82" rx="14" fill="#F9FAFB" stroke="#E5E7EB"/>
+
+  <text x="82" y="148"
+        font-family="Arial"
+        font-size="15"
+        font-weight="700"
+        fill="#111827">
+    Tribunal de Commerce d'Abidjan — Décision — 2024-11-20
+  </text>
+
+  <!-- Tags -->
+  <rect x="82" y="164" width="132" height="22" rx="11" fill="#EEF2FF"/>
+  <text x="98" y="178"
+        font-size="11"
+        font-family="Arial"
+        fill="#6366F1">
+    Décision de justice
+  </text>
+
+  <rect x="222" y="164" width="126" height="22" rx="11" fill="#F3F4F6"/>
+  <text x="240" y="178"
+        font-size="11"
+        font-family="Arial"
+        fill="#6B7280">
+    20 novembre 2024
+  </text>
+
+  <rect x="356" y="164" width="96" height="22" rx="11" fill="#EDE9FE"/>
+  <text x="378" y="178"
+        font-size="11"
+        font-family="Arial"
+        fill="#6D28D9">
+    Côte d'Ivoire
+  </text>
+
+  <!-- Toolbar -->
+  <rect x="62" y="214" width="676" height="42" rx="10" fill="white" stroke="#E5E7EB"/>
+
+  <rect x="78" y="225" width="18" height="18" rx="5" fill="#EEF2FF"/>
+  <rect x="106" y="225" width="18" height="18" rx="5" fill="#EEF2FF"/>
+  <rect x="134" y="225" width="18" height="18" rx="5" fill="#6366F1"/>
+
+  <!-- Title -->
+  <text x="62" y="300"
+        font-size="18"
+        font-weight="700"
+        font-family="Arial"
+        fill="#111827">
+    Faits, Procédure et Prétentions
+  </text>
+
+  <!-- Paragraph -->
+  <text x="62" y="332"
+        font-size="13"
+        font-family="Arial"
+        fill="#4B5563">
+    Suivant acte du 21 mai 2024, la SCI EMEROD a fait servir assignation à M. X.ABC
+  </text>
+
+  <text x="62" y="352"
+        font-size="13"
+        font-family="Arial"
+        fill="#4B5563">
+    et M. X.DEF d'avoir à comparaître devant la juridiction :
+  </text>
+
+  <!-- Bullet list -->
+  <text x="82" y="390"
+        font-size="13"
+        font-family="Arial"
+        fill="#6B7280">
+    — Déclarer son action recevable et bien fondée ;
+  </text>
+
+  <text x="82" y="418"
+        font-size="13"
+        font-family="Arial"
+        fill="#6B7280">
+    — Valider le congé en date du 19 octobre 2023 ;
+  </text>
+
+  <text x="82" y="446"
+        font-size="13"
+        font-family="Arial"
+        fill="#6B7280">
+    — Prononcer la résiliation des contrats de bail à usage professionnel ;
+  </text>
+
+  <text x="82" y="474"
+        font-size="13"
+        font-family="Arial"
+        fill="#6B7280">
+    — Ordonner l'expulsion sous astreinte de 1.000.000 F CFA par jour ;
+  </text>
+
+  <text x="82" y="502"
+        font-size="13"
+        font-family="Arial"
+        fill="#6B7280">
+    — Condamner les défendeurs à 50.000.000 F CFA de dommages-intérêts.
+  </text>
+
+  <!-- Additional paragraph -->
+  <text x="62" y="548"
+        font-size="13"
+        font-family="Arial"
+        fill="#4B5563">
+    Au soutien de son action, la SCI EMEROD expose qu'elle est liée à M. X.ABC
+  </text>
+
+  <text x="62" y="568"
+        font-size="13"
+        font-family="Arial"
+        fill="#4B5563">
+    et M. X.DEF par des contrats de bail à usage professionnel portant
+  </text>
+
+  <text x="62" y="588"
+        font-size="13"
+        font-family="Arial"
+        fill="#4B5563">
+    sur des magasins à Abidjan...
+  </text>
+
+  <!-- RIGHT PANEL -->
+  <rect x="760" y="96" width="480" height="584" fill="#FAFAFF"/>
+
+  <!-- AI title -->
+  <text x="792" y="138"
+        font-size="16"
+        font-weight="700"
+        font-family="Arial"
+        fill="#6366F1">
+    Cadre légal du document
+  </text>
+
+  <!-- Intro -->
+  <text x="792" y="172"
+        font-size="13"
+        font-family="Arial"
+        fill="#4B5563">
+    Ce jugement du Tribunal de Commerce d'Abidjan s'inscrit dans le cadre
+  </text>
+
+  <text x="792" y="192"
+        font-size="13"
+        font-family="Arial"
+        fill="#4B5563">
+    juridique ivoirien et OHADA.
+  </text>
+
+  <!-- Section -->
+  <text x="792" y="238"
+        font-size="14"
+        font-weight="700"
+        font-family="Arial"
+        fill="#111827">
+    1. Sources principales
+  </text>
+
+  <!-- OHADA -->
+  <text x="792" y="274"
+        font-size="13"
+        font-weight="700"
+        font-family="Arial"
+        fill="#111827">
+    L'Acte uniforme OHADA
+  </text>
+
+  <rect x="792" y="290" width="392" height="88" rx="12" fill="#EEF2FF"/>
+
+  <text x="812" y="320"
+        font-size="12"
+        font-family="Arial"
+        fill="#4B5563">
+    « L'article 125 de l'AUDCG impose un congé préalable
+  </text>
+
+  <text x="812" y="342"
+        font-size="12"
+        font-family="Arial"
+        fill="#4B5563">
+    pour la résiliation d'un bail à durée indéterminée,
+  </text>
+
+  <text x="812" y="364"
+        font-size="12"
+        font-family="Arial"
+        fill="#4B5563">
+    notifié par exploit d'huissier avec un préavis de six mois. »
+  </text>
+
+  <!-- Civil code -->
+  <text x="792" y="420"
+        font-size="13"
+        font-weight="700"
+        font-family="Arial"
+        fill="#111827">
+    Le Code civil ivoirien
+  </text>
+
+  <text x="792" y="448"
+        font-size="12"
+        font-family="Arial"
+        fill="#4B5563">
+    Article 1382 (responsabilité civile délictuelle),
+  </text>
+
+  <text x="792" y="468"
+        font-size="12"
+        font-family="Arial"
+        fill="#4B5563">
+    invoqué pour réclamer des dommages-intérêts.
+  </text>
+
+  <!-- Separator -->
+  <line x1="792" y1="504" x2="1184" y2="504" stroke="#E5E7EB"/>
+
+  <!-- Summary -->
+  <text x="792" y="540"
+        font-size="14"
+        font-weight="700"
+        font-family="Arial"
+        fill="#111827">
+    Résumé de la décision
+  </text>
+
+  <text x="792" y="572"
+        font-size="12"
+        font-family="Arial"
+        fill="#4B5563">
+    La SCI EMEROD oppose deux commerçants locataires.
+  </text>
+
+  <text x="792" y="592"
+        font-size="12"
+        font-family="Arial"
+        fill="#4B5563">
+    Le tribunal a débouté les parties et condamné
+  </text>
+
+  <text x="792" y="612"
+        font-size="12"
+        font-family="Arial"
+        fill="#4B5563">
+    la SCI EMEROD aux dépens de l'instance.
+  </text>
+
+  <!-- Chat -->
+  <rect x="792" y="634" width="320" height="40" rx="10" fill="white" stroke="#E5E7EB"/>
+
+  <text x="812" y="658"
+        font-size="12"
+        font-family="Arial"
+        fill="#9CA3AF">
+    Votre message…
+  </text>
+
+<!-- Send button -->
+<rect x="1128" y="634" width="40" height="40" rx="10" fill="#6366F1"/>
+
+<!-- White arrow -->
+<path
+  d="M1140 654H1156M1150 648L1156 654L1150 660"
+  stroke="white"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+/>
+<!-- Floating annotation -->
+<rect x="74" y="640" width="340" height="64" rx="16" fill="white" stroke="#E5E7EB"/>
+
+<text x="98" y="668"
+      font-size="14"
+      font-weight="700"
+      font-family="Arial"
+      fill="#111827">
+  Cadre légal automatique
+</text>
+
+<text x="98" y="690"
+      font-size="12"
+      font-family="Arial"
+      fill="#6B7280">
+  Sources OHADA et jurisprudence extraites instantanément
+</text>
+
+</svg>
