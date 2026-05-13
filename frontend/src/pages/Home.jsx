@@ -29,7 +29,7 @@ const Home = () => {
     const [ showcase, setShowcase ] = useState("usages");
 
     return (
-        <div className="main">
+        <main className="main">
             {/* Hero */}
             <section className="hero">
                 <HeroCanvas />
@@ -341,7 +341,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 };
 

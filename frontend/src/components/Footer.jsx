@@ -68,7 +68,7 @@ const Footer = () => {
                             <Link to="/cgu">CGU</Link>
                         </li>
                         <li>
-                            <Link to="/confidentilite">Confidentialité</Link>
+                            <Link to="/confidentialite">Confidentialité</Link>
                         </li>
                         <li>
                             <Link to="/cookies">Cookies</Link>

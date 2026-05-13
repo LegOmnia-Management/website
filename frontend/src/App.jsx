@@ -42,7 +42,7 @@ function App() {
 
                 {/* Autres */}
                 <Route path="/cgu" element={<Cgu/>}></Route>
-                <Route path="/confidentilite" element={<Confidentialite/>}></Route>
+                <Route path="/confidentialite" element={<Confidentialite/>}></Route>
                 <Route path="/cookies" element={<Cookies/>}></Route>
                 <Route path="/contact" element={<DemandeDemo/>}></Route>
                 <Route path="/faq" element={<Faq/>}></Route>

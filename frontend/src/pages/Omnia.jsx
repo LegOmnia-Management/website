@@ -54,7 +54,7 @@ const Omnia = () => {
     ]
 
     return (
-        <div className="main">
+        <main className="main">
 
             {/* Hero */}
             <section className="hero" style={{ paddingBottom: "0" }}>
@@ -237,7 +237,7 @@ const Omnia = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 };
 
