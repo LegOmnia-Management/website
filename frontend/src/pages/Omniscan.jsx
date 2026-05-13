@@ -23,7 +23,7 @@ import Profil from '../assets/img/pictos/profil.svg';
 
 const Omniscan = () => {
     return (
-        <div className="main main__omniscan">
+        <main className="main main__omniscan">
 
             {/* Hero */}
             <section className="hero">
@@ -141,7 +141,7 @@ const Omniscan = () => {
             <section className="omniscan__steps">
                 <div className="container">
                     <h2 className='title__h2'>4 étapes pour transformer vos documents</h2>
-                    <p>De l'import brut à la sortie structurée, chaque étape est optimisée pour vitesse, précision et conformité.</p>
+                    <p className='title__subtitle'>De l'import brut à la sortie structurée, chaque étape est optimisée pour vitesse, précision et conformité.</p>
                     <ul className='omniscan__steps--cards'>
                         <li className='card'>
                             <IconRing
@@ -286,7 +286,7 @@ const Omniscan = () => {
                 </div>
             </section>
 
-        </div>
+        </main>
     );
 };
 
