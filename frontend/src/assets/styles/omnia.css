@@ -1,27 +1,4 @@
 /***************** Structure *****************/
-.omnia__structure--columns {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-top: 3rem;
-
-    > img {
-        border-radius: 10px;
-        box-shadow: var(--boxShadowBlack);
-        border: 1px solid white;
-        order: -1;
-        width: 98%;
-
-        &.screen--desktop {
-            display: none;
-        }
-    }
-
-    p {
-        text-align: center;
-    }
-}
-
 .omnia__structure--listTags {
     list-style: none;
     margin-top: 2rem;
@@ -107,15 +84,15 @@
 /***************** Plateforme *****************/
 .omnia__platform {
     background: linear-gradient(90deg, var(--bgHeroStart) 0%, var(--bgHeroEnd) 100%);
-}
 
-.omnia__platform--description > img {
-    border: 0;
-    box-shadow: none;
-    transform: none;
-    max-width: 450px;
-    width: 100%;
-    margin-inline: auto;
+    .omnia__platform--description > img {
+        border: 0;
+        box-shadow: none;
+        transform: none;
+        max-width: 450px;
+        width: 100%;
+        margin-inline: auto;
+    }
 }
 
 .omnia__platform--description .omnia__structure--listTags {
@@ -141,15 +118,15 @@
 /***************** Recherche *****************/
 .omnia__search {
     background-color: var(--violetLightSoft);
-}
 
-.omnia__search--description > img {
-    border: 0;
-    box-shadow: none;
-    transform: none;
-    max-width: 450px;
-    width: 100%;
-    margin-inline: auto;
+    .omnia__search--description > img {
+        border: 0;
+        box-shadow: none;
+        transform: none;
+        max-width: 450px;
+        width: 100%;
+        margin-inline: auto;
+    }
 }
 
 /***************** IA *****************/
@@ -186,15 +163,15 @@
 /***************** Assistant *****************/
 .omnia__assistant {
     background-color: var(--violetLightSoft);
-}
 
-.omnia__assistant--description > img {
-    border: 0;
-    box-shadow: none;
-    transform: none;
-    max-width: 450px;
-    width: 100%;
-    margin-inline: auto;
+    .omnia__assistant--description > img {
+        border: 0;
+        box-shadow: none;
+        transform: none;
+        max-width: 450px;
+        width: 100%;
+        margin-inline: auto;
+    }
 }
 
 .omnia__assistant--description .omnia__structure--listTags {
@@ -229,34 +206,6 @@
 /* Tablette : 48em *  16px => 768px */
 @media screen and (min-width: 48rem) {
 
-    .omnia__structure--columns {
-        gap: 4rem;
-        margin-top: 4rem;
-
-        > img {
-            margin-inline: auto;
-            max-width: 715px;
-            width: 100%;
-        }
-
-        img.screen--mobile {
-            display: none;
-        }
-
-        img.screen--desktop {
-            display: block;
-        }
-    }
-
-    .omnia__structure--content {
-        width: 725px;
-        margin-inline: auto;
-
-        > p {
-            text-align: left;
-        }
-    }
-
     .omnia__presentation {
 
         .higlight {
@@ -269,16 +218,18 @@
         }
     }
 
-    .omnia__platform--description > img {
+    .omnia__platform .omnia__platform--description > img {
         box-shadow: var(--boxShadowBlack);
         border: 1px solid white;
+        max-width: 715px;
     }
 
-    .omnia__search--description {
+    .omnia__search .omnia__search--description {
     
         > img {
             box-shadow: var(--boxShadowBlack);
             border: 1px solid white;
+            max-width: 715px;
         }
 
         .omnia__structure--listTags {
@@ -287,35 +238,20 @@
         }
     }
 
-    .omnia__assistant--description > img {
+    .omnia__assistant .omnia__assistant--description > img {
         box-shadow: var(--boxShadowBlack);
         border: 1px solid white;
+        max-width: 715px;
     }
 }
 
 /* Desktop : 80em *  16px => 1280px */
 @media screen and (min-width: 80rem) {
 
-    .omnia__structure--columns {
-        flex-direction: row;
-        gap: 4rem;
-        align-items: center;
-        margin-top: 4rem;
-
-        > img {
-            transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
-            width: 60%;
-        }
-    }
-
-    .omnia__structure--content {
-        width: 100%;
-    }
-
     .omnia__presentation--description { 
 
-        > img {
-            order: 1;
+        .structure__content {
+            order: -1;
         }
     
         .omnia__structure--listTags {
@@ -328,7 +264,7 @@
         }
     }
 
-    .omnia__platform--description {
+    .omnia__platform .omnia__platform--description {
     
         > img {
             transform: perspective(1200px) rotateY(4deg) rotateX(2deg);
@@ -340,7 +276,7 @@
         }
     }
 
-    .omnia__search--description {
+    .omnia__search .omnia__search--description {
 
         > img {
             order: 1;
@@ -357,12 +293,13 @@
         }
     }
 
-    .omnia__ia--description > img {
+    .omnia__ia .omnia__ia--description > img {
         transform: perspective(1200px) rotateY(4deg) rotateX(2deg);
     }
 
 
-    .omnia__assistant--description > img {
+    .omnia__assistant .omnia__assistant--description > img {
         order: 1;
+        transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
     }
 }

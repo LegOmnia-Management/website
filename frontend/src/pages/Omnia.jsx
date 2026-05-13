@@ -57,17 +57,17 @@ const Omnia = () => {
         <div className="main">
 
             {/* Hero */}
-            <section className="home__hero" style={{ paddingBottom: "0" }}>
+            <section className="hero" style={{ paddingBottom: "0" }}>
                 <HeroBg />
-                <div className="container home__hero__container">
-                    <div className="home__hero--title">
+                <div className="container hero__container">
+                    <div className="hero__title">
                         <h1 className='main-title'>
                             L'intelligence juridique <br/>
                             au service des <br/>
                             <em className='higlight'>professionnels du droit</em>
                         </h1>
                     </div>
-                    <div className="home__hero--actions">
+                    <div className="hero__actions">
                         <Link className='ui__btn' to="/produits/omnia">Découvrir la plateforme</Link>
                         <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
                     </div>
@@ -88,12 +88,12 @@ const Omnia = () => {
             </section>
 
             {/* Présentation */}
-            <section className="omnia__presentation">
+            <section className="bg__grid omnia__presentation">
                 <div className="container">
-                    <h2 className='home__titleH2'>
+                    <h2 className='title__h2'>
                         Première plateforme de <em className='higlight'>recherche et d'analyse juridique</em> dédiée à l'Afrique francophone</h2>
-                    <div className="omnia__structure--columns omnia__presentation--description">
-                        <div className="omnia__structure--content">
+                    <div className="structure__columns omnia__presentation--description">
+                        <div className="structure__content">
                             <p>Recherche sémantique, analyse IA, génération de mémos<br/>
                             — tout ce dont votre cabinet a besoin — </p>
                             <ul className="omnia__structure--listTags">
@@ -111,8 +111,7 @@ const Omnia = () => {
                                 </li>
                             </ul>
                         </div>
-                        <img className='screen--mobile' src={HomeMobile} alt="Application LegOmnia" />
-                        <img className='screen--desktop' src={HomeDesktop} alt="Application LegOmnia" />
+                        <img src={HomeMobile} alt="Application LegOmnia" />
                     </div>
                 </div>
             </section>
@@ -120,18 +119,18 @@ const Omnia = () => {
             {/* Fonctionnalité */}
             <section className="omnia__platform">
                 <div className="container">
-                    <h2 className='home__titleH2'>
+                    <h2 className='title__h2'>
                         Une plateforme conçue pour l'<em recherche className='higlight'>excellence juridique</em>
                     </h2>
-                    <p className='home__subtitle'>
+                    <p className='title__subtitle'>
                         Chaque outil de LegOmnia a été conçu avec et pour les juristes d'Afrique francophone.<br/>
                         Précision, rapidité, fiabilité.
                     </p>
 
-                    <div className="omnia__structure--columns omnia__platform--description">
+                    <div className="structure__columns omnia__platform--description">
                         <img src={AnalyseMobile} className='screen--mobile' alt="Application LegOmnia" />
                         <img src={AnalyseDesktop} className='screen--desktop' alt="Application LegOmnia" />
-                        <div className="omnia__structure--content">
+                        <div className="structure__content">
                             <p><strong>Analyse de documents en un instant</strong></p>
                             <br/>
                             <p>Téléchargez n'importe quel texte juridique<br/>
@@ -154,13 +153,13 @@ const Omnia = () => {
             </section>
 
             {/* Recherche */}
-            <section className="omnia__search">
+            <section className="bg__grid omnia__search">
                 <div className="container">
-                    <h2 className='home__titleH2'>Recherche sémantique et hybride</h2>
-                    <div className="omnia__structure--columns omnia__search--description">
+                    <h2 className='title__h2'>Recherche sémantique et hybride</h2>
+                    <div className="structure__columns omnia__search--description">
                         <img src={SearchMobile} className='screen--mobile' alt="Application LegOmnia" />
                         <img src={SearchDesktop} className='screen--desktop' alt="Application LegOmnia" />
-                        <div className="omnia__structure--content">
+                        <div className="structure__content">
                             <p>Posez votre question en langage naturel ou entrez des mots-clés.<br/>
                             Le moteur syntaxique-hybride trouve les textes les plus pertinents dans la base juridique africaine complète.</p>
                             <ul className="omnia__structure--listTags">
@@ -182,11 +181,11 @@ const Omnia = () => {
             {/* IA */}
             <section className="omnia__ia">
                 <div className="container">
-                    <h2 className='home__titleH2'>Lisez les décisions avec leur <em className='higlight'>contexte légal intégré</em></h2>
-                    <div className="omnia__structure--columns omnia__ia--description">
+                    <h2 className='title__h2'>Lisez les décisions avec leur <em className='higlight'>contexte légal intégré</em></h2>
+                    <div className="structure__columns omnia__ia--description">
                         <img src={CadreLegalMobile} className='screen--mobile' alt="Application LegOmnia" />
                         <img src={CadreLegalDesktop} className='screen--desktop' alt="Application LegOmnia" />
-                        <div className="omnia__structure--content">
+                        <div className="structure__content">
                             <p>Chaque décision de justice s'affiche avec son cadre légal, les articles applicables, et une analyse IA en temps réel.<br/>
                             Finis les allers-retours entre plusieurs sources.</p>
                             <ul className="omnia__structure--listTags">
@@ -212,13 +211,13 @@ const Omnia = () => {
             </section>
 
             {/* Assistant */}
-            <section className="omnia__assistant">
+            <section className="bg__grid omnia__assistant">
                 <div className="container">
-                    <h2 className='home__titleH2'>Un assistant qui <em className='higlight'> connaît votre dossier</em> par cœur</h2>
-                    <div className="omnia__structure--columns omnia__assistant--description">
+                    <h2 className='title__h2'>Un assistant qui <em className='higlight'> connaît votre dossier</em> par cœur</h2>
+                    <div className="structure__columns omnia__assistant--description">
                         <img src={IaMobile} className='screen--mobile' alt="Application LegOmnia" />
                         <img src={IaDesktop} className='screen--desktop' alt="Application LegOmnia" />
-                        <div className="omnia__structure--content">
+                        <div className="structure__content">
                             <p>L'assistant IA Omnia s'appuie sur vos documents, vos notes et la jurisprudence pour construire une argumentation complète et structurée.</p>
                             <ul className="omnia__structure--listTags">
                                 <li>

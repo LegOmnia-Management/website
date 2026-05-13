@@ -31,27 +31,27 @@ const Home = () => {
     return (
         <div className="main">
             {/* Hero */}
-            <section className="home__hero">
+            <section className="hero">
                 <HeroCanvas />
                 <HeroBg />
-                <div className="container home__hero__container">
-                    <div className="home__hero--title">
+                <div className="container hero__container">
+                    <div className="hero__title">
                         <h1 className='main-title'>
                             Le droit africain entre dans une nouvelle ère
                         </h1>
                         <h3 className='subtitle'>LegOmnia transforme la donnée juridique en intelligence exploitable</h3>
                     </div>
-                    <div className="home__hero--search">
+                    <div className="hero__search">
                         <input type="text" placeholder="Que recherchez-vous ?"/>
                         <a href="https://app.beta.legomnia.com/signup" target="_blank">
                             <span className="iconify" data-icon="fa7-solid:magnifying-glass"></span>
                         </a>
                     </div>
-                    <div className="home__hero--actions">
+                    <div className="hero__actions">
                         <Link className='ui__btn' to="/produits/omnia">Découvrir la plateforme</Link>
                         <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
                     </div>
-                    <ul className="home__hero--reassure">
+                    <ul className="hero__reassure">
                         <li>Sans engagement</li>
                         <li>Données souveraines</li>
                     </ul>
@@ -59,9 +59,9 @@ const Home = () => {
             </section>
         
             {/* Présenation + vidéo */}
-            <section className="home__presentation">
+            <section className="bg__grid home__presentation">
                 <div className="container home__presentation__container">
-                    <h2 className='home__titleH2'>Une vision simple : rendre le droit en Afrique francophone enfin <em className='higlight'>accessible, structuré et actionnable</em></h2>
+                    <h2 className='title__h2'>Une vision simple : rendre le droit en Afrique francophone enfin <em className='higlight'>accessible, structuré et actionnable</em></h2>
                     <div className="home__presentation--video">
                     <video
                         autoPlay
@@ -87,8 +87,8 @@ const Home = () => {
             {/* Carte */}
             <section className="home__map">
                 <div className="container">
-                    <h2 className='home__titleH2'>Notre couverture en Afrique francophone</h2>
-                    <p className='home__subtitle'>Explorez notre présence et les organisations juridiques intégrées</p>
+                    <h2 className='title__h2'>Notre couverture en Afrique francophone</h2>
+                    <p className='title__subtitle'>Explorez notre présence et les organisations juridiques intégrées</p>
 
                     <AfricaMap />
                 </div>
@@ -97,7 +97,7 @@ const Home = () => {
             {/* Mise en avant */}
             <section className="home__showcase">
             <div className="container">
-                <h2 className='home__titleH2'>Une infrastructure déjà à l'œuvre</h2>
+                <h2 className='title__h2'>Une infrastructure déjà à l'œuvre</h2>
 
                 <ul className="home__showcase--stats">
                     <li><span>50 000+</span> textes</li>
@@ -106,7 +106,7 @@ const Home = () => {
                     <li><span>98%</span> satisfaction</li>
                 </ul>
 
-                <p className='home__subtitle'>
+                <p className='title__subtitle'>
                     L'application LegOmnia a déjà fait ses preuves auprès de nombreux partenaires,
                     découvrez comment vous pouvez aussi en bénéficier
                 </p>
@@ -320,7 +320,7 @@ const Home = () => {
             <section className="home__ask__demo">
                 <div className="container">
                     <div className="home__ask__demo--content">
-                        <h2 className="home__titleH2">Prêt à transformer votre pratique juridique ?</h2>
+                        <h2 className="title__h2">Prêt à transformer votre pratique juridique ?</h2>
                         <p>LEgOmnia est votre infrastructure pour accélérer vos recherches, sécuriser vos documents et prendre des décisions data-driven en Afrique francophone.</p>
                         <div className="home__ask__demo--actions">
                             <a className="ui__btn" href="/produits/omnia">Découvrir la plateforme</a>

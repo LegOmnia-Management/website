@@ -26,7 +26,7 @@ import './assets/styles/general.css';
 function App() {
 
     return (
-        <BrowserRouter basename="/website">
+        <BrowserRouter>
             <Header/>
 
             <Routes>

@@ -314,11 +314,11 @@ export default function AfricaMap() {
           <div className="africa-map-country-omniscan">
             {selected && COUNTRY_OMNISCAN.includes(selected.name) && (
               <div className="africa-map-country-detail">
-                <h3 className="africa-map-country-name">Installation d'OmniScan possible</h3>
+                <h3 className="africa-map-country-name">Installation d'<span className="higlight">OmniScan</span> possible</h3>
                 <p className="africa-map-country-orgs-label">
                   Transformez tous vos documents juridiques en données exploitables et prêtes à l'indexation.
                 </p>
-                <Link to="/produits/transformation-digitale/omniscan" className="ui__btn--black">
+                <Link to="/produits/transformation-digitale/omniscan" className="ui__btn--gradient">
                   Découvrir OmniScan
                 </Link>
               </div>
