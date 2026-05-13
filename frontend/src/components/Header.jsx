@@ -128,14 +128,14 @@ const Header = () => {
 
                 {/* btns */}
                 <div className='header__actions'>
-                    <button 
+                    {/* <button 
                         className='ui__btn--theme'
-                        // aria-label={darkMode ? "Passer en mode clair" : "Passer en mode sombre"}
+                        aria-label={darkMode ? "Passer en mode clair" : "Passer en mode sombre"}
                     >
                         <span className="iconify" data-icon="solar:moon-linear"></span>
-                        {/* <span className="iconify" data-icon="solar:sun-outline"></span> */}
+                        <span className="iconify" data-icon="solar:sun-outline"></span>
                         <span className="text">Mode</span>
-                    </button>
+                    </button> */}
                     <Link className='ui__btn' to="/contact">Démo</Link>
                 </div>
             </div>
