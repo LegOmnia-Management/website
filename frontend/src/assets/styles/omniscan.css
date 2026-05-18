@@ -28,6 +28,29 @@
        display: flex;
        flex-direction: column;
     }
+
+    .icon__ring {
+        border: 0;
+        position: relative;
+
+        &::before {
+            content: '';
+            background: var(--gradientOmniscan);
+            position: absolute;
+            inset: 0;
+            padding: 2px; /* épaisseur du border */
+            border-radius: inherit;
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    }
 }
 
 .omniscan__solution--cards,
@@ -47,7 +70,7 @@
     
             p {
                 color: var(--text1);
-                margin-bottom: .5rem;
+                margin-bottom: 1rem;
             }
         }
     
@@ -72,6 +95,7 @@
 
 /***************** Solution *****************/
 .omniscan__solution {
+    background-color: #f8f9fa;
 
     .title__h2 {
         margin-bottom: 3rem;
@@ -94,6 +118,7 @@
 
 /***************** Conformité *****************/
 .omniscan__conform {
+    background-color: #f8f9fa;
 
     img {
         max-width: 420px;

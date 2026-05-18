@@ -99,12 +99,12 @@ section {
     display: flex;
     justify-content: space-around;
     gap: 3rem;
-    margin-block: 6rem 2rem;
+    margin-block: 8rem 2rem;
 
     .item {
         background-color: white;
         border: 1px solid var(--violetSoft);
-        border-radius: var(--radiusPill);
+        border-radius: var(--radiusMd);
         cursor: pointer;
         height: 5.2rem;
         position: relative;
@@ -116,7 +116,7 @@ section {
         &:hover,
         &:focus,
         &:active {
-            transform: scale(1.1);
+            transform: translateY(-2px);
         }
 
         &:not(.isActive) {
@@ -136,7 +136,6 @@ section {
         }
 
         button {
-            color: var(--violet);
             font-size: 1.6rem;
             height: 100%;
         }
@@ -180,6 +179,7 @@ section {
     gap: 1rem;
 
     .card {
+        box-shadow: var(--boxShadowSimple);
         width: 100%;
     }
 }
@@ -320,7 +320,7 @@ section {
     }
 
     .home__showcase--nav  {
-        margin-bottom: 6rem;
+        margin-bottom: 2rem;
     
         .item {
             width: auto;
@@ -368,10 +368,6 @@ section {
 
 /* Desktop : 80em *  16px => 1280px */
 @media screen and (min-width: 80rem) {
-
-    .home__showcase--nav  {
-        margin-bottom: 10rem;
-    }
 
     .home__showcase--subtitle {
         font-size: 2.5rem;

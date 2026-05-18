@@ -15,10 +15,13 @@
     --black: #000;
     --blackOutline: rgba(0,0,0,.08);
     --blue :#5ce1e6;
+    --blueDark: #61C3E1;
     --blueSoft :rgba(92, 225, 230, .12);
     --pink: #e896f6;
     --gradientOmniscan: linear-gradient(90deg, var(--violet), var(--blue));
-    --gradientOmniscanHover: linear-gradient(90deg, var(--violet), var(--pink));
+    --gradientOmniscanHover: linear-gradient(90deg, var(--violetDark), var(--blueDark));
+    --gradientGeode: linear-gradient(90deg, var(--violet), var(--pink));
+    --gradientGeodeHover: linear-gradient(90deg, var(--violetDark), var(--pink));
 
     --text1: #212529; 
     --text2: #495057; 
@@ -62,21 +65,16 @@
     overflow: hidden;
     isolation: isolate;
 
-    background-color: rgba(124, 92, 252, .05);
-
     &::before {
         content: '';
         position: absolute;
         inset: 0;
 
         background-image:
-            linear-gradient(rgba(200, 151, 58, 0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200, 151, 58, 0.06) 1px, transparent 1px);
-
+            linear-gradient(rgba(107, 99, 208, 0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(107, 99, 208, 0.06) 1px, transparent 1px);
         background-size: 60px 60px;
-
         pointer-events: none;
-
         mask-image: radial-gradient(
             ellipse at center,
             rgba(0, 0, 0, 1) 35%,
@@ -84,7 +82,6 @@
             rgba(0, 0, 0, .25) 75%,
             transparent 100%
         );
-
         -webkit-mask-image: radial-gradient(
             ellipse at center,
             rgba(0, 0, 0, 1) 35%,
@@ -92,10 +89,43 @@
             rgba(0, 0, 0, .25) 75%,
             transparent 100%
         );
-
         z-index: -1;
     }
 }
+
+.bg__circle {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(
+        circle,
+        rgba(107, 99, 208, .25) 1px,
+        transparent 1px
+      );
+      background-size: 2rem 2rem;
+      pointer-events: none;
+      mask-image: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 1) 35%,
+        rgba(0, 0, 0, 0.7) 55%,
+        rgba(0, 0, 0, 0.25) 75%,
+        transparent 100%
+      );
+      -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 1) 35%,
+        rgba(0, 0, 0, 0.7) 55%,
+        rgba(0, 0, 0, 0.25) 75%,
+        transparent 100%
+      );
+      z-index: -1;
+    }
+  }
 
 
 /***************** Structure *****************/
@@ -235,16 +265,31 @@
     }
 }
 
-.ui__btn--gradient {
-    background: var(--gradientOmniscan);
+.ui__btn--gradient,
+.ui__btn--gradientSecond {
     color: white;
     padding: 1.2rem 2.4rem;
     transition: all .3s ease;
+}
+
+.ui__btn--gradient {
+    background: var(--gradientOmniscan);
     
     &:hover,
     &:focus,
     &:active {
         background: var(--gradientOmniscanHover);
+        box-shadow: 0 5px 20px rgba(93, 219, 229,.5);
+    }
+}
+
+.ui__btn--gradientSecond {
+    background: var(--gradientGeode);
+    
+    &:hover,
+    &:focus,
+    &:active {
+        background: var(--gradientGeodeHover);
     }
 }
 
@@ -302,7 +347,7 @@
     align-items:center;
     justify-content:center;
 
-    [class^="point"] {
+    /* [class^="point"] {
         border-radius: 50%;
         background: rgba(107, 92, 231, .55);
         position: absolute;
@@ -341,33 +386,10 @@
         right: -12px;
         opacity: .35;
         transform: scale(0.6);
-    }
+    } */
 
     img {
         width: 3.2rem;
-    }
-}
-
-.main__omniscan {
-
-    .icon__ring {
-        border: 0;
-        position: relative;
-
-        &::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            padding: 2px; /* épaisseur du border */
-            border-radius: inherit;
-            background: var(--gradientOmniscan);
-            -webkit-mask:
-                linear-gradient(#000 0 0) content-box,
-                linear-gradient(#000 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
     }
 }
 
