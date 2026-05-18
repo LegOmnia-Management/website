@@ -4,7 +4,6 @@ import '../assets/styles/omnia.css';
 
 import HeroBg from '../components/HeroBg';
 import HomeMobile from '../assets/img/application/homeMobile.png';
-import HomeDesktop from '../assets/img/application/homeDesktop.png';
 import AnalyseMobile from '../assets/img/application/analyseMobile.svg';
 import AnalyseDesktop from '../assets/img/application/analyseDesktop.png';
 import SearchMobile from '../assets/img/application/searchMobile.svg';
@@ -88,7 +87,7 @@ const Omnia = () => {
             </section>
 
             {/* Présentation */}
-            <section className="bg__grid omnia__presentation">
+            <section className="bg__circle omnia__presentation">
                 <div className="container">
                     <h2 className='title__h2'>
                         Première plateforme de <em className='higlight'>recherche et d'analyse juridique</em> dédiée à l'Afrique francophone</h2>
@@ -153,7 +152,7 @@ const Omnia = () => {
             </section>
 
             {/* Recherche */}
-            <section className="bg__grid omnia__search">
+            <section className="bg__circle omnia__search">
                 <div className="container">
                     <h2 className='title__h2'>Recherche sémantique et hybride</h2>
                     <div className="structure__columns omnia__search--description">
@@ -211,7 +210,7 @@ const Omnia = () => {
             </section>
 
             {/* Assistant */}
-            <section className="bg__grid omnia__assistant">
+            <section className="bg__circle omnia__assistant">
                 <div className="container">
                     <h2 className='title__h2'>Un assistant qui <em className='higlight'> connaît votre dossier</em> par cœur</h2>
                     <div className="structure__columns omnia__assistant--description">

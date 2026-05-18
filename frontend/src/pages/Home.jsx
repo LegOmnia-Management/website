@@ -59,7 +59,7 @@ const Home = () => {
             </section>
         
             {/* Présenation + vidéo */}
-            <section className="bg__grid home__presentation">
+            <section className="bg__circle home__presentation">
                 <div className="container home__presentation__container">
                     <h2 className='title__h2'>Une vision simple : rendre le droit en Afrique francophone enfin <em className='higlight'>accessible, structuré et actionnable</em></h2>
                     <div className="home__presentation--video">
@@ -95,7 +95,7 @@ const Home = () => {
             </section>
 
             {/* Mise en avant */}
-            <section className="home__showcase">
+            <section className="bg__circle home__showcase">
             <div className="container">
                 <h2 className='title__h2'>Une infrastructure déjà à l'œuvre</h2>
 

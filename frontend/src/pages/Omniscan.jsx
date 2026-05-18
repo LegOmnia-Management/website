@@ -34,14 +34,11 @@ const Omniscan = () => {
                             à l'intelligence <em className='higlight'>structurée&nbsp;</em>
                         </h1>
                         <h3 className="subtitle">
-                            OmniScan transforme en quelques secondes tous vos documents juridiques <br/>
-                            — décisions imprimées, contrats PDF, textes législatifs — <br/>
-                            en données exploitables, enrichies et prêtes à l'indexation. <br/>
-                            Le socle technologique qui réveille le patrimoine légal africain.
+                            Scannez, structurez, enrichissez&nbsp;: vos documents juridiques deviennent enfin exploitables
                         </h3>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn--gradient' to="/produits/omnia">Demander une démo</Link>
+                        <Link className='ui__btn--gradient' to="/contact">Demander une démo</Link>
                     </div>
                 </div>
             </section>
