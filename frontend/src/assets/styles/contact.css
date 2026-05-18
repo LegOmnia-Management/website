@@ -1,0 +1,73 @@
+.main__contact .hero .subtitle {
+
+    margin-block: 3rem 1rem;
+    font-size: 1.6rem;
+}
+
+.contact__content {
+    padding-inline: 2rem;
+}
+
+.contact__form {
+    background: white; 
+    border: 1px solid var(--blackOutline); 
+    border-radius: 12px;
+    box-shadow: var(--boxShadowSimple);
+    margin-inline: auto;
+    max-width: var(--width-md);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+[class^="form__item"] {
+    width: 100%;
+
+    > * {
+        display: block;
+    }
+    
+    label {
+        font-weight: 600;
+    }
+
+    input, 
+    select, 
+    textarea {
+        border: 1px solid var(--blackOutline);
+        border-radius: var(--radiusSm);
+        padding: 1rem;
+        width: 100%;
+    }
+}
+
+.form__submit {
+    width: 100%;
+}
+
+/***************** Breakpoints *****************/
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
+
+    .contact__form {
+        padding: 5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .form__item--half {
+        width: calc(50% - 1rem);
+    }
+
+    .form__submit {
+        margin-top: 3rem;
+        margin-inline: auto;
+        width: 50%;
+    }
+}
+
+/* Desktop : 80em *  16px => 1280px */
+@media screen and (min-width: 80rem) {
+
+}
