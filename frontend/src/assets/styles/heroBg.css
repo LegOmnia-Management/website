@@ -3,8 +3,8 @@
     inset: 0;
     overflow: hidden;
     background: url("../img/divers/map_africa.svg") center center no-repeat;
-    opacity: .1;
-    background-size: 450px;
+    opacity: .2;
+    background-size: 300px;
 }
 
 [class^="component__hero--glow"] {
@@ -86,4 +86,22 @@
     top: 40%; 
     right: 5%; 
     animation: float 13s ease-in-out infinite 3s;
+}
+
+/***************** Breakpoints *****************/
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
+
+    .component__hero--bg {
+        opacity: .1;
+        background-size: 400px;
+    }
+}
+
+/* Desktop : 80em *  16px => 1280px */
+@media screen and (min-width: 80rem) {
+
+    .component__hero--bg {
+        background-size: 500px;
+    }
 }

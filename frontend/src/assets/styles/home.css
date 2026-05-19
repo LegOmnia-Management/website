@@ -7,6 +7,7 @@
         &:first-child {
             font-size: 1.8rem;
             text-transform: uppercase;
+            letter-spacing: .1rem;
         }
 
         &:last-child {
@@ -335,8 +336,12 @@ section {
         padding-block: 6rem;
     }
 
-    .main__home .hero__title .subtitle:first-child {
-        font-size: 2.2rem;
+    .main__home .hero__title .subtitle {
+        line-height: 2.9rem;
+    
+        &:first-child {
+            font-size: 2.2rem;
+        }
     }
 
     /* Mise en avant */
@@ -411,6 +416,7 @@ section {
 @media screen and (min-width: 80rem) {
 
     .main__home .hero__title .subtitle {
+        line-height: 3.4rem;
         margin-block: 0 5rem;
     
         &:first-child {

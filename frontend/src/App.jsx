@@ -8,6 +8,7 @@ import Faq from './pages/Faq';
 import Geode from './pages/Geode';
 import Juridictions from './pages/Juridictions';
 import Home from './pages/Home';
+import HomeTest from './pages/Home2';
 import MentionsLegales from './pages/MentionsLegales';
 import Omnia from './pages/Omnia';
 import Omniscan from './pages/Omniscan';
@@ -32,6 +33,7 @@ function App() {
             <Routes>
                 {/* Home */}
                 <Route path="/" element={<Home/>}></Route>
+                <Route path="/homeTest" element={<HomeTest/>}></Route>
 
                 {/* Produits */}
                 <Route path="/produits/omnia" element={<Omnia/>}></Route>
