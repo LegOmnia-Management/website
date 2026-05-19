@@ -2,7 +2,7 @@ import HeroBg from '../components/HeroBg';
 
 import '../assets/styles/contact.css';
 
-const DemandeDemo = () => {
+const Contact = () => {
 
     const validateItem = (value, name) => {
 
@@ -77,4 +77,4 @@ const DemandeDemo = () => {
     );
 };
 
-export default DemandeDemo;
+export default Contact;
