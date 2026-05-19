@@ -1,17 +1,26 @@
-.main__home .hero__title {
+.main__home {
 
-    .subtitle {
-        margin-block: 0 3rem;
-        line-height: 2.5rem;
-    
-        &:first-child {
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: .1rem;
-        }
+    .component__hero--bg {
+        background: url("../img/divers/map_africa.svg") center center no-repeat;
+        opacity: .2;
+        background-size: 300px;
+    }
 
-        &:last-child {
-            margin-block: 3rem 2rem;
+    .hero__title {
+
+        .subtitle {
+            margin-block: 0 3rem;
+            line-height: 2.5rem;
+        
+            &:first-child {
+                font-size: 1.8rem;
+                text-transform: uppercase;
+                letter-spacing: .1rem;
+            }
+
+            &:last-child {
+                margin-block: 3rem 2rem;
+            }
         }
     }
 }
@@ -336,6 +345,11 @@ section {
         padding-block: 6rem;
     }
 
+    .main__home .component__hero--bg {
+        opacity: .1;
+        background-size: 400px;
+    }
+
     .main__home .hero__title .subtitle {
         line-height: 2.9rem;
     
@@ -414,6 +428,10 @@ section {
 
 /* Desktop : 80em *  16px => 1280px */
 @media screen and (min-width: 80rem) {
+
+    .main__home .component__hero--bg {
+        background-size: 500px;
+    }
 
     .main__home .hero__title .subtitle {
         line-height: 3.4rem;

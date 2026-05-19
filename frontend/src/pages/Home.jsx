@@ -52,6 +52,7 @@ const Home = () => {
                     <div className="hero__actions">
                         <Link className='ui__btn' to="/produits/omnia">Découvrir la plateforme</Link>
                         <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
+                        <Link className='ui__btn' to="/homeTest">Home Test</Link>
                     </div>
                     <ul className="hero__reassure">
                         <li>Sans engagement</li>
