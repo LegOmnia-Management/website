@@ -29,20 +29,22 @@ const Home = () => {
     const [ showcase, setShowcase ] = useState("usages");
 
     return (
-        <main className="main">
+        <main className="main main__home">
             {/* Hero */}
             <section className="hero">
                 <HeroCanvas />
                 <HeroBg />
                 <div className="container hero__container">
                     <div className="hero__title">
+                        <h3 className='subtitle'>L'IA juridique pour l'Afrique francophone</h3>
+                        <p className='subtitle'><span className='higlight'>LegOmnia</span> transforme la donnée juridique en intelligence exploitable</p>
                         <h1 className='main-title'>
-                            Le droit africain entre dans une nouvelle ère
+                            Le droit africain entre <span className='break'>dans une <em className='higlight'>nouvelle ère</em></span>
                         </h1>
-                        <h3 className='subtitle'>LegOmnia transforme la donnée juridique en intelligence exploitable</h3>
+                        <p className="subtitle">Découvrez <span className='higlight'>Omnia</span>, notre application <span className='break'>de recherche juridique d'Afrique francophone</span></p>
                     </div>
                     <div className="hero__search">
-                        <input type="text" placeholder="Que recherchez-vous ?"/>
+                        <input type="text" placeholder="Commencez votre recherche ici..."/>
                         <a href="https://app.beta.legomnia.com/signup" target="_blank">
                             <span className="iconify" data-icon="fa7-solid:magnifying-glass"></span>
                         </a>

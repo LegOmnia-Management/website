@@ -3,6 +3,15 @@ import HeroBg from '../components/HeroBg';
 import '../assets/styles/contact.css';
 
 const DemandeDemo = () => {
+
+    const validateItem = (value, name) => {
+
+        switch(name) {
+            case "firstName":
+            case "lastName":
+        }
+    }
+
     return (
         <main className="main main__contact">
 

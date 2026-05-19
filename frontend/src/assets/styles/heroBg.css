@@ -2,6 +2,9 @@
     position: absolute;
     inset: 0;
     overflow: hidden;
+    background: url("../img/divers/map_africa.svg") center center no-repeat;
+    opacity: .1;
+    background-size: 450px;
 }
 
 [class^="component__hero--glow"] {

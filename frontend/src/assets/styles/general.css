@@ -131,7 +131,7 @@
 /***************** Structure *****************/
 #root {
     color: var(--text1);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 1.6rem;
     line-height: 1.6;
     display: flex;
@@ -298,20 +298,16 @@
     font-family: 'Ibarra Real Nova',Georgia,"Times New Roman",serif;
     font-size: 3.2rem;
     text-align: center;
-
-    .higlight {
-        color: var(--violet);
-    }
 }
 
 .title__subtitle {
     font-size: 1.7rem;
     margin-block: .5rem 4rem;
     text-align: center;
+}
 
-    .higlight {
-        color: var(--violet);
-    }
+.higlight {
+    color: var(--violet);
 }
 
 /***************** Tags *****************/
@@ -476,6 +472,10 @@
     gap: 1rem;
     flex-direction: column;
     margin-top: 2.2rem;
+
+    .ui__btn--inline {
+        background-color: rgba(248, 248, 230, .6);
+    }
 }
 
 .hero__reassure {
