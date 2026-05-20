@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../assets/styles/home.css';
 
-import HeroCanvas from '../components/HeroCanvas';
+import HeroCanvasMap from '../components/HeroCanvasMap';
 import HeroBg from '../components/HeroBg';
 import AfricaMap from '../components/AfricaMap';
 import IconRing from '../components/IconRing';
@@ -32,7 +32,7 @@ const Home = () => {
         <main className="main main__home">
             {/* Hero */}
             <section className="hero">
-                <HeroCanvas />
+                <HeroCanvasMap />
                 <HeroBg />
                 <div className="container hero__container">
                     <div className="hero__title">
@@ -53,10 +53,6 @@ const Home = () => {
                         <Link className='ui__btn' to="/produits/omnia">Découvrir la plateforme</Link>
                         <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
                     </div>
-                    <ul className="hero__reassure">
-                        <li>Sans engagement</li>
-                        <li>Données souveraines</li>
-                    </ul>
                 </div>
             </section>
         

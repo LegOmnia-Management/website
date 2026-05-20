@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../assets/styles/home.css';
 
-import HeroCanvasTest from '../components/HeroCanvasTest';
+import HeroCanvasMap from '../components/HeroCanvasMap';
 import HeroBg from '../components/HeroBg';
 import AfricaMap from '../components/AfricaMap';
 import IconRing from '../components/IconRing';
@@ -32,7 +32,7 @@ const Home2 = () => {
         <main className="main main__homeTest">
             {/* Hero */}
             <section className="hero">
-                <HeroCanvasTest />
+                <HeroCanvasMap />
                 <HeroBg />
                 <div className="container hero__container">
                     <div className="hero__title">

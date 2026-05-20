@@ -1,11 +1,5 @@
 .main__home {
 
-    .component__hero--bg {
-        background: url("../img/divers/map_africa.svg") center center no-repeat;
-        opacity: .2;
-        background-size: 300px;
-    }
-
     .hero__title {
 
         .subtitle {
@@ -345,11 +339,6 @@ section {
         padding-block: 6rem;
     }
 
-    .main__home .component__hero--bg {
-        opacity: .1;
-        background-size: 400px;
-    }
-
     .main__home .hero__title .subtitle {
         line-height: 2.9rem;
     
@@ -428,10 +417,6 @@ section {
 
 /* Desktop : 80em *  16px => 1280px */
 @media screen and (min-width: 80rem) {
-
-    .main__home .component__hero--bg {
-        background-size: 500px;
-    }
 
     .main__home .hero__title .subtitle {
         line-height: 3.4rem;

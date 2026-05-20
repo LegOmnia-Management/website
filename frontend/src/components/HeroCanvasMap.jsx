@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
-const HeroCanvasTest = () => {
+import '../assets/styles/heroCanvas.css';
+
+const HeroCanvasMap = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -217,7 +219,7 @@ const HeroCanvasTest = () => {
   }, []);
 
   return (
-    <div className="component__hero--canvasTest" style={{ width: "100%", height: "100%" }}>
+    <div className="component__hero--canvas" style={{ width: "100%", height: "100%" }}>
       <canvas
         ref={canvasRef}
         style={{ width: "100%", height: "100%", display: "block" }}
@@ -226,4 +228,4 @@ const HeroCanvasTest = () => {
   );
 };
 
-export default HeroCanvasTest;
+export default HeroCanvasMap;

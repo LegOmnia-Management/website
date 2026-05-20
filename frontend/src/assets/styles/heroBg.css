@@ -19,6 +19,11 @@
     transform: translate(-50%, -50%); 
 }
 
+.main__home .component__hero--glow-1 {
+    top: 80%; 
+    left: 100%; 
+}
+
 .component__hero--glow-2 { 
     background: rgba(160,140,255,.35); 
     top: 200px; 
