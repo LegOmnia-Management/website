@@ -37,11 +37,11 @@ const Home2 = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h3 className='subtitle'>L'IA juridique pour l'Afrique francophone</h3>
-                        <p className='subtitle'><span className='higlight'>LegOmnia</span> transforme la donnée juridique en intelligence exploitable</p>
+                        <p className='subtitle'><span className='highlight'>LegOmnia</span> transforme la donnée juridique en intelligence exploitable</p>
                         <h1 className='main-title'>
-                            Le droit africain entre <span className='break'>dans une <em className='higlight'>nouvelle ère</em></span>
+                            Le droit africain entre <span className='break'>dans une <em className='highlight'>nouvelle ère</em></span>
                         </h1>
-                        <p className="subtitle">Découvrez <span className='higlight'>Omnia</span>, notre application <span className='break'>de recherche juridique d'Afrique francophone</span></p>
+                        <p className="subtitle">Découvrez <span className='highlight'>Omnia</span>, notre application <span className='break'>de recherche juridique d'Afrique francophone</span></p>
                     </div>
                     <div className="hero__search">
                         <input type="text" placeholder="Commencez votre recherche ici..."/>
@@ -63,7 +63,7 @@ const Home2 = () => {
             {/* Présenation + vidéo */}
             <section className="bg__circle home__presentation">
                 <div className="container home__presentation__container">
-                    <h2 className='title__h2'>Une vision simple : rendre le droit en Afrique francophone enfin <em className='higlight'>accessible, structuré et actionnable</em></h2>
+                    <h2 className='title__h2'>Une vision simple : rendre le droit en Afrique francophone enfin <em className='highlight'>accessible, structuré et actionnable</em></h2>
                     <div className="home__presentation--video">
                     <video
                         autoPlay

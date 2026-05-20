@@ -15,7 +15,7 @@
         }
     }
 
-    .higlight {
+    .highlight {
         background: var(--gradientOmniscan);;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -98,7 +98,7 @@
     background-color: #f8f9fa;
 
     .title__h2 {
-        margin-bottom: 3rem;
+        margin-bottom: 1.5rem;
     }
 
     p {
@@ -130,7 +130,7 @@
 .omniscan__users {
 
     .title__h2 {
-        margin-bottom: 3rem;
+        margin-bottom: 1.5rem;
     }
 
     p {
@@ -199,7 +199,12 @@
 
     /* Solution */
     .omniscan__solution .title__h2 {
-        margin-bottom: 4rem;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Users */
+    .omniscan__users .title__h2 {
+        margin-bottom: 2.5rem;
     }
 
     /* Cards */
@@ -222,9 +227,18 @@
 @media screen and (min-width: 80rem) {
 
     /* Solution */
+    .omniscan__solution .title__h2 {
+        margin-bottom: 4rem;
+    }
+
     .omniscan__solution--cards {
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
+    }
+
+    /* Users */
+    .omniscan__users .title__h2 {
+        margin-bottom: 4rem;
     }
 
     /* Steps */

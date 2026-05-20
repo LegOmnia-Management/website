@@ -1,0 +1,219 @@
+/***************** Hero *****************/
+.main__transformation {
+
+    .hero__title p:last-child {
+        font-size: 1.8rem;
+        font-style: italic;
+    }
+}
+
+/***************** Positionnement *****************/
+.transformation__positionnement {
+    background-color: var(--violetLightSoft);
+
+    .title__h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+}
+
+/***************** Concept *****************/
+.transformation__concept {
+    background: linear-gradient(90deg, var(--bgHeroStart) 0%, var(--bgHeroEnd) 100%);
+
+    .title__h2 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.transformation__concept--list {
+    list-style: none;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .highlight {
+        color: var(--violetDark);
+    }
+
+    .card {
+        box-shadow: var(--boxShadowSimple);
+
+        p.text {
+            font-style: normal;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            text-align: left;
+
+            &::before {
+                content: "✔";
+                font-size: 1rem;
+                position: absolute;
+                left: 0;
+                top: 2px;
+            }
+        }
+
+        .break {
+            display: block;
+            margin-top: .8rem;
+        }
+
+        .image {
+            margin: 0 auto 1.6rem auto;
+            width: 6rem;
+        }
+    }
+}
+
+/***************** Compétences *****************/
+.transformation__skills {
+    background-color: var(--violetLightSoft);
+}
+
+.transformation__skills--list {
+    list-style: none;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .card {
+        box-shadow: var(--boxShadowSimple);
+    }
+}
+
+/***************** Breakpoints *****************/
+/* Custom : 30em *  16px => 480px */
+@media screen and (min-width: 30rem) {
+
+    .transformation__skills--list {
+
+        .card {
+            margin-inline: auto;
+            width: 75%;
+        }
+    }
+}
+
+/* Custom : 42em *  16px => 672px */
+@media screen and (min-width: 42rem) {
+
+    /* Hero */
+    .main__transformation {
+
+        .main-title .break {
+            display: block;
+        }
+
+        .hero__title p:last-child .break {
+            display: block;
+        }
+    }
+}
+
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
+
+    /* Hero */
+    .main__transformation {
+
+        .hero__title p:last-child {
+            font-size: 2.2rem;
+        }
+    }
+
+    /* Positionnement */
+    .transformation__positionnement {
+
+        .title__h2 {
+            margin-bottom: 2.5rem;
+        }
+
+        p {
+            margin-bottom: 2rem;
+        }
+    }
+
+    /* Concept */
+    .transformation__concept {
+
+        .title__h2 {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .transformation__concept--list .card  p.text {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Compétences */
+    .transformation__skills--list {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .card {
+            width: calc(50% - 1.5rem);
+        }
+    }
+}
+
+/* Custom : 58em *  16px => 927px */
+@media screen and (min-width: 58rem) {
+
+    /* Hero */
+    .main__transformation {
+
+        .subtitle .break {
+            display: block;
+        }
+    }
+
+    /* Concept */
+    .transformation__concept--list {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+/* Desktop : 80em *  16px => 1280px */
+@media screen and (min-width: 80rem) {
+
+    /* Hero */
+    .main__transformation {
+
+        .hero__title p:last-child {
+            font-size: 2.6rem;
+        }
+    }
+
+    /* Positionnement */
+    .transformation__positionnement {
+
+        .title__h2 {
+            margin-bottom: 3rem;
+        }
+    }
+
+    /* Concept */
+    .transformation__concept {
+
+        .title__h2 {
+            margin-bottom: 3rem;
+        }
+    }
+
+    /* Compétences */
+    .transformation__skills--list {
+        flex-wrap: nowrap;
+    
+        .card {
+            width: calc(20% - 1.5rem);
+        }
+    }
+}

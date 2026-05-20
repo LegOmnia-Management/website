@@ -30,7 +30,7 @@ const Geode = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            La gestion documentaire <em className='higlight'>réinventée</em> <br/>
+                            La gestion documentaire <em className='highlight'>réinventée</em> <br/>
                             pour les professionnels du droit
                         </h1>
                         <h3 className="subtitle">
@@ -66,7 +66,7 @@ const Geode = () => {
                 <div className="container">
                     <h2 className='title__h2'>Notre vision</h2>
                     <p>
-                        <em className='higlight'>Géode transforme la gestion documentaire des professionnels du droit</em>, en combinant un système DMS moderne avec l'intelligence artificielle juridique de legOmnia.
+                        <em className='highlight'>Géode transforme la gestion documentaire des professionnels du droit</em>, en combinant un système DMS moderne avec l'intelligence artificielle juridique de legOmnia.
                     </p>
                     <p>
                         Intégration native avec OmniScan pour le traitement IA à l'importation et avec OMNIA pour la recherche juridique directement dans votre GED&nbsp;: créez l'expérience documentaire inédite que vous attendiez.

@@ -15,7 +15,7 @@
         }
     }
 
-    .higlight {
+    .highlight {
         background: var(--gradientGeode);;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -71,12 +71,22 @@
 .geode__vision {
     background-color: #f8f9fa;
 
+    .title__h2 {
+        margin-bottom: 1.5rem;
+    }
+
     p {
         margin-bottom: 1rem;
     }
 }
 
 /***************** GED *****************/
+.geode__modules {
+
+    .title__h2 {
+        margin-bottom: 1.5rem;
+    }
+}
 .geode__modules--cards {
     list-style: none;
     margin-top: 3rem;
@@ -121,9 +131,14 @@
 .swiper-horizontal {
     max-width: 80rem;
 
-    .swiper-slide img {
-        width: 100%;
-        object-fit: cover;
+    .swiper-slide {
+        border-radius: var(--radiusMd);
+        overflow: hidden;
+    
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
     }
 
     .swiper-button-prev,
@@ -230,10 +245,22 @@
         }
     }
 
-    /* Présentation */
+    /* Vision */
+    .geode__vision {
     
-
+        .title__h2 {
+            margin-bottom: 2.5rem;
+        }
+    }
+    
     /* Modules */
+    .geode__modules {
+    
+        .title__h2 {
+            margin-bottom: 2.5rem;
+        }
+    }
+
     .geode__modules--cards {
         margin-top: 4rem;
         display: grid;
@@ -255,7 +282,22 @@
 /* Desktop : 80em *  16px => 1280px */
 @media screen and (min-width: 80rem) {
 
+    /* Vision */
+    .geode__vision {
+    
+        .title__h2 {
+            margin-bottom: 4rem;
+        }
+    }
+
     /* Modules */
+    .geode__modules {
+    
+        .title__h2 {
+            margin-bottom: 4rem;
+        }
+    }
+
     .geode__modules--cards {
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
