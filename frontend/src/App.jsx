@@ -3,11 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import Cgu from './pages/Cgu';
 import Confidentialite from './pages/Confidentialite';
 import Cookies from './pages/Cookies';
-import DemandeDemo from './pages/DemandeDemo';
+import Contact from './pages/Contact';
 import Faq from './pages/Faq';
 import Geode from './pages/Geode';
 import Juridictions from './pages/Juridictions';
 import Home from './pages/Home';
+import HomeTest from './pages/Home2';
 import MentionsLegales from './pages/MentionsLegales';
 import Omnia from './pages/Omnia';
 import Omniscan from './pages/Omniscan';
@@ -32,6 +33,7 @@ function App() {
             <Routes>
                 {/* Home */}
                 <Route path="/" element={<Home/>}></Route>
+                <Route path="/homeTest" element={<HomeTest/>}></Route>
 
                 {/* Produits */}
                 <Route path="/produits/omnia" element={<Omnia/>}></Route>
@@ -44,7 +46,7 @@ function App() {
                 <Route path="/cgu" element={<Cgu/>}></Route>
                 <Route path="/confidentialite" element={<Confidentialite/>}></Route>
                 <Route path="/cookies" element={<Cookies/>}></Route>
-                <Route path="/contact" element={<DemandeDemo/>}></Route>
+                <Route path="/contact" element={<Contact/>}></Route>
                 <Route path="/faq" element={<Faq/>}></Route>
                 <Route path="/juridictions" element={<Juridictions/>}></Route>
                 <Route path="/mentions-legales" element={<MentionsLegales/>}></Route>

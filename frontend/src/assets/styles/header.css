@@ -1,12 +1,12 @@
 header {
     background-color: var(--bgNav);
     border-bottom: 1px solid var(--violetOutline);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 header button,
 header a {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight: 500;
     color: var(--text1);
 }
@@ -127,7 +127,7 @@ header a {
         .sublink,
         button {
             display: block;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Lato', sans-serif;
             font-weight: 500;
             height: 100%;
             padding: 1.6rem;

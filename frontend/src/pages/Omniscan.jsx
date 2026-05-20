@@ -30,8 +30,8 @@ const Omniscan = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            Des données juridiques <em className='higlight'>brutes</em> <br/>
-                            à l'intelligence <em className='higlight'>structurée&nbsp;</em>
+                            Des données juridiques <em className='highlight'>brutes</em> <br/>
+                            à l'intelligence <em className='highlight'>structurée&nbsp;</em>
                         </h1>
                         <h3 className="subtitle">
                             Scannez, structurez, enrichissez&nbsp;: vos documents juridiques deviennent enfin exploitables
@@ -66,10 +66,10 @@ const Omniscan = () => {
                 <div className="container">
                     <h2 className='title__h2'>Le problème et la solution</h2>
                     <p>
-                        Le droit africain est une <em className='higlight'>mine de données brutes inexploitées</em>, des décisions papier aux archives PDF non structurées, une masse immense de patrimoine légal dort.
+                        Le droit africain est une <em className='highlight'>mine de données brutes inexploitées</em>, des décisions papier aux archives PDF non structurées, une masse immense de patrimoine légal dort.
                     </p>
                     <p>
-                        OmniScan change la donne. <em className='higlight'>En quelques secondes, transformez n'importe quel document en intelligence juridique</em>&nbsp;: reconnaître le texte, protéger les données sensibles, extraire la structure, résumer les enjeux. Un seul pipeline?
+                        OmniScan change la donne. <em className='highlight'>En quelques secondes, transformez n'importe quel document en intelligence juridique</em>&nbsp;: reconnaître le texte, protéger les données sensibles, extraire la structure, résumer les enjeux. Un seul pipeline?
                     </p>
                     <p>
                         Un seul objectif&nbsp;: débloquer la valeur cachée de vos archives et accélérer l'accès à la justice en Afrique.

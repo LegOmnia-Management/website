@@ -24,12 +24,12 @@ import Donnee from '../assets/img/pictos/donnee.svg';
 import AI from '../assets/img/pictos/AI.svg';
 import Secure from '../assets/img/pictos/secure.svg';
 
-const Home = () => {
+const Home2 = () => {
 
     const [ showcase, setShowcase ] = useState("usages");
 
     return (
-        <main className="main main__home">
+        <main className="main main__homeTest">
             {/* Hero */}
             <section className="hero">
                 <HeroCanvasMap />
@@ -53,6 +53,10 @@ const Home = () => {
                         <Link className='ui__btn' to="/produits/omnia">Découvrir la plateforme</Link>
                         <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
                     </div>
+                    <ul className="hero__reassure">
+                        <li>Sans engagement</li>
+                        <li>Données souveraines</li>
+                    </ul>
                 </div>
             </section>
         
@@ -73,10 +77,10 @@ const Home = () => {
                     </div>
                     <div className="home__presentation--text">
                         <p>
-                            Aujourd'hui, la donnée juridique est <span class="highlight">fragmentée, non digitalisée, difficilement exploitable</span>.
+                            Aujourd'hui, la donnée juridique est <strong>fragmentée</strong>, <strong>non digitalisée</strong>, <strong>difficilement exploitable</strong>.
                         </p>
                         <p>
-                            LegOmnia propose <span class="highlight">un écosystème complet</span> permettant de passer de cette donnée non digitalisée à <span class="highlight">une intelligence juridique</span> unifiée et structurée.
+                            LegOmnia propose <strong>un écosystème complet</strong> permettant de passer de cette donnée non digitalisée à <strong>une intelligence juridique</strong> unifiée et structurée.
                         </p>
                     </div>
                 </div>
@@ -250,28 +254,28 @@ const Home = () => {
                                     src={Structuration}
                                 />
                                 <h3 className="title">Structuration des données</h3>
-                                <p>Nous collectons, normalisons et enrichissons l'ensemble des textes juridiques africains pour en faire une base fiable, cohérente et exploitable.</p>
+                                <p className="text">Nous collectons, normalisons et enrichissons l'ensemble des textes juridiques africains pour en faire une base fiable, cohérente et exploitable.</p>
                             </li>
                             <li className='card'>
                                 <IconRing
                                     src={Integration}
                                 />
                                 <h3 className="title">Intégration technique</h3>
-                                <p>LegOmnia s'intègre facilement à vos outils existants via API, sans disruption de vos workflows ni refonte de votre infrastructure.</p>
+                                <p className="text">LegOmnia s'intègre facilement à vos outils existants via API, sans disruption de vos workflows ni refonte de votre infrastructure.</p>
                             </li>
                             <li className='card'>
                                 <IconRing
                                     src={Formation}
                                 />
                                 <h3 className="title">Formation et accompagnement</h3>
-                                <p>Nos équipes forment vos collaborateurs à la prise en main de la plateforme et vous accompagnent à chaque étape pour maximiser l'adoption.</p>
+                                <p className="text">Nos équipes forment vos collaborateurs à la prise en main de la plateforme et vous accompagnent à chaque étape pour maximiser l'adoption.</p>
                             </li>
                             <li className='card'>
                                 <IconRing
                                     src={Deploiement}
                                 />
                                 <h3 className="title">Déploiement à l'échelle nationale ou institutionnelle</h3>
-                                <p>De la phase pilote au déploiement national ou multi-pays, LegOmnia est conçu pour croître avec vos besoins sans compromis sur la performance.</p>
+                                <p className="text">De la phase pilote au déploiement national ou multi-pays, LegOmnia est conçu pour croître avec vos besoins sans compromis sur la performance.</p>
                             </li>
                         </ul>
                     </article>
@@ -319,7 +323,7 @@ const Home = () => {
                 <div className="container">
                     <div className="home__ask__demo--content">
                         <h2 className="title__h2">Prêt à transformer votre pratique juridique ?</h2>
-                        <p>LegOmnia est votre infrastructure pour accélérer vos recherches, sécuriser vos documents et prendre des décisions data-driven en Afrique francophone.</p>
+                        <p>LEgOmnia est votre infrastructure pour accélérer vos recherches, sécuriser vos documents et prendre des décisions data-driven en Afrique francophone.</p>
                         <div className="home__ask__demo--actions">
                             <a className="ui__btn" href="/produits/omnia">Découvrir la plateforme</a>
                             <a className="ui__btn--inline" href="/contact">Demander une démo</a>
@@ -343,4 +347,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Home2;
