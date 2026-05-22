@@ -313,7 +313,7 @@
 
 /***************** Tags *****************/
 .ui__tag {
-    background-color: rgba(124,92,252,.08);
+    background-color: #EFEBFE;
     border: 1px solid var(--violetSoft);
     border-radius: var(--radiusPill);
     color: var(--text4);
@@ -506,7 +506,7 @@
 
 /***************** Card *****************/ 
 .card {
-    background: var(--bgMain);
+    background: #fff;
     border: 1px solid var(--violetLightSoft);
     border-radius: 12px;
     line-height: 1.2;

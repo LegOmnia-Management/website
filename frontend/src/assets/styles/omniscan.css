@@ -78,6 +78,7 @@
             color: var(--violet);
             font-size: 1.2rem;
             font-style: normal;
+            margin-top: auto;
             text-align: left;
             text-transform: uppercase;
         }

@@ -53,10 +53,10 @@ const Omnia = () => {
     ]
 
     return (
-        <main className="main">
+        <main className="main main__omnia">
 
             {/* Hero */}
-            <section className="hero" style={{ paddingBottom: "0" }}>
+            <section className="hero">
                 <HeroBg />
                 <div className="container hero__container">
                     <div className="hero__title">
