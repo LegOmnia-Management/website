@@ -1,11 +1,11 @@
-const ENDPOINT = "http://localhost:5171/api/contact";
+const ENDPOINT = import.meta.env.VITE_API_URL;
 
 // create
 export const createContact = async (form) => {
 
     try {
         //post
-        const response = await fetch(ENDPOINT, {
+        const response = await fetch(`${ENDPOINT}/api/contact`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

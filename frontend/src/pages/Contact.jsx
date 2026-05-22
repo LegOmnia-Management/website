@@ -154,17 +154,14 @@ const Contact = () => {
         try {
             // envoi à l'API
             const response = await createContact(data);
-            console.log("data: ", response);
     
             // afficher msg confirmation
-            console.log("afficher confirmation");
             setIsSubmit(true);
         } catch (error) {
 
             if (error.errors) {
                 // stocker les erreurs
                 setDatas(prev => ({ ...prev, ...error.errors })); 
-                console.log("data.errors : ", error.errors);
             } else {
                 console.error("Erreur lors de la création du contact :", error);
             }

@@ -9,7 +9,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_URL,
     credentials: true
 }));
 app.use(express.json());
@@ -22,7 +22,17 @@ app.get('/hello', (req, res) => {
 
 app.use("/api/contact", contactRoutes);
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 5171;
-app.listen(PORT, () => {
-    console.log(`API lancée sur http://localhost:${PORT}`);
-});
+/***************** Pour Vercel *****************/
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT ? Number(process.env.PORT) : 5171;
+    app.listen(PORT, () => {
+        console.log(`API lancée sur http://localhost:${PORT}`);
+    });
+}
+export default app;
+
+/***************** Générique *****************/
+// const PORT = process.env.PORT ? Number(process.env.PORT) : 5171;
+// app.listen(PORT, () => {
+//     console.log(`API lancée sur le port : ${PORT}`);
+// });
