@@ -4,5 +4,15 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    opacity: .2
+    opacity: .2;
+    display: none;
+}
+
+/***************** Breakpoints *****************/
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
+
+    .component__hero--canvas {
+        display: block;
+    }
 }

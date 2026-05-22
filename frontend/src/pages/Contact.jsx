@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+import { createContact } from '../api/contact';
 
 import HeroBg from '../components/HeroBg';
 
@@ -6,6 +9,7 @@ import '../assets/styles/contact.css';
 
 const Contact = () => {
 
+    // stocker erreurs
     const [ datas, setDatas ] = useState({
         firstName: "",
         lastName: "",
@@ -15,6 +19,8 @@ const Contact = () => {
         subject: "",
         message: ""
     });
+
+    // stocker champs vides
     const [ fields, setFields ] = useState({
         firstName: true,
         lastName: true,
@@ -23,9 +29,15 @@ const Contact = () => {
         subject: true,
         message: true
     });
+
+    // visibilité btn submit
     const [ isActive, setIsActive ] = useState(false);
 
-    const validateItem = (value, name) => {
+    // msg confirmation envoi
+    const [ isSubmit, setIsSubmit ] = useState(false);
+
+    // verif valeur des champs
+    const validateItem = (value, name, label = "") => {
 
         let msg = "";
         let empty = {...fields};
@@ -34,11 +46,11 @@ const Contact = () => {
             case "firstName":
             case "lastName":
                 if ( !value || value.trim().length === 0 ){
-                    msg =  "Ce champ est obligatoire";
+                    msg =  `Le ${label} est obligatoire`;
                     empty[name] = true;
                 } else {
                     if ( value && value.trim().length < 2 ){
-                        msg =  "Ce champ doit contenir au moins 2 caractères";
+                        msg =  `Le ${label} doit contenir 2 caractères minimum`;
                     } else {
                         msg = "";
                     }
@@ -47,13 +59,13 @@ const Contact = () => {
                 break;
             case "email":
                 if ( !value || value.trim().length === 0 ){
-                    msg =  "Ce champ est obligatoire";
+                    msg =  "L'email est obligatoire";
                     empty[name] = true;
                 } else {
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     
                     if (!emailRegex.test(value)) {
-                        msg = "Email invalide";
+                        msg = "L'email est invalide";
                     } else {
                         msg =  "";
                     }
@@ -62,13 +74,13 @@ const Contact = () => {
                 break;
             case "phone":
                 if ( !value || value.trim().length === 0 ){
-                    msg =  "Ce champ est obligatoire";
+                    msg =  "Le numéro de téléphone obligatoire";
                     empty[name] = true;
                 } else {
                     const phoneRegex = /^\+?[0-9 ]{7,20}$/;
                     
                     if (!phoneRegex.test(value)) {
-                        msg = "Numéro de téléphone invalide";
+                        msg = "Le numéro de téléphone est invalide";
                     } else {
                         msg =  "";
                     }
@@ -77,14 +89,14 @@ const Contact = () => {
                 break;
             case "company":
                 if ( value && value.trim().length < 2 ){
-                    msg =  "Ce champ doit contenir au moins 2 caractères";
+                    msg =  "L'entreprise doit contenir 2 caractères minimum";
                 } else {
                     msg = "";
                 }
                 break;
             case "subject":
                 if ( !value || value.trim().length === 0 ){
-                    msg =  "Ce champ est obligatoire";
+                    msg =  "Le sujet est obligatoire";
                     empty[name] = true;
                 } else {
                     if ( 
@@ -94,7 +106,7 @@ const Contact = () => {
                         && value != "Support technique" 
                         && value != "Autre" 
                     ) {
-                        msg =  "Veuillez choisir parmi les sujets proposés";
+                        msg =  "Veuillez choisir le sujet parmi la liste proposée";
                     } else {
                         msg =  "";
                     }
@@ -103,11 +115,11 @@ const Contact = () => {
                 break;
             case "message" :
                 if ( !value || value.trim().length === 0 ){
-                    msg =  "Ce champ est obligatoire";
+                    msg =  "Le message est obligatoire";
                     empty[name] = true;
                 } else {
-                    if ( value.trim().length < 20 ){
-                        msg =  "Ce champ doit contenir au moins 20 caractères";
+                    if ( value.trim().length < 10 ){
+                        msg =  "Le message doit contenir 10 caractères minimum";
                     } else {
                         msg =  "";
                     }
@@ -119,18 +131,50 @@ const Contact = () => {
                 empty[name] = false;
         }
 
+        // stocker erreurs
         setDatas(prev => ({
             ...prev,
             [name]: msg
         }));
+
+        // stocker champs vides
         setFields(empty);
     }
 
+    // soumission form
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // récup données form
+        const formData = new FormData(e.target);
+
+        // convertir en JSON
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            // envoi à l'API
+            const response = await createContact(data);
+    
+            // afficher msg confirmation
+            setIsSubmit(true);
+        } catch (error) {
+
+            if (error.errors) {
+                // stocker les erreurs
+                setDatas(prev => ({ ...prev, ...error.errors })); 
+            } else {
+                console.error("Erreur lors de la création du contact :", error);
+            }
+        }
+    }
+
+    // verif msg erreur pour chaque champ
     const hasErrors = () => {
 
         return Object.values(datas).some(error => error !== "");
     }
 
+    // verif si champs obligatoires vides
     const hasFieldEmpty = () => {
 
         return Object.values(fields).some(status => status === true);
@@ -146,6 +190,38 @@ const Contact = () => {
             setIsActive(false);
         }
     }, [datas, fields]);
+
+    // afficher message confirmation
+    if (isSubmit) return (
+
+        <main className="main main__contact">
+
+            {/* Hero */}
+            <section className="hero hero__contact">
+                <HeroBg />
+                <div className="container hero__container">
+                    <div className="hero__title">
+                        <h1 className='main-title'>
+                            Nous contacter
+                        </h1>
+                        <p className='subtitle'>
+                            Votre demande a bien été prise en compte.<br/>
+                            Nous vous recontacterons dans les plus brefs délais.
+                        </p>
+                        <h3>En attendant</h3>
+                        <p className='subtitle'>
+                            Nous vous invitons à parcourir notre site pour découvrir nos produits.
+                        </p>
+                    </div>
+                    <div className="hero__actions">
+                        <Link className='ui__btn' to="/produits/omnia">Découvrir OMNIA</Link>
+                        <Link className='ui__btn' to="/produits/transformation-digitale/presentation">Démarrer votre transformation digitale</Link>
+                        <Link className='ui__btn' to="/produits/use-cases">Voir nos Use Cases</Link>
+                    </div>
+                </div>                
+            </section>
+        </main>
+    );
 
     return (
         <main className="main main__contact">
@@ -167,7 +243,7 @@ const Contact = () => {
             </section>
 
             <section className="contact__content">
-                <form action="" className='contact__form'>
+                <form className='contact__form' onSubmit={handleSubmit}>
                     <p className="asterisk">* Champs obligatoires</p>
                     <p className='form__item--half'>
                         <label htmlFor="firstName">Prénom*</label>
@@ -177,7 +253,7 @@ const Contact = () => {
                             name="firstName"
                             placeholder="Votre prénom*" 
                             required
-                            onChange={e => validateItem(e.target.value, e.target.name)}/>
+                            onChange={e => validateItem(e.target.value, e.target.name, "prénom")}/>
                         <span className="form__item--error">{datas.firstName}</span>
                     </p>
                     <p className='form__item--half'>
@@ -188,7 +264,7 @@ const Contact = () => {
                             name="lastName"
                             placeholder="Votre nom*" 
                             required
-                            onChange={e => validateItem(e.target.value, e.target.name)}/>
+                            onChange={e => validateItem(e.target.value, e.target.name, "nom")}/>
                         <span className="form__item--error">{datas.lastName}</span>
                     </p>
                     <p className='form__item--half'>
@@ -208,7 +284,7 @@ const Contact = () => {
                             type="tel" 
                             id="phone"
                             name="phone"
-                            pattern="0[1-9](?: [0-9]{2}){4}"
+                            pattern="^\+?[0-9 ]{7,20}$"
                             placeholder="Votre numéro de téléphone*" 
                             required
                             onChange={e => validateItem(e.target.value, e.target.name)}/>

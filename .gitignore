@@ -42,18 +42,18 @@ coverage/
 # =====================
 # Backend (future Node API)
 # =====================
-# backend/node_modules
-# backend/dist
-# backend/build
+backend/node_modules
+backend/dist
+backend/build
 
 # =====================
 # Docker (future use)
 # =====================
 # docker-compose.override.yml
-# *.env.docker
+*.env.docker
 
 # =====================
 # Divers
 # =====================
-# .vercel
+.vercel
 # netlify

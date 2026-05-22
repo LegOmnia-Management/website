@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 
+import ScrollToTop from './components/ScrollToTop';
+
 import Cgu from './pages/Cgu';
 import Confidentialite from './pages/Confidentialite';
 import Cookies from './pages/Cookies';
@@ -28,6 +30,7 @@ function App() {
 
     return (
         <BrowserRouter>
+        <ScrollToTop />
             <Header/>
 
             <Routes>
