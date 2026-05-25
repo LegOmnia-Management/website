@@ -125,7 +125,7 @@ section {
         cursor: pointer;
         height: 5.2rem;
         position: relative;
-        transition: transform .3s ease;
+        transition: all .3s ease;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -133,7 +133,12 @@ section {
         &:hover,
         &:focus,
         &:active {
+            border: 1px solid var(--violet);
             transform: translateY(-2px);
+
+            button{
+                color: var(--violet);
+            }
         }
 
         &:not(.isActive) {

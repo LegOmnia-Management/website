@@ -4,10 +4,33 @@ import '../assets/styles/useCases.css';
 
 import HeroBg from '../components/HeroBg';
 
+import Cabinet from '../assets/img/pictos/cabinet.svg';
+import CabinetViolet from '../assets/img/pictos/cabinetViolet.svg';
+import CabinetWhite from '../assets/img/pictos/cabinetWhite.svg';
+import Institution from '../assets/img/pictos/institution.svg';
+import InstitutionViolet from '../assets/img/pictos/institutionViolet.svg';
+import InstitutionWhite from '../assets/img/pictos/institutionWhite.svg';
+import Universite from '../assets/img/pictos/universite.svg';
+import UniversiteViolet from '../assets/img/pictos/universiteViolet.svg';
+import UniversiteWhite from '../assets/img/pictos/universiteWhite.svg';
+import Recherche from '../assets/img/pictos/search.svg';
+import RechercheViolet from '../assets/img/pictos/searchViolet.svg';
+import RechercheWhite from '../assets/img/pictos/searchWhite.svg';
+import InHouse from '../assets/img/pictos/bag.svg';
+import InHouseViolet from '../assets/img/pictos/bagViolet.svg';
+import InHouseWhite from '../assets/img/pictos/bagWhite.svg';
+import Organisation from '../assets/img/pictos/earth.svg';
+import OrganisationViolet from '../assets/img/pictos/earthViolet.svg';
+import OrganisationWhite from '../assets/img/pictos/earthWhite.svg';
+
 const UseCases = () => {
 
-    const [content, setContent] = useState("");
     const [isMobile, setIsMobile] = useState(false);
+    const [content, setContent] = useState("");
+    const [contentOmnia, setContentOmnia] = useState("cabinet");
+    const [contentOmniscan, setContentOmniscan] = useState("cabinet");
+    const [contentGeode, setContentGeode] = useState("cabinet");
+    
 
     useEffect(() => {
         const check = () => setIsMobile(window.innerWidth < 768);
@@ -128,8 +151,99 @@ const UseCases = () => {
                                 <li>Recherche jurisprudentielle & veille législative</li>
                                 <li>17 pays d'Afrique francophone</li>
                             </ul>
-                            <div style={{marginTop: "3rem"}}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <ul className='cases__content--nav'>
+                                <li 
+                                    className={`item ${contentOmnia === 'cabinet' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmnia("cabinet");
+                                    }}
+                                >
+                                    <img src={Cabinet} alt="" aria-hidden="true" className="current"/>
+                                    <img src={CabinetViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={CabinetWhite} alt="" aria-hidden="true" className="white"/>
+                                    Cabinet juridique
+                                </li>
+                                <li 
+                                    className={`item ${contentOmnia === 'ministere' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmnia("ministere");
+                                    }}
+                                >
+                                    <img src={Institution} alt="" aria-hidden="true" className="current"/>
+                                    <img src={InstitutionViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={InstitutionWhite} alt="" aria-hidden="true" className="white"/>
+                                    Ministère
+                                </li>
+                                <li 
+                                    className={`item ${contentOmnia === 'universite' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmnia("universite");
+                                    }}
+                                >
+                                    <img src={Universite} alt="" aria-hidden="true" className="current"/>
+                                    <img src={UniversiteViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={UniversiteWhite} alt="" aria-hidden="true" className="white"/>
+                                    Université
+                                </li>
+                                <li 
+                                    className={`item ${contentOmnia === 'recherche' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmnia("recherche");
+                                    }}
+                                >
+                                    <img src={Recherche} alt="" aria-hidden="true" className="current"/>
+                                    <img src={RechercheViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={RechercheWhite} alt="" aria-hidden="true" className="white"/>
+                                    Recherche
+                                </li>
+                                <li 
+                                    className={`item ${contentOmnia === 'inhouse' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmnia("inhouse");
+                                    }}
+                                >
+                                    <img src={InHouse} alt="" aria-hidden="true" className="current"/>
+                                    <img src={InHouseViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={InHouseWhite} alt="" aria-hidden="true" className="white"/>
+                                    In-house
+                                </li>
+                                <li 
+                                    className={`item ${contentOmnia === 'organisation' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmnia("organisation");
+                                    }}
+                                >
+                                    <img src={Organisation} alt="" aria-hidden="true" className="current"/>
+                                    <img src={OrganisationViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={OrganisationWhite} alt="" aria-hidden="true" className="white"/>
+                                    Organisation
+                                </li>
+                            </ul>
+                            <div className='cases__content--description'>
+                                <div className={contentOmnia != 'cabinet' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Cabinet juridique <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentOmnia != 'ministere' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Ministère <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentOmnia != 'universite' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Université <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentOmnia != 'recherche' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Recherche <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentOmnia != 'inhouse' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu In-house <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentOmnia != 'organisation' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Organisation <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
                             </div>
                         </article>
 
@@ -144,8 +258,99 @@ const UseCases = () => {
                                 <li>Extraction de clauses</li>
                                 <li>Audit contractuel en masse</li>
                             </ul>
-                            <div style={{marginTop: "3rem"}}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <ul className='cases__content--nav'>
+                                <li 
+                                    className={`item ${contentOmniscan === 'cabinet' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmniscan("cabinet");
+                                    }}
+                                >
+                                    <img src={Cabinet} alt="" aria-hidden="true" className="current"/>
+                                    <img src={CabinetViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={CabinetWhite} alt="" aria-hidden="true" className="white"/>
+                                    Cabinet juridique
+                                </li>
+                                <li 
+                                    className={`item ${contentOmniscan === 'ministere' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmniscan("ministere");
+                                    }}
+                                >
+                                    <img src={Institution} alt="" aria-hidden="true" className="current"/>
+                                    <img src={InstitutionViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={InstitutionWhite} alt="" aria-hidden="true" className="white"/>
+                                    Ministère
+                                </li>
+                                <li 
+                                    className={`item ${contentOmniscan === 'universite' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmniscan("universite");
+                                    }}
+                                >
+                                    <img src={Universite} alt="" aria-hidden="true" className="current"/>
+                                    <img src={UniversiteViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={UniversiteWhite} alt="" aria-hidden="true" className="white"/>
+                                    Université
+                                </li>
+                                <li 
+                                    className={`item ${contentOmniscan === 'recherche' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmniscan("recherche");
+                                    }}
+                                >
+                                    <img src={Recherche} alt="" aria-hidden="true" className="current"/>
+                                    <img src={RechercheViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={RechercheWhite} alt="" aria-hidden="true" className="white"/>
+                                    Recherche
+                                </li>
+                                <li 
+                                    className={`item ${contentOmniscan === 'inhouse' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmniscan("inhouse");
+                                    }}
+                                >
+                                    <img src={InHouse} alt="" aria-hidden="true" className="current"/>
+                                    <img src={InHouseViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={InHouseWhite} alt="" aria-hidden="true" className="white"/>
+                                    In-house
+                                </li>
+                                <li 
+                                    className={`item ${contentOmniscan === 'organisation' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentOmniscan("organisation");
+                                    }}
+                                >
+                                    <img src={Organisation} alt="" aria-hidden="true" className="current"/>
+                                    <img src={OrganisationViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={OrganisationWhite} alt="" aria-hidden="true" className="white"/>
+                                    Organisation
+                                </li>
+                            </ul>
+                            <div className='cases__content--description'>
+                                <div className={contentOmniscan != 'cabinet' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Cabinet juridique <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentOmniscan != 'ministere' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Ministère <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentOmniscan != 'universite' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Université <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentOmniscan != 'recherche' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Recherche <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentOmniscan != 'inhouse' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu In-house <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentOmniscan != 'organisation' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Organisation <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
                             </div>
                         </article>
 
@@ -159,8 +364,99 @@ const UseCases = () => {
                                 <li>Cartographie juridique & visualisation territoriale</li>
                                 <li>Couverture pan-africaine</li>
                             </ul>
-                            <div style={{marginTop: "3rem"}}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <ul className='cases__content--nav'>
+                                <li 
+                                    className={`item ${contentGeode === 'cabinet' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentGeode("cabinet");
+                                    }}
+                                >
+                                    <img src={Cabinet} alt="" aria-hidden="true" className="current"/>
+                                    <img src={CabinetViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={CabinetWhite} alt="" aria-hidden="true" className="white"/>
+                                    Cabinet juridique
+                                </li>
+                                <li 
+                                    className={`item ${contentGeode === 'ministere' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentGeode("ministere");
+                                    }}
+                                >
+                                    <img src={Institution} alt="" aria-hidden="true" className="current"/>
+                                    <img src={InstitutionViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={InstitutionWhite} alt="" aria-hidden="true" className="white"/>
+                                    Ministère
+                                </li>
+                                <li 
+                                    className={`item ${contentGeode === 'universite' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentGeode("universite");
+                                    }}
+                                >
+                                    <img src={Universite} alt="" aria-hidden="true" className="current"/>
+                                    <img src={UniversiteViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={UniversiteWhite} alt="" aria-hidden="true" className="white"/>
+                                    Université
+                                </li>
+                                <li 
+                                    className={`item ${contentGeode === 'recherche' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentGeode("recherche");
+                                    }}
+                                >
+                                    <img src={Recherche} alt="" aria-hidden="true" className="current"/>
+                                    <img src={RechercheViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={RechercheWhite} alt="" aria-hidden="true" className="white"/>
+                                    Recherche
+                                </li>
+                                <li 
+                                    className={`item ${contentGeode === 'inhouse' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentGeode("inhouse");
+                                    }}
+                                >
+                                    <img src={InHouse} alt="" aria-hidden="true" className="current"/>
+                                    <img src={InHouseViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={InHouseWhite} alt="" aria-hidden="true" className="white"/>
+                                    In-house
+                                </li>
+                                <li 
+                                    className={`item ${contentGeode === 'organisation' ? 'isActive' : ""}`}
+                                    onClick={() => {
+                                        setContentGeode("organisation");
+                                    }}
+                                >
+                                    <img src={Organisation} alt="" aria-hidden="true" className="current"/>
+                                    <img src={OrganisationViolet} alt="" aria-hidden="true" className="violet"/>
+                                    <img src={OrganisationWhite} alt="" aria-hidden="true" className="white"/>
+                                    Organisation
+                                </li>
+                            </ul>
+                            <div className='cases__content--description'>
+                                <div className={contentGeode != 'cabinet' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Cabinet juridique <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentGeode != 'ministere' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Ministère <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentGeode != 'universite' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Université <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentGeode != 'recherche' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Recherche <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentGeode != 'inhouse' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu In-house <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
+                                <div className={contentGeode != 'organisation' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
+                                    Le contenu Organisation <br/>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </div>
                             </div>
                         </article>
                     </div>

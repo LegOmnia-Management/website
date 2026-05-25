@@ -56,7 +56,7 @@ const Geode = () => {
                                 Combinez un DMS moderne avec les capacités d'IA d'OMNIA et OmniScan pour une expérience documentaire sans équivalent.
                             </p>
                         </div>
-                        <img src={Gestion} alt="Application LegOmnia" />
+                        <img src={Gestion} alt="Application LegOmnia" loading="lazy"/>
                     </div>
                 </div>
             </section>
@@ -222,16 +222,16 @@ const Geode = () => {
                         speed={1000}
                     >
                         <SwiperSlide>
-                            <img src={DashboardGeode} alt="Application Geode - Connexion"/>
+                            <img src={DashboardGeode} alt="Application Geode - Connexion" loading="lazy"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={DashboardGeode2} alt="Application Geode - Tableau de bord"/>
+                            <img src={DashboardGeode2} alt="Application Geode - Tableau de bord" loading="lazy"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={DashboardGeode3} alt="Application Geode - Connecteurs"/>
+                            <img src={DashboardGeode3} alt="Application Geode - Connecteurs" loading="lazy"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={DashboardGeode4} alt="Application Geode - Assistant IA"/>
+                            <img src={DashboardGeode4} alt="Application Geode - Assistant IA" loading="lazy"/>
                         </SwiperSlide>
                     </Swiper>
                 </div>

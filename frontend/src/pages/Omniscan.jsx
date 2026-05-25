@@ -56,7 +56,7 @@ const Omniscan = () => {
                                 Le socle technologique qui réveille le patrimoine légal africain.
                             </p>
                         </div>
-                        <img src={Pipeline} alt="Application LegOmnia" />
+                        <img src={Pipeline} alt="Application LegOmnia" loading="lazy"/>
                     </div>
                 </div>
             </section>
@@ -203,7 +203,7 @@ const Omniscan = () => {
                                 Vos données restent sur le sol national, conformément aux réglementations locales en vigueur. 
                             </p>
                         </div>
-                        <img src={Souverainete} alt="Application LegOmnia" />
+                        <img src={Souverainete} alt="Application LegOmnia" loading="lazy"/>
                     </div>
                 </div>
             </section>
