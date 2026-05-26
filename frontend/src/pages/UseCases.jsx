@@ -39,8 +39,31 @@ const UseCases = () => {
     const [contentOmnia, setContentOmnia] = useState("cabinet");
     const [contentOmniscan, setContentOmniscan] = useState("cabinet");
     const [contentGeode, setContentGeode] = useState("cabinet");
+    const [openAccordions, setOpenAccordions] = useState({});
+
+    const toggleAccordion = (id) => {
+
+        // à partir de openAccordions
+        setOpenAccordions(prev => { 
+          const isOpen = prev[id];
+      
+          if (isOpen) {
+            // si déjà ouvert --> on le ferme
+            const copy = { ...prev };
+            copy[id] = false;
+            return copy;
+          } else {
+            // si fermé --> on l’ouvre
+            const copy = { ...prev };
+            copy[id] = true;
+            return copy;
+          }
+        });
+      };
 
     useEffect(() => {
+
+        // verif si mobile
         const check = () => setIsMobile(window.innerWidth < 768);
     
         check(); // init
@@ -49,14 +72,14 @@ const UseCases = () => {
         return () => window.removeEventListener("resize", check);
       }, []);
     
-      useEffect(() => {
+    //   useEffect(() => {
         
-        if (isMobile) {
-          setContent("");
-        } else {
-          setContent("omnia");
-        }
-      }, [isMobile]);
+    //     if (isMobile) {
+    //       setContent("");
+    //     } else {
+    //       setContent("omnia");
+    //     }
+    //   }, [isMobile]);
 
     return (
         <main className="main main__cases">
@@ -224,8 +247,21 @@ const UseCases = () => {
                                 </li>
                             </ul>
                             <div className='cases__content--description'>
-                                <div className={`description__block ${contentOmnia != 'cabinet' ? 'isHidden' : ""}`} style={{marginTop: "3rem"}}>
-                                    <div className='description__title'>
+                                <div 
+                                    className={
+                                        `description__block 
+                                        ${contentOmnia != 'cabinet' ? 'isHidden' : ""}
+                                        ${openAccordions[`omnia_cabinet_tab1`] ? 'isOpen' : ""}
+                                        `
+                                    }>
+                                    <div 
+                                        className='description__title'
+                                        onClick={() =>
+                                            toggleAccordion(
+                                                `${content}_${contentOmnia}_tab1`
+                                            )
+                                        }
+                                    >
                                         <span className='description__title--number omnia'>01</span>
                                         <span className='description__title--text'>Recherche jurisprudentielle pour préparer une plaidoirie OHADA</span>
                                     </div>
