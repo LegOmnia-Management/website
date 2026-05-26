@@ -18,6 +18,7 @@
     --blueDark: #61C3E1;
     --blueSoft :rgba(92, 225, 230, .12);
     --pink: #e896f6;
+    --pinkDark: #d080de;
     --gradientOmniscan: linear-gradient(90deg, var(--violet), var(--blue));
     --gradientOmniscanHover: linear-gradient(90deg, var(--violetDark), var(--blueDark));
     --gradientGeode: linear-gradient(90deg, var(--violet), var(--pink));
@@ -428,6 +429,7 @@
 
 .hero__search {
     background-color: white;
+    border: 1px solid var(--violetSoft);
     border-radius: var(--radiusPill);
     font-size: 1.4rem;
     height: 4.5rem;

@@ -130,6 +130,16 @@
             font-size: 1.1rem;
             margin-top: .2rem;
             padding: 0 2rem;
+
+            &.omniscan {
+                background-color: #F6ECFE;
+                border-color: var(--pink);
+            }
+
+            &.geode {
+                background-color: #E5F3FB;
+                border-color: var(--blue);
+            }
         }
 
         .title__list {
@@ -148,12 +158,12 @@
 
     .item {
         background-color: white;
-        border: 1px solid var(--violetSoft);
+        border: 2px solid var(--blackOutline);
         border-radius: var(--radiusPill);
         cursor: pointer;
         font-size: 1.2rem;
         padding: .3rem 1rem;
-        transition: transform .3s ease;
+        transition: all .3s ease;
         display: flex;
         justify-content: space-between;
         gap: .5rem;
@@ -162,8 +172,7 @@
             width: 1.5rem;
         }
 
-        .white, 
-        .violet {
+        .color {
             display: none;
         }
 
@@ -171,41 +180,256 @@
         &:focus,
         &:active {
             transform: translateY(-2px);
-            color: var(--violetDark);
 
             .current {
                 display: none;
             }
 
-            .violet {
+            .color {
                 display: block;
             }
         }
 
         &.isActive {
-            background-color: var(--violet);
-            color: white;
             cursor: default;
 
             &:hover {
                 transform: none;
             }
 
-            .current, 
-            .violet {
+            .current{
                 display: none;
             }
 
-            .white {
+            .color {
                 display: block;
+            }
+        }
+    }
+
+    &.omnia {
+
+        .item:hover,
+        .item:focus,
+        .item:active {
+            border-color: var(--violet);
+            color: var(--violetDark);
+        }
+
+        .item.isActive {
+            background-color: #EFEBFE;
+            border-color: var(--violet);
+            color: var(--violet);
+        }
+    }
+
+    &.omniscan {
+
+        .item:hover,
+        .item:focus,
+        .item:active {
+            border-color: var(--pink);
+            color: var(--pinkDark);
+        }
+
+        .item.isActive {
+            background-color: #F6ECFE;
+            border-color: var(--pinkDark);
+            color: var(--pinkDark);
+        }
+    }
+
+    &.geode {
+
+        .item:hover,
+        .item:focus,
+        .item:active {
+            border-color: var(--blue);
+            color: var(--blueDark);
+        }
+
+        .item.isActive {
+            background-color: #E5F3FB;
+            border-color: var(--blueDark);
+            color: var(--blueDark);
+        }
+    }
+}
+
+.cases__content--description {
+    
+    .isHidden {
+        display: none;
+    }
+}
+
+.description__block {
+    background-color: white;
+    border: 1px solid var(--blackOutline);
+    border-radius: 12px;
+    box-shadow: var(--boxShadowSimple);
+    padding-inline: 1rem;
+    text-align: left;
+
+    &.open {
+
+        .description__title {
+            border-bottom: 1px solid var(--blackOutline);
+        }
+    }
+
+    .description__title {
+        font-weight: 700;
+        padding-block: 2rem;
+    }
+
+    .description__title--number {
+        font-size: 1.2rem;
+        margin-right: 2rem;
+
+        &.omnia {
+            color: var(--violet);
+        }
+
+        &.omniscan {
+            color: var(--pinkDark);
+        }
+
+        &.geode {
+            color: var(--blueDark);
+        }
+    }
+}
+
+.description__scenario {
+    background: var(--bgBtnGrey);
+    border-left: 3px solid var(--text3);
+    border-radius: 0 6px 6px 0;
+    color: var(--text2)!important;
+    font-style: italic;
+    font-size: 1.4rem;
+    line-height: 1.75;
+    margin: 2rem 0;
+    padding: 0.75rem 1rem;
+}
+
+.description__subtitle {
+    font-size: 1.2rem;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    margin-block: 2rem .5rem!important;
+    font-weight: 600;
+
+    &.omnia {
+        color: var(--violetLight);
+    }
+
+    &.omniscan {
+        color: var(--pinkDark);
+    }
+
+    &.geode {
+        color: var(--blueDark);
+    }
+}
+
+.description__list {
+    list-style: none;
+
+    .list__step {
+        display: flex;
+        gap: 1.2rem;
+        align-items: flex-start;
+        margin-top: 1rem;
+
+        span:first-child {
+            border-radius: 50%;
+            font-size: 1rem;
+            font-weight: 700;
+            height: 20px;
+            margin-top: 2px;
+            width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        &.omnia {
+
+            span:first-child {
+                background: #EFEBFE;
+                color: var(--violet);
+                border: 1.5px solid var(--violet);
+            }
+        }
+
+        &.omniscan {
+
+            span:first-child {
+                background: #F6ECFE;
+                color: var(--pinkDark);
+                border: 1.5px solid var(--pinkDark);
+            }
+        }
+
+        &.geode {
+
+            span:first-child {
+                background: #E5F3FB;
+                color: var(--blueDark);
+                border: 1.5px solid var(--blueDark);
             }
         }
     }
 }
 
-.cases__content--description .isHidden {
-    display: none;
+.description__result {
+    border-radius: 8px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-block: 1.5rem 2rem;
+    padding: 1rem 1.4rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    
+    &.omnia {
+        background: #EFEBFE;
+        border: 1px solid var(--violet);
+        color: var(--violet);
+    }
+
+    &.omniscan {
+        background: #F6ECFE;
+        border: 1px solid var(--pinkDark);
+        color: var(--pinkDark);
+    }
+
+    &.geode {
+        background: #E5F3FB;
+        border: 1px solid var(--blueDark);
+        color: var(--blueDark);
+    }
 }
+
+.description__tags__list {
+    list-style: none;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    li {
+        background: var(--bgBtnGrey);
+        border-radius: var(--radiusPill);
+        border: 1px solid var(--text3);
+        color: var(--muted);
+        font-size: 1.2rem;
+        padding: .2rem .9rem;
+    }
+}
+
 
 /***************** Breakpoints *****************/
 /* Custom : 30em *  16px => 480px */
@@ -215,6 +439,11 @@
     .cases__navigation--nav .card {
         margin-inline: auto;
         width: 75%;
+    }
+
+    /* Content */
+    .description__block {
+        padding-inline: 2rem;
     }
 }
 
@@ -260,22 +489,27 @@
             }
     
             .title__list {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: center;
-                gap: 2rem;
+                gap: .5rem 2.5rem;
 
                 li {
                     position: relative;
 
-                    &:not(:first-of-type)::before {
-                        content: "●";
+                    &:not(:last-of-type)::after {
+                        content: "";
+                        background-color: var(--text1);
+                        border-radius: 50%;
+                        width: 6px;
+                        aspect-ratio: 1/1;
                         position: absolute;
-                        left: -1.5rem;
-                        top: 0;
+                        right: -1.5rem;
+                        top: 50%;
+                        transform: translateY(-50%)
                     }
                 }
-                
             }
         }
     }
@@ -285,6 +519,10 @@
         .item {
             font-size: 1.4rem;
         }
+    }
+
+    .description__tags__list {
+        margin-bottom: 2rem;
     }
 }
 
@@ -311,13 +549,12 @@
             }
     
             .title__list {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
     }
 
     .cases__content--nav {
-
 
         .item {
             font-size: 1.6rem;
