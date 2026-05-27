@@ -343,7 +343,7 @@ const UseCases = () => {
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>3</span>
-                                                    <span>Structuration thématique manuelle : expropriation, baux emphytéotiques, titres fonciers</span>
+                                                    <span>Structuration thématique manuelle&nbsp;: expropriation, baux emphytéotiques, titres fonciers</span>
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>4</span>
@@ -511,7 +511,7 @@ const UseCases = () => {
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>2</span>
-                                                    <span>Extraction des dispositions comparables sur les thèmes clés : garde à vue, instruction, appel</span>
+                                                    <span>Extraction des dispositions comparables sur les thèmes clés&nbsp;: garde à vue, instruction, appel</span>
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>3</span>
@@ -562,7 +562,7 @@ const UseCases = () => {
                                             <ul className='description__list'>
                                                 <li className="list__step omnia">
                                                     <span>1</span>
-                                                    <span>Recherche ciblée sur Omnia : législation minière et réglementation de la sous-traitance</span>
+                                                    <span>Recherche ciblée sur Omnia&nbsp;: législation minière et réglementation de la sous-traitance</span>
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>2</span>
@@ -627,7 +627,7 @@ const UseCases = () => {
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>2</span>
-                                                    <span>Sélection des arrêts présentant un intérêt pédagogique : revirement, précision de principe</span>
+                                                    <span>Sélection des arrêts présentant un intérêt pédagogique&nbsp;: revirement, précision de principe</span>
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>3</span>
@@ -798,7 +798,7 @@ const UseCases = () => {
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>2</span>
-                                                    <span>Identification des lois et décrets pertinents : eau, forêt, mines, déchets, énergie</span>
+                                                    <span>Identification des lois et décrets pertinents&nbsp;: eau, forêt, mines, déchets, énergie</span>
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>3</span>
@@ -1142,7 +1142,7 @@ const UseCases = () => {
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>2</span>
-                                                    <span>Identification des textes applicables aux droits évalués : expression, association, procès équitable</span>
+                                                    <span>Identification des textes applicables aux droits évalués&nbsp;: expression, association, procès équitable</span>
                                                 </li>
                                                 <li className="list__step omnia">
                                                     <span>3</span>
@@ -1354,30 +1354,1035 @@ const UseCases = () => {
                                     Organisation
                                 </li>
                             </ul>
+                            
                             <div className='cases__content--description'>
-                                <div className={contentOmniscan != 'cabinet' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu Cabinet juridique <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                {/* OmniScan - cabinet */}
+                                <div
+                                    className={`${contentOmniscan != 'cabinet' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* OmniScan - cabinet - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_cabinet_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>01</span>
+                                            <span className='description__title--text'>Numérisation des archives clients pour la transition au tout-numérique</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un cabinet de 12 avocats décide de supprimer le papier. Il dispose de 15 ans d'archives clients (actes, correspondances, pièces de procédure) stockées dans des classeurs physiques.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur OmniScan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation en masse des documents via OmniScan avec alimentation automatique</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR haute précision sur chaque page pour rendre le contenu entièrement recherchable</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Détection automatique du type de document&nbsp;: acte, jugement, courrier, contrat</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Nommage structuré et organisation par dossier client selon la nomenclature du cabinet</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                15 ans d'archives numérisées en 3 semaines. Chaque document retrouvable en moins de 10 secondes.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Dématérialisation</li>
+                                                <li>Archives cabinet</li>
+                                                <li>OCR</li>
+                                                <li>Transition numérique</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - cabinet - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_cabinet_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>02</span>
+                                            <span className='description__title--text'>Digitalisation des 800 pièces d'un dossier de procédure transmis en papier</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un avocat reçoit un dossier de 800 pièces en format papier transmis par la partie adverse lors de la communication des pièces. Il doit les intégrer rapidement dans son système de gestion de dossiers.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Scan des 800 pièces avec alimentation haute cadence via OmniScan</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR et reconnaissance automatique du type de document&nbsp;: jugements, actes, factures, courriers</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction des métadonnées clés&nbsp;: dates, parties, montants, références</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Indexation dans le dossier numérique du cabinet avec cotes attribuées automatiquement</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                800 pièces numérisées et indexées en 4h. Dossier entièrement consultable avant l'audience.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Procédure civile</li>
+                                                <li>Communication des pièces</li>
+                                                <li>Indexation</li>
+                                                <li>Dossier numérique</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - cabinet - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_cabinet_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>03</span>
+                                            <span className='description__title--text'>Numérisation du fonds d'actes d'un office notarial en reprise</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un office notarial reprend le fonds d'un confrère retraité comprenant 25 ans d'actes originaux. Ces documents doivent être numérisés et intégrés dans le système de l'office repreneur.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation des actes avec détection automatique du type&nbsp;: vente, succession, bail, société</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR spécialisé sur les documents juridiques à typographie variée, incluant tampons et signatures</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction des métadonnées&nbsp;: date de l'acte, parties, notaire instrumentant, nature du bien</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Indexation dans le répertoire chronologique et par client, conforme aux obligations légales</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                25 ans d'actes numérisés et indexés en 5 semaines. Continuité du service garantie dès la reprise.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Notariat</li>
+                                                <li>Reprise de fonds</li>
+                                                <li>Actes notariés</li>
+                                                <li>Conformité légale</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={contentOmniscan != 'ministere' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu Ministère <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                
+                                {/* OmniScan - ministère */}
+                                <div
+                                    className={`${contentOmniscan != 'ministere' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* OmniScan - ministère - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_ministere_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>01</span>
+                                            <span className='description__title--text'>Numérisation des archives du Journal Officiel — 30 ans de textes</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un ministère de la Justice souhaite rendre recherchables 30 ans de Journaux Officiels stockés en format papier. Ces textes sont inaccessibles aux citoyens et aux praticiens du droit.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation haute résolution des JO papier avec gestion des formats et états variables</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR multicolonne adapté à la mise en page spécifique des journaux officiels</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction structurée&nbsp;: numéro, date, nature du texte, émetteur, référence officielle</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Indexation full-text et livraison pour intégration dans le portail juridique national</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                30 ans de textes indexés et accessibles. Temps de recherche d'un texte&nbsp;: quelques secondes vs plusieurs jours d'archive.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Journal officiel</li>
+                                                <li>Archives nationales</li>
+                                                <li>OCR</li>
+                                                <li>Accès au droit</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - ministère - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_ministere_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>02</span>
+                                            <span className='description__title--text'>Digitalisation des registres d'état civil pour un programme de modernisation</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un programme de modernisation de l'état civil vise à numériser les registres de naissance, mariage et décès de 150 communes pour permettre la délivrance d'actes en ligne.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Déploiement mobile d'OmniScan dans les communes selon un calendrier par région</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR spécialisé sur les registres manuscrits et dactylographiés anciens</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction structurée&nbsp;: nom, prénom, date, commune, officier d'état civil</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Validation des données et signalement des cas ambigus pour vérification manuelle</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                2 millions d'actes numérisés. Délai de délivrance d'un acte réduit de 3 semaines à quelques jours.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>État civil</li>
+                                                <li>Registres</li>
+                                                <li>Modernisation</li>
+                                                <li>Service public numérique</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - ministère - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_ministere_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>03</span>
+                                            <span className='description__title--text'>Dématérialisation des dossiers d'un tribunal administratif</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un tribunal administratif dispose de 12 000 dossiers papier en cours. La réforme de la justice administrative impose la dématérialisation complète dans un délai de 18 mois.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation des nouveaux dossiers en flux continu à l'entrée du greffe</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>Traitement rétrospectif des 12 000 dossiers existants par lots priorisés par date d'audience</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>OCR des actes de procédure&nbsp;: requêtes, mémoires, pièces jointes, ordonnances</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Livraison dans un format compatible avec le logiciel de gestion des affaires de la juridiction</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                12 000 dossiers dématérialisés en 16 mois. Audience préparée avec un dossier numérique complet.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Justice administrative</li>
+                                                <li>Greffe</li>
+                                                <li>Dématérialisation</li>
+                                                <li>Réforme judiciaire</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={contentOmniscan != 'universite' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu Université <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                
+                                {/* OmniScan - université */}
+                                <div
+                                    className={`${contentOmniscan != 'universite' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* OmniScan - université - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_universite_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>01</span>
+                                            <span className='description__title--text'>Numérisation d'une collection de décisions judiciaires historiques</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un centre de recherche juridique détient des milliers de décisions manuscrites des années 1960–1985, patrimoine inestimable mais totalement inaccessible aux chercheurs faute de numérisation.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>OCR spécialisé sur les documents manuscrits et typographies judiciaires des années 60-80</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>Reconnaissance des structures&nbsp;: en-tête de juridiction, attendus, dispositif</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction des métadonnées&nbsp;: juridiction, date, parties, matière, résultat</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Mise à disposition dans une base consultable par les chercheurs du laboratoire</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                25 ans de jurisprudence historique rendue accessible. Valorisation d'un patrimoine juridique jusqu'ici inexploitable.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Patrimoine juridique</li>
+                                                <li>OCR manuscrit</li>
+                                                <li>Archives judiciaires</li>
+                                                <li>Recherche historique</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - université - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_universite_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>02</span>
+                                            <span className='description__title--text'>Digitalisation du fonds de revues juridiques africaines épuisées</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                La bibliothèque de droit d'une université veut numériser 20 ans de revues juridiques africaines épuisées et introuvables, pour les mettre à disposition des étudiants en ligne.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation des revues avec correction automatique des pages mal exposées ou légèrement froissées</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR haute précision sur les textes juridiques en français avec gestion des notes de bas de page</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Génération des métadonnées bibliographiques&nbsp;: auteur, titre, volume, numéro, date, résumé</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Livraison dans un format compatible avec le portail numérique de la bibliothèque universitaire</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                20 ans de revues numérisées et accessibles en ligne. Collection disponible 24h/24 pour tous les campus.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Bibliothèque juridique</li>
+                                                <li>Revues africaines</li>
+                                                <li>Numérisation</li>
+                                                <li>Patrimoine académique</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - université - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_universite_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>03</span>
+                                            <span className='description__title--text'>Numérisation des thèses soutenues pour constitution d'un corpus de doctrine</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un réseau de 8 universités francophones veut numériser 20 ans de thèses de doctorat en droit soutenues dans ses établissements pour créer un corpus de doctrine juridique panafricain.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation des thèses reliées avec alimentation automatique page par page</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR adapté aux mises en page académiques&nbsp;: notes de bas de page, bibliographies, tableaux</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction des métadonnées&nbsp;: auteur, directeur, université, date, discipline, résumé</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Indexation et intégration dans le portail documentaire commun du réseau universitaire</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                5 000 thèses numérisées en 4 mois. Premier corpus de doctrine juridique francophone d'Afrique.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Thèses de droit</li>
+                                                <li>Doctrine</li>
+                                                <li>Corpus de recherche</li>
+                                                <li>Réseau universitaire</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={contentOmniscan != 'recherche' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu Recherche <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                {/* OmniScan - recherche */}
+                                <div
+                                    className={`${contentOmniscan != 'recherche' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* OmniScan - recherche - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_recherche_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>01</span>
+                                            <span className='description__title--text'>Numérisation de décisions de justice pour un dataset d'analyse empirique</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un laboratoire de droit empirique a collecté 8 000 décisions de justice en format papier sur 15 ans. Leur numérisation est le préalable indispensable à la construction d'un dataset d'analyse quantitative.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation par lot des décisions papier avec tri automatique en cours de traitement</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR haute précision avec détection des structures juridiques&nbsp;: attendus, dispositif, référencese</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction des variables&nbsp;: juridiction, date, matière, type de décision</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Export en format structuré prêt pour l'analyse statistique</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                8 000 décisions numérisées et structurées en 3 semaines. Dataset prêt pour 3 axes de recherche simultanés.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Empirical legal studies</li>
+                                                <li>Dataset juridique</li>
+                                                <li>Numérisation en masse</li>
+                                                <li>Droit quantitatif</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - recherche - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_recherche_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>02</span>
+                                            <span className='description__title--text'>Digitalisation des archives d'un observatoire des droits humains</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un observatoire régional dispose de 20 ans de rapports terrain, correspondances et documents probatoires en format papier. Ces archives constituent la mémoire irremplaçable des violations documentées.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span> Numérisation sécurisée avec gestion rigoureuse de la chaîne de custody documentaire</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR sur des documents parfois dégradés, froissés ou partiellement illisibles</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction des entités nommées&nbsp;: lieux, dates, victimes, auteurs présumés</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Livraison dans une archive sécurisée avec contrôle strict des droits d'accès</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                20 ans de documentation numérisée et sécurisée. Archives préservées et admissibles comme preuves devant les juridictions.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Droits humains</li>
+                                                <li>Archives probatoires</li>
+                                                <li>Chaîne de custody</li>
+                                                <li>Justice internationale</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - recherche - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_recherche_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>03</span>
+                                            <span className='description__title--text'>Numérisation des codes juridiques pour un programme régional de documentation</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un programme régional de documentation du droit veut numériser les codes juridiques officiels (civil, pénal, commerce, travail) de 10 pays en version papier originale pour les rendre accessibles.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation des codes officiels avec gestion des structures multicolonnes et des renvois</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR spécialisé sur les documents juridiques densément structurés</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Reconnaissance des articles, alinéas et notes marginales</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Génération de versions numériques structurées prêtes pour intégration dans les bases légales</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                Codes de 10 pays numérisés et structurés en 6 semaines. Fondement d'un corpus légal régional accessible.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Codes juridiques</li>
+                                                <li>Documentation du droit</li>
+                                                <li>Numérisation</li>
+                                                <li>Droit africain</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={contentOmniscan != 'inhouse' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu In-house <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                {/* OmniScan - inhouse */}
+                                <div
+                                    className={`${contentOmniscan != 'inhouse' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* OmniScan - inhouse - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_inhouse_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>01</span>
+                                            <span className='description__title--text'>Dématérialisation des archives contractuelles d'un groupe industriel</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un groupe industriel présent dans 4 pays accumule des contrats papier depuis 15 ans (fournisseurs, clients, baux, concessions) dispersés dans 6 sites. La recherche d'un contrat prend en moyenne une demi-journée.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation des archives contractuelles sur tous les sites en parallèle</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR et reconnaissance automatique du type de contrat</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction des données clés&nbsp;: parties, objet, date, durée, échéances</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Livraison dans la base contractuelle de l'entreprise avec classement automatique</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                15 ans de contrats numérisés en 4 semaines. Temps de recherche d'un contrat&nbsp;: moins d'une minute.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Archives contractuelles</li>
+                                                <li>Dématérialisation</li>
+                                                <li>Groupe industriel</li>
+                                                <li>Efficacité opérationnelle</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - inhouse - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_inhouse_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>02</span>
+                                            <span className='description__title--text'>Numérisation des dossiers RH pour la gestion des contentieux prud'homaux</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Une direction juridique sociale gère des contentieux prud'homaux dans 3 pays. Les dossiers RH des salariés concernés sont en format papier dans les DRH locales et prennent 10 jours à obtenir.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation des dossiers salariés ciblés dans les DRH locales à la demande</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR des contrats de travail, avenants, bulletins de salaire, courriers disciplinaires</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction des données&nbsp;: prise de poste, classification, rémunération, historique disciplinaire</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Transmission sécurisée du dossier numérisé à la direction juridique groupe sous 48h</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                Dossiers disponibles en 48h vs 10 jours habituellement. Dossiers de plaidoirie préparés avec tous les éléments.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Droit social</li>
+                                                <li>Contentieux prud'homal</li>
+                                                <li>Dossiers RH</li>
+                                                <li>Numérisation à la demande</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - inhouse - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_inhouse_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>03</span>
+                                            <span className='description__title--text'>Digitalisation des baux commerciaux d'une société foncière</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Une foncière gère 200 baux commerciaux tous en format papier. Elle n'a aucune visibilité consolidée sur les échéances, les révisions de loyer et les clauses spécifiques de chaque bail
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation des 200 baux en flux centralisé via OmniScann</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>
+                                                    OCR et extraction des clauses clés&nbsp;: durée, loyer, révision, préemption, résiliation</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Structuration dans une base de données avec toutes les données essentielles par bail de la jurisprudence disponible sur les contentieux fréquents dans le secteur</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Livraison du fichier structuré pour intégration dans l'outil de gestion locative de la foncière</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                200 baux structurés en 1 semaine. Première vision consolidée du portefeuille locatif.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Baux commerciaux</li>
+                                                <li>Foncière</li>
+                                                <li>Portefeuille locatif</li>
+                                                <li>Gestion patrimoniale</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={contentOmniscan != 'organisation' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu Organisation <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                {/* OmniScan - organisation */}
+                                <div
+                                    className={`${contentOmniscan != 'organisation' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* OmniScan - organisation - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_organisation_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>01</span>
+                                            <span className='description__title--text'>Numérisation des archives législatives nationales — programme OIF</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                L'OIF finance la numérisation des archives législatives de 4 pays francophones pour préserver le patrimoine juridique et le rendre accessible aux citoyens, aux praticiens et aux chercheurs.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Déploiement d'OmniScan sur site dans les 4 pays avec formation des équipes locales</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR sur des documents d'âges et d'états variés en français et langues nationales</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Structuration des métadonnées selon les standards internationaux d'archivage</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Livraison progressive au portail open access commun aux pays participants</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                300 000 pages numérisées et indexées. Patrimoine juridique accessible en ligne pour la première fois.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>OIF</li>
+                                                <li>Francophonie</li>
+                                                <li>Archives nationales</li>
+                                                <li>Patrimoine juridique</li>
+                                                <li>Open access</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - organisation - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_organisation_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>02</span>
+                                            <span className='description__title--text'>Dématérialisation des rapports terrain d'une ONG droits humains</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Une ONG internationale reçoit chaque mois 300 rapports terrain papier de ses équipes dans 8 pays. Ces documents probatoires doivent être numérisés et sécurisés pour les procédures devant les organes de traités.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Numérisation mensuelle des rapports terrain avec horodatage certifié</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR avec préservation de la mise en page originale comme document probatoire</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Extraction des métadonnées&nbsp;: pays, date, auteur, type d'incident</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Archivage sécurisé et chiffré avec traçabilité complète de tous les accès</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                Rapports disponibles et sécurisés dans les 48h de réception. Admissibilité comme preuves garantie.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>ONG</li>
+                                                <li>Droits humains</li>
+                                                <li>Documents probatoires</li>
+                                                <li>Archivage sécurisé</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* OmniScan - organisation - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`omniscan_organisation_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentOmniscan}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number omniscan'>03</span>
+                                            <span className='description__title--text'>Numérisation des textes légaux pour un programme d'harmonisation régionale</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Une organisation d'intégration régionale a besoin des textes législatifs de ses 10 États membres en format numérique structuré pour alimenter les travaux de son programme d'harmonisation normative.
+                                            </p>
+                                            <p className='description__subtitle omniscan'>Workflow sur Omniscan</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step omniscan">
+                                                    <span>1</span>
+                                                    <span>Collecte et numérisation des codes et lois en vigueur dans les 10 États membres</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>2</span>
+                                                    <span>OCR adapté aux formats légaux variés selon les traditions juridiques des États</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>3</span>
+                                                    <span>Normalisation et structuration des textes dans un format XML commun</span>
+                                                </li>
+                                                <li className="list__step omniscan">
+                                                    <span>4</span>
+                                                    <span>Livraison à la base documentaire de l'organisation pour les travaux d'harmonisation</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result omniscan'>
+                                                <img src={CheckOmniscan} alt="" aria-hidden="true"/>
+                                                Corpus de 10 pays disponible en 5 semaines. Travaux d'harmonisation lancés avec 3 mois d'avance sur le calendrier.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Harmonisation régionale</li>
+                                                <li>Corpus législatif</li>
+                                                <li>Intégration</li>
+                                                <li>Normalisation</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </article>
