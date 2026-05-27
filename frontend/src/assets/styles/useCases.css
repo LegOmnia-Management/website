@@ -268,17 +268,19 @@
     border: 1px solid var(--blackOutline);
     border-radius: 12px;
     box-shadow: var(--boxShadowSimple);
+    margin-bottom: 2rem;
     padding-inline: 1rem;
     text-align: left;
 
     .description__title {
         font-weight: 700;
         padding-block: 2rem;
+        display: flex;
     }
 
     .description__title--number {
         font-size: 1.2rem;
-        margin-right: 2rem;
+        margin: .4rem 2rem 0 0;
 
         &.omnia {
             color: var(--violet);
