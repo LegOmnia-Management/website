@@ -2463,30 +2463,1033 @@ const UseCases = () => {
                                     Organisation
                                 </li>
                             </ul>
+                            
                             <div className='cases__content--description'>
-                                <div className={contentGeode != 'cabinet' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu Cabinet juridique <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                {/* Géode - cabinet */}
+                                <div
+                                    className={`${contentGeode != 'cabinet' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* Géode - cabinet - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_cabinet_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>01</span>
+                                            <span className='description__title--text'>GED cabinet&nbsp; retrouver n'importe quel document en moins de 10 secondes</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un cabinet de 18 avocats perd en moyenne 40 minutes par collaborateur et par jour à chercher des documents dans des répertoires partagés mal organisés. La prolifération des versions crée des risques d'erreur.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Migration des documents existants dans Géode avec classement automatique par dossier et type</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Plan de classement adapté à la nomenclature du cabinet&nbsp;: client / affaire / type de document</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Moteur de recherche full-text sur l'intégralité des documents, avec filtres par date, auteur, type</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Versioning automatique&nbsp;: chaque modification crée une nouvelle version horodatée</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Temps de recherche documentaire réduit de 40 min à moins de 10 sec. Aucune version erronée envoyée en 12 mois.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>GED</li>
+                                                <li>Productivité</li>
+                                                <li>Recherche full-text</li>
+                                                <li>Versioning</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - cabinet - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_cabinet_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>02</span>
+                                            <span className='description__title--text'>Gestion cloisonnée des dossiers entre départements du cabinet</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un cabinet multi-pratiques doit garantir l'étanchéité entre les dossiers&nbsp;: le département corporate ne doit pas avoir accès aux dossiers du département pénal, et inversement.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Structuration de Géode en espaces cloisonnés par département et par équipe</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Paramétrage fin des droits d'accès par rôle&nbsp;: lecture seule, contribution, administration</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Journalisation automatique de tous les accès pour répondre aux exigences déontologiques</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Partage ponctuel et sécurisé de documents spécifiques entre départements si nécessaire</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Étanchéité documentaire totale. Conformité déontologique documentée et auditable en cas de contrôle.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Confidentialité</li>
+                                                <li>Droits d'accès</li>
+                                                <li>Déontologie</li>
+                                                <li>Sécurité documentaire</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - cabinet - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_cabinet_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>03</span>
+                                            <span className='description__title--text'>Data room virtuelle pour une opération transactionnelle</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un cabinet M&A gère une due diligence impliquant des centaines de documents à partager entre le cabinet, le client, les experts-comptables et les conseils de la partie adverse.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Création d'une data room sécurisée dans Géode pour l'opération en quelques minutes</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Paramétrage des droits par partie&nbsp;: le cabinet voit tout, chaque partie n'accède qu'à ce qui lui est ouvert</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Suivi en temps réel des documents consultés et téléchargés par chaque intervenant</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Clôture et archivage complet de la data room à la signature de l'acte</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Data room opérationnelle en 2h. Délai de signature réduit de 3 semaines. Aucun envoi de document confidentiel par email.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>M&A</li>
+                                                <li>Data room</li>
+                                                <li>Due diligence</li>
+                                                <li>Collaboration sécurisée</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={contentGeode != 'ministere' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu Ministère <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                
+                                {/* Géode - ministère */}
+                                <div
+                                    className={`${contentGeode != 'ministere' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* Géode - ministère - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_ministere_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>01</span>
+                                            <span className='description__title--text'>GED ministérielle&nbsp;: référentiel documentaire unique pour la direction juridique</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                La direction des affaires juridiques d'un grand ministère gère ses textes, avis juridiques et contentieux dans des systèmes disparates, sans vision consolidée ni recherche transversale possible.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Déploiement de Géode comme référentiel documentaire unique de la direction</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Migration et réorganisation des documents existants selon un plan de classement normalisé</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Paramétrage des droits par service&nbsp;: accès aux contentieux, aux avis, aux textes en cours</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Moteur de recherche full-text permettant de retrouver un avis ou un précédent immédiatement</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Référentiel unique opérationnel. Temps de production d'un avis réduit de 30% grâce à la réutilisation des précédents existants.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Direction juridique</li>
+                                                <li>Référentiel documentaire</li>
+                                                <li>Avis juridiques</li>
+                                                <li>Ministère</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - ministère - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_ministere_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>02</span>
+                                            <span className='description__title--text'>Suivi du cycle de vie des textes réglementaires en cours d'élaboration</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Le secrétariat général du gouvernement coordonne l'élaboration de nombreux textes réglementaires impliquant plusieurs ministères. Les échanges par email créent des pertes de versions et des retards.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Création d'un espace de travail collaboratif dans Géode pour chaque texte en cours</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Workflow de validation paramétré&nbsp;: rédaction → avis technique → visa juridique → signature</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Versioning automatique de chaque modification avec identification de l'auteur et horodatage</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Tableau de bord de l'avancement de tous les textes en cours, par statut et par ministère pilote</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Délai moyen de production des textes réduit de 4 mois à 6 semaines. Zéro perte de version entre ministères.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Textes réglementaires</li>
+                                                <li>Workflow interministériel</li>
+                                                <li>Secrétariat général</li>
+                                                <li>Versioning</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - ministère - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_ministere_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>03</span>
+                                            <span className='description__title--text'>Archivage légal des actes administratifs avec conservation probatoire</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un ministère est soumis à des obligations légales de conservation de ses actes administratifs pendant 30 ans. L'archivage papier génère des coûts croissants et des risques de perte.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Migration de tous les actes numérisés dans Géode avec métadonnées de conservation</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Paramétrage des règles de rétention par type de document selon les obligations légales</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Horodatage certifié garantissant l'intégrité et l'admissibilité légale des documents conservés</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Signal de fin de délai légal soumis à validation humaine avant toute purge</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Coût d'archivage physique réduit de 70%. Conformité légale documentée pour tout contrôle ou audit.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Archivage légal</li>
+                                                <li>Conservation</li>
+                                                <li>Actes administratifs</li>
+                                                <li>Conformité</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={contentGeode != 'universite' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu Université <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                
+                                {/* Géode - université */}
+                                <div
+                                    className={`${contentGeode != 'universite' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* Géode - université - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_universite_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>01</span>
+                                            <span className='description__title--text'>Base documentaire pédagogique partagée entre enseignants et étudiants</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un département de droit met à disposition des étudiants des syllabus, arrêts commentés et cas pratiques. Ces documents sont éparpillés dans des drives personnels inaccessibles et rarement à jour.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Création d'un espace Géode par matière avec accès différencié enseignants et étudiants</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Dépôt structuré des ressources pédagogiques par type&nbsp;: cours, TD, jurisprudence, bibliographie</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Moteur de recherche full-text pour retrouver tout document par mots-clés</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Notification des étudiants lors de la mise à jour ou l'ajout d'un document de cours</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                100% des ressources accessibles en ligne et à jour. Temps de préparation des TD réduit de 40%.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Ressources pédagogiques</li>
+                                                <li>Enseignement du droit</li>
+                                                <li>Base de cours</li>
+                                                <li>Accès étudiant</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - université - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_universite_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>02</span>
+                                            <span className='description__title--text'>GED de laboratoire pour la gestion des données de recherche juridique</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un laboratoire réunissant 25 chercheurs produit des articles, working papers et rapports sans espace commun structuré. Les données de terrain circulent par email et les versions se multiplient.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Déploiement de Géode comme référentiel commun du laboratoire</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Organisation par projet de recherche, chercheur et type de production</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Versioning automatique et gestion des co-auteurs avec suivi des contributions de chacun</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Export facilité vers les plateformes de dépôt institutionnel et archives ouvertes</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Production scientifique 100% traçable. Aucune donnée de terrain perdue. Collaboration fluidifiée entre chercheurs.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Laboratoire de droit</li>
+                                                <li>Données de recherche</li>
+                                                <li>Collaboration scientifique</li>
+                                                <li>Open science</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - université - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_universite_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>03</span>
+                                            <span className='description__title--text'>Gestion des mémoires soumis pour évaluation et correction</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un master en droit reçoit 150 mémoires par an. La gestion des soumissions, des affectations aux jurys et des allers-retours de correction se fait encore entièrement par email.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Portail de soumission des mémoires intégré à Géode avec horodatage automatique de réception</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Affectation des mémoires aux directeurs de mémoire et membres de jury dans Géode</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Espace partagé de commentaires et corrections entre l'étudiant et son directeur</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Archivage des mémoires validés dans la bibliothèque numérique du département</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Gestion de 150 mémoires sans un seul email. Délai moyen de retour des corrections réduit de 3 semaines.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Mémoires de master</li>
+                                                <li>Gestion académique</li>
+                                                <li>Jury</li>
+                                                <li>Bibliothèque numérique</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={contentGeode != 'recherche' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu Recherche <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                {/* Géode - recherche */}
+                                <div
+                                    className={`${contentGeode != 'recherche' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* Géode - recherche - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_recherche_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>01</span>
+                                            <span className='description__title--text'>Référentiel documentaire partagé pour un programme de recherche multi-institutions</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un programme de recherche réunit 5 institutions de 3 pays. Les chercheurs travaillent sur des corpus communs mais n'ont aucun espace partagé. Les documents circulent par email avec des risques de perte.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Déploiement de Géode comme espace commun du programme, accessible par toutes les institutions</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Organisation par corpus et type de document selon le protocole de recherche</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Paramétrage des droits&nbsp;: certains corpus sont partagés entre tous, d'autres réservés à une institution</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Traçabilité complète de toutes les modifications apportées aux documents du programme</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Collaboration fluide entre 5 institutions. Zéro perte de document. Estimation de 2 mois gagnés sur la durée du programme.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Programme de recherche</li>
+                                                <li>Collaboration</li>
+                                                <li>Corpus partagé</li>
+                                                <li>Multi-institutions</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - recherche - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_recherche_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>02</span>
+                                            <span className='description__title--text'>GED pour la production d'un rapport annuel multi-contributeurs</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un observatoire juridique produit un rapport annuel impliquant 12 contributeurs, 3 institutions partenaires et une équipe éditoriale. La coordination documentaire est chronophage et source d'erreurs fréquentes.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Espace de travail Géode structuré par chapitre et par contributeur</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Workflow de contribution → révision → validation éditoriale avec statut visible à chaque étape</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Versioning permettant de comparer toute version avec la précédente et d'identifier l'auteur</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Remise des fichiers finaux à l'éditeur via espace sécurisé avec date limite visible de tous</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Rapport produit en 6 semaines au lieu de 4 mois. Zéro version contradictoire entre les contributeurs.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Rapport annuel</li>
+                                                <li>Coordination éditoriale</li>
+                                                <li>Observatoire</li>
+                                                <li>Workflow documentaire</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - recherche - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_recherche_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>03</span>
+                                            <span className='description__title--text'>Conservation des archives probatoires pour un programme de justice transitionnelle</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un programme de justice transitionnelle collecte des témoignages, rapports d'experts et preuves documentaires dans 2 pays. Ces documents irremplaçables doivent être conservés et sécurisés pour 50 ans.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Archivage sécurisé et chiffré dans Géode avec redondance des données</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Gestion fine des accès&nbsp;: documents accessibles aux chercheurs, d'autres réservés aux procureurs</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Horodatage certifié garantissant l'intégrité probatoire de chaque document conservé</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Plan de continuité garantissant l'accès aux archives au-delà de la durée du programme</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Archives sécurisées pour 50 ans. Admissibilité devant les juridictions internationales garantie.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Justice transitionnelle</li>
+                                                <li>Archives probatoires</li>
+                                                <li>Conservation long terme</li>
+                                                <li>Juridictions internationales</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={contentGeode != 'inhouse' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu In-house <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                {/* Géode - inhouse */}
+                                <div
+                                    className={`${contentGeode != 'inhouse' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* Géode - inhouse - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_inhouse_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>01</span>
+                                            <span className='description__title--text'>GED pour la direction juridique d'un groupe panafricain</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                La direction juridique d'un groupe présent dans 6 pays gère ses contrats, contentieux et avis dans des systèmes locaux disparates. Le directeur juridique groupe n'a aucune vision consolidée.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Déploiement de Géode comme référentiel juridique groupe avec espaces par pays et par thème</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Migration des contrats, contentieux et avis des filiales dans le système commun</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Tableau de bord groupe&nbsp;: contrats actifs, contentieux en cours, échéances critiques par pays</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Droits d'accès différenciés&nbsp;: les juristes locaux voient leur pays, le directeur groupe voit tout</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Vision consolidée opérationnelle en 3 semaines. Aucune échéance critique oubliée depuis le déploiement.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Direction juridique groupe</li>
+                                                <li>Vision consolidée</li>
+                                                <li>Panafricain</li>
+                                                <li>Référentiel juridique</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - inhouse - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_inhouse_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>02</span>
+                                            <span className='description__title--text'>Gestion du cycle de vie contractuel avec alertes d'échéances</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Une société de distribution gère 300 contrats fournisseurs et clients. Les dates de renouvellement tacite passent régulièrement inaperçues, entraînant des reconductions automatiques indésirables.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Dépôt et structuration de tous les contrats dans Géode avec extraction des données clés</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Paramétrage des alertes&nbsp;: 6 mois, 3 mois et 1 mois avant l'échéance de chaque contrat</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Workflow de décision à l'approche de l'échéance&nbsp;: renouveler, renégocier ou résilier</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Tableau de bord contractuel avec statut de chaque contrat et actions en cours</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Zéro reconduction indésirable depuis le déploiement. Économies annuelles estimées à 1,2M€.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Cycle de vie contractuel</li>
+                                                <li>Alertes échéances</li>
+                                                <li>Renouvellement</li>
+                                                <li>Gestion contractuelle</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - inhouse - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_inhouse_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>03</span>
+                                            <span className='description__title--text'>Espace collaboratif pour les négociations contractuelles avec les conseils externes</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                La direction juridique d'un groupe négocie des contrats complexes avec des avocats externes, des banques et des partenaires. La circulation des versions par email est incontrôlable.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Création d'un espace de négociation dans Géode par contrat avec accès paramétré par partie</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Versioning automatique de chaque version avec commentaires contextualisés par article ou clause</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Historique des positions de chaque partie : textes acceptés, en discussion ou refusés</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Archivage automatique de la négociation à la signature, avec version finale certifiée</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Négociation de 2 contrats majeurs menée entièrement dans Géode. Délai de signature réduit de 25%.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Négociation contractuelle</li>
+                                                <li>Conseil externe</li>
+                                                <li>Collaboration sécurisée</li>
+                                                <li>Versioning</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className={contentGeode != 'organisation' ? 'isHidden' : ""} style={{marginTop: "3rem"}}>
-                                    Le contenu Organisation <br/>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                {/* Géode - organisation */}
+                                <div
+                                    className={`${contentGeode != 'organisation' ? 'isHidden' : ""}`
+                                    }
+                                >
+                                    {/* Géode - organisation - tab1 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_organisation_tab1`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab1`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>01</span>
+                                            <span className='description__title--text'>GED institutionnelle pour une organisation d'intégration régionale</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Une organisation régionale produit des directives, protocoles, résolutions et rapports gérés dans des drives personnels non structurés. La mémoire institutionnelle est fragile lors des rotations de personnel.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Déploiement de Géode comme mémoire documentaire officielle de l'organisation</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Plan de classement institutionnel : textes juridiques, travaux des comités, rapports, correspondances</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Workflow de validation des textes officiels avant publication avec traçabilité des approbations</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Accès public en lecture seule pour les textes adoptés, accès restreint pour les travaux en cours</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Mémoire institutionnelle sécurisée. Continuité des travaux garantie lors des changements de leadership ou de personnel.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Organisation régionale</li>
+                                                <li>Mémoire institutionnelle</li>
+                                                <li>Gouvernance documentaire</li>
+                                                <li>Continuité</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - organisation - tab2 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_organisation_tab2`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab2`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>02</span>
+                                            <span className='description__title--text'>Portail documentaire commun pour un programme co-financé par plusieurs bailleurs</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un programme de réforme judiciaire est co-financé par 3 bailleurs. Chacun exige l'accès aux livrables et documents du programme, mais dans des formats et selon des protocoles différents.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Espace Géode commun avec sous-espaces par bailleur respectant leurs obligations de reporting</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Dépôt structuré des livrables&nbsp;: rapports trimestriels, études, comptes rendus de mission</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Droits d'accès par bailleur&nbsp;: chacun accède à ses documents et aux rapports communs</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Historique complet des versions de chaque livrable avec date de validation</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                Chaque bailleur accède à ses documents en autonomie. Charge de reporting de l'équipe réduite de 40%.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Multi-bailleurs</li>
+                                                <li>Reporting</li>
+                                                <li>Programme de réforme</li>
+                                                <li>Coordination</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {/* Géode - organisation - tab3 */}
+                                    <div 
+                                        className={
+                                            `description__block 
+                                            ${openAccordions[`geode_organisation_tab3`] ? 'isOpen' : ""}
+                                            `
+                                        }
+                                    >
+                                        <div 
+                                            className='description__title'
+                                            onClick={() =>
+                                                toggleAccordion(
+                                                    `${content}_${contentGeode}_tab3`
+                                                )
+                                            }
+                                        >
+                                            <span className='description__title--number geode'>03</span>
+                                            <span className='description__title--text'>Archivage structuré des textes et décisions d'un organe de traité</span>
+                                        </div>
+                                        <div className='description__text'>
+                                            <p className='description__scenario'>
+                                                Un comité de surveillance des droits humains doit structurer et archiver ses 30 ans de rapports des États parties, d'observations finales et de correspondances officielles pour garantir la traçabilité.
+                                            </p>
+                                            <p className='description__subtitle geode'>Workflow sur Géode</p>
+                                            <ul className='description__list'>
+                                                <li className="list__step geode">
+                                                    <span>1</span>
+                                                    <span>Migration des archives dans Géode avec classification par État partie et par cycle d'examen</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>2</span>
+                                                    <span>Structuration par type&nbsp;: rapport initial, rapport périodique, observations finales, liste de points</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>3</span>
+                                                    <span>Recherche full-text permettant de retrouver toute position antérieure d'un État en quelques secondes</span>
+                                                </li>
+                                                <li className="list__step geode">
+                                                    <span>4</span>
+                                                    <span>Accès public aux documents officiels publiés, accès restreint aux documents de travail internes</span>
+                                                </li>
+                                            </ul>
+                                            <p className='description__result geode'>
+                                                <img src={CheckGeode} alt="" aria-hidden="true"/>
+                                                30 ans d'archives structurées et accessibles. Experts préparés 3 fois plus rapidement pour les sessions d'examen.
+                                            </p>
+                                            <ul className='description__tags__list'>
+                                                <li>Organe de traité</li>
+                                                <li>Nations Unies</li>
+                                                <li>Archives institutionnelles</li>
+                                                <li>Droits humains</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </article>
