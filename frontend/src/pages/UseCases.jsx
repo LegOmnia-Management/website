@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import '../assets/styles/useCases.css';
 
@@ -34,12 +35,15 @@ import CheckGeode from '../assets/img/pictos/checkGeode.svg';
 
 const UseCases = () => {
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const [isMobile, setIsMobile] = useState(false);
-    const [content, setContent] = useState("omnia");
+    const [content, setContent] = useState(searchParams.get("content") || "omnia");
     const [contentOmnia, setContentOmnia] = useState("cabinet");
     const [contentOmniscan, setContentOmniscan] = useState("cabinet");
     const [contentGeode, setContentGeode] = useState("cabinet");
     const [openAccordions, setOpenAccordions] = useState({});
+    
 
     const toggleAccordion = (id) => {
 
@@ -71,15 +75,6 @@ const UseCases = () => {
     
         return () => window.removeEventListener("resize", check);
       }, []);
-    
-    //   useEffect(() => {
-        
-    //     if (isMobile) {
-    //       setContent("");
-    //     } else {
-    //       setContent("omnia");
-    //     }
-    //   }, [isMobile]);
 
     return (
         <main className="main main__cases">
@@ -127,7 +122,7 @@ const UseCases = () => {
                             <p className="text">Solution de digitalisation de la documentation juridique par OCR</p>
                             {isMobile ? (
                                 <a
-                                    className='ui__btn--gradientSecond'
+                                    className='ui__btn--gradient'
                                     href="#omniscan"
                                     onClick={() => {
                                         setContent("omniscan");
@@ -135,7 +130,7 @@ const UseCases = () => {
                                 >Voir les cas d'usage</a>
                             ) : (
                                 <button
-                                    className='ui__btn--gradientSecond'
+                                    className='ui__btn--gradient'
                                     onClick={() => {
                                         setContent("omniscan");
                                     }}
@@ -147,7 +142,7 @@ const UseCases = () => {
                             <p className="text">GED intelligente pour professionnels du droit, administrations et entreprises</p>
                             {isMobile ? (
                                 <a
-                                    className='ui__btn--gradient'
+                                    className='ui__btn--gradientSecond'
                                     href="#geode"
                                     onClick={() => {
                                         setContent("geode");
@@ -155,7 +150,7 @@ const UseCases = () => {
                                 >Voir les cas d'usage</a>
                             ) : (
                                 <button
-                                    className='ui__btn--gradient'
+                                    className='ui__btn--gradientSecond'
                                     onClick={() => {
                                         setContent("geode");
                                     }}

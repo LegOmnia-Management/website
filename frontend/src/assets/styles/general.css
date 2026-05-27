@@ -430,7 +430,8 @@
 .hero__search {
     background-color: white;
     border: 1px solid var(--violetSoft);
-    border-radius: var(--radiusPill);
+    border-radius: var(--radiusMd);
+    box-shadow: var(--boxShadowSimple);
     font-size: 1.4rem;
     height: 4.5rem;
     margin-inline: auto;

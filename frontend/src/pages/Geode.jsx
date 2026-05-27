@@ -38,7 +38,8 @@ const Geode = () => {
                         </h3>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn--gradientSecond' to="/contact">Demander une démo</Link>
+                        <Link className='ui__btn--gradientSecond' to="/produits/use-cases?content=geode">Découvrir les use cases</Link>
+                        <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
                     </div>
                 </div>
             </section>
@@ -222,9 +223,6 @@ const Geode = () => {
                         speed={1000}
                     >
                         <SwiperSlide>
-                            <img src={DashboardGeode} alt="Application Geode - Connexion" loading="lazy"/>
-                        </SwiperSlide>
-                        <SwiperSlide>
                             <img src={DashboardGeode2} alt="Application Geode - Tableau de bord" loading="lazy"/>
                         </SwiperSlide>
                         <SwiperSlide>
@@ -232,6 +230,9 @@ const Geode = () => {
                         </SwiperSlide>
                         <SwiperSlide>
                             <img src={DashboardGeode4} alt="Application Geode - Assistant IA" loading="lazy"/>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={DashboardGeode} alt="Application Geode - Connexion" loading="lazy"/>
                         </SwiperSlide>
                     </Swiper>
                 </div>

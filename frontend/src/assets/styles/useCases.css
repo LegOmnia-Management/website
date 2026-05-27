@@ -51,11 +51,11 @@
             }
 
             &.omniscan {
-                border: 1px solid var(--pink);
+                border: 1px solid var(--blueDark);
             }
 
             &.geode {
-                border: 1px solid var(--blueDark);
+                border: 1px solid var(--pink);
             }
         }
 
@@ -111,14 +111,14 @@
             }
 
             &.omniscan {
-                background: var(--gradientGeode);
+                background: var(--gradientOmniscan);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
             }
 
             &.geode {
-                background: var(--gradientOmniscan);
+                background: var(--gradientGeode);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -132,13 +132,13 @@
             padding: 0 2rem;
 
             &.omniscan {
-                background-color: #F6ECFE;
-                border-color: var(--pink);
+                background-color: #E5F3FB;
+                border-color: var(--blue);
             }
 
             &.geode {
-                background-color: #E5F3FB;
-                border-color: var(--blue);
+                background-color: #F6ECFE;
+                border-color: var(--pink);
             }
         }
 
@@ -228,22 +228,6 @@
         .item:hover,
         .item:focus,
         .item:active {
-            border-color: var(--pink);
-            color: var(--pinkDark);
-        }
-
-        .item.isActive {
-            background-color: #F6ECFE;
-            border-color: var(--pinkDark);
-            color: var(--pinkDark);
-        }
-    }
-
-    &.geode {
-
-        .item:hover,
-        .item:focus,
-        .item:active {
             border-color: var(--blue);
             color: var(--blueDark);
         }
@@ -252,6 +236,22 @@
             background-color: #E5F3FB;
             border-color: var(--blueDark);
             color: var(--blueDark);
+        }
+    }
+
+    &.geode {
+
+        .item:hover,
+        .item:focus,
+        .item:active {
+            border-color: var(--pink);
+            color: var(--pinkDark);
+        }
+
+        .item.isActive {
+            background-color: #F6ECFE;
+            border-color: var(--pinkDark);
+            color: var(--pinkDark);
         }
     }
 }
@@ -301,11 +301,11 @@
         }
 
         &.omniscan {
-            color: var(--pinkDark);
+            color: var(--blueDark);
         }
 
         &.geode {
-            color: var(--blueDark);
+            color: var(--pinkDark);
         }
     }
 
@@ -338,11 +338,11 @@
     }
 
     &.omniscan {
-        color: var(--pinkDark);
+        color: var(--blueDark);
     }
 
     &.geode {
-        color: var(--blueDark);
+        color: var(--pinkDark);
     }
 }
 
@@ -380,18 +380,18 @@
         &.omniscan {
 
             span:first-child {
-                background: #F6ECFE;
-                color: var(--pinkDark);
-                border: 1.5px solid var(--pinkDark);
+                background: #E5F3FB;
+                color: var(--blueDark);
+                border: 1.5px solid var(--blueDark);
             }
         }
 
         &.geode {
 
             span:first-child {
-                background: #E5F3FB;
-                color: var(--blueDark);
-                border: 1.5px solid var(--blueDark);
+                background: #F6ECFE;
+                color: var(--pinkDark);
+                border: 1.5px solid var(--pinkDark);
             }
         }
     }
@@ -414,15 +414,15 @@
     }
 
     &.omniscan {
-        background: #F6ECFE;
-        border: 1px solid var(--pinkDark);
-        color: var(--pinkDark);
-    }
-
-    &.geode {
         background: #E5F3FB;
         border: 1px solid var(--blueDark);
         color: var(--blueDark);
+    }
+
+    &.geode {
+        background: #F6ECFE;
+        border: 1px solid var(--pinkDark);
+        color: var(--pinkDark);
     }
 }
 

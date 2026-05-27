@@ -13,6 +13,10 @@
             background-size: 60px 60px;
             pointer-events: none;
         }
+
+        .ui__btn--inline {
+            background: #f8f9fa;
+        }
     }
 
     .highlight {
@@ -204,8 +208,12 @@
 @media screen and (min-width: 30rem) {
 
     /* Redéfinition */
-    .main__geode  .hero .ui__btn--gradientSecond {
-        width: 60%;
+    .main__geode  .hero {
+
+        .ui__btn--inline,
+        .ui__btn--gradientSecond {
+            width: 60%;
+        }
     }
 
     /* Cards */
@@ -218,8 +226,12 @@
 @media screen and (min-width: 48rem) {
 
      /* Redéfinition */
-     .main__geode  .hero .ui__btn--gradientSecond {
-        width: 40%;
+     .main__geode  .hero {
+
+        .ui__btn--inline,
+        .ui__btn--gradientSecond {
+            width: max-content;
+        }
     }
 
     /* Présentation */

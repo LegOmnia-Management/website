@@ -13,6 +13,10 @@
             background-size: 60px 60px;
             pointer-events: none;
         }
+
+        .ui__btn--inline {
+            background: #f8f9fa;
+        }
     }
 
     .highlight {
@@ -153,8 +157,12 @@
 @media screen and (min-width: 30rem) {
 
     /* Redéfinition */
-    .main__omniscan .hero .ui__btn--gradient {
-        width: 60%;
+    .main__omniscan .hero {
+    
+        .ui__btn--gradient,
+        .ui__btn--inline {
+            width: 60%;
+        }
     }
 
     /* Cards */
@@ -169,8 +177,12 @@
 @media screen and (min-width: 48rem) {
 
     /* Redéfinition */
-    .main__omniscan .hero .ui__btn--gradient {
-        width: 40%;
+    .main__omniscan .hero {
+    
+        .ui__btn--gradient,
+        .ui__btn--inline {
+            width: max-content;
+        }
     }
 
     /* Structure */

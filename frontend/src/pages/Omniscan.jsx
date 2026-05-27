@@ -38,7 +38,8 @@ const Omniscan = () => {
                         </h3>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn--gradient' to="/contact">Demander une démo</Link>
+                        <Link className='ui__btn--gradient' to="/produits/use-cases?content=omniscan">Découvrir les use cases</Link>
+                        <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
                     </div>
                 </div>
             </section>

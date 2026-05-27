@@ -67,7 +67,7 @@ const Omnia = () => {
                         </h1>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn' to="/produits/omnia">Découvrir la plateforme</Link>
+                        <Link className='ui__btn' to="/produits/use-cases?content=omnia">Découvrir les use cases</Link>
                         <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
                     </div>
 
