@@ -38,7 +38,8 @@ const Omniscan = () => {
                         </h3>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn--gradient' to="/contact">Demander une démo</Link>
+                        <Link className='ui__btn--gradient' to="/produits/use-cases?content=omniscan">Découvrir les use cases</Link>
+                        <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
                     </div>
                 </div>
             </section>
@@ -56,7 +57,7 @@ const Omniscan = () => {
                                 Le socle technologique qui réveille le patrimoine légal africain.
                             </p>
                         </div>
-                        <img src={Pipeline} alt="Application LegOmnia" />
+                        <img src={Pipeline} alt="Application LegOmnia" loading="lazy"/>
                     </div>
                 </div>
             </section>
@@ -203,7 +204,7 @@ const Omniscan = () => {
                                 Vos données restent sur le sol national, conformément aux réglementations locales en vigueur. 
                             </p>
                         </div>
-                        <img src={Souverainete} alt="Application LegOmnia" />
+                        <img src={Souverainete} alt="Application LegOmnia" loading="lazy"/>
                     </div>
                 </div>
             </section>

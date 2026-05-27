@@ -58,7 +58,7 @@ const Transformation = () => {
 
                     <ul className='transformation__concept--list'>
                         <li className='card'>
-                            <img className="image" src={Geode} alt="" aria-hidden="true"/>
+                            <img className="image" src={Geode} alt="" aria-hidden="true" loading="lazy"/>
                             <h3 className="title">Géode</h3>
                             <p>Plateforme de Gestion Electronique de Documents (GED)</p>
                             <p className='text'>
@@ -75,7 +75,7 @@ const Transformation = () => {
                             </p>
                         </li>
                         <li className='card'>
-                            <img className="image"  src={CM} alt="" aria-hidden="true"/>
+                            <img className="image"  src={CM} alt="" aria-hidden="true" loading="lazy"/>
                             <h3 className="title">Case Manager</h3>
                             <p>Gestion d'Affaires pour Ministères et Tribunaux</p>
                             <p className='text'>

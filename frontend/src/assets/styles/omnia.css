@@ -1,3 +1,7 @@
+.main__omnia .hero {
+    padding-bottom: 0;
+}
+
 /***************** Structure *****************/
 .omnia__structure--listTags {
     list-style: none;
