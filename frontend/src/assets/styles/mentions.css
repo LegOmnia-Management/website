@@ -1,0 +1,16 @@
+.main__mentions {
+    margin-bottom: 6rem;
+
+    .mentions__title {
+        margin-block: 3rem .5rem;
+
+        span {
+            color: var(--violet);
+        }
+    }
+
+    em {
+        color: var(--violet);
+        text-transform: uppercase;
+    }
+}
