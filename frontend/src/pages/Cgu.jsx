@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import '../assets/styles/mentions.css';
 
 import HeroBg from '../components/HeroBg';
@@ -29,10 +27,10 @@ const Cgu = () => {
 
                 <h2 className="mentions__title"><span>2.</span> Définitions</h2>
                 <p>
-                    <em>Éditeur</em>&nbsp;: la société LegOmnia SAS, dont les informations sont disponibles dans les mentions légales<br/>
-                    <em>Site</em>&nbsp;: le site internet accessible à l’adresse www.legomnia.com<br/>
-                    <em>Utilisateur</em>&nbsp;: toute personne accédant au site<br/>
-                    <em>Services</em>&nbsp;: l’ensemble des fonctionnalités proposées par <span className='highlight'>LEGOMNIA</span>, notamment les outils de recherche juridique et les contenus associés
+                <span className='def'>Éditeur</span>&nbsp;: la société LegOmnia SAS, dont les informations sont disponibles dans les mentions légales<br/>
+                    <span className='def'>Site</span>&nbsp;: le site internet accessible à l’adresse www.legomnia.com<br/>
+                    <span className='def'>Utilisateur</span>&nbsp;: toute personne accédant au site<br/>
+                    <spann className='def'>Services</spann>&nbsp;: l’ensemble des fonctionnalités proposées par <span className='highlight'>LEGOMNIA</span>, notamment les outils de recherche juridique et les contenus associés
                 </p>
 
                 <h2 className="mentions__title"><span>3.</span> Accès au site</h2>
