@@ -13,6 +13,9 @@ const createContact = async (req, res) => {
         data: contact
         });
     } catch (error) {
+        if (process.env.NODE_ENV === "development") {
+            console.error("Erreur serveur :", error);
+        }
         return res.status(500).json({ message: "Erreur serveur" });
     }
 };
@@ -31,6 +34,9 @@ const readContacts = async (req, res) => {
         data: contacts
         });
     } catch (error) {
+        if (process.env.NODE_ENV === "development") {
+            console.error("Erreur serveur :", error);
+        }
         return res.status(500).json({ message: "Erreur serveur" });
     }
 };

@@ -54,6 +54,10 @@ const validateContact = [
         .withMessage("Le message doit contenir 10 caractères minimum")
         .notEmpty()
         .withMessage("Le message est obligatoire"),
+    
+    body("cguAccepted")
+        .equals("on")
+        .withMessage("Vous devez accepter les CGU"),
 
     returnErrors
 ];

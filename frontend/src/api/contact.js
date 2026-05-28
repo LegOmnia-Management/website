@@ -22,7 +22,9 @@ export const createContact = async (form) => {
         return await response.json();
     } catch (error) {
 
-        console.error("Erreur lors de l'envoi du formulaire : ", error);
+        if (import.meta.env.MODE === "development") {
+            console.error("Erreur lors de l'envoi du formulaire : ", error);
+        }
         throw error;
     }
 }
