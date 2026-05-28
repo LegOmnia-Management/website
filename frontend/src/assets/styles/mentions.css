@@ -1,0 +1,47 @@
+.main__mentions {
+    margin-bottom: 6rem;
+
+    .mentions__title {
+        color: var(--violet);
+        margin-block: 3rem .5rem;
+    }
+
+    .mentions__title2 {
+        color: var(--violet);
+        font-size: 2.2rem;
+        margin-left: 2rem;
+        margin-block: 3rem .5rem;
+    }
+
+    .mentions__title + .mentions__title2 {
+        margin-block: .5rem;
+    }
+
+    .def {
+        color: var(--violet);
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+
+    .mt {
+        margin-top: 1rem;
+    }
+
+    .mtXl {
+        margin-top: 2rem;
+    }
+
+    .mb {
+        margin-bottom: .8rem;
+    }
+
+    a {
+        text-decoration: underline;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: var(--violet);
+        }
+    }
+}
