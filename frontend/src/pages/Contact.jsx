@@ -17,7 +17,8 @@ const Contact = () => {
         phone: "",
         company: "",
         subject: "",
-        message: ""
+        message: "",
+        cguAccepted: ""
     });
 
     // stocker champs vides
@@ -27,7 +28,8 @@ const Contact = () => {
         email: true,
         phone: true,
         subject: true,
-        message: true
+        message: true,
+        cguAccepted: true
     });
 
     // visibilité btn submit
@@ -126,6 +128,15 @@ const Contact = () => {
                     empty[name] = false;
                 }
                 break;
+            case "cguAccepted" :
+                if ( !value || value === false ){
+                    msg =  `Vous devez accepter les CGU`;
+                    empty[name] = true;
+                } else {
+                    msg = "";
+                    empty[name] = false;
+                }
+                break;
             default :
                 msg = "";
                 empty[name] = false;
@@ -162,7 +173,7 @@ const Contact = () => {
             if (error.errors) {
                 // stocker les erreurs
                 setDatas(prev => ({ ...prev, ...error.errors })); 
-            } else {
+            } else if (import.meta.env.MODE === "development") {
                 console.error("Erreur lors de la création du contact :", error);
             }
         }
@@ -327,6 +338,16 @@ const Contact = () => {
                             rows="10"
                             onChange={e => validateItem(e.target.value, e.target.name)}></textarea>
                         <span className="form__item--error">{datas.message}</span>
+                    </p>
+                    <p className='form__cgu'>
+                        <input
+                            id="cguAccepted"
+                            name="cguAccepted"
+                            type="checkbox"
+                            onChange={e => validateItem(e.target.checked, e.target.name)}
+                        />
+                        <label htmlFor="check">J'accepte les CGU</label>
+                        <span className="form__item--error">{datas.cguAccepted}</span>
                     </p>
                     <button 
                         type="submit" 

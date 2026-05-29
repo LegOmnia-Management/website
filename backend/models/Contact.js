@@ -51,6 +51,14 @@ const contactSchema = new mongoose.Schema(
             required: true,
             minlength: 10,
             trim: true
+        },
+        cguAccepted: { 
+            type: String, 
+            required: true
+        },
+        cguAcceptedAt: { 
+            type: Date, 
+            default: Date.now
         }
     },
     {

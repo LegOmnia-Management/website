@@ -69,6 +69,18 @@
     }
 }
 
+.form__cgu {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .form__item--error {
+        margin-top: -1rem;
+    }
+}
+
 .form__submit {
     width: 100%;
 
