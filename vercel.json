@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd frontend && npm install && cd ../backend && npm install",
+  "installCommand": "cd frontend && npm install --include=dev && cd ../backend && npm install",
   "buildCommand": "cd frontend && npm run build",
   "outputDirectory": "frontend/dist",
   "rewrites": [
