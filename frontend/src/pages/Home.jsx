@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import '../assets/styles/home.css';
 
-import HeroCanvasMap from '../components/HeroCanvasMap';
 import AfricaParticles from '../components/AfricaParticles';
 import HeroBg from '../components/HeroBg';
 import AfricaMap from '../components/AfricaMap';
@@ -33,7 +32,6 @@ const Home = () => {
         <main className="main main__home">
             {/* Hero */}
             <section className="hero">
-                {/* <HeroCanvasMap /> */}
                 <AfricaParticles 
                     className="component__hero--canvas"
                     style= {{position : "absolute"}}

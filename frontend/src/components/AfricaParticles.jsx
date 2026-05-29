@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+import '../assets/styles/heroCanvas.css';
+
 const OUTLINE = [
   [-5.9,35.9],[-1.0,35.1],[0.6,35.7],[2.1,36.6],[3.1,36.7],
   [5.1,36.8],[7.0,37.0],[9.0,37.1],[10.2,36.8],[11.0,37.1],

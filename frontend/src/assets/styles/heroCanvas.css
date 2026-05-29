@@ -1,18 +1,27 @@
-.component__hero--canvas {
+.component__hero--canvas, 
+.component__omniscan--canvas {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
+    display: none;
+}
+
+.component__hero--canvas {
     pointer-events: none;
     opacity: .5;
-    display: none;
+}
+
+.component__omniscan--canvas {
+    opacity: .7;
 }
 
 /***************** Breakpoints *****************/
 /* Tablette : 48em *  16px => 768px */
 @media screen and (min-width: 48rem) {
 
-    .component__hero--canvas {
+    .component__hero--canvas,
+    .component__omniscan--canvas {
         display: block;
     }
 }
