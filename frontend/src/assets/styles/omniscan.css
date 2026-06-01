@@ -183,6 +183,10 @@
         .ui__btn--inline {
             width: max-content;
         }
+
+        &::before {
+            display: none;
+        }
     }
 
     /* Structure */

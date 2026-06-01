@@ -2,8 +2,8 @@ import { Link } from 'react-router';
 
 import '../assets/styles/omniscan.css';
 
+import OmniscanCanvas from '../components/OmniscanCanvas';
 import IconRing from '../components/IconRing';
-
 import Pipeline from '../assets/img/omniscan/pipeline.png';
 import Souverainete from '../assets/img/omniscan/souverainete2.png';
 import Desktop from '../assets/img/pictos/desktop.svg';
@@ -27,6 +27,10 @@ const Omniscan = () => {
 
             {/* Hero */}
             <section className="hero">
+                <OmniscanCanvas
+                    className="component__omniscan--canvas"
+                    style= {{position : "absolute"}}
+                />
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
