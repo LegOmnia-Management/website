@@ -1,11 +1,35 @@
 import { Contact } from "../models/index.js";
 import { Resend } from "resend";
 
+/********** VERIFY TURNSTILE **********/
+const verifyTurnstile = async (token) => {
+    const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `secret=${process.env.TURNSTILE_SECRET}&response=${token}`
+    });
+    const data = await response.json();
+    return data.success;
+};
+
 /********** CREATE **********/
 const createContact = async (req, res) => {
 
     try {
-        const contact = await Contact.create(req.body);
+        // vérification Turnstile
+        const { captchaToken, ...formData } = req.body;
+
+        if (!captchaToken) {
+            return res.status(400).json({ message: "Captcha manquant" });
+        }
+
+        const isCaptchaValid = await verifyTurnstile(captchaToken);
+        if (!isCaptchaValid) {
+            return res.status(400).json({ message: "Captcha invalide" });
+        }
+
+        // utilise formData pour ne pas sauvegarder le token
+        const contact = await Contact.create(formData);
 
         // Email notif
         const resend = new Resend(process.env.RESEND_API_KEY);

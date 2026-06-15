@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 import { createContact } from '../api/contact';
 
@@ -18,7 +19,8 @@ const Contact = () => {
         company: "",
         subject: "",
         message: "",
-        cguAccepted: ""
+        cguAccepted: "",
+        captcha: ""
     });
 
     // stocker champs vides
@@ -37,6 +39,10 @@ const Contact = () => {
 
     // msg confirmation envoi
     const [ isSubmit, setIsSubmit ] = useState(false);
+
+    // captcha
+    const captchaRef = useRef(null);
+    const [captchaToken, setCaptchaToken] = useState(null);
 
     // verif valeur des champs
     const validateItem = (value, name, label = "") => {
@@ -128,15 +134,6 @@ const Contact = () => {
                     empty[name] = false;
                 }
                 break;
-            case "cguAccepted" :
-                if ( !value || value === false ){
-                    msg =  `Vous devez accepter les CGU`;
-                    empty[name] = true;
-                } else {
-                    msg = "";
-                    empty[name] = false;
-                }
-                break;
             default :
                 msg = "";
                 empty[name] = false;
@@ -156,11 +153,20 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // verif captcha
+        if (!captchaToken) {
+            setDatas(prev => ({ ...prev, captcha: "Veuillez valider le captcha" }));
+            return;
+        }
+
         // récup données form
         const formData = new FormData(e.target);
 
         // convertir en JSON
         const data = Object.fromEntries(formData.entries());
+
+        // ajout captcha
+        data.captchaToken = captchaToken;
 
         try {
             // envoi à l'API
@@ -168,14 +174,20 @@ const Contact = () => {
     
             // afficher msg confirmation
             setIsSubmit(true);
+
+            // reset captcha
+            captchaRef.current.reset();
         } catch (error) {
 
             if (error.errors) {
                 // stocker les erreurs
                 setDatas(prev => ({ ...prev, ...error.errors })); 
-            } else if (import.meta.env.MODE === "development") {
+            } else {
                 console.error("Erreur lors de la création du contact :", error);
             }
+
+            // reset captcha
+            captchaRef.current.reset();
         }
     }
 
@@ -195,12 +207,12 @@ const Contact = () => {
         const errorsExist = hasErrors();
         const emptyFieldsExist = hasFieldEmpty();
     
-        if (!errorsExist && !emptyFieldsExist) {
+        if (!errorsExist && !emptyFieldsExist && captchaToken) {
             setIsActive(true);
         } else {
             setIsActive(false);
         }
-    }, [datas, fields]);
+    }, [datas, fields, captchaToken]);
 
     // afficher message confirmation
     if (isSubmit) return (
@@ -339,16 +351,33 @@ const Contact = () => {
                             onChange={e => validateItem(e.target.value, e.target.name)}></textarea>
                         <span className="form__item--error">{datas.message}</span>
                     </p>
-                    <p className='form__cgu'>
-                        <input
-                            id="cguAccepted"
-                            name="cguAccepted"
-                            type="checkbox"
-                            onChange={e => validateItem(e.target.checked, e.target.name)}
-                        />
-                        <label htmlFor="check">J'accepte les CGU</label>
-                        <span className="form__item--error">{datas.cguAccepted}</span>
-                    </p>
+
+                    <div className='form__footer'>
+                        <p className='form__cgu'>
+                            <input
+                                id="cguAccepted"
+                                name="cguAccepted"
+                                type="checkbox"
+                                onChange={e => validateItem(e.target.checked, e.target.name)}
+                            />
+                            <label htmlFor="check">J'accepte les CGU</label>
+                            <span className="form__item--error">{datas.cguAccepted}</span>
+                        </p>
+                        <div className='form__captcha'>
+                            <Turnstile
+                                siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                                onSuccess={(token) => {
+                                    setCaptchaToken(token);
+                                    setDatas(prev => ({ ...prev, captcha: "" }));
+                                }}
+                                onExpire={() => setCaptchaToken(null)}
+                                ref={captchaRef}
+                                size="compact"
+                            />
+                            <span className="form__item--error">{datas.captcha}</span>
+                        </div>
+                    </div>
+
                     <button 
                         type="submit" 
                         className={`ui__btn form__submit ${isActive ? 'isActive' : ""}`}
