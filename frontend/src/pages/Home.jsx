@@ -76,10 +76,10 @@ const Home = () => {
                     </div>
                     <div className="home__presentation--text">
                         <p>
-                            Aujourd'hui, la donnée juridique est <span class="highlight">fragmentée, non digitalisée, difficilement exploitable</span>.
+                            Aujourd'hui, la donnée juridique est <span className="highlight">fragmentée, non digitalisée, difficilement exploitable</span>.
                         </p>
                         <p>
-                            LegOmnia propose <span class="highlight">un écosystème complet</span> permettant de passer de cette donnée non digitalisée à <span class="highlight">une intelligence juridique</span> unifiée et structurée.
+                            LegOmnia propose <span className="highlight">un écosystème complet</span> permettant de passer de cette donnée non digitalisée à <span className="highlight">une intelligence juridique</span> unifiée et structurée.
                         </p>
                     </div>
                 </div>

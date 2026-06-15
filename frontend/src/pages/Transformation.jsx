@@ -21,13 +21,13 @@ const Transformation = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            Accélérateur de <span className='break'><em class="highlight">transformation digitale</em> juridique</span>
+                            Accélérateur de <span className='break'><em className="highlight">transformation digitale</em> juridique</span>
                         </h1>
                         <h3 className="subtitle">
-                            Nous accompagnons les institutions judiciaires, ministères, cabinets d'avocats <span className='break'>et directions juridiques dans leur <span class="highlight">transition numérique</span>.</span>
+                            Nous accompagnons les institutions judiciaires, ministères, cabinets d'avocats <span className='break'>et directions juridiques dans leur <span className="highlight">transition numérique</span>.</span>
                         </h3>
                         <p>
-                            Notre mission&nbsp;: rendre les services juridiques plus efficaces, sécurisés et transparents, <span className='break'>grâce à l'intégration de <span class="highlight">solutions numériques avancées</span>.</span>
+                            Notre mission&nbsp;: rendre les services juridiques plus efficaces, sécurisés et transparents, <span className='break'>grâce à l'intégration de <span className="highlight">solutions numériques avancées</span>.</span>
                         </p>
                     </div>
                 </div>
@@ -38,10 +38,10 @@ const Transformation = () => {
                 <div className="container">
                     <h2 className='title__h2'>La technologie au service du droit</h2>
                     <p>
-                        Nous croyons fermement que la technologie peut transformer en profondeur le secteur juridique&nbsp;: <span class="highlight">améliorer la productivité</span> des équipes, <span class="highlight">renforcer la sécurité</span> des données sensibles, et <span class="highlight">faciliter l'accès à l'information</span> pour tous les acteurs de la chaîne judiciaire.
+                        Nous croyons fermement que la technologie peut transformer en profondeur le secteur juridique&nbsp;: <span className="highlight">améliorer la productivité</span> des équipes, <span className="highlight">renforcer la sécurité</span> des données sensibles, et <span className="highlight">faciliter l'accès à l'information</span> pour tous les acteurs de la chaîne judiciaire.
                     </p>
                     <p>
-                        En combinant expertise métier juridique et maîtrise des technologies de l'information, LegOmnia propose des <span class="highlight">solutions sur mesure, pensées pour répondre aux réalités opérationnelles des professionnels du droit</span> — qu'il s'agisse de juridictions, d'administrations centrales ou de structures privées.
+                        En combinant expertise métier juridique et maîtrise des technologies de l'information, LegOmnia propose des <span className="highlight">solutions sur mesure, pensées pour répondre aux réalités opérationnelles des professionnels du droit</span> — qu'il s'agisse de juridictions, d'administrations centrales ou de structures privées.
                     </p>
                 </div>
             </section>
@@ -53,7 +53,7 @@ const Transformation = () => {
                         Des technologies destinées à reconfigurer les standards de la justice et de l'information stratégique
                     </h2>
                     <p>
-                        Ces deux POC illustrent la capacité de LegOmnia à concevoir, prototyper et valider des <span class="highlight">solutions innovantes dans des contextes hautement sensibles</span>, en réponse aux besoins concrets des acteurs publics de la justice.
+                        Ces deux POC illustrent la capacité de LegOmnia à concevoir, prototyper et valider des <span className="highlight">solutions innovantes dans des contextes hautement sensibles</span>, en réponse aux besoins concrets des acteurs publics de la justice.
                     </p>
 
                     <ul className='transformation__concept--list'>
@@ -62,16 +62,16 @@ const Transformation = () => {
                             <h3 className="title">Géode</h3>
                             <p>Plateforme de Gestion Electronique de Documents (GED)</p>
                             <p className='text'>
-                                Pensée pour les environnements institutionnels exigeants, Géode est <span class="highlight">une solution de gestion électronique de documents</span> dédiée aux entreprises, organisations et administrations.
+                                Pensée pour les environnements institutionnels exigeants, Géode est <span className="highlight">une solution de gestion électronique de documents</span> dédiée aux entreprises, organisations et administrations.
                             </p>
                             <p className='text'>
-                                Conçue, <span class="highlight">développée et éprouvée en conditions réelles</span>, elle permet de transformer des volumes importants de documents en actifs numériques exploitables.
+                                Conçue, <span className="highlight">développée et éprouvée en conditions réelles</span>, elle permet de transformer des volumes importants de documents en actifs numériques exploitables.
                             </p>
                             <p className='text'>
-                                Grâce à des <span class="highlight">mécanismes avancés de classification intelligente, de dématérialisation et d'archivage sécurisé</span>, Géode garantit une gestion fluide, structurée et conforme des flux documentaires.
+                                Grâce à des <span className="highlight">mécanismes avancés de classification intelligente, de dématérialisation et d'archivage sécurisé</span>, Géode garantit une gestion fluide, structurée et conforme des flux documentaires.
                             </p>
                             <p className='text'>
-                                Les expérimentations menées ont mis en évidence des <span class="highlight">gains significatifs en termes de rapidité de traitement</span>, tout en assurant une traçabilité complète et fiable des opérations.
+                                Les expérimentations menées ont mis en évidence des <span className="highlight">gains significatifs en termes de rapidité de traitement</span>, tout en assurant une traçabilité complète et fiable des opérations.
                             </p>
                         </li>
                         <li className='card'>
@@ -79,16 +79,16 @@ const Transformation = () => {
                             <h3 className="title">Case Manager</h3>
                             <p>Gestion d'Affaires pour Ministères et Tribunaux</p>
                             <p className='text'>
-                                Développée pour répondre aux enjeux opérationnels des institutions judiciaires, Case Manager est une <span class="highlight">solution de pilotage des procédures permettant une gestion centralisée et structurée des dossiers</span>.
+                                Développée pour répondre aux enjeux opérationnels des institutions judiciaires, Case Manager est une <span className="highlight">solution de pilotage des procédures permettant une gestion centralisée et structurée des dossiers</span>.
                                 </p>
                             <p className='text'>
-                                Testée dans des environnements ministériels et juridictionnels, elle offre une <span class="highlight">vision globale et en temps réel</span> de l'ensemble des affaires traitées.
+                                Testée dans des environnements ministériels et juridictionnels, elle offre une <span className="highlight">vision globale et en temps réel</span> de l'ensemble des affaires traitées.
                             </p>
                             <p className='text'>
-                                En automatisant les étapes clés du cycle de traitement, la solution <span class="highlight">optimise l'efficacité des équipes</span>, tout en renforçant la transparence et le suivi des procédures.
+                                En automatisant les étapes clés du cycle de traitement, la solution <span className="highlight">optimise l'efficacité des équipes</span>, tout en renforçant la transparence et le suivi des procédures.
                             </p>
                             <p className='text'>
-                                Conçue pour s'intégrer aux systèmes existants, elle <span class="highlight">s'adapte aux exigences réglementaires et aux spécificités des juridictions</span>, notamment dans le contexte africain francophone.
+                                Conçue pour s'intégrer aux systèmes existants, elle <span className="highlight">s'adapte aux exigences réglementaires et aux spécificités des juridictions</span>, notamment dans le contexte africain francophone.
                             </p>
                         </li>
                     </ul>

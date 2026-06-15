@@ -81,6 +81,15 @@
     }
 }
 
+.form__captcha {
+    margin-left: -2.1rem;
+
+    .form__item--error {
+        display: block;
+        margin-top: -.5rem;
+    }
+}
+
 .form__submit {
     width: 100%;
 
@@ -92,12 +101,23 @@
 }
 
 /***************** Breakpoints *****************/
-/* Tablette : 30em *  16px => 480px */
+/* Custom : 30em *  16px => 480px */
 @media screen and (min-width: 30rem) {
 
     .main__contact .hero .hero__actions {
         flex-direction: column;
         gap: 1rem;
+    }
+}
+
+/* Custom : 38em *  16px => 608px */
+@media screen and (min-width: 38rem) {
+    
+    .form__footer {
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
     }
 }
 
