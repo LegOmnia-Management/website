@@ -19,7 +19,7 @@ const Faq = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            Page <em className='highlight'>en construction</em>
+                            Page <em className='highlight'>bientôt disponible</em>
                         </h1>
                     </div>
                     <div className="hero__actions">

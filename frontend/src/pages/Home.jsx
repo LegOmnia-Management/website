@@ -8,7 +8,7 @@ import HeroBg from '../components/HeroBg';
 import AfricaMap from '../components/AfricaMap';
 import IconRing from '../components/IconRing';
 
-import Video from '../assets/video/avocat.mp4';
+import Video from '../assets/video/african_law_enter_in_new_era.mp4';
 import Avocat from '../assets/img/pictos/avocat.svg';
 import Juriste from '../assets/img/pictos/juriste.svg';
 import Institution from '../assets/img/pictos/institution.svg';
