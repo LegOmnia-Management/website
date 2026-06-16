@@ -103,7 +103,6 @@ const Home = () => {
                 <ul className="home__showcase--stats">
                     <li><span>50 000+</span> textes</li>
                     <li><span>17+</span> pays</li>
-                    <li><span>0,3s</span> réponse</li>
                     <li><span>98%</span> satisfaction</li>
                 </ul>
 
@@ -254,13 +253,6 @@ const Home = () => {
                                 />
                                 <h3 className="title">Structuration des données</h3>
                                 <p>Nous collectons, normalisons et enrichissons l'ensemble des textes juridiques africains pour en faire une base fiable, cohérente et exploitable.</p>
-                            </li>
-                            <li className='card'>
-                                <IconRing
-                                    src={Integration}
-                                />
-                                <h3 className="title">Intégration technique</h3>
-                                <p>LegOmnia s'intègre facilement à vos outils existants via API, sans disruption de vos workflows ni refonte de votre infrastructure.</p>
                             </li>
                             <li className='card'>
                                 <IconRing

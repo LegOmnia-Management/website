@@ -50,6 +50,7 @@ section {
 }
 
 .home__presentation--text > p {
+    font-size: 1.8rem;
     max-width: 80rem;
     width: 100%;
     margin-inline: auto;
@@ -84,8 +85,8 @@ section {
     li {
         color: var(--text2);
         font-family: 'Lato', sans-serif;
-        font-size: 1.4rem;
-        padding-inline: 1rem;
+        font-size: 1.5rem;
+        padding-inline: 1.4rem;
         text-align: center;
 
         span {
@@ -286,14 +287,14 @@ section {
 
     /* Mise en avant */
     .home__showcase--stats {
-        gap: 3rem;
+        gap: 4rem;
 
         li {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             padding-inline: 0;
 
             &:not(:last-of-type)::after {
-                right: -1.5rem;
+                right: -2.1rem;
             }
 
             span {
@@ -401,6 +402,11 @@ section {
         }
     }
 
+    .home__showcase--list--partenaire {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem 3rem;
+    }
+
     /* Demo */
     .home__ask__demo--content {
         padding: 3rem;
@@ -442,7 +448,6 @@ section {
         gap: 2rem 3rem;
     }
 
-    .home__showcase--list--partenaire,
     .home__showcase--list--valeur {
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem 3rem;
