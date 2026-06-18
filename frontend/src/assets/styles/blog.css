@@ -1,0 +1,154 @@
+.articles__content--list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+}
+
+.articles__card {
+    background: #fff;
+    border: 1px solid var(--violetLightSoft);
+    border-radius: 12px;
+    box-shadow: var(--boxShadowSimple);
+    line-height: 1.2;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.articles__card--img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.articles__card--content {
+    padding: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.articles__card--header {
+    border: none;
+}
+
+.card__header--categories {
+    margin-bottom: 0.5rem;
+}
+
+.card__header--category {
+    --color: var(--text3);
+
+    color: var(--color);
+    display: inline-block;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+
+    &:not(:last-of-type) {
+        padding-right: 1.5rem;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            right: .5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 5px;
+            background-color: var(--text3);
+        }
+    }
+
+    &.droit {
+        color: var(--violet);
+    }
+
+    &.legaltech {
+        color: var(--blueDark);
+    }
+
+    &.sectoriel {
+        color: #f79603;
+    }
+
+    &.ia {
+        color: #04b568;
+    }
+
+    &.innovation {
+        color: var(--pink);
+    }
+}
+
+.card__header--title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-block: 0.5rem 1.5rem;
+}
+
+.card__text {
+    color: var(--text2);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.articles__card--footer {
+    background: none;
+    font-size: 1.3rem;
+    margin-top: auto;
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card__footer--author {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    width: 100%;
+}
+
+.card__footer--date, 
+.card__footer--time {
+    color: var(--text3);
+    padding-left: 1.6rem;
+}
+.card__footer--date {
+    background: url('../img/pictos/calendar.svg') left center no-repeat;
+    margin-right: 1.5rem;
+} 
+.card__footer--time {
+    background: url('../img/pictos/clock.svg') left center no-repeat;
+}
+
+/***************** Breakpoints *****************/
+/* Custom : 38em *  16px => 608px */
+@media screen and (min-width: 38rem) {
+    
+    .articles__content--list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
+    
+    .articles__card--content {
+        padding: 2rem;
+    }
+}
+
+/* Desktop : 80em *  16px => 1280px */
+@media screen and (min-width: 80rem) {
+
+    .articles__content--list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
