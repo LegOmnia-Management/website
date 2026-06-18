@@ -9,11 +9,18 @@
     border: 1px solid var(--violetLightSoft);
     border-radius: 12px;
     box-shadow: var(--boxShadowSimple);
+    height: stretch;
     line-height: 1.2;
     overflow: hidden;
     text-align: center;
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        box-shadow: var(--boxShadowSimple-hover);
+        transform: translateY(-2px);
+    }
 }
 
 .articles__card--img {

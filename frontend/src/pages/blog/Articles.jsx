@@ -42,26 +42,28 @@ const Articles = () => {
                     <div className="articles__content--list">
                         {
                             articles.map(article => (
-                                <article className='articles__card' key={article.id}>
-                                    <img className="articles__card--img" src={article.img} alt={article.alt} />
-                                    <div className="articles__card--content">
-                                        <header className="articles__card--header">
-                                            <p className="card__header--categories">
-                                            {
-                                                article.category.map((cat, index) => (
-                                                    <span className={`card__header--category ${cat.class}`} key={index}>{cat.name}</span>
-                                            ))}
-                                            </p>
-                                            <h3 className="card__header--title">{article.title}</h3>
-                                        </header>
-                                        <p className="card__text">{article.recap}</p>
-                                        <footer className="articles__card--footer">
-                                            <p className="card__footer--author">{article.author}</p>
-                                            <p className="card__footer--date">{article.date}</p>
-                                            <p className="card__footer--time">{article.time}</p>
-                                        </footer>
-                                    </div>
-                                </article>
+                                <Link to={`/blog/articles/${article.id}`} className='articles__card--link' key={article.id}>
+                                    <article className='articles__card'>
+                                        <img className="articles__card--img" src={article.img} alt={article.alt} />
+                                        <div className="articles__card--content">
+                                            <header className="articles__card--header">
+                                                <p className="card__header--categories">
+                                                {
+                                                    article.category.map((cat, index) => (
+                                                        <span className={`card__header--category ${cat.class}`} key={index}>{cat.name}</span>
+                                                ))}
+                                                </p>
+                                                <h3 className="card__header--title">{article.title}</h3>
+                                            </header>
+                                            <p className="card__text">{article.recap}</p>
+                                            <footer className="articles__card--footer">
+                                                <p className="card__footer--author">{article.author}</p>
+                                                <p className="card__footer--date">{article.date}</p>
+                                                <p className="card__footer--time">{article.time}</p>
+                                            </footer>
+                                        </div>
+                                    </article>
+                                </Link>
                             )
                         )}
                     </div>
