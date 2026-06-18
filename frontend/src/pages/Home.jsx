@@ -16,13 +16,13 @@ import Investisseur from '../assets/img/pictos/investisseur.svg';
 import Chercheur from '../assets/img/pictos/chercheur.svg';
 import Profil from '../assets/img/pictos/profil.svg';
 import Structuration from '../assets/img/pictos/structuration.svg';
-import Integration from '../assets/img/pictos/integration.svg';
 import Formation from '../assets/img/pictos/formation.svg';
 import Deploiement from '../assets/img/pictos/deploiement.svg';
 import Couverture from '../assets/img/pictos/couverture.svg';
 import Donnee from '../assets/img/pictos/donnee.svg';
 import AI from '../assets/img/pictos/AI.svg';
 import Secure from '../assets/img/pictos/secure.svg';
+import MapContact from '../assets/img/divers/map_contact.svg';
 
 const Home = () => {
 
@@ -331,6 +331,7 @@ const Home = () => {
                                 <p>24 Commerce Street, NJ 07302</p>
                             </div>
                         </div>
+                        <img className="home__ask__demo--map" src={MapContact} alt="Où nous trouver" />
                     </div>
                 </div>
             </section>

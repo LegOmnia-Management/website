@@ -276,6 +276,10 @@ section {
     }
 }
 
+.home__ask__demo--map {
+    margin-top: 2rem;
+}
+
 /***************** Breakpoints *****************/
 /* Custom : 30em *  16px => 480px */
 @media screen and (min-width: 30rem) {
@@ -349,6 +353,11 @@ section {
         }
     }
 
+    /* Présentation */
+    .home__presentation--text > p {
+        font-size: 2rem;
+    }
+
     /* Mise en avant */
     .home__showcase--subtitle {
         font-size: 2rem;
@@ -420,6 +429,11 @@ section {
     .home__ask__demo--contact {
         gap: 3rem;
     }
+
+    .home__ask__demo--map {
+        margin-inline: auto;
+        width: 80%;
+    }
 }
 
 /* Desktop : 80em *  16px => 1280px */
@@ -470,5 +484,9 @@ section {
 
     .home__ask__demo--contact {
         gap: 4rem;
+    }
+
+    .home__ask__demo--map {
+        width: 60%;
     }
 }
