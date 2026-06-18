@@ -50,6 +50,7 @@ section {
 }
 
 .home__presentation--text > p {
+    font-size: 1.8rem;
     max-width: 80rem;
     width: 100%;
     margin-inline: auto;
@@ -84,8 +85,8 @@ section {
     li {
         color: var(--text2);
         font-family: 'Lato', sans-serif;
-        font-size: 1.4rem;
-        padding-inline: 1rem;
+        font-size: 1.5rem;
+        padding-inline: 1.4rem;
         text-align: center;
 
         span {
@@ -275,6 +276,10 @@ section {
     }
 }
 
+.home__ask__demo--map {
+    margin-top: 2rem;
+}
+
 /***************** Breakpoints *****************/
 /* Custom : 30em *  16px => 480px */
 @media screen and (min-width: 30rem) {
@@ -286,14 +291,14 @@ section {
 
     /* Mise en avant */
     .home__showcase--stats {
-        gap: 3rem;
+        gap: 4rem;
 
         li {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             padding-inline: 0;
 
             &:not(:last-of-type)::after {
-                right: -1.5rem;
+                right: -2.1rem;
             }
 
             span {
@@ -346,6 +351,11 @@ section {
         &:first-child {
             font-size: 2.2rem;
         }
+    }
+
+    /* Présentation */
+    .home__presentation--text > p {
+        font-size: 2rem;
     }
 
     /* Mise en avant */
@@ -401,6 +411,11 @@ section {
         }
     }
 
+    .home__showcase--list--partenaire {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem 3rem;
+    }
+
     /* Demo */
     .home__ask__demo--content {
         padding: 3rem;
@@ -413,6 +428,11 @@ section {
 
     .home__ask__demo--contact {
         gap: 3rem;
+    }
+
+    .home__ask__demo--map {
+        margin-inline: auto;
+        width: 80%;
     }
 }
 
@@ -442,7 +462,6 @@ section {
         gap: 2rem 3rem;
     }
 
-    .home__showcase--list--partenaire,
     .home__showcase--list--valeur {
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem 3rem;
@@ -465,5 +484,9 @@ section {
 
     .home__ask__demo--contact {
         gap: 4rem;
+    }
+
+    .home__ask__demo--map {
+        width: 60%;
     }
 }

@@ -16,13 +16,13 @@ import Investisseur from '../assets/img/pictos/investisseur.svg';
 import Chercheur from '../assets/img/pictos/chercheur.svg';
 import Profil from '../assets/img/pictos/profil.svg';
 import Structuration from '../assets/img/pictos/structuration.svg';
-import Integration from '../assets/img/pictos/integration.svg';
 import Formation from '../assets/img/pictos/formation.svg';
 import Deploiement from '../assets/img/pictos/deploiement.svg';
 import Couverture from '../assets/img/pictos/couverture.svg';
 import Donnee from '../assets/img/pictos/donnee.svg';
 import AI from '../assets/img/pictos/AI.svg';
 import Secure from '../assets/img/pictos/secure.svg';
+import MapContact from '../assets/img/divers/map_contact.svg';
 
 const Home = () => {
 
@@ -103,7 +103,6 @@ const Home = () => {
                 <ul className="home__showcase--stats">
                     <li><span>50 000+</span> textes</li>
                     <li><span>17+</span> pays</li>
-                    <li><span>0,3s</span> réponse</li>
                     <li><span>98%</span> satisfaction</li>
                 </ul>
 
@@ -257,13 +256,6 @@ const Home = () => {
                             </li>
                             <li className='card'>
                                 <IconRing
-                                    src={Integration}
-                                />
-                                <h3 className="title">Intégration technique</h3>
-                                <p>LegOmnia s'intègre facilement à vos outils existants via API, sans disruption de vos workflows ni refonte de votre infrastructure.</p>
-                            </li>
-                            <li className='card'>
-                                <IconRing
                                     src={Formation}
                                 />
                                 <h3 className="title">Formation et accompagnement</h3>
@@ -339,6 +331,7 @@ const Home = () => {
                                 <p>24 Commerce Street, NJ 07302</p>
                             </div>
                         </div>
+                        <img className="home__ask__demo--map" src={MapContact} alt="Où nous trouver" />
                     </div>
                 </div>
             </section>
