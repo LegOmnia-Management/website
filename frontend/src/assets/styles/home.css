@@ -345,11 +345,18 @@ section {
         padding-block: 6rem;
     }
 
-    .main__home .hero__title .subtitle {
-        line-height: 2.9rem;
+    .main__home {
+
+        .hero {
+            padding-block: 5rem;
+        }
     
-        &:first-child {
-            font-size: 2.2rem;
+        .hero__title .subtitle {
+            line-height: 2.9rem;
+        
+            &:first-child {
+                font-size: 2.2rem;
+            }
         }
     }
 
@@ -439,16 +446,19 @@ section {
 /* Desktop : 80em *  16px => 1280px */
 @media screen and (min-width: 80rem) {
 
-    .main__home .hero__title .subtitle {
-        line-height: 3.4rem;
-        margin-block: 0 5rem;
+    .main__home {
     
-        &:first-child {
-            font-size: 2.6rem;
-        }
+        .hero__title .subtitle {
+            line-height: 3.4rem;
+            margin-block: 0 3rem;
+        
+            &:first-child {
+                font-size: 2.6rem;
+            }
 
-        &:last-child {
-            margin-block: 3rem 5rem;
+            &:last-child {
+                margin-block: 3rem;
+            }
         }
     }
 
