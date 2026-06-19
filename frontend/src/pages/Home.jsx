@@ -44,7 +44,7 @@ const Home = () => {
                         <h1 className='main-title'>
                             Le droit africain entre <span className='break'>dans une <em className='highlight'>nouvelle ère</em></span>
                         </h1>
-                        <p className="subtitle">Découvrez <span className='highlight'>Omnia</span>, notre application <span className='break'>de recherche juridique d'Afrique francophone</span></p>
+                        <p className="subtitle">Découvrez <span className='highlight'>Omnia</span>, notre application de recherche juridique d'Afrique francophone</p>
                     </div>
                     <div className="hero__search">
                         <input type="text" placeholder="Commencez votre recherche ici..."/>
