@@ -22,7 +22,7 @@ app.get('/hello', (req, res) => {
 
 app.use("/api/contact", contactRoutes);
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
+const PORT = process.env.PORT ? Number(process.env.PORT) : 8080;
 app.listen(PORT, () => {
     console.log(`API lancée sur le port : ${PORT}`);
 });
