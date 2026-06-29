@@ -8,8 +8,8 @@
     "backend": {
       "root": "backend",
       "routePrefix": "/_/backend",
-      "framework": "nodejs",
-      "entrypoint": "index.js"
+      "entrypoint": "index.js",
+      "runtime": "nodejs20.x"
     }
   }
 }
