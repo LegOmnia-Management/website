@@ -40,7 +40,6 @@ const Home = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h3 className='subtitle'>L'IA juridique pour l'Afrique francophone</h3>
-                        <p className='subtitle'><span className='highlight'>LegOmnia</span> transforme la donnée juridique en intelligence exploitable</p>
                         <h1 className='main-title'>
                             Le droit africain entre <span className='break'>dans une <em className='highlight'>nouvelle ère</em></span>
                         </h1>
