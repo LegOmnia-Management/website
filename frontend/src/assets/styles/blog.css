@@ -73,23 +73,23 @@
     }
 
     &.droit {
-        color: var(--violet);
+        --color: var(--violet);
     }
 
     &.legaltech {
-        color: var(--blueDark);
+        --color: var(--blueDark);
     }
 
     &.sectoriel {
-        color: #f79603;
+        --color: #f79603;
     }
 
     &.ia {
-        color: #04b568;
+        --color: #04b568;
     }
 
     &.innovation {
-        color: var(--pink);
+        --color: var(--pink);
     }
 }
 
@@ -329,8 +329,6 @@
 
         img {
             width: 30rem;
-            aspect-ratio: 1/1;
-            object-fit: cover;
         }
 
         h1 {
@@ -349,6 +347,16 @@
 
         .detail__header--footer {
             font-size: 1.5rem;
+        }
+    }
+
+    .detail__header--footer {
+        display: flex;
+        gap: 2rem;
+
+        span {
+            width: auto;
+            margin: 0;
         }
     }
 }

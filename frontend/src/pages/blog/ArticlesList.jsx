@@ -29,8 +29,8 @@ export const articles = [
         img: Art2,
         alt: 'Afrique francophone',
         category: [{
-            name: 'Non classé',
-            class: ''
+            name: 'IA & Souveraineté Numérique',
+            class: 'ia'
         }],
         title: 'LegOmnia : quand l’intelligence artificielle met le droit au service du développement durable en Afrique francophone',
         recap: 'Il existe une injustice silencieuse qui traverse l’Afrique francophone depuis des décennies : l’accès au droit.',
