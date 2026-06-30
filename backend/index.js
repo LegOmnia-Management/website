@@ -16,15 +16,14 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/hello', (req, res) => {
-    res.json({ message: "Hello World !" });
-});
-
 app.use("/api/contact", contactRoutes);
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 8080;
-app.listen(PORT, () => {
-    console.log(`API lancée sur le port : ${PORT}`);
-});
+const PORT = process.env.PORT ? Number(process.env.PORT) : 5171;
+
+if (process.env.VERCEL !== '1') {
+    app.listen(PORT, () => {
+        console.log(`API lancée sur le port : ${PORT}`);
+    });
+}
 
 export default app;
