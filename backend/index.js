@@ -18,12 +18,27 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/contact", contactRoutes);
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 5171;
+// const PORT = process.env.PORT ? Number(process.env.PORT) : 5171;
 
-if (process.env.VERCEL !== '1') {
+// if (process.env.VERCEL !== '1') {
+//     app.listen(PORT, () => {
+//         console.log(`API lancée sur le port : ${PORT}`);
+//     });
+// }
+
+// export default app;
+
+/***************** Pour Vercel *****************/
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT ? Number(process.env.PORT) : 5171;
     app.listen(PORT, () => {
-        console.log(`API lancée sur le port : ${PORT}`);
+        console.log(`API lancée sur http://localhost:${PORT}`);
     });
 }
-
 export default app;
+
+/***************** Générique *****************/
+// const PORT = process.env.PORT ? Number(process.env.PORT) : 5171;
+// app.listen(PORT, () => {
+//     console.log(`API lancée sur le port : ${PORT}`);
+// });g
