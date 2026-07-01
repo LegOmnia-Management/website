@@ -28,6 +28,12 @@ jobs:
           push: true
           tags: rg.fr-par.scw.cloud/legomnia-website/backend:latest
 
+      - name: Redeploy Backend on Scaleway
+        run: |
+          curl -s -X POST \
+            -H "X-Auth-Token: ${{ secrets.SCW_SECRET_KEY }}" \
+            "https://api.scaleway.com/containers/v1beta1/regions/fr-par/containers/${{ secrets.SCW_BACKEND_CONTAINER_ID }}/deploy"
+
   deploy-frontend:
     runs-on: ubuntu-latest
     needs: deploy-backend
@@ -47,3 +53,9 @@ jobs:
           context: ./frontend
           push: true
           tags: rg.fr-par.scw.cloud/legomnia-website/frontend:latest
+
+      - name: Redeploy Frontend on Scaleway
+        run: |
+          curl -s -X POST \
+            -H "X-Auth-Token: ${{ secrets.SCW_SECRET_KEY }}" \
+            "https://api.scaleway.com/containers/v1beta1/regions/fr-par/containers/${{ secrets.SCW_FRONTEND_CONTAINER_ID }}/deploy"
