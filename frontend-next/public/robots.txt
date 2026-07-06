@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /*?et_fb=
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+
+Sitemap: https://legomnia.com/sitemap.xml

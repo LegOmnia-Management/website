@@ -1,0 +1,266 @@
+/***************** Redéfinitions *****************/
+.main__omniscan {
+
+    .hero {
+        background: #f8f9fa;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(200, 151, 58, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 151, 58, 0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .ui__btn--inline {
+            background: #f8f9fa;
+        }
+    }
+
+    .highlight {
+        background: var(--gradientOmniscan);;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .card {
+       background: white; 
+       border: 1px solid var(--blackOutline); 
+       display: flex;
+       flex-direction: column;
+    }
+
+    .icon__ring {
+        border: 0;
+        position: relative;
+
+        &::before {
+            content: '';
+            background: var(--gradientOmniscan);
+            position: absolute;
+            inset: 0;
+            padding: 2px; /* épaisseur du border */
+            border-radius: inherit;
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    }
+}
+
+.omniscan__solution--cards,
+.omniscan__steps--cards, 
+.omniscan__users--cards {
+    list-style: none;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .card {
+
+        .text {
+            margin-block: 1.4rem 1.5rem;
+    
+            p {
+                color: var(--text1);
+                margin-bottom: 1rem;
+            }
+        }
+    
+        .list {
+            color: var(--violet);
+            font-size: 1.2rem;
+            font-style: normal;
+            margin-top: auto;
+            text-align: left;
+            text-transform: uppercase;
+        }
+    }
+}
+
+/***************** Pipeline *****************/
+.omniscan__pipeline {
+
+    img {
+        max-width: 320px;
+        margin-inline: auto;
+    }
+}
+
+/***************** Solution *****************/
+.omniscan__solution {
+    background-color: #f8f9fa;
+
+    .title__h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+}
+
+/***************** Steps *****************/
+.omniscan__steps--cards { 
+    gap: 1.5rem;
+
+    .card {
+        box-shadow: var(--boxShadowSimple);
+    }
+}
+
+/***************** Conformité *****************/
+.omniscan__conform {
+    background-color: #f8f9fa;
+
+    img {
+        max-width: 420px;
+        margin-inline: auto;
+    }
+}
+
+/***************** Users *****************/
+.omniscan__users {
+
+    .title__h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+}
+
+.omniscan__users--cards {
+    gap: 1.5rem;
+
+    .card {
+        box-shadow: var(--boxShadowSimple);
+    }
+}
+
+/***************** Breakpoints *****************/
+/* Custom : 30em *  16px => 480px */
+@media screen and (min-width: 30rem) {
+
+    /* Redéfinition */
+    .main__omniscan .hero {
+    
+        .ui__btn--gradient,
+        .ui__btn--inline {
+            width: 60%;
+        }
+    }
+
+    /* Cards */
+    .omniscan__solution--cards .card,
+    .omniscan__steps--cards .card,
+    .omniscan__users--cards .card {
+        width: 75%;
+    }
+}
+
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
+
+    /* Redéfinition */
+    .main__omniscan .hero {
+    
+        .ui__btn--gradient,
+        .ui__btn--inline {
+            width: max-content;
+        }
+
+        &::before {
+            display: none;
+        }
+    }
+
+    /* Structure */
+    .omniscan__pipeline .structure__columns,
+    .omniscan__conform .structure__columns {
+        flex-direction: row;
+        gap: 4rem;
+        align-items: center;
+        margin-top: 4rem;
+
+        .structure__content {
+            width: 50%;
+        }
+    }
+
+    .omniscan__pipeline .structure__columns img {
+        max-width: 320px;
+        margin-inline: auto;
+        order: 1;
+    }
+
+    .omniscan__conform .structure__columns img {
+        max-width: 420px;
+        margin-inline: auto;
+        order: 1;
+    }
+
+    /* Solution */
+    .omniscan__solution .title__h2 {
+        margin-bottom: 2.5rem;
+    }
+
+    /* Users */
+    .omniscan__users .title__h2 {
+        margin-bottom: 2.5rem;
+    }
+
+    /* Cards */
+    .omniscan__solution--cards,
+    .omniscan__steps--cards,
+    .omniscan__users--cards {
+        margin-top: 4rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: stretch;
+        gap: 2rem;
+
+        .card {
+            width: 100%;
+        }
+    }
+}
+
+/* Desktop : 80em *  16px => 1280px */
+@media screen and (min-width: 80rem) {
+
+    /* Solution */
+    .omniscan__solution .title__h2 {
+        margin-bottom: 4rem;
+    }
+
+    .omniscan__solution--cards {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    /* Users */
+    .omniscan__users .title__h2 {
+        margin-bottom: 4rem;
+    }
+
+    /* Steps */
+    .omniscan__steps--cards {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+}

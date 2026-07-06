@@ -1,0 +1,739 @@
+@import url("./reset.css");
+
+/***************** Fonts *****************/
+
+/***************** Variables *****************/
+:root {
+    
+    /* couleurs */
+    --violet: #6b63d0;
+    --violetDark: #4a0f9d;
+    --violetLight: #8b84e0;
+    --violetSoft: rgba(124,92,252,.12);
+    --violetLightSoft: rgba(124,92,252,.05);
+    --violetOutline: rgba(124,92,252,.28);
+    --black: #000;
+    --blackOutline: rgba(0,0,0,.08);
+    --blue :#5ce1e6;
+    --blueDark: #61C3E1;
+    --blueSoft :rgba(92, 225, 230, .12);
+    --pink: #e896f6;
+    --pinkDark: #d080de;
+    --gradientOmniscan: linear-gradient(90deg, var(--violet), var(--blue));
+    --gradientOmniscanHover: linear-gradient(90deg, var(--violetDark), var(--blueDark));
+    --gradientGeode: linear-gradient(90deg, var(--violet), var(--pink));
+    --gradientGeodeHover: linear-gradient(90deg, var(--violetDark), var(--pink));
+
+    --text1: #212529; 
+    --text2: #495057; 
+    --text3: #ADB5BD;
+    --text4: #5F607E;
+
+    --bgMain: linear-gradient(135deg, #FDFDE1 0%, #F4F4EC 100%);
+    --bgNav:rgba(255,255,255,.98); 
+    --bgFooter: #E9ECEF;
+    --bgHeroStart:#FDFDE1;
+    --bgHeroEnd:#F4F4EC;
+    --bgBtnGrey: #F1F3F5;
+
+    --boxShadow: 0 5px 20px rgba(124,92,252,.2);
+    --boxShadow-hover: 0 5px 20px rgba(124,92,252,.5);
+    --boxShadowBlack: 0 5px 20px rgba(0,0,0,.2);
+    --boxShadowBlack-hover: 0 5px 20px rgba(0,0,0,.5);
+    --boxShadowSimple: 0 3px 5px rgba(0,0,0,.2);
+    --boxShadowSimple-hover: 0 5px 10px rgba(0,0,0,.5);
+
+    /* width */
+    --widthXl: 1280px;
+    --width-lg: 1200px;
+    --width-md: 1024px;
+    --width-sm: 800px;
+
+    /* radius */
+    --radiusSm: .8rem;
+    --radiusMd: 1.4rem;
+    --radiusPill: 10rem;
+    /* --radius-lg: 20px; */
+    /* --radius-xl: 28px; */
+    /* --radiusPill: 10rem; */
+    /* --nav-h: 72px; */
+}
+
+
+/***************** Background *****************/
+.bg__grid {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+
+        background-image:
+            linear-gradient(rgba(107, 99, 208, 0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(107, 99, 208, 0.06) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+        mask-image: radial-gradient(
+            ellipse at center,
+            rgba(0, 0, 0, 1) 35%,
+            rgba(0, 0, 0, .7) 55%,
+            rgba(0, 0, 0, .25) 75%,
+            transparent 100%
+        );
+        -webkit-mask-image: radial-gradient(
+            ellipse at center,
+            rgba(0, 0, 0, 1) 35%,
+            rgba(0, 0, 0, .7) 55%,
+            rgba(0, 0, 0, .25) 75%,
+            transparent 100%
+        );
+        z-index: -1;
+    }
+}
+
+.bg__circle {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(
+        circle,
+        rgba(107, 99, 208, .25) 1px,
+        transparent 1px
+      );
+      background-size: 2rem 2rem;
+      pointer-events: none;
+      mask-image: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 1) 35%,
+        rgba(0, 0, 0, 0.7) 55%,
+        rgba(0, 0, 0, 0.25) 75%,
+        transparent 100%
+      );
+      -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 1) 35%,
+        rgba(0, 0, 0, 0.7) 55%,
+        rgba(0, 0, 0, 0.25) 75%,
+        transparent 100%
+      );
+      z-index: -1;
+    }
+  }
+
+
+/***************** Structure *****************/
+#root {
+    color: var(--text1);
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: var(--widthXl);
+    margin-inline: auto;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.structure__columns {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+
+    > img {
+        border-radius: 10px;
+        box-shadow: var(--boxShadowBlack);
+        border: 1px solid white;
+        order: -1;
+        width: 98%;
+
+        &.screen--desktop {
+            display: none;
+        }
+    }
+
+    p {
+        text-align: center;
+    }
+}
+
+/***************** Logo *****************/
+.nav__logo {
+    font-family: 'Ibarra Real Nova',Georgia,"Times New Roman",serif;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.nav__logo--img {
+    width: 1.2rem;
+}
+
+.nav__logo--text {
+    font-size: 2.6rem;
+    letter-spacing: -0.5px;
+}
+
+/***************** Buttons *****************/
+[class^="ui__btn"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    border-radius: var(--radiusMd);
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: all .3s ease;
+
+    &:hover,
+    &:focus,
+    &:active {
+        box-shadow: var(--boxShadow-hover);
+        transform: translateY(-2px);
+    }
+  }
+
+.ui__btn {
+    background-color: var(--violet);
+    border: none;
+    color: #fff;
+    padding: 1.2rem 2.4rem;
+    
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--violetLight);
+    }
+}
+
+.ui__btn--inline {
+    background-color: transparent;
+    border: 1px solid var(--violetLight);
+    padding: 1.2rem 2.4rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border: 1px solid var(--violet);
+        color: var(--violet);
+    }
+}
+
+.ui__btn--black {
+    background-color: var(--text1);
+    color: white;
+    padding: 1.2rem 2.4rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--text2);
+        box-shadow: var(--boxShadowBlack-hover);
+    }
+}
+
+.ui__btn--theme {
+    background-color: var(--bgBtnGrey);;
+    border: 1px solid transparent;
+    padding: .8rem 1.2rem;
+
+    .iconify {
+        font-size: 2.4rem;
+    }
+
+    .text {
+        display: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        border: 1px solid var(--violet);
+        color: var(--violet);
+    }
+}
+
+.ui__btn--gradient,
+.ui__btn--gradientSecond {
+    color: white;
+    padding: 1.2rem 2.4rem;
+    transition: all .3s ease;
+}
+
+.ui__btn--gradient {
+    background: var(--gradientOmniscan);
+    
+    &:hover,
+    &:focus,
+    &:active {
+        background: var(--gradientOmniscanHover);
+        box-shadow: 0 5px 20px rgba(93, 219, 229,.5);
+    }
+}
+
+.ui__btn--gradientSecond {
+    background: var(--gradientGeode);
+    
+    &:hover,
+    &:focus,
+    &:active {
+        background: var(--gradientGeodeHover);
+    }
+}
+
+/***************** Title *****************/ 
+.title__h2 {
+    font-family: 'Ibarra Real Nova',Georgia,"Times New Roman",serif;
+    font-size: 3.2rem;
+    line-height: 3.6rem;
+    text-align: center;
+}
+
+.title__subtitle {
+    font-size: 1.7rem;
+    margin-block: .5rem 4rem;
+    text-align: center;
+}
+
+.highlight {
+    color: var(--violet);
+}
+
+/***************** Tags *****************/
+.ui__tag {
+    background-color: #EFEBFE;
+    border: 1px solid var(--violetSoft);
+    border-radius: var(--radiusPill);
+    color: var(--text4);
+    font-size: 1.4rem;  
+    padding: .4rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+
+    img, 
+    svg {
+        width: 1.5rem;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/***************** Pictos *****************/
+.icon__ring {
+    border: 2px solid var(--violetSoft);
+    border-radius:50%;
+    width:60px;
+    height:60px;
+    margin:0 auto 16px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    /* [class^="point"] {
+        border-radius: 50%;
+        background: rgba(107, 92, 231, .55);
+        position: absolute;
+        width: 5px;
+        aspect-ratio: 1/1;
+    }
+
+    .point1 {
+        top: 0;
+        left: 0;
+        opacity: .75;
+    }
+
+    .point2 {
+        top: 10px;
+        right: 10px;
+        opacity: .45;
+        transform: scale(0.8);
+    }
+
+    .point3 {
+        bottom: 0;
+        right: 12px;
+        opacity: .7;
+    }
+
+    .point4 {
+        bottom: 10px;
+        left: 10px;
+        opacity: .45;
+        transform: scale(0.8);
+    }
+
+    .point5 {
+        bottom: 6px;
+        right: -12px;
+        opacity: .35;
+        transform: scale(0.6);
+    } */
+
+    img {
+        width: 3.2rem;
+    }
+}
+
+/***************** Hero *****************/ 
+.hero {
+    background: linear-gradient(135deg, var(--bgHeroStart) 0%, var(--bgHeroEnd) 100%);
+    position: relative;
+}
+
+.hero__container {
+    text-align: center;
+    position: relative;
+}
+
+.hero__title {
+
+    .main-title {
+        font-family: 'Ibarra Real Nova',Georgia,"Times New Roman",serif;
+        font-size: 4.2rem;
+        font-weight: 700;
+        line-height: 1;
+
+        .highlight {
+            color: var(--violet);
+        }
+    }
+
+    .subtitle {
+        color: var(--text2);
+        font-size: 2.2rem;
+        font-weight: 400;
+        margin-block: 2rem 4rem;
+
+        .highlight {
+            color: var(--violet);
+        }
+    }
+}
+
+.hero__search {
+    background-color: white;
+    border: 1px solid var(--violetSoft);
+    border-radius: var(--radiusMd);
+    box-shadow: var(--boxShadowSimple);
+    font-size: 1.4rem;
+    height: 4.5rem;
+    margin-inline: auto;
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    
+    input {
+        border: none;
+        border-radius: var(--radiusPill);
+        padding: 1.5rem;
+        width: 100%;
+
+        &:hover,
+        &:focus,
+        &:active, 
+        &:focus-visible {
+            border: none;
+            outline: none;
+        }
+    }
+
+    a {
+        color: var(--violet);
+        font-size: 2.2rem;
+        padding-inline: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            color: var(--violetLight);
+        }
+    }
+}
+
+.hero__actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+    margin-top: 2.2rem;
+
+    .ui__btn--inline {
+        background-color: rgba(248, 248, 230, .6);
+    }
+}
+
+.hero__reassure {
+    color: var(--text2);
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    li {
+        margin-inline: auto;
+        padding: 0 0 .5rem 1.6rem;
+        position: relative;
+        text-align: left;
+        width: 16rem;
+
+        &::before {
+            content: "✔";
+            font-size: 1rem;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+    }
+}
+
+/***************** Card *****************/ 
+.card {
+    background: #fff;
+    border: 1px solid var(--violetLightSoft);
+    border-radius: 12px;
+    line-height: 1.2;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+
+    .title {
+        font-family: 'Ibarra Real Nova',Georgia,"Times New Roman",serif;
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1.4rem;
+        font-style: italic;
+        margin-block: .4rem 2rem;
+        color: var(--violetDark);
+
+        &.text {
+            color: var(--text2);
+            margin-block: .5rem 0;
+        }
+    }
+
+    .list {
+        color: var(--text2);
+        font-size: 1.4rem;
+        list-style: none;
+
+        li {
+            padding: 0 0 0 2rem;
+            text-align: left;
+            position: relative;
+
+            &::before {
+                content: "✔";
+                font-size: 1rem;
+                position: absolute;
+                left: 0;
+                top: 2px;
+            }
+        }
+    }
+
+    a {
+        width: 80%;
+        margin-inline: auto;
+    }
+}  
+
+/***************** Breakpoints *****************/
+/* Custom : 30em *  16px => 480px */
+@media screen and (min-width: 30rem) {
+
+    /* Hero */
+    .hero__search {
+        width: 90%;
+    }
+
+    .hero__actions {
+        flex-direction: row;
+        gap: 2rem;
+        margin-top: 4.4rem;
+    }
+
+    /* Card */
+    .card {
+        padding: 2rem;
+    }
+}
+
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
+
+    /* Structure */
+    .structure__columns {
+        gap: 4rem;
+        margin-top: 4rem;
+
+        > img {
+            margin-inline: auto;
+            max-width: 715px;
+            width: 100%;
+        }
+
+        img.screen--mobile {
+            display: none;
+        }
+
+        img.screen--desktop {
+            display: block;
+        }
+    }
+
+    .structure__content {
+        width: 725px;
+        margin-inline: auto;
+
+        > p {
+            text-align: left;
+        }
+    }
+    
+    /* Button */
+    .ui__btn--theme .text {
+        display: block;
+    }
+
+    /* Title */
+    .title__h2 {
+        font-size: 4rem;
+        line-height: 4.5rem;
+    }
+
+    .title__subtitle {
+        font-size: 2rem;
+        margin-top: 2.5rem;
+    }
+
+    /* Hero */
+    .hero {
+        padding-block: 8rem;
+    }
+
+    .hero__title {
+
+        .main-title {
+            font-size: 5.2rem;
+        }
+
+        .subtitle {
+            font-size: 2.6rem;
+            margin-block: 3rem 6rem;
+        }
+    }
+    
+    .hero__search {
+        font-size: 1.5rem;
+        height: 5.5rem;
+        width: 80%;
+    }
+
+    .hero__reassure {
+        flex-direction: row;
+        justify-content: center;
+
+        li {
+            padding: 0 3rem 0 0;
+            margin-inline: 0;
+            width: auto;
+    
+            &::before {
+                display: none;
+            }
+    
+            &:not(:last-of-type) {
+    
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: 1.2rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: .6rem;
+                    height: .6rem;
+                    background-color: var(--text2);
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+/* Desktop : 80em *  16px => 1280px */
+@media screen and (min-width: 80rem) {
+
+    /* Structure */
+    .structure__columns {
+        flex-direction: row;
+        gap: 4rem;
+        align-items: center;
+        margin-top: 4rem;
+
+        > img {
+            transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
+            width: 60%;
+        }
+    }
+
+    .structure__content {
+        width: 100%;
+    }
+
+    /* Title */
+    .title__h2 {
+        font-size: 4.8rem;
+        line-height: 5.8rem;
+    }
+
+    .title__subtitle {
+        font-size: 2.5rem;
+        margin-top: 4rem;
+    }   
+
+    /* Hero */
+    .hero {
+        padding-block: 10rem;
+    }
+
+    .hero__title {
+
+        .main-title {
+            font-size: 6rem;
+        }
+
+        .subtitle {
+            font-size: 3rem;
+            margin-block: 4rem 8rem;
+        }
+    }
+
+    .hero__search {
+        font-size: 1.6rem;
+        height: 6rem;
+        width: 60%;
+    }
+}

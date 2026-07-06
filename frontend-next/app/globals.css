@@ -1,0 +1,16 @@
+/* Import de tous les styles globaux */
+@import '../assets/styles/reset.css';
+@import '../assets/styles/general.css';
+@import '../assets/styles/header.css';
+@import '../assets/styles/footer.css';
+@import '../assets/styles/heroBg.css';
+@import '../assets/styles/heroCanvas.css';
+@import '../assets/styles/home.css';
+@import '../assets/styles/omnia.css';
+@import '../assets/styles/geode.css';
+@import '../assets/styles/omniscan.css';
+@import '../assets/styles/transformation.css';
+@import '../assets/styles/useCases.css';
+@import '../assets/styles/contact.css';
+@import '../assets/styles/africaMap.css';
+@import '../assets/styles/mentions.css';

@@ -1,0 +1,153 @@
+.main__contact .hero {
+
+    &.hero__contact {
+        min-height: calc(100vh - 300px);
+    }
+
+    .subtitle {
+        margin-block: 3rem 1rem;
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        margin-top: 2rem;
+    }
+
+    h3 + .subtitle {
+        margin-top: 0;
+    }
+}
+
+.contact__content {
+    padding-inline: 2rem;
+}
+
+.contact__form {
+    background: white; 
+    border: 1px solid var(--blackOutline); 
+    border-radius: 12px;
+    box-shadow: var(--boxShadowSimple);
+    margin-inline: auto;
+    max-width: var(--width-md);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .asterisk {
+        font-size: 1.2rem;
+        font-style: italic;
+        width: 100%;
+    }
+}
+
+.form__item--error {
+    color: red;
+    font-size: 1.2rem;
+    font-style: italic;
+    width: 100%;
+}
+
+[class^="form__item"] {
+    width: 100%;
+
+    > * {
+        display: block;
+    }
+    
+    label {
+        font-weight: 600;
+    }
+
+    input, 
+    select, 
+    textarea {
+        border: 1px solid var(--blackOutline);
+        border-radius: var(--radiusSm);
+        padding: 1rem;
+        width: 100%;
+    }
+}
+
+.form__cgu {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .form__item--error {
+        margin-top: -1rem;
+    }
+}
+
+.form__captcha {
+    margin-left: -2.1rem;
+
+    .form__item--error {
+        display: block;
+        margin-top: -.5rem;
+    }
+}
+
+.form__submit {
+    width: 100%;
+
+    &:not(.isActive) {
+        background-color: var(--blackOutline);
+        cursor: default;
+        pointer-events: none;
+    }
+}
+
+/***************** Breakpoints *****************/
+/* Custom : 30em *  16px => 480px */
+@media screen and (min-width: 30rem) {
+
+    .main__contact .hero .hero__actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Custom : 38em *  16px => 608px */
+@media screen and (min-width: 38rem) {
+    
+    .form__footer {
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+    }
+}
+
+/* Tablette : 48em *  16px => 768px */
+@media screen and (min-width: 48rem) {
+
+    .main__contact .hero .hero__actions {
+        margin-top: 4.4rem;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .contact__form {
+        padding: 5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .form__item--half {
+        width: calc(50% - 1rem);
+    }
+
+    .form__submit {
+        margin-top: 3rem;
+        margin-inline: auto;
+        width: 50%;
+    }
+}
+
+/* Desktop : 80em *  16px => 1280px */
+@media screen and (min-width: 80rem) {
+
+}
