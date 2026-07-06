@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import SEOHead from '../components/SEOHead';
 
 import '../assets/styles/omniscan.css';
 
@@ -22,8 +23,23 @@ import Avocat from '../assets/img/pictos/avocat.svg';
 import Profil from '../assets/img/pictos/profil.svg';
 
 const Omniscan = () => {
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "OmniScan",
+        "applicationCategory": "LegalTech",
+        "operatingSystem": "Web",
+        "description": "Pipeline IA de numérisation et d'analyse de documents juridiques africains : OCR, anonymisation, extraction de métadonnées, résumés IA."
+    };
+
     return (
         <main className="main main__omniscan">
+            <SEOHead
+                title="OmniScan : analyse IA de contrats et documents juridiques"
+                description="Analysez, synthétisez et comparez vos contrats et actes juridiques grâce à l'IA. GED intelligente adaptée aux cabinets et institutions africains."
+                canonical="/produits/transformation-digitale/omniscan"
+                structuredData={structuredData}
+            />
 
             {/* Hero */}
             <section className="hero">
@@ -37,9 +53,9 @@ const Omniscan = () => {
                             Des données juridiques <em className='highlight'>brutes</em> <br/>
                             à l'intelligence <em className='highlight'>structurée&nbsp;</em>
                         </h1>
-                        <h3 className="subtitle">
+                        <p className="subtitle">
                             Scannez, structurez, enrichissez&nbsp;: vos documents juridiques deviennent enfin exploitables
-                        </h3>
+                        </p>
                     </div>
                     <div className="hero__actions">
                         <Link className='ui__btn--gradient' to="/produits/use-cases?content=omniscan">Découvrir les use cases</Link>

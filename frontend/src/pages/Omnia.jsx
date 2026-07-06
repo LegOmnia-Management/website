@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 
 import '../assets/styles/omnia.css';
 
+import SEOHead from '../components/SEOHead';
+
 import HeroBg from '../components/HeroBg';
 import HomeMobile from '../assets/img/application/homeMobile.png';
 import AnalyseMobile from '../assets/img/application/analyseMobile.svg';
@@ -52,8 +54,24 @@ const Omnia = () => {
         { name: "Sao Tomé-et-Principe", picto: Blason },
     ]
 
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "OMNIA",
+        "applicationCategory": "LegalTech",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Essai 7 jours" },
+        "description": "Moteur de recherche juridique par IA : posez vos questions en langage naturel, OMNIA interroge des centaines de milliers de textes OHADA et nationaux et cite ses sources."
+    };
+
     return (
         <main className="main main__omnia">
+            <SEOHead
+                title="OMNIA : moteur de recherche juridique par IA"
+                description="Posez vos questions juridiques en langage naturel : OMNIA interroge des centaines de milliers de textes OHADA et nationaux et cite ses sources. Essai 7 jours."
+                canonical="/produits/omnia"
+                structuredData={structuredData}
+            />
 
             {/* Hero */}
             <section className="hero">

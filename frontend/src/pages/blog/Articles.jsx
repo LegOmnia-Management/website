@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom';
 
 import HeroBg from '../../components/HeroBg';
+import SEOHead from '../../components/SEOHead';
 
 const Articles = () => {
     return (
         <main className="main">
+            <SEOHead
+                title="Blog LegOmnia : droit OHADA, legaltech et actualité juridique africaine"
+                description="Analyses, guides pratiques et veille juridique sur le droit des affaires en Afrique francophone : OHADA, jurisprudence, réglementation par pays."
+                canonical="/blog/articles"
+            />
 
             {/* Hero */}
-            <section className="hero" 
+            <section className="hero"
                 style={{
                     height: "calc(100vh - 400px)",
                     display: "flex",

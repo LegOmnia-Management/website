@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import '../assets/styles/home.css';
 
+import SEOHead from '../components/SEOHead';
+
 import AfricaParticles from '../components/AfricaParticles';
 import HeroBg from '../components/HeroBg';
 import AfricaMap from '../components/AfricaMap';
@@ -28,8 +30,30 @@ const Home = () => {
 
     const [ showcase, setShowcase ] = useState("usages");
 
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LegOmnia",
+        "url": "https://legomnia.com",
+        "applicationCategory": "LegalTech",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "description": "Essai gratuit 7 jours"
+        },
+        "description": "Moteur de recherche juridique par IA pour l'Afrique francophone : lois, décrets, jurisprudence OHADA, CCJA, CEDEAO, CEMAC et 17+ pays."
+    };
+
     return (
-        <main className="main main__home">
+        <main className="main main__home" aria-label="Accueil LegOmnia">
+            <SEOHead
+                title="LegOmnia — Recherche juridique IA pour l'Afrique francophone"
+                description="Centralisez lois, décrets et jurisprudence de 17+ pays d'Afrique francophone. Recherche juridique par IA, veille automatisée et GED sécurisée. Demandez une démo."
+                canonical="/"
+                structuredData={structuredData}
+            />
             {/* Hero */}
             <section className="hero">
                 <AfricaParticles 
@@ -39,7 +63,7 @@ const Home = () => {
                 <HeroBg />
                 <div className="container hero__container">
                     <div className="hero__title">
-                        <h3 className='subtitle'>L'IA juridique pour l'Afrique francophone</h3>
+                        <p className='subtitle'>L'IA juridique pour l'Afrique francophone</p>
                         <h1 className='main-title'>
                             Le droit africain entre <span className='break'>dans une <em className='highlight'>nouvelle ère</em></span>
                         </h1>
