@@ -1,6 +1,7 @@
 import '../assets/styles/transformation.css';
 
 import HeroBg from '../components/HeroBg';
+import SEOHead from '../components/SEOHead';
 import IconRing from '../components/IconRing';
 
 import Geode from '../assets/img/divers/geode.svg';
@@ -14,6 +15,11 @@ import AI from '../assets/img/pictos/AI.svg';
 const Transformation = () => {
     return (
         <main className="main main__transformation">
+            <SEOHead
+                title="Transformation digitale juridique en Afrique francophone"
+                description="LegOmnia accompagne institutions et cabinets dans leur transformation digitale : numérisation, structuration et exploitation des données juridiques africaines."
+                canonical="/produits/transformation-digitale/presentation"
+            />
 
             {/* Hero */}
             <section className="hero">

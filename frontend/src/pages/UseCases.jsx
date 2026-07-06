@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import '../assets/styles/useCases.css';
 
 import HeroBg from '../components/HeroBg';
+import SEOHead from '../components/SEOHead';
 
 import Cabinet from '../assets/img/pictos/cabinet.svg';
 import CabinetColorOmnia from '../assets/img/pictos/cabinetColorOmnia.svg';
@@ -78,6 +79,11 @@ const UseCases = () => {
 
     return (
         <main className="main main__cases">
+            <SEOHead
+                title="Cas d'usage LegOmnia : avocats, juristes, institutions"
+                description="Découvrez comment avocats, juristes d'entreprise, institutions publiques et investisseurs utilisent LegOmnia pour accélérer leur recherche juridique en Afrique francophone."
+                canonical="/produits/use-cases"
+            />
 
             {/* Hero */}
             <section className="hero" >

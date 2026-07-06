@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom';
 
 import HeroBg from '../components/HeroBg';
+import SEOHead from '../components/SEOHead';
 
 const Faq = () => {
     return (
         <main className="main">
+            <SEOHead
+                title="FAQ LegOmnia — Questions fréquentes"
+                description="Retrouvez les réponses aux questions fréquentes sur LegOmnia : fonctionnement, couverture juridique, abonnements et accès à la plateforme de recherche juridique IA."
+                canonical="/faq"
+            />
 
             {/* Hero */}
-            <section className="hero" 
+            <section className="hero"
                 style={{
                     height: "calc(100vh - 400px)",
                     display: "flex",

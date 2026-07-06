@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
 import '../assets/styles/geode.css';
+
+import SEOHead from '../components/SEOHead';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -22,8 +24,23 @@ import DashboardGeode3 from '../assets/img/geode/dashboard3.png';
 import DashboardGeode4 from '../assets/img/geode/dashboard4.png';
 
 const Geode = () => {
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Géode",
+        "applicationCategory": "LegalTech",
+        "operatingSystem": "Web",
+        "description": "GED intelligente et cartographie juridique pour les professionnels du droit africain : centralisez, organisez et exploitez vos documents grâce à l'IA."
+    };
+
     return (
         <main className="main main__geode">
+            <SEOHead
+                title="Géode : GED intelligente et cartographie juridique"
+                description="Explorez l'environnement juridique et réglementaire de l'Afrique francophone : normes OHADA, CEDEAO, CEMAC, UEMOA et droits nationaux, en un seul outil."
+                canonical="/produits/transformation-digitale/geode"
+                structuredData={structuredData}
+            />
 
             {/* Hero */}
             <section className="hero">
@@ -33,9 +50,9 @@ const Geode = () => {
                             La gestion documentaire <em className='highlight'>réinventée</em> <br/>
                             pour les professionnels du droit
                         </h1>
-                        <h3 className="subtitle">
+                        <p className="subtitle">
                             Centralisez, organisez et exploitez vos documents grâce à une GED augmentée par l’IA
-                        </h3>
+                        </p>
                     </div>
                     <div className="hero__actions">
                         <Link className='ui__btn--gradientSecond' to="/produits/use-cases?content=geode">Découvrir les use cases</Link>

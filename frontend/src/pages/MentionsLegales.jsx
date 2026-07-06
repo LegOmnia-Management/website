@@ -1,10 +1,17 @@
 import '../assets/styles/mentions.css';
 
 import HeroBg from '../components/HeroBg';
+import SEOHead from '../components/SEOHead';
 
 const MentionsLegales = () => {
     return (
         <main className="main main__mentions">
+            <SEOHead
+                title="Mentions légales — LegOmnia"
+                description="Mentions légales de la plateforme LegOmnia : éditeur, hébergeur, données personnelles et conditions d'utilisation."
+                canonical="/mentions-legales"
+                noIndex={true}
+            />
 
             {/* Hero */}
             <section className="hero">

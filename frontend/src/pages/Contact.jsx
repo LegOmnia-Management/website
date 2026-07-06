@@ -5,6 +5,7 @@ import { Turnstile } from '@marsidev/react-turnstile';
 import { createContact } from '../api/contact';
 
 import HeroBg from '../components/HeroBg';
+import SEOHead from '../components/SEOHead';
 
 import '../assets/styles/contact.css';
 
@@ -248,6 +249,11 @@ const Contact = () => {
 
     return (
         <main className="main main__contact">
+            <SEOHead
+                title="Contacter l'équipe LegOmnia | Demander une démo"
+                description="Une question sur la plateforme, un partenariat, une démonstration ? Contactez l'équipe LegOmnia, basée à Paris et tournée vers l'Afrique francophone."
+                canonical="/contact"
+            />
 
             {/* Hero */}
             <section className="hero">
