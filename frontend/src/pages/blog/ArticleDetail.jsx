@@ -58,9 +58,8 @@ const ArticleDetail = () => {
                         "@type": "BreadcrumbList",
                         "itemListElement": [
                             { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://legomnia.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://legomnia.com/blog" },
-                            { "@type": "ListItem", "position": 3, "name": "Articles", "item": "https://legomnia.com/blog/articles" },
-                            { "@type": "ListItem", "position": 4, "name": article.title, "item": `https://legomnia.com/blog/articles/${article.slug}` }
+                            { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://legomnia.com/blog/articles" },
+                            { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://legomnia.com/blog/articles/${article.slug}` }
                         ]
                     })
                 }}
@@ -103,7 +102,7 @@ const ArticleDetail = () => {
                     {/* Breadcrumb */}
                     <section className="breadcrumb">
                         <nav aria-label="Fil d'Ariane">
-                            <Link to="/">Accueil</Link> {'>'} <Link to="/blog">Blog</Link> {'>'} <Link to="/blog/articles">Articles</Link> {'>'} <span>{article.title}</span>
+                            <Link to="/">Accueil</Link> {'>'} <Link to="/blog/articles">Articles</Link> {'>'} <span>{article.title}</span>
                         </nav>
                     </section>
                 
