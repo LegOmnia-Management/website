@@ -55,7 +55,7 @@ section {
 }
 
 .home__presentation--text > p {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     max-width: 80rem;
     width: 100%;
     margin-inline: auto;
@@ -329,7 +329,7 @@ section {
 }
 
 /* Custom : 35em *  16px => 560px */
-@media screen and (min-width: 30rem) {
+@media screen and (min-width: 35rem) {
 
     .main__home .hero__title {
 
@@ -473,6 +473,11 @@ section {
                 margin-block: 3rem;
             }
         }
+    }
+
+    /* Présentation */
+    .home__presentation--text > p {
+        font-size: 2rem;
     }
 
     /* Mise en avant */

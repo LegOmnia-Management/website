@@ -56,22 +56,24 @@ const createContact = async (req, res) => {
     
         // retour de l'API
         return res.status(201).json({
-        success: true,
-        message: `La demande de contact a bien été créée`,
-        data: contact
+            success: true,
+            message: `La demande de contact a bien été créée`,
+            data: contact
         });
     } catch (error) {
         if (process.env.NODE_ENV === "development") {
             console.error("Erreur serveur :", error);
         }
-        return res.status(500).json({ message: "Erreur serveur" });
+        return res.status(500).json({ 
+            success: false,
+            message: "Erreur serveur" 
+        });
     }
 };
 
 /********** READ **********/
 const readContacts = async (req, res) => {
 
-    console.log("GET /api/contact HIT");
     try {
         const contacts = await Contact.find().sort({ createdAt: -1 });
     
@@ -85,7 +87,10 @@ const readContacts = async (req, res) => {
         if (process.env.NODE_ENV === "development") {
             console.error("Erreur serveur :", error);
         }
-        return res.status(500).json({ message: "Erreur serveur" });
+        return res.status(500).json({ 
+            success: false,
+            message: "Erreur serveur" 
+        });
     }
 };
     

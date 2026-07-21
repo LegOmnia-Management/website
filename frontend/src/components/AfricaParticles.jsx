@@ -285,22 +285,6 @@ export default function AfricaParticles({ style, className }) {
         ref={canvasRef}
         style={{ width: "100%", height: "100%", display: "block" }}
       />
-      <span
-        style={{
-          position: "absolute",
-          bottom: 14,
-          right: 18,
-          fontSize: 8,
-          letterSpacing: "0.32em",
-          color: "rgba(107,99,208,0.3)",
-          fontFamily: "sans-serif",
-          textTransform: "uppercase",
-          pointerEvents: "none",
-          userSelect: "none",
-        }}
-      >
-        Afrique
-      </span>
     </div>
   );
 }

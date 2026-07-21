@@ -48,6 +48,13 @@ const STATIC_ROUTES = [
     '/blog/ressources',                                    // blog/Ressources.jsx
     '/blog/webinaires',                                    // blog/Webinaires.jsx
     // MentionsLegales.jsx volontairement exclue (noIndex={true})
+
+    // Pages détail articles (à ajouter manuellement à chaque nouvel article
+    // tant que ArticlesList.jsx contient du JSX non importable côté Node)
+    '/blog/articles/intellectual-property-and-data-protection',
+    '/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone',
+    '/blog/articles/gestion-electronique-des-documents',
+    '/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa',
 ];
 
 function startStaticServer() {

@@ -17,6 +17,7 @@ import Transformation from './pages/Transformation';
 import UseCases from './pages/UseCases';
 
 import Articles from './pages/blog/Articles';
+import Article from './pages/blog/ArticleDetail';
 import Ressources from './pages/blog/Ressources';
 import Webinaires from './pages/blog/Webinaires';
 
@@ -54,6 +55,7 @@ function App() {
                 
                 {/* Blog */}
                 <Route path="/blog/articles" element={<Articles/>}></Route>
+                <Route path="/blog/articles/:slug" element={<Article/>}></Route>
                 <Route path="/blog/ressources" element={<Ressources/>}></Route>
                 <Route path="/blog/webinaires" element={<Webinaires/>}></Route>
             </Routes>
