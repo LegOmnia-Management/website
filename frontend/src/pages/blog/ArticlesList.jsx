@@ -36,7 +36,7 @@ export const articles = [
             class: 'ia'
         }],
         title: 'LegOmnia : quand l’intelligence artificielle met le droit au service du développement durable en Afrique francophone',
-        slug: 'quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en -afrique-francophone',
+        slug: 'quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone',
         recap: 'Il existe une injustice silencieuse qui traverse l’Afrique francophone depuis des décennies : l’accès au droit.',
         author: 'LegOmnia',
         date: '27 février 2026',
