@@ -53,10 +53,6 @@
     --radiusSm: .8rem;
     --radiusMd: 1.4rem;
     --radiusPill: 10rem;
-    /* --radius-lg: 20px; */
-    /* --radius-xl: 28px; */
-    /* --radiusPill: 10rem; */
-    /* --nav-h: 72px; */
 }
 
 
@@ -345,47 +341,6 @@
     align-items:center;
     justify-content:center;
 
-    /* [class^="point"] {
-        border-radius: 50%;
-        background: rgba(107, 92, 231, .55);
-        position: absolute;
-        width: 5px;
-        aspect-ratio: 1/1;
-    }
-
-    .point1 {
-        top: 0;
-        left: 0;
-        opacity: .75;
-    }
-
-    .point2 {
-        top: 10px;
-        right: 10px;
-        opacity: .45;
-        transform: scale(0.8);
-    }
-
-    .point3 {
-        bottom: 0;
-        right: 12px;
-        opacity: .7;
-    }
-
-    .point4 {
-        bottom: 10px;
-        left: 10px;
-        opacity: .45;
-        transform: scale(0.8);
-    }
-
-    .point5 {
-        bottom: 6px;
-        right: -12px;
-        opacity: .35;
-        transform: scale(0.6);
-    } */
-
     img {
         width: 3.2rem;
     }
@@ -503,6 +458,25 @@
             position: absolute;
             left: 0;
             top: 2px;
+        }
+    }
+}
+
+/***************** Breadcrumb *****************/
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--text2);
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    padding-block: 1rem!important;
+
+    a {
+        text-decoration: underline;
+
+        &:hover {
+            color: var(--violetDark);
         }
     }
 }

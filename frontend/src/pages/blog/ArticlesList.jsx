@@ -11,6 +11,7 @@ export const articles = [
         id: 1,
         img: Art1,
         alt: 'Intellectual Property and Data Protection',
+        lang: 'en',
         category: [{
             name: 'Legaltech',
             class: 'legaltech'
@@ -19,20 +20,23 @@ export const articles = [
             class: 'sectoriel'
         }],
         title: 'Intellectual Property and Data Protection : Strategic Foundations of Digital Innovation in Africa',
+        slug: 'intellectual-property-and-data-protection',
         recap: 'The African digital ecosystem is experiencing unprecedented growth, raising crucial issues regarding intellectual property.',
         author: 'LegOmnia',
-        date: '14 janvier 2026',
+        date: '2026-01-14',
         time: '2 min'
     },
     {
         id: 2,
         img: Art2,
         alt: 'Afrique francophone',
+        lang: 'fr',
         category: [{
             name: 'IA & Souveraineté Numérique',
             class: 'ia'
         }],
         title: 'LegOmnia : quand l’intelligence artificielle met le droit au service du développement durable en Afrique francophone',
+        slug: 'quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en -afrique-francophone',
         recap: 'Il existe une injustice silencieuse qui traverse l’Afrique francophone depuis des décennies : l’accès au droit.',
         author: 'LegOmnia',
         date: '27 février 2026',
@@ -42,6 +46,7 @@ export const articles = [
         id: 3,
         img: Art3,
         alt: 'Documents archivés',
+        lang: 'fr',
         category: [{
             name: 'IA & Souveraineté Numérique',
             class: 'ia'
@@ -55,15 +60,17 @@ export const articles = [
             class: 'sectoriel'
         }],
         title: 'Gestion Électronique des Documents',
+        slug: 'gestion-electronique-des-documents',
         recap: 'Dans un monde où le volume de données ne cesse de croître, la Gestion Électronique des Documents (GED) s’est imposée comme un pilier stratégique pour les entreprises et les administrations.',
         author: 'LegOmnia',
-        date: '24 février 2026',
+        date: '2026-02-24',
         time: '5 min'
     },
     {
         id: 4,
         img: Art4,
         alt: 'LegOmnia application',
+        lang: 'en',
         category: [{
             name: 'LegalTech',
             class: 'legaltech'
@@ -73,9 +80,10 @@ export const articles = [
             class: 'sectoriel'
         }],
         title: 'LegOmnia : The AI Platform Revolutionizing Access to Law in Francophone Africa',
+        slug: 'the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa',
         recap: 'Picture an entrepreneur in Abidjan trying to register a business but unable to locate the applicable regulations.',
         author: 'LegOmnia',
-        date: '18 février 2026',
+        date: '2026-02-18',
         time: '6 min'
     }
 ];
@@ -83,6 +91,7 @@ export const articles = [
 export const articlesContent = [
     {
         id: 1,
+        slug: 'intellectual-property-and-data-protection',
         html: (
             <>
                 <p>
@@ -176,6 +185,7 @@ export const articlesContent = [
     },
     {
         id: 2,
+        slug: 'quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en -afrique-francophone',
         html: (
             <>
                 <p>
@@ -266,7 +276,8 @@ export const articlesContent = [
     },
     {
         id: 3,
-       html: (
+        slug: 'gestion-electronique-des-documents',
+        html: (
             <>
                 <h2>Introduction</h2>
                 <p>
@@ -429,6 +440,7 @@ export const articlesContent = [
     },
     {
         id: 4,
+        slug: 'the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa',
         html: (
             <>
                 <h2>

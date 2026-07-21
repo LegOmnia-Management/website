@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import '../../assets/styles/general.css';
 import '../../assets/styles/blog.css';
 
 import { articles } from './ArticlesList';
@@ -31,6 +32,15 @@ const Articles = () => {
                 </div>
             </section>
 
+            {/* Breadcrumb */}
+            <section className="breadcrumb">
+                <div className="container">
+                    <nav aria-label="Fil d'Ariane">
+                        <Link to="/">Accueil</Link> {'>'} <Link to="/blog">Blog</Link> {'>'} <span>Articles</span>
+                    </nav>
+                </div>
+            </section>
+
              {/* filtres 
              <section className="articles__filters">
                 <div className="container"></div>
@@ -42,7 +52,7 @@ const Articles = () => {
                     <div className="articles__content--list">
                         {
                             articles.map(article => (
-                                <Link to={`/blog/articles/${article.id}`} className='articles__card--link' key={article.id}>
+                                <Link to={`/blog/articles/${article.slug}`} className='articles__card--link' key={article.id}>
                                     <article className='articles__card'>
                                         <img className="articles__card--img" src={article.img} alt={article.alt} />
                                         <div className="articles__card--content">

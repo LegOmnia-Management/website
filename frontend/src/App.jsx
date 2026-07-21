@@ -55,7 +55,7 @@ function App() {
                 
                 {/* Blog */}
                 <Route path="/blog/articles" element={<Articles/>}></Route>
-                <Route path="/blog/articles/:id" element={<Article/>}></Route>
+                <Route path="/blog/articles/:slug" element={<Article/>}></Route>
                 <Route path="/blog/ressources" element={<Ressources/>}></Route>
                 <Route path="/blog/webinaires" element={<Webinaires/>}></Route>
             </Routes>
