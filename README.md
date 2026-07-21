@@ -177,14 +177,75 @@ La route `POST /api/contact` effectue dans l'ordre :
 
 ---
 
-## Déploiement sur Vercel
+## SEO — Prerendering
 
-Le projet est configuré pour un déploiement **full-stack sur Vercel** via `vercel.json`.
+Le site étant en React/Vite (CSR), le HTML brut envoyé aux robots ne contient
+pas le contenu de la page (`<div id="root"></div>` vide) tant que le JS n'a
+pas été exécuté. Un script de prerendering génère donc une version HTML
+statique de chaque page publique au moment du build.
 
-- Le **frontend** est buildé (`vite build`) et servi depuis `frontend/dist/`
-- Le **backend** tourne en **Serverless Function** via `api/index.js`
-- Les requêtes `/api/*` sont routées automatiquement vers la Serverless Function
-- Toutes les autres routes renvoient vers `index.html` (SPA)
+### Comment ça marche
+
+`frontend/prerender.js` s'exécute après `vite build` :
+1. Sert `dist/` en local via un serveur temporaire
+2. Visite chaque route listée dans `STATIC_ROUTES` avec Puppeteer
+3. Sauvegarde le HTML final (contenu + title/meta rendus par `SEOHead`)
+   dans `dist/<route>/index.html`
+
+nginx sert ensuite ces fichiers nativement, sans configuration additionnelle.
+
+### Ajouter une nouvelle page indexable
+
+Toute nouvelle page utilisant le composant `SEOHead` (sans `noIndex`) doit
+être ajoutée manuellement à `STATIC_ROUTES` dans `frontend/prerender.js`,
+sous peine de ne pas être prérendue.
+
+### Tester en local
+
+```bash
+cd frontend
+npm run build:prerender
+npx serve dist
+```
+
+Puis vérifier `dist/<route>/index.html` (ou `curl localhost:<port>/<route>`) :
+le contenu et les meta tags doivent être présents en dur, pas seulement
+`<div id="root">` vide.
+
+---
+
+## Déploiement
+
+Le projet utilise deux environnements distincts :
+
+- **Vercel** : environnement de test/préproduction avec une URL stable,
+  utilisé pour prévisualiser les pages et les partager avec les équipes
+  externes avant leur mise en ligne définitive.
+
+- **Scaleway** : environnement de **production**. Le site réel
+  (`legomnia.com`) tourne sur des Serverless Containers Scaleway
+  (frontend nginx + backend Express), déployés automatiquement via
+  GitHub Actions à chaque push sur `main`.
+
+### Tester sur Vercel
+
+```bash
+# Via CLI Vercel (depuis la racine du projet)
+vercel --prod
+```
+
+Ceci déploie l'état actuel du code sur l'URL de test Vercel, indépendamment
+de Git — pratique pour prévisualiser des changements avant de les pousser.
+
+### Déployer en production (Scaleway)
+
+```bash
+git push origin main
+```
+
+Le push déclenche le pipeline GitHub Actions (`.github/workflows/deploy.yml`)
+qui build et déploie automatiquement les images Docker `frontend` et
+`backend` sur Scaleway.
 
 ### Variables d'environnement sur Vercel
 
@@ -199,16 +260,6 @@ CONTACT_EMAIL
 NODE_ENV             # production
 VITE_API_URL         # laisser vide ou mettre l'URL Vercel (les appels /api/* sont relatifs)
 VITE_TURNSTILE_SITE_KEY
-```
-
-### Déployer
-
-```bash
-# Via CLI Vercel (depuis la racine du projet)
-vercel --prod
-
-# Ou pousser sur la branche principale si le projet est connecté à GitHub
-git push origin main
 ```
 
 ---
