@@ -136,7 +136,8 @@ const Header = () => {
                         <span className="iconify" data-icon="solar:sun-outline"></span>
                         <span className="text">Mode</span>
                     </button> */}
-                    <Link className='ui__btn' to="/contact">Démo</Link>
+                    <a href="https://app.beta.legomnia.com/login" className='ui__btn' target="_blank">Connexion</a>
+                    <a href="https://app.beta.legomnia.com/signup" className='ui__btn' target="_blank">Inscription</a>
                 </div>
             </div>
         </header>
