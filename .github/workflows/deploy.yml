@@ -53,6 +53,9 @@ jobs:
           context: ./frontend
           push: true
           tags: rg.fr-par.scw.cloud/legomnia-website/frontend:latest
+          build-args: |
+            VITE_API_URL=${{ secrets.VITE_API_URL }}
+            VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
 
       - name: Redeploy Frontend on Scaleway
         run: |
