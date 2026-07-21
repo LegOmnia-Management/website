@@ -36,7 +36,7 @@ const Articles = () => {
             <section className="breadcrumb">
                 <div className="container">
                     <nav aria-label="Fil d'Ariane">
-                        <Link to="/">Accueil</Link> {'>'} <Link to="/blog">Blog</Link> {'>'} <span>Articles</span>
+                        <Link to="/">Accueil</Link> {'>'} <span>Articles</span>
                     </nav>
                 </div>
             </section>

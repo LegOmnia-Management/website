@@ -185,7 +185,7 @@ export const articlesContent = [
     },
     {
         id: 2,
-        slug: 'quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en -afrique-francophone',
+        slug: 'quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone',
         html: (
             <>
                 <p>
