@@ -30,6 +30,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.resolve(__dirname, 'dist');
 const PORT = 4173;
 const BASE_URL = `http://localhost:${PORT}`;
+const PRISTINE_INDEX = fs.readFileSync(path.join(DIST_DIR, 'index.html'), 'utf-8');
 
 // Routes statiques connues à l'avance (y compris le blog, pour l'instant
 // composé uniquement de pages statiques — pas besoin de fetch API tant
@@ -63,7 +64,7 @@ function startStaticServer() {
         app.use(express.static(DIST_DIR));
         // Fallback SPA pour que Puppeteer puisse charger n'importe quelle route
         app.get('/*splat', (req, res) => {
-            res.sendFile(path.join(DIST_DIR, 'index.html'));
+            res.send(PRISTINE_INDEX);
         });
         const server = app.listen(PORT, () => resolve(server));
     });
@@ -81,7 +82,7 @@ async function prerenderRoute(browser, route) {
     const html = await page.content();
     await page.close();
 
-    const outDir = route === '/' ? DIST_DIR : path.join(DIST_DIR, route);
+    const outDir = route === '/' ? path.join(DIST_DIR, '__home_tmp') : path.join(DIST_DIR, route);
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
 
@@ -112,6 +113,16 @@ async function main() {
             console.error(`❌ Échec sur ${route} :`, err.message);
         }
     }
+
+    fs.copyFileSync(
+        path.join(DIST_DIR, '__home_tmp', 'index.html'),
+        path.join(DIST_DIR, 'index.html')
+    );
+
+    fs.rmSync(path.join(DIST_DIR, '__home_tmp'), {
+        recursive: true,
+        force: true,
+    });
 
     await browser.close();
     server.close();
