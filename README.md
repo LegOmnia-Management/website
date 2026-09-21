@@ -1,6 +1,6 @@
 # Legomnia — Site Web
 
-Site vitrine de **Legomnia**, présentant les produits Omnia, Géode, Omniscan et la transformation digitale. Inclut un formulaire de contact avec validation, protection anti-spam (Cloudflare Turnstile) et notifications e-mail.
+Site vitrine de **Legomnia**, présentant les produits Omnia, Géode, Omniscan et la transformation digitale. Inclut un blog et formulaire de contact avec validation, protection anti-spam (Cloudflare Turnstile) et notifications e-mail.
 
 ---
 
