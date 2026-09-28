@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Turnstile } from '@marsidev/react-turnstile';
 
 import { createContact } from '../api/contact';
 
@@ -20,8 +19,7 @@ const Contact = () => {
         company: "",
         subject: "",
         message: "",
-        cguAccepted: "",
-        captcha: ""
+        cguAccepted: ""
     });
 
     // stocker champs vides
@@ -40,10 +38,6 @@ const Contact = () => {
 
     // msg confirmation envoi
     const [ isSubmit, setIsSubmit ] = useState(false);
-
-    // captcha
-    const captchaRef = useRef(null);
-    const [captchaToken, setCaptchaToken] = useState(null);
 
     // verif valeur des champs
     const validateItem = (value, name, label = "") => {
@@ -154,20 +148,11 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // verif captcha
-        if (!captchaToken) {
-            setDatas(prev => ({ ...prev, captcha: "Veuillez valider le captcha" }));
-            return;
-        }
-
         // récup données form
         const formData = new FormData(e.target);
 
         // convertir en JSON
         const data = Object.fromEntries(formData.entries());
-
-        // ajout captcha
-        data.captchaToken = captchaToken;
 
         try {
             // envoi à l'API
@@ -175,9 +160,6 @@ const Contact = () => {
     
             // afficher msg confirmation
             setIsSubmit(true);
-
-            // reset captcha
-            captchaRef.current.reset();
         } catch (error) {
 
             if (error.errors) {
@@ -186,9 +168,6 @@ const Contact = () => {
             } else {
                 console.error("Erreur lors de la création du contact :", error);
             }
-
-            // reset captcha
-            captchaRef.current.reset();
         }
     }
 
@@ -208,12 +187,12 @@ const Contact = () => {
         const errorsExist = hasErrors();
         const emptyFieldsExist = hasFieldEmpty();
     
-        if (!errorsExist && !emptyFieldsExist && captchaToken) {
+        if (!errorsExist && !emptyFieldsExist) {
             setIsActive(true);
         } else {
             setIsActive(false);
         }
-    }, [datas, fields, captchaToken]);
+    }, [datas, fields]);
 
     // afficher message confirmation
     if (isSubmit) return (
@@ -358,6 +337,19 @@ const Contact = () => {
                         <span className="form__item--error">{datas.message}</span>
                     </p>
 
+                    {/* Honeypot anti-spam : champ invisible pour un humain, rempli par les bots */}
+                    <div className='form__hp' aria-hidden="true">
+                        <label htmlFor="website">Ne pas remplir ce champ</label>
+                        <input
+                            type="text"
+                            id="website"
+                            name="website"
+                            tabIndex={-1}
+                            autoComplete="off"
+                            defaultValue=""
+                        />
+                    </div>
+
                     <div className='form__footer'>
                         <p className='form__cgu'>
                             <input
@@ -369,19 +361,6 @@ const Contact = () => {
                             <label htmlFor="check">J'accepte les CGU</label>
                             <span className="form__item--error">{datas.cguAccepted}</span>
                         </p>
-                        <div className='form__captcha'>
-                            <Turnstile
-                                siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
-                                onSuccess={(token) => {
-                                    setCaptchaToken(token);
-                                    setDatas(prev => ({ ...prev, captcha: "" }));
-                                }}
-                                onExpire={() => setCaptchaToken(null)}
-                                ref={captchaRef}
-                                size="compact"
-                            />
-                            <span className="form__item--error">{datas.captcha}</span>
-                        </div>
                     </div>
 
                     <button 

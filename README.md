@@ -1,6 +1,6 @@
 # Legomnia — Site Web
 
-Site vitrine de **Legomnia**, présentant les produits Omnia, Géode, Omniscan et la transformation digitale. Inclut un blog et formulaire de contact avec validation, protection anti-spam (Cloudflare Turnstile) et notifications e-mail.
+Site vitrine de **Legomnia**, présentant les produits Omnia, Géode, Omniscan et la transformation digitale. Inclut un blog et formulaire de contact avec validation, protection anti-spam (honeypot) et notifications e-mail.
 
 ---
 
@@ -12,8 +12,8 @@ Site vitrine de **Legomnia**, présentant les produits Omnia, Géode, Omniscan e
 | Backend | Node.js, Express 5, Mongoose |
 | Base de données | MongoDB |
 | E-mail | Resend |
-| Anti-spam | Cloudflare Turnstile |
-| Déploiement | Vercel |
+| Anti-spam | Honeypot (champ caché) |
+| Déploiement | VPS (Docker Compose + Caddy), Vercel pour la préprod |
 
 ---
 
@@ -66,9 +66,6 @@ MONGO_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/<dbname>
 # URL du frontend (pour CORS)
 CLIENT_URL=http://localhost:3000
 
-# Cloudflare Turnstile (anti-spam)
-TURNSTILE_SECRET=<votre_clé_secrète_turnstile>
-
 # Resend (envoi d'e-mails)
 RESEND_API_KEY=<votre_clé_api_resend>
 CONTACT_EMAIL=<email_destinataire_des_demandes_de_contact>
@@ -79,9 +76,6 @@ CONTACT_EMAIL=<email_destinataire_des_demandes_de_contact>
 ```env
 # URL de l'API backend
 VITE_API_URL=http://localhost:5171
-
-# Cloudflare Turnstile (clé publique côté client)
-VITE_TURNSTILE_SITE_KEY=<votre_clé_publique_turnstile>
 ```
 
 > **Important :** ne jamais committer ces fichiers. Ils sont déjà dans le `.gitignore`.
@@ -95,7 +89,6 @@ VITE_TURNSTILE_SITE_KEY=<votre_clé_publique_turnstile>
 - Node.js ≥ 18
 - Un compte MongoDB Atlas (ou instance MongoDB locale)
 - Un compte [Resend](https://resend.com) pour l'envoi d'e-mails
-- Un compte [Cloudflare](https://dash.cloudflare.com) pour Turnstile
 
 ### 1. Cloner le dépôt
 
@@ -143,14 +136,25 @@ L'application est accessible sur **http://localhost:3000**.
 | Méthode | Route | Description |
 |---------|-------|-------------|
 | `GET` | `/hello` | Health check |
-| `GET` | `/api/contact` | Liste toutes les demandes de contact |
 | `POST` | `/api/contact` | Crée une nouvelle demande de contact |
 
 La route `POST /api/contact` effectue dans l'ordre :
-1. Vérification du token Cloudflare Turnstile
+1. Honeypot : si le champ caché `website` est rempli (bot), réponse 201 factice, rien n'est enregistré
 2. Validation des champs (express-validator)
 3. Sauvegarde en base MongoDB
-4. Envoi d'un e-mail de notification via Resend
+4. Envoi d'un e-mail de notification via Resend (optionnel : ignoré si `RESEND_API_KEY` ou `CONTACT_EMAIL` est absent ; une erreur d'envoi ne fait pas échouer la demande)
+
+Les demandes de contact ne sont pas exposées par l'API : elles se consultent
+directement dans MongoDB (collection `contacts`).
+
+Les routes d'écriture du blog
+(`POST`/`PATCH`/`DELETE` sur `/api/blog/article` et `/api/blog/category`)
+exigent le header `Authorization: Bearer <ADMIN_API_KEY>`. Sans `ADMIN_API_KEY`
+défini côté serveur, elles sont fermées (403).
+
+```bash
+curl -X DELETE -H "Authorization: Bearer $ADMIN_API_KEY" https://www.legomnia.com/api/blog/category/<id>
+```
 
 ---
 
@@ -222,10 +226,10 @@ Le projet utilise deux environnements distincts :
   utilisé pour prévisualiser les pages et les partager avec les équipes
   externes avant leur mise en ligne définitive.
 
-- **Scaleway** : environnement de **production**. Le site réel
-  (`legomnia.com`) tourne sur des Serverless Containers Scaleway
-  (frontend nginx + backend Express), déployés automatiquement via
-  GitHub Actions à chaque push sur `main`.
+- **VPS** : environnement de **production**. Le site réel
+  (`www.legomnia.com`) tourne sur un VPS via Docker Compose
+  (Caddy pour le HTTPS → frontend nginx → backend Express), déployé
+  automatiquement via GitHub Actions à chaque push sur `main`.
 
 ### Tester sur Vercel
 
@@ -237,15 +241,35 @@ vercel --prod
 Ceci déploie l'état actuel du code sur l'URL de test Vercel, indépendamment
 de Git — pratique pour prévisualiser des changements avant de les pousser.
 
-### Déployer en production (Scaleway)
+### Déployer en production (VPS)
 
 ```bash
 git push origin main
 ```
 
-Le push déclenche le pipeline GitHub Actions (`.github/workflows/deploy.yml`)
-qui build et déploie automatiquement les images Docker `frontend` et
-`backend` sur Scaleway.
+Le pipeline `.github/workflows/deploy.yml` :
+1. build les images `frontend` et `backend` et les pousse sur GHCR
+   (`ghcr.io/legomnia-management/website-*`)
+2. copie `deploy/docker-compose.yml` et `deploy/Caddyfile` dans `/opt/legomnia`
+   sur le VPS
+3. lance `docker compose pull && docker compose up -d` en SSH
+
+Il peut aussi être lancé à la main (onglet Actions → Deploy to VPS → Run workflow).
+
+### Mise en place initiale du VPS (une seule fois)
+
+1. Créer un VPS Ubuntu (1 vCPU / 1–2 Go RAM suffisent : le build se fait sur GitHub).
+2. En root : `bash deploy/setup-vps.sh` (installe Docker, crée l'utilisateur
+   `deploy`, `/opt/legomnia` et le pare-feu).
+3. Générer une clé SSH dédiée (`ssh-keygen -t ed25519 -f legomnia_deploy`),
+   mettre la clé publique dans `/home/deploy/.ssh/authorized_keys`.
+4. Créer `/opt/legomnia/.env` à partir de `deploy/env.example` (`chmod 600`).
+5. DNS : enregistrements `A` pour `legomnia.com` et `www.legomnia.com` → IP du VPS.
+6. Secrets GitHub (Settings → Secrets → Actions) :
+   `VPS_HOST`, `VPS_USER` (= `deploy`), `VPS_SSH_KEY` (clé privée).
+7. Lancer le workflow. Caddy obtient le certificat HTTPS au premier démarrage.
+
+Logs : `cd /opt/legomnia && docker compose logs -f backend`
 
 ### Variables d'environnement sur Vercel
 
@@ -254,12 +278,11 @@ Dans le dashboard Vercel → Settings → Environment Variables, ajouter :
 ```
 MONGO_URI
 CLIENT_URL           # URL de production du frontend (ex: https://legomnia.com)
-TURNSTILE_SECRET
 RESEND_API_KEY
 CONTACT_EMAIL
+ADMIN_API_KEY
 NODE_ENV             # production
 VITE_API_URL         # laisser vide ou mettre l'URL Vercel (les appels /api/* sont relatifs)
-VITE_TURNSTILE_SITE_KEY
 ```
 
 ---
@@ -268,4 +291,3 @@ VITE_TURNSTILE_SITE_KEY
 
 - En production, le `CLIENT_URL` dans le backend doit correspondre exactement au domaine du frontend (ex: `https://legomnia.com`) pour que le CORS fonctionne.
 - L'adresse e-mail expéditrice Resend (`from`) utilise actuellement `onboarding@resend.dev` (domaine de test). Pour la production, configurer un domaine vérifié sur Resend et mettre à jour le champ `from` dans `contact.controller.js`.
-- Les clés Turnstile de test (domaine `localhost`) ne fonctionnent pas en production. Bien créer deux sites distincts sur Cloudflare (un pour le dev, un pour la prod).

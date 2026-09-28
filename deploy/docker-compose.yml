@@ -1,0 +1,36 @@
+# Production — VPS
+# Emplacement sur le serveur : /opt/legomnia/docker-compose.yml
+# Secrets backend : /opt/legomnia/.env (voir deploy/env.example)
+
+services:
+  backend:
+    image: ghcr.io/legomnia-management/website-backend:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PORT: 8080
+      NODE_ENV: production
+
+  frontend:
+    image: ghcr.io/legomnia-management/website-frontend:latest
+    restart: unless-stopped
+    depends_on:
+      - backend
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
+
+volumes:
+  caddy_data:
+  caddy_config:

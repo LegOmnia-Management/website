@@ -1,0 +1,11 @@
+# Caddy gère automatiquement les certificats HTTPS (Let's Encrypt).
+# Les DNS de legomnia.com et www.legomnia.com doivent pointer vers l'IP du VPS.
+
+www.legomnia.com {
+	encode zstd gzip
+	reverse_proxy frontend:80
+}
+
+legomnia.com {
+	redir https://www.legomnia.com{uri} permanent
+}

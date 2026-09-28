@@ -1,4 +1,4 @@
-const ENDPOINT = import.meta.env.VITE_API_URL;
+const ENDPOINT = import.meta.env.VITE_API_URL || "";
 
 // create
 export const createContact = async (form) => {
