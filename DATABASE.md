@@ -63,7 +63,7 @@ La validation se fait à deux niveaux :
 1. **Backend (Express-validator)** — `backend/validators/contact.validator.js`, appliquée avant la création du document (règles identiques à celles du schéma Mongoose : longueur, format e-mail, format téléphone, sujet dans la liste, CGU acceptées).
 2. **Base de données (Mongoose)** — le schéma applique une seconde fois ces contraintes (`required`, `minlength`, `maxlength`, `match`, `enum`) comme garde-fou final.
 
-> Le champ `captchaToken` (token Cloudflare Turnstile) est envoyé par le frontend mais **n'est jamais stocké** en base — il est extrait du `req.body` côté contrôleur avant la création du document.
+> Le champ `website` (honeypot anti-spam) est envoyé par le frontend mais **n'est jamais stocké** en base — il est extrait du `req.body` côté contrôleur avant la création du document.
 
 ---
 
@@ -72,7 +72,7 @@ La validation se fait à deux niveaux :
 Aucun index personnalisé n'est défini actuellement (en dehors de l'`_id` natif de MongoDB). À envisager si le volume de données augmente :
 
 - Index sur `email` (recherche de doublons / historique par contact)
-- Index sur `createdAt` (tri des demandes les plus récentes, déjà utilisé dans `readContacts`)
+- Index sur `createdAt` (tri des demandes les plus récentes)
 
 ---
 

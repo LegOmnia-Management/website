@@ -81,13 +81,13 @@
     }
 }
 
-.form__captcha {
-    margin-left: -2.1rem;
-
-    .form__item--error {
-        display: block;
-        margin-top: -.5rem;
-    }
+.form__hp {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 .form__submit {

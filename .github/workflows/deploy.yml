@@ -1,64 +1,84 @@
-name: Deploy to Scaleway
+name: Deploy to VPS
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
 
 env:
-  REGISTRY: rg.fr-par.scw.cloud
-  NAMESPACE: legomnia-website
+  REGISTRY: ghcr.io
+  IMAGE_PREFIX: ghcr.io/legomnia-management/website
 
 jobs:
-  deploy-backend:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Login to Scaleway Registry
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR
         uses: docker/login-action@v3
         with:
-          registry: rg.fr-par.scw.cloud
-          username: nologin
-          password: ${{ secrets.SCW_SECRET_KEY }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build & Push Backend
         uses: docker/build-push-action@v5
         with:
           context: ./backend
           push: true
-          tags: rg.fr-par.scw.cloud/legomnia-website/backend:latest
-
-      - name: Redeploy Backend on Scaleway
-        run: |
-          curl -s -X POST \
-            -H "X-Auth-Token: ${{ secrets.SCW_SECRET_KEY }}" \
-            "https://api.scaleway.com/containers/v1beta1/regions/fr-par/containers/${{ secrets.SCW_BACKEND_CONTAINER_ID }}/deploy"
-
-  deploy-frontend:
-    runs-on: ubuntu-latest
-    needs: deploy-backend
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Login to Scaleway Registry
-        uses: docker/login-action@v3
-        with:
-          registry: rg.fr-par.scw.cloud
-          username: nologin
-          password: ${{ secrets.SCW_SECRET_KEY }}
+          tags: |
+            ${{ env.IMAGE_PREFIX }}-backend:latest
+            ${{ env.IMAGE_PREFIX }}-backend:${{ github.sha }}
+          cache-from: type=gha,scope=backend
+          cache-to: type=gha,mode=max,scope=backend
 
       - name: Build & Push Frontend
         uses: docker/build-push-action@v5
         with:
           context: ./frontend
           push: true
-          tags: rg.fr-par.scw.cloud/legomnia-website/frontend:latest
+          tags: |
+            ${{ env.IMAGE_PREFIX }}-frontend:latest
+            ${{ env.IMAGE_PREFIX }}-frontend:${{ github.sha }}
           build-args: |
-            VITE_API_URL=${{ secrets.VITE_API_URL }}
-            VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
+            VITE_API_URL=
+          cache-from: type=gha,scope=frontend
+          cache-to: type=gha,mode=max,scope=frontend
 
-      - name: Redeploy Frontend on Scaleway
-        run: |
-          curl -s -X POST \
-            -H "X-Auth-Token: ${{ secrets.SCW_SECRET_KEY }}" \
-            "https://api.scaleway.com/containers/v1beta1/regions/fr-par/containers/${{ secrets.SCW_FRONTEND_CONTAINER_ID }}/deploy"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Copy compose files to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "deploy/docker-compose.yml,deploy/Caddyfile"
+          target: /opt/legomnia
+          strip_components: 1
+
+      - name: Pull & restart
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -e
+            cd /opt/legomnia
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+            docker compose pull
+            docker compose up -d --remove-orphans
+            docker logout ghcr.io
+            docker image prune -f
