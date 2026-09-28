@@ -4,6 +4,7 @@ import { Resend } from "resend";
 /********** HONEYPOT **********/
 // Le champ "website" est invisible pour un humain : s'il est rempli, c'est un bot.
 // On répond comme si tout s'était bien passé, sans rien enregistrer ni envoyer.
+
 const honeypot = (req, res, next) => {
     if (req.body?.website) {
         return res.status(201).json({
