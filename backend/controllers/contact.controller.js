@@ -1,15 +1,18 @@
 import { Contact } from "../models/index.js";
 import { Resend } from "resend";
 
-/********** VERIFY TURNSTILE **********/
-const verifyTurnstile = async (token) => {
-    const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${process.env.TURNSTILE_SECRET}&response=${token}`
-    });
-    const data = await response.json();
-    return data.success;
+/********** HONEYPOT **********/
+// Le champ "website" est invisible pour un humain : s'il est rempli, c'est un bot.
+// On répond comme si tout s'était bien passé, sans rien enregistrer ni envoyer.
+
+const honeypot = (req, res, next) => {
+    if (req.body?.website) {
+        return res.status(201).json({
+            success: true,
+            message: `La demande de contact a bien été créée`
+        });
+    }
+    next();
 };
 
 /********** CREATE **********/
