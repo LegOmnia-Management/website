@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import '../assets/styles/home.css';
 
@@ -27,6 +27,16 @@ import Secure from '../assets/img/pictos/secure.svg';
 import MapContact from '../assets/img/divers/map_contact.svg';
 
 const Home = () => {
+
+    const navigate = useNavigate();
+
+    // recherche : la plateforme est en liste d'attente, on y redirige
+    // en conservant la requête saisie
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const query = new FormData(e.target).get("q")?.trim() || "";
+        navigate("/liste-attente", { state: { query } });
+    };
 
     const [ showcase, setShowcase ] = useState("usages");
 
@@ -69,12 +79,12 @@ const Home = () => {
                         </h1>
                         <p className="subtitle">Découvrez <span className='highlight'>Omnia</span>, notre application de recherche juridique d'Afrique francophone</p>
                     </div>
-                    <div className="hero__search">
-                        <input type="text" placeholder="Commencez votre recherche ici..."/>
-                        <Link to="/liste-attente" aria-label="Rejoindre la liste d'attente">
+                    <form className="hero__search" role="search" onSubmit={handleSearch}>
+                        <input type="search" name="q" placeholder="Commencez votre recherche ici..." aria-label="Rechercher"/>
+                        <button type="submit" aria-label="Rechercher">
                             <span className="iconify" data-icon="fa7-solid:magnifying-glass"></span>
-                        </Link>
-                    </div>
+                        </button>
+                    </form>
                     <div className="hero__actions">
                         <Link className='ui__btn' to="/produits/omnia">Découvrir la plateforme</Link>
                         <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>

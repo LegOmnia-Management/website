@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { joinWaitlist } from '../api/waitlist';
 
@@ -52,6 +52,9 @@ const COUNTRIES = [
 const PRODUCTS = ["Omnia", "Géode", "Omniscan"];
 
 const Waitlist = () => {
+
+    // requête saisie dans la barre de recherche de l'accueil
+    const searchQuery = useLocation().state?.query || "";
 
     // erreurs renvoyées par l'API
     const [ errors, setErrors ] = useState({});
@@ -149,6 +152,11 @@ const Waitlist = () => {
                         <h1 className='main-title'>
                             Rejoindre la liste d'attente
                         </h1>
+                        {searchQuery && (
+                            <p className='subtitle'>
+                                La recherche «&nbsp;{searchQuery}&nbsp;» sera disponible dans Omnia dès l'ouverture de votre accès.
+                            </p>
+                        )}
                         <p className='subtitle'>
                             La plateforme LegOmnia ouvre progressivement ses accès.<br/>
                             Inscrivez-vous pour faire partie des premiers utilisateurs, c'est gratuit et sans engagement.

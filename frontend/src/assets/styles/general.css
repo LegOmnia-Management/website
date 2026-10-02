@@ -411,7 +411,11 @@
         }
     }
 
-    a {
+    a,
+    button {
+        background: none;
+        border: none;
+        cursor: pointer;
         color: var(--violet);
         font-size: 2.2rem;
         padding-inline: 1.5rem;
