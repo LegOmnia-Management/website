@@ -40,6 +40,7 @@ const STATIC_ROUTES = [
     '/contact',                                           // Contact.jsx
     '/faq',                                                // Faq.jsx
     '/juridictions',                                       // Juridictions.jsx
+    '/liste-attente',                                      // Waitlist.jsx
     '/produits/omnia',                                     // Omnia.jsx
     '/produits/transformation-digitale/geode',             // Geode.jsx
     '/produits/transformation-digitale/omniscan',          // Omniscan.jsx

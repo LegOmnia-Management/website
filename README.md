@@ -69,6 +69,7 @@ CLIENT_URL=http://localhost:3000
 # Resend (envoi d'e-mails)
 RESEND_API_KEY=<votre_clé_api_resend>
 CONTACT_EMAIL=<email_destinataire_des_demandes_de_contact>
+WAITLIST_EMAIL=contact@legomnia.com
 ```
 
 ### Frontend — `frontend/.env.local`
@@ -137,12 +138,19 @@ L'application est accessible sur **http://localhost:3000**.
 |---------|-------|-------------|
 | `GET` | `/hello` | Health check |
 | `POST` | `/api/contact` | Crée une nouvelle demande de contact |
+| `POST` | `/api/waitlist` | Inscrit un utilisateur sur la liste d'attente |
 
 La route `POST /api/contact` effectue dans l'ordre :
 1. Honeypot : si le champ caché `website` est rempli (bot), réponse 201 factice, rien n'est enregistré
 2. Validation des champs (express-validator)
 3. Sauvegarde en base MongoDB
 4. Envoi d'un e-mail de notification via Resend (optionnel : ignoré si `RESEND_API_KEY` ou `CONTACT_EMAIL` est absent ; une erreur d'envoi ne fait pas échouer la demande)
+
+La route `POST /api/waitlist` (formulaire de la page `/liste-attente`, accessible
+via le bouton « Inscription sur liste d'attente » du header) suit le même principe :
+honeypot, validation, sauvegarde (collection `waitlists`, une seule inscription par
+e-mail ; un doublon reçoit la même réponse de succès) puis notification Resend à
+`WAITLIST_EMAIL` (par défaut `contact@legomnia.com`).
 
 Les demandes de contact ne sont pas exposées par l'API : elles se consultent
 directement dans MongoDB (collection `contacts`).
@@ -280,6 +288,7 @@ MONGO_URI
 CLIENT_URL           # URL de production du frontend (ex: https://legomnia.com)
 RESEND_API_KEY
 CONTACT_EMAIL
+WAITLIST_EMAIL       # optionnel, défaut : contact@legomnia.com
 ADMIN_API_KEY
 NODE_ENV             # production
 VITE_API_URL         # laisser vide ou mettre l'URL Vercel (les appels /api/* sont relatifs)

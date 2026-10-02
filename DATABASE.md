@@ -56,6 +56,26 @@ Modèle Mongoose : `backend/models/Contact.js`
 
 ---
 
+## Collection : `waitlists`
+
+Stocke les inscriptions à la liste d'attente (`/liste-attente`, modèle `backend/models/Waitlist.js`).
+
+| Champ | Type | Requis | Contraintes | Description |
+|-------|------|--------|-------------|-------------|
+| `firstName` | String | ✅ | 2 à 50 caractères, trim | Prénom |
+| `lastName` | String | ✅ | 2 à 50 caractères, trim | Nom |
+| `email` | String | ✅ | format email, minuscules, **unique** | Adresse e-mail |
+| `organization` | String | ❌ | max 100 caractères, `null` par défaut | Cabinet, entreprise, institution |
+| `profile` | String | ✅ | valeur de `WAITLIST_PROFILES` | Profil (Avocat, Magistrat, Étudiant…) |
+| `country` | String | ✅ | max 60 caractères | Pays |
+| `products` | [String] | ❌ | valeurs de `WAITLIST_PRODUCTS` | Produits d'intérêt (Omnia, Géode, Omniscan) |
+| `consentAccepted` | Boolean | ✅ | | Consentement à la politique de confidentialité |
+| `consentAcceptedAt` | Date | ❌ | `Date.now` par défaut | Date du consentement |
+| `newsletter` | Boolean | ❌ | `false` par défaut | Opt-in actualités |
+| `createdAt` / `updatedAt` | Date | auto | | Timestamps Mongoose |
+
+---
+
 ## Validation
 
 La validation se fait à deux niveaux :

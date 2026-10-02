@@ -136,8 +136,10 @@ const Header = () => {
                         <span className="iconify" data-icon="solar:sun-outline"></span>
                         <span className="text">Mode</span>
                     </button> */}
+                    {/* Connexion / Inscription masqués pendant la phase de liste d'attente
                     <a href="https://app.beta.legomnia.com/login" className='ui__btn' target="_blank">Connexion</a>
-                    <a href="https://app.beta.legomnia.com/signup" className='ui__btn' target="_blank">Inscription</a>
+                    <a href="https://app.beta.legomnia.com/signup" className='ui__btn' target="_blank">Inscription</a> */}
+                    <Link to="/liste-attente" className='ui__btn'>Inscription sur liste d'attente</Link>
                 </div>
             </div>
         </header>
