@@ -42,6 +42,13 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Liste d'attente -->
+    <url>
+        <loc>https://legomnia.com/liste-attente</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Juridictions -->
     <url>
         <loc>https://legomnia.com/juridictions</loc>

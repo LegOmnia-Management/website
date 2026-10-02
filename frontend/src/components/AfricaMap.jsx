@@ -301,9 +301,9 @@ export default function AfricaMap() {
                     <span className="africa-map-org-empty">Aucune donnée</span>
                   )}
                 </div>
-                <a href="https://app.beta.legomnia.com/signup" className="ui__btn--black" target="_blank">
+                <Link to="/liste-attente" className="ui__btn--black">
                   Voir plus
-                </a>
+                </Link>
               </div>
             ) : (
               <p className="africa-map-placeholder">Cliquez sur un pays</p>

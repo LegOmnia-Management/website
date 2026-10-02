@@ -81,6 +81,58 @@
     }
 }
 
+.form__choices {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+
+    legend {
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    > .form__choice {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-weight: 400;
+
+        input {
+            width: auto;
+        }
+    }
+}
+
+.form__consents {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+
+    .form__cgu {
+        flex-wrap: nowrap;
+        align-items: flex-start;
+
+        input {
+            margin-top: 0.3rem;
+            flex-shrink: 0;
+        }
+
+        label {
+            flex: 1;
+        }
+    }
+}
+
+.form__note {
+    font-size: 1.3rem;
+    text-align: center;
+    width: 100%;
+}
+
 .form__hp {
     position: absolute;
     left: -10000px;

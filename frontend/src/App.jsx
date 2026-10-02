@@ -15,6 +15,7 @@ import Omnia from './pages/Omnia';
 import Omniscan from './pages/Omniscan';
 import Transformation from './pages/Transformation';
 import UseCases from './pages/UseCases';
+import Waitlist from './pages/Waitlist';
 
 import Articles from './pages/blog/Articles';
 import Article from './pages/blog/ArticleDetail';
@@ -51,6 +52,7 @@ function App() {
                 <Route path="/contact" element={<Contact/>}></Route>
                 <Route path="/faq" element={<Faq/>}></Route>
                 <Route path="/juridictions" element={<Juridictions/>}></Route>
+                <Route path="/liste-attente" element={<Waitlist/>}></Route>
                 <Route path="/mentions-legales" element={<MentionsLegales/>}></Route>
                 
                 {/* Blog */}

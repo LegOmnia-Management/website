@@ -71,9 +71,9 @@ const Home = () => {
                     </div>
                     <div className="hero__search">
                         <input type="text" placeholder="Commencez votre recherche ici..."/>
-                        <a href="https://app.beta.legomnia.com/signup" target="_blank">
+                        <Link to="/liste-attente" aria-label="Rejoindre la liste d'attente">
                             <span className="iconify" data-icon="fa7-solid:magnifying-glass"></span>
-                        </a>
+                        </Link>
                     </div>
                     <div className="hero__actions">
                         <Link className='ui__btn' to="/produits/omnia">Découvrir la plateforme</Link>

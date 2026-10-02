@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import contactRoutes from "./routes/contact.route.js";
 import categoryRoutes from "./routes/category.route.js";
 import articleRoutes from "./routes/article.route.js";
+import waitlistRoutes from "./routes/waitlist.route.js";
     
 dotenv.config();
 connectDB();
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/contact", contactRoutes);
 app.use("/api/blog/category", categoryRoutes);
 app.use("/api/blog/article", articleRoutes);
+app.use("/api/waitlist", waitlistRoutes);
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 5171;
 
