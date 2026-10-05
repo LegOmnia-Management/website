@@ -4,6 +4,10 @@ import { Resend } from "resend";
 // Adresse qui reçoit les nouvelles inscriptions
 const WAITLIST_EMAIL = process.env.WAITLIST_EMAIL || "contact@legomnia.com";
 
+// Expéditeur des e-mails : doit appartenir à un domaine vérifié sur Resend
+// (avec "onboarding@resend.dev", Resend n'envoie qu'à l'adresse du compte Resend)
+const RESEND_FROM = process.env.RESEND_FROM || "onboarding@resend.dev";
+
 const SUCCESS_MESSAGE = "Votre inscription sur la liste d'attente a bien été prise en compte";
 
 // échappe les valeurs saisies avant de les injecter dans l'e-mail HTML
@@ -61,7 +65,7 @@ const createWaitlist = async (req, res) => {
             try {
                 const resend = new Resend(process.env.RESEND_API_KEY);
                 const { error: emailError } = await resend.emails.send({
-                    from: "onboarding@resend.dev",
+                    from: RESEND_FROM,
                     to: WAITLIST_EMAIL,
                     replyTo: entry.email,
                     subject: `Liste d'attente : ${entry.firstName} ${entry.lastName}`,

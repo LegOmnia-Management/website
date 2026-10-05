@@ -144,7 +144,7 @@ La route `POST /api/contact` effectue dans l'ordre :
 1. Honeypot : si le champ caché `website` est rempli (bot), réponse 201 factice, rien n'est enregistré
 2. Validation des champs (express-validator)
 3. Sauvegarde en base MongoDB
-4. Envoi d'un e-mail de notification via Resend (optionnel : ignoré si `RESEND_API_KEY` ou `CONTACT_EMAIL` est absent ; une erreur d'envoi ne fait pas échouer la demande)
+4. Envoi d'un e-mail de notification via Resend (optionnel : ignoré si `RESEND_API_KEY` est absent ; destinataire `CONTACT_EMAIL`, défaut `contact@legomnia.com` ; une erreur d'envoi ne fait pas échouer la demande)
 
 La route `POST /api/waitlist` (formulaire de la page `/liste-attente`, accessible
 via le bouton « Inscription sur liste d'attente » du header) suit le même principe :
@@ -338,4 +338,4 @@ VITE_API_URL         # laisser vide ou mettre l'URL Vercel (les appels /api/* so
 ## Notes pour la mise en ligne
 
 - En production, le `CLIENT_URL` dans le backend doit correspondre exactement au domaine du frontend (ex: `https://legomnia.com`) pour que le CORS fonctionne.
-- L'adresse e-mail expéditrice Resend (`from`) utilise actuellement `onboarding@resend.dev` (domaine de test). Pour la production, configurer un domaine vérifié sur Resend et mettre à jour le champ `from` dans `contact.controller.js`.
+- L'adresse e-mail expéditrice Resend est définie par `RESEND_FROM` (défaut : `onboarding@resend.dev`, domaine de test qui n'envoie **qu'à l'adresse du compte Resend**). Pour la production, vérifier le domaine `legomnia.com` sur Resend (enregistrements DNS) puis définir `RESEND_FROM=LegOmnia <noreply@legomnia.com>` dans le `.env` du serveur.
