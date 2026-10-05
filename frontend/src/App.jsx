@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 
 import ScrollToTop from './components/ScrollToTop';
+import LangSync from './components/LangSync';
 
 import Cgu from './pages/Cgu';
 import Confidentialite from './pages/Confidentialite';
@@ -25,41 +26,54 @@ import Webinaires from './pages/blog/Webinaires';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+import { ROUTES, LANGS } from './i18n/routes';
+
 import './assets/styles/general.css';
+
+// Chaque page est déclarée une fois et servie dans les deux langues
+// (chemins définis dans i18n/routes.js)
+const PAGES = [
+    // Home
+    { route: ROUTES.home, element: <Home/> },
+
+    // Produits
+    { route: ROUTES.omnia, element: <Omnia/> },
+    { route: ROUTES.transformation, element: <Transformation/> },
+    { route: ROUTES.geode, element: <Geode/> },
+    { route: ROUTES.omniscan, element: <Omniscan/> },
+    { route: ROUTES.useCases, element: <UseCases/> },
+
+    // Autres
+    { route: ROUTES.cgu, element: <Cgu/> },
+    { route: ROUTES.confidentialite, element: <Confidentialite/> },
+    { route: ROUTES.cookies, element: <Cookies/> },
+    { route: ROUTES.contact, element: <Contact/> },
+    { route: ROUTES.faq, element: <Faq/> },
+    { route: ROUTES.juridictions, element: <Juridictions/> },
+    { route: ROUTES.waitlist, element: <Waitlist/> },
+    { route: ROUTES.mentionsLegales, element: <MentionsLegales/> },
+
+    // Blog
+    { route: ROUTES.articles, element: <Articles/> },
+    { route: { fr: `${ROUTES.articles.fr}/:slug`, en: `${ROUTES.articles.en}/:slug` }, element: <Article/> },
+    { route: ROUTES.ressources, element: <Ressources/> },
+    { route: ROUTES.webinaires, element: <Webinaires/> },
+];
 
 function App() {
 
     return (
         <BrowserRouter>
         <ScrollToTop />
+        <LangSync />
             <Header/>
 
             <Routes>
-                {/* Home */}
-                <Route path="/" element={<Home/>}></Route>
-
-                {/* Produits */}
-                <Route path="/produits/omnia" element={<Omnia/>}></Route>
-                <Route path="/produits/transformation-digitale/presentation" element={<Transformation/>}></Route>
-                <Route path="/produits/transformation-digitale/geode" element={<Geode/>}></Route>
-                <Route path="/produits/transformation-digitale/omniscan" element={<Omniscan/>}></Route>
-                <Route path="/produits/use-cases" element={<UseCases/>}></Route>
-
-                {/* Autres */}
-                <Route path="/cgu" element={<Cgu/>}></Route>
-                <Route path="/confidentialite" element={<Confidentialite/>}></Route>
-                <Route path="/cookies" element={<Cookies/>}></Route>
-                <Route path="/contact" element={<Contact/>}></Route>
-                <Route path="/faq" element={<Faq/>}></Route>
-                <Route path="/juridictions" element={<Juridictions/>}></Route>
-                <Route path="/liste-attente" element={<Waitlist/>}></Route>
-                <Route path="/mentions-legales" element={<MentionsLegales/>}></Route>
-                
-                {/* Blog */}
-                <Route path="/blog/articles" element={<Articles/>}></Route>
-                <Route path="/blog/articles/:slug" element={<Article/>}></Route>
-                <Route path="/blog/ressources" element={<Ressources/>}></Route>
-                <Route path="/blog/webinaires" element={<Webinaires/>}></Route>
+                {PAGES.flatMap(({ route, element }) =>
+                    LANGS.map((lang) => (
+                        <Route key={route[lang]} path={route[lang]} element={element}></Route>
+                    ))
+                )}
             </Routes>
 
             <Footer/>

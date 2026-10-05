@@ -1,74 +1,110 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 
+import useLang from "../i18n/useLang";
+
 import '../assets/styles/africaMap.css';
 
 // ─── COUNTRY DATA ───────────────────────────────────────────────────────────
 const COUNTRY_DATA = {
   // OHADA (17 membres)
-  BEN: { name: "Bénin", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
-  BFA: { name: "Burkina Faso", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
-  CMR: { name: "Cameroun", orgs: ["OHADA", "CEMAC", "UA"] },
-  COM: { name: "Comores", orgs: ["OHADA", "COMESA", "UA"] },
-  COG: { name: "Congo", orgs: ["OHADA", "CEMAC", "COMESA", "UA"] },
-  CIV: { name: "Côte d'Ivoire", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
-  GAB: { name: "Gabon", orgs: ["OHADA", "CEMAC", "UA"] },
-  GIN: { name: "Guinée", orgs: ["OHADA", "CEDEAO", "UA"] },
-  GNB: { name: "Guinée-Bissau", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
-  GNQ: { name: "Guinée équatoriale", orgs: ["OHADA", "CEMAC", "UA"] },
-  MLI: { name: "Mali", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
-  NER: { name: "Niger", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
-  CAF: { name: "République centrafricaine", orgs: ["OHADA", "CEMAC", "UA"] },
-  COD: { name: "République démocratique du Congo", orgs: ["OHADA", "CEMAC", "COMESA", "UA"] },
-  SEN: { name: "Sénégal", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
-  TCD: { name: "Tchad", orgs: ["OHADA", "CEMAC", "UA"] },
-  TGO: { name: "Togo", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
+  BEN: { name: "Bénin", nameEn: "Benin", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
+  BFA: { name: "Burkina Faso", nameEn: "Burkina Faso", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
+  CMR: { name: "Cameroun", nameEn: "Cameroon", orgs: ["OHADA", "CEMAC", "UA"] },
+  COM: { name: "Comores", nameEn: "Comoros", orgs: ["OHADA", "COMESA", "UA"] },
+  COG: { name: "Congo", nameEn: "Congo", orgs: ["OHADA", "CEMAC", "COMESA", "UA"] },
+  CIV: { name: "Côte d'Ivoire", nameEn: "Côte d'Ivoire", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
+  GAB: { name: "Gabon", nameEn: "Gabon", orgs: ["OHADA", "CEMAC", "UA"] },
+  GIN: { name: "Guinée", nameEn: "Guinea", orgs: ["OHADA", "CEDEAO", "UA"] },
+  GNB: { name: "Guinée-Bissau", nameEn: "Guinea-Bissau", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
+  GNQ: { name: "Guinée équatoriale", nameEn: "Equatorial Guinea", orgs: ["OHADA", "CEMAC", "UA"] },
+  MLI: { name: "Mali", nameEn: "Mali", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
+  NER: { name: "Niger", nameEn: "Niger", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
+  CAF: { name: "République centrafricaine", nameEn: "Central African Republic", orgs: ["OHADA", "CEMAC", "UA"] },
+  COD: { name: "République démocratique du Congo", nameEn: "Democratic Republic of the Congo", orgs: ["OHADA", "CEMAC", "COMESA", "UA"] },
+  SEN: { name: "Sénégal", nameEn: "Senegal", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
+  TCD: { name: "Tchad", nameEn: "Chad", orgs: ["OHADA", "CEMAC", "UA"] },
+  TGO: { name: "Togo", nameEn: "Togo", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
   // CEDEAO seulement
-  CPV: { name: "Cabo Verde", orgs: ["CEDEAO", "UA"] },
-  GMB: { name: "Gambie", orgs: ["CEDEAO", "UA"] },
-  GHA: { name: "Ghana", orgs: ["CEDEAO", "UA"] },
-  LBR: { name: "Liberia", orgs: ["CEDEAO", "UA"] },
-  NGA: { name: "Nigeria", orgs: ["CEDEAO", "UA"] },
-  SLE: { name: "Sierra Leone", orgs: ["CEDEAO", "UA"] },
+  CPV: { name: "Cabo Verde", nameEn: "Cabo Verde", orgs: ["CEDEAO", "UA"] },
+  GMB: { name: "Gambie", nameEn: "Gambia", orgs: ["CEDEAO", "UA"] },
+  GHA: { name: "Ghana", nameEn: "Ghana", orgs: ["CEDEAO", "UA"] },
+  LBR: { name: "Liberia", nameEn: "Liberia", orgs: ["CEDEAO", "UA"] },
+  NGA: { name: "Nigeria", nameEn: "Nigeria", orgs: ["CEDEAO", "UA"] },
+  SLE: { name: "Sierra Leone", nameEn: "Sierra Leone", orgs: ["CEDEAO", "UA"] },
   // COMESA
-  BDI: { name: "Burundi", orgs: ["COMESA", "UA"] },
-  DJI: { name: "Djibouti", orgs: ["COMESA", "UA"] },
-  EGY: { name: "Égypte", orgs: ["COMESA", "UA"] },
-  ERI: { name: "Érythrée", orgs: ["COMESA", "UA"] },
-  SWZ: { name: "Eswatini", orgs: ["COMESA", "UA"] },
-  ETH: { name: "Éthiopie", orgs: ["COMESA", "UA"] },
-  KEN: { name: "Kenya", orgs: ["COMESA", "UA"] },
-  LBY: { name: "Libye", orgs: ["COMESA", "UA"] },
-  MDG: { name: "Madagascar", orgs: ["COMESA", "UA"] },
-  MWI: { name: "Malawi", orgs: ["COMESA", "UA"] },
-  MUS: { name: "Maurice", orgs: ["COMESA", "UA"] },
-  UGA: { name: "Ouganda", orgs: ["COMESA", "UA"] },
-  RWA: { name: "Rwanda", orgs: ["COMESA", "UA"] },
-  SYC: { name: "Seychelles", orgs: ["COMESA", "UA"] },
-  SOM: { name: "Somalie", orgs: ["COMESA", "UA"] },
-  SDN: { name: "Soudan", orgs: ["COMESA", "UA"] },
-  TUN: { name: "Tunisie", orgs: ["COMESA", "UA"] },
-  ZMB: { name: "Zambie", orgs: ["COMESA", "UA"] },
-  ZWE: { name: "Zimbabwe", orgs: ["COMESA", "UA"] },
+  BDI: { name: "Burundi", nameEn: "Burundi", orgs: ["COMESA", "UA"] },
+  DJI: { name: "Djibouti", nameEn: "Djibouti", orgs: ["COMESA", "UA"] },
+  EGY: { name: "Égypte", nameEn: "Egypt", orgs: ["COMESA", "UA"] },
+  ERI: { name: "Érythrée", nameEn: "Eritrea", orgs: ["COMESA", "UA"] },
+  SWZ: { name: "Eswatini", nameEn: "Eswatini", orgs: ["COMESA", "UA"] },
+  ETH: { name: "Éthiopie", nameEn: "Ethiopia", orgs: ["COMESA", "UA"] },
+  KEN: { name: "Kenya", nameEn: "Kenya", orgs: ["COMESA", "UA"] },
+  LBY: { name: "Libye", nameEn: "Libya", orgs: ["COMESA", "UA"] },
+  MDG: { name: "Madagascar", nameEn: "Madagascar", orgs: ["COMESA", "UA"] },
+  MWI: { name: "Malawi", nameEn: "Malawi", orgs: ["COMESA", "UA"] },
+  MUS: { name: "Maurice", nameEn: "Mauritius", orgs: ["COMESA", "UA"] },
+  UGA: { name: "Ouganda", nameEn: "Uganda", orgs: ["COMESA", "UA"] },
+  RWA: { name: "Rwanda", nameEn: "Rwanda", orgs: ["COMESA", "UA"] },
+  SYC: { name: "Seychelles", nameEn: "Seychelles", orgs: ["COMESA", "UA"] },
+  SOM: { name: "Somalie", nameEn: "Somalia", orgs: ["COMESA", "UA"] },
+  SDN: { name: "Soudan", nameEn: "Sudan", orgs: ["COMESA", "UA"] },
+  TUN: { name: "Tunisie", nameEn: "Tunisia", orgs: ["COMESA", "UA"] },
+  ZMB: { name: "Zambie", nameEn: "Zambia", orgs: ["COMESA", "UA"] },
+  ZWE: { name: "Zimbabwe", nameEn: "Zimbabwe", orgs: ["COMESA", "UA"] },
   // UA uniquement
-  DZA: { name: "Algérie", orgs: ["UA"] },
-  AGO: { name: "Angola", orgs: ["UA"] },
-  ZAF: { name: "Afrique du Sud", orgs: ["UA"] },
-  ESH: { name: "Sahara occidental", orgs: ["UA"] },
-  BWA: { name: "Botswana", orgs: ["UA"] },
-  MAR: { name: "Maroc", orgs: ["UA"] },
-  MOZ: { name: "Mozambique", orgs: ["UA"] },
-  NAM: { name: "Namibie", orgs: ["UA"] },
-  TZA: { name: "Tanzanie", orgs: ["UA"] },
-  SSD: { name: "Soudan du Sud", orgs: ["UA"] },
-  STP: { name: "São Tomé-et-Príncipe", orgs: ["UA"] },
-  LSO: { name: "Lesotho", orgs: ["UA"] },
-  MRT: { name: "Mauritanie", orgs: ["UA"] },
+  DZA: { name: "Algérie", nameEn: "Algeria", orgs: ["UA"] },
+  AGO: { name: "Angola", nameEn: "Angola", orgs: ["UA"] },
+  ZAF: { name: "Afrique du Sud", nameEn: "South Africa", orgs: ["UA"] },
+  ESH: { name: "Sahara occidental", nameEn: "Western Sahara", orgs: ["UA"] },
+  BWA: { name: "Botswana", nameEn: "Botswana", orgs: ["UA"] },
+  MAR: { name: "Maroc", nameEn: "Morocco", orgs: ["UA"] },
+  MOZ: { name: "Mozambique", nameEn: "Mozambique", orgs: ["UA"] },
+  NAM: { name: "Namibie", nameEn: "Namibia", orgs: ["UA"] },
+  TZA: { name: "Tanzanie", nameEn: "Tanzania", orgs: ["UA"] },
+  SSD: { name: "Soudan du Sud", nameEn: "South Sudan", orgs: ["UA"] },
+  STP: { name: "São Tomé-et-Príncipe", nameEn: "São Tomé and Príncipe", orgs: ["UA"] },
+  LSO: { name: "Lesotho", nameEn: "Lesotho", orgs: ["UA"] },
+  MRT: { name: "Mauritanie", nameEn: "Mauritania", orgs: ["UA"] },
 };
 
+// Pays où OmniScan peut être installé (codes ISO)
 const COUNTRY_OMNISCAN = [
-   "Bénin", "Côte d'Ivoire", "Cameroun", "République démocratique du Congo", "Congo", "Gabon", "Madagascar", "Sénégal", "Togo"
+   "BEN", "CIV", "CMR", "COD", "COG", "GAB", "MDG", "SEN", "TGO"
 ]
+
+// Libellés affichés des organisations (les clés restent les sigles français)
+const ORG_LABELS = {
+  fr: {},
+  en: { CEDEAO: "ECOWAS", UEMOA: "WAEMU", UA: "AU" },
+};
+
+const TEXTS = {
+  fr: {
+    loading: "Chargement de la carte…",
+    filterBy: "Filtrer par zone",
+    organisations: "Organisations",
+    noData: "Aucune donnée",
+    seeMore: "Voir plus",
+    clickCountry: "Cliquez sur un pays",
+    omniscanTitle: <>Installation d'<span className="highlight">OmniScan</span> possible</>,
+    omniscanText: "Transformez tous vos documents juridiques en données exploitables et prêtes à l'indexation.",
+    omniscanCta: "Découvrir OmniScan",
+  },
+  en: {
+    loading: "Loading map…",
+    filterBy: "Filter by zone",
+    organisations: "Organizations",
+    noData: "No data",
+    seeMore: "See more",
+    clickCountry: "Click on a country",
+    omniscanTitle: <><span className="highlight">OmniScan</span> can be deployed here</>,
+    omniscanText: "Turn all your legal documents into usable data, ready for indexing.",
+    omniscanCta: "Discover OmniScan",
+  },
+};
+
+const countryName = (data, lang) => (lang === "en" ? data.nameEn : data.name);
 
 const ORG_COLORS = {
   OHADA:  "#22c55e",
@@ -93,6 +129,14 @@ function getFillColor(iso, currentFilter) {
 
 // ─── MAIN COMPONENT ─────────────────────────────────────────────────────────
 export default function AfricaMap() {
+  const { lang, lp } = useLang();
+  const txt = TEXTS[lang];
+  const orgLabel = (org) => ORG_LABELS[lang][org] || org;
+
+  // langue lue par les listeners DOM (créés une seule fois)
+  const langRef = useRef(lang);
+  useEffect(() => { langRef.current = lang; }, [lang]);
+
   const svgRef     = useRef(null);
   const tooltipRef = useRef(null);
 
@@ -163,7 +207,8 @@ export default function AfricaMap() {
         geo.features.forEach((feature) => {
           if (!feature.geometry || !feature.properties) return;
           const iso  = feature.properties.ISO_A3 || feature.properties.ADM0_A3 || "";
-          const name = COUNTRY_DATA[iso]?.name || feature.properties.NAME || iso;
+          const getName = () =>
+            COUNTRY_DATA[iso] ? countryName(COUNTRY_DATA[iso], langRef.current) : feature.properties.NAME || iso;
 
           try {
             const d = pathGen(feature);
@@ -180,7 +225,7 @@ export default function AfricaMap() {
 
             p.addEventListener("mouseenter", () => {
               const tt = tooltipRef.current;
-              if (tt) { tt.textContent = name; tt.style.display = "block"; }
+              if (tt) { tt.textContent = getName(); tt.style.display = "block"; }
               if (iso !== selectedCountryRef.current) {
                 const f = currentFilterRef.current;
                 if (f) {
@@ -250,7 +295,7 @@ export default function AfricaMap() {
                 <circle cx="20" cy="20" r="16" fill="none" stroke="#e5e7eb" strokeWidth="3" />
                 <path d="M20 4 A16 16 0 0 1 36 20" fill="none" stroke="#7c5cfc" strokeWidth="3" strokeLinecap="round" />
               </svg>
-              Chargement de la carte…
+              {txt.loading}
             </div>
           )}
           <svg
@@ -266,7 +311,7 @@ export default function AfricaMap() {
 
           {/* ── Filtres ── */}
           <div className="africa-map-filters">
-            <p className="africa-map-filters-label">Filtrer par zone</p>
+            <p className="africa-map-filters-label">{txt.filterBy}</p>
             <div className="africa-map-filters-row">
               {FILTERS.map((org) => (
                 <button
@@ -274,7 +319,7 @@ export default function AfricaMap() {
                   className={`africa-map-filter-btn${currentFilter === org ? " active" : ""}`}
                   onClick={() => handleSetFilter(org)}
                 >
-                  {org}
+                  {orgLabel(org)}
                 </button>
               ))}
             </div>
@@ -284,8 +329,8 @@ export default function AfricaMap() {
           <div className="africa-map-country-info">
             {selected ? (
               <div className="africa-map-country-detail">
-                <h3 className="africa-map-country-name">{selected.name}</h3>
-                <p className="africa-map-country-orgs-label">Organisations</p>
+                <h3 className="africa-map-country-name">{countryName(selected, lang)}</h3>
+                <p className="africa-map-country-orgs-label">{txt.organisations}</p>
                 <div className="africa-map-country-orgs">
                   {selected.orgs && selected.orgs.length > 0 ? (
                     selected.orgs.map((org) => (
@@ -294,32 +339,32 @@ export default function AfricaMap() {
                         className="africa-map-org-badge"
                         style={{ backgroundColor: ORG_COLORS[org] || "#888" }} /* dynamique */
                       >
-                        {org}
+                        {orgLabel(org)}
                       </span>
                     ))
                   ) : (
-                    <span className="africa-map-org-empty">Aucune donnée</span>
+                    <span className="africa-map-org-empty">{txt.noData}</span>
                   )}
                 </div>
-                <Link to="/liste-attente" className="ui__btn--black">
-                  Voir plus
+                <Link to={lp("/liste-attente")} className="ui__btn--black">
+                  {txt.seeMore}
                 </Link>
               </div>
             ) : (
-              <p className="africa-map-placeholder">Cliquez sur un pays</p>
+              <p className="africa-map-placeholder">{txt.clickCountry}</p>
             )}
           </div>
 
           {/* ── Omniscan dispo ── */}
           <div className="africa-map-country-omniscan">
-            {selected && COUNTRY_OMNISCAN.includes(selected.name) && (
+            {selected && COUNTRY_OMNISCAN.includes(selectedCountry) && (
               <div className="africa-map-country-detail">
-                <h3 className="africa-map-country-name">Installation d'<span className="highlight">OmniScan</span> possible</h3>
+                <h3 className="africa-map-country-name">{txt.omniscanTitle}</h3>
                 <p className="africa-map-country-orgs-label">
-                  Transformez tous vos documents juridiques en données exploitables et prêtes à l'indexation.
+                  {txt.omniscanText}
                 </p>
-                <Link to="/produits/transformation-digitale/omniscan" className="ui__btn--gradient">
-                  Découvrir OmniScan
+                <Link to={lp("/produits/transformation-digitale/omniscan")} className="ui__btn--gradient">
+                  {txt.omniscanCta}
                 </Link>
               </div>
             )}

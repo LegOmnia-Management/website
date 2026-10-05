@@ -230,3 +230,32 @@ header a {
         }
     }
 }
+/***************** Langue (FR / EN) *****************/
+.header__actions .header__lang {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+    padding: .3rem;
+    border: 1px solid var(--violetOutline);
+    border-radius: var(--radiusPill);
+    height: auto;
+}
+
+.header__lang--btn {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    padding: .4rem .9rem;
+    border-radius: var(--radiusPill);
+    color: var(--text2);
+    transition: background-color .2s, color .2s;
+
+    &:hover {
+        color: var(--violet);
+    }
+
+    &.isActive {
+        background-color: var(--violet);
+        color: #fff;
+    }
+}

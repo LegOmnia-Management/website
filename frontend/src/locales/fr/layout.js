@@ -1,0 +1,31 @@
+// Textes du header et du footer (français)
+export default {
+    header: {
+        logoAlt: 'Logo legOmnia',
+        products: 'Produits',
+        omniaDesc: 'la plateforme de recherche juridique',
+        transformation: 'Transformation digitale',
+        overview: 'Présentation générale',
+        useCasesDesc: 'de réels articles de Use Case',
+        articles: 'Articles',
+        webinars: 'Webinaires',
+        resources: 'Ressources',
+        contact: 'Nous contacter',
+        waitlist: "Inscription sur liste d'attente",
+        langLabel: 'Choisir la langue',
+    },
+    footer: {
+        logoAlt: 'Logo legOmnia',
+        tagline: "Infrastructure juridique de l'Afrique francophone",
+        products: 'Produits',
+        transformation: 'Transformation digitale',
+        resources: 'Ressources',
+        jurisdictions: 'Juridictions',
+        legal: 'Légal',
+        legalNotice: 'Mentions légales',
+        terms: 'CGU',
+        privacy: 'Confidentialité',
+        cookies: 'Cookies',
+        rights: '© 2026 LegOmnia · Tous droits réservés',
+    },
+};

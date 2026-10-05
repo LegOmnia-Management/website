@@ -26,16 +26,28 @@ import AI from '../assets/img/pictos/AI.svg';
 import Secure from '../assets/img/pictos/secure.svg';
 import MapContact from '../assets/img/divers/map_contact.svg';
 
+import useLang from '../i18n/useLang';
+import fr from '../locales/fr/home';
+import en from '../locales/en/home';
+
+const USAGE_ICONS = [Avocat, Juriste, Institution, Chercheur, Investisseur];
+const PARTENAIRE_ICONS = [Structuration, Formation, Deploiement];
+const VALEUR_ICONS = [Couverture, Donnee, AI, Secure];
+const SHOWCASE_TABS = ['usages', 'partenaire', 'valeur'];
+
 const Home = () => {
 
     const navigate = useNavigate();
+    const { lp, t } = useLang();
+    const txt = t({ fr, en });
+    const sc = txt.showcase;
 
     // recherche : la plateforme est en liste d'attente, on y redirige
     // en conservant la requête saisie
     const handleSearch = (e) => {
         e.preventDefault();
         const query = new FormData(e.target).get("q")?.trim() || "";
-        navigate("/liste-attente", { state: { query } });
+        navigate(lp("/liste-attente"), { state: { query } });
     };
 
     const [ showcase, setShowcase ] = useState("usages");
@@ -51,16 +63,16 @@ const Home = () => {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "EUR",
-            "description": "Essai gratuit 7 jours"
+            "description": txt.seo.offer
         },
-        "description": "Moteur de recherche juridique par IA pour l'Afrique francophone : lois, décrets, jurisprudence OHADA, CCJA, CEDEAO, CEMAC et 17+ pays."
+        "description": txt.seo.appDescription
     };
 
     return (
-        <main className="main main__home" aria-label="Accueil LegOmnia">
+        <main className="main main__home" aria-label={txt.mainLabel}>
             <SEOHead
-                title="LegOmnia — Recherche juridique IA pour l'Afrique francophone"
-                description="Centralisez lois, décrets et jurisprudence de 17+ pays d'Afrique francophone. Recherche juridique par IA, veille automatisée et GED sécurisée. Demandez une démo."
+                title={txt.seo.title}
+                description={txt.seo.description}
                 canonical="/"
                 structuredData={structuredData}
             />
@@ -73,21 +85,21 @@ const Home = () => {
                 <HeroBg />
                 <div className="container hero__container">
                     <div className="hero__title">
-                        <p className='subtitle'>L'IA juridique pour l'Afrique francophone</p>
+                        <p className='subtitle'>{txt.hero.kicker}</p>
                         <h1 className='main-title'>
-                            Le droit africain entre <span className='break'>dans une <em className='highlight'>nouvelle ère</em></span>
+                            {txt.hero.title}
                         </h1>
-                        <p className="subtitle">Découvrez <span className='highlight'>Omnia</span>, notre application de recherche juridique d'Afrique francophone</p>
+                        <p className="subtitle">{txt.hero.subtitle}</p>
                     </div>
                     <form className="hero__search" role="search" onSubmit={handleSearch}>
-                        <input type="search" name="q" placeholder="Commencez votre recherche ici..." aria-label="Rechercher"/>
-                        <button type="submit" aria-label="Rechercher">
+                        <input type="search" name="q" placeholder={txt.hero.searchPlaceholder} aria-label={txt.hero.searchLabel}/>
+                        <button type="submit" aria-label={txt.hero.searchLabel}>
                             <span className="iconify" data-icon="fa7-solid:magnifying-glass"></span>
                         </button>
                     </form>
                     <div className="hero__actions">
-                        <Link className='ui__btn' to="/produits/omnia">Découvrir la plateforme</Link>
-                        <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
+                        <Link className='ui__btn' to={lp("/produits/omnia")}>{txt.hero.discover}</Link>
+                        <Link className='ui__btn--inline' to={lp("/contact")}>{txt.hero.demo}</Link>
                     </div>
                 </div>
             </section>
@@ -95,7 +107,7 @@ const Home = () => {
             {/* Présenation + vidéo */}
             <section className="bg__circle home__presentation">
                 <div className="container home__presentation__container">
-                    <h2 className='title__h2'>Une vision simple : rendre le droit en Afrique francophone enfin <em className='highlight'>accessible, structuré et actionnable</em></h2>
+                    <h2 className='title__h2'>{txt.presentation.title}</h2>
                     <div className="home__presentation--video">
                     <video
                         autoPlay
@@ -104,16 +116,12 @@ const Home = () => {
                         playsInline
                     >
                         <source src={Video} type="video/mp4" />
-                        Votre navigateur ne supporte pas la vidéo HTML5
+                        {txt.presentation.videoFallback}
                     </video>
                     </div>
                     <div className="home__presentation--text">
-                        <p>
-                            Aujourd'hui, la donnée juridique est <span className="highlight">fragmentée, non digitalisée, difficilement exploitable</span>.
-                        </p>
-                        <p>
-                            LegOmnia propose <span className="highlight">un écosystème complet</span> permettant de passer de cette donnée non digitalisée à <span className="highlight">une intelligence juridique</span> unifiée et structurée.
-                        </p>
+                        <p>{txt.presentation.p1}</p>
+                        <p>{txt.presentation.p2}</p>
                     </div>
                 </div>
             </section>
@@ -121,8 +129,8 @@ const Home = () => {
             {/* Carte */}
             <section className="home__map">
                 <div className="container">
-                    <h2 className='title__h2'>Notre couverture en Afrique francophone</h2>
-                    <p className='title__subtitle'>Explorez notre présence et les organisations juridiques intégrées</p>
+                    <h2 className='title__h2'>{txt.map.title}</h2>
+                    <p className='title__subtitle'>{txt.map.subtitle}</p>
 
                     <AfricaMap />
                 </div>
@@ -131,73 +139,38 @@ const Home = () => {
             {/* Mise en avant */}
             <section className="bg__circle home__showcase">
             <div className="container">
-                <h2 className='title__h2'>Une infrastructure déjà à l'œuvre</h2>
+                <h2 className='title__h2'>{sc.title}</h2>
 
                 <ul className="home__showcase--stats">
-                    <li><span>50 000+</span> textes</li>
-                    <li><span>17+</span> pays</li>
-                    <li><span>98%</span> satisfaction</li>
+                    {sc.stats.map((stat) => (
+                        <li key={stat.label}><span>{stat.value}</span> {stat.label}</li>
+                    ))}
                 </ul>
 
-                <p className='title__subtitle'>
-                    L'application LegOmnia a déjà fait ses preuves auprès de nombreux partenaires,
-                    découvrez comment vous pouvez aussi en bénéficier
-                </p>
+                <p className='title__subtitle'>{sc.subtitle}</p>
 
                 <nav className='home__showcase--nav'>
-                    <div className={`item ${showcase === 'usages' ? 'isActive' : ""}`}>
-                        <button 
-                            className="arrow"
-                            onClick={() => {
-                                setShowcase("valeur");
-                            }}
-                        ><span className="iconify" data-icon="ep:arrow-left"></span></button>
-                        <button 
-                            onClick={() => setShowcase("usages")}
-                        >Des usages stratégiques</button>
-                        <button 
-                            className="arrow"
-                            onClick={() => {
-                                setShowcase("partenaire");
-                            }}
-                        ><span className="iconify" data-icon="ep:arrow-right"></span></button>
-                    </div>
-                    
-                    <div className={`item ${showcase === 'partenaire' ? 'isActive' : ""}`}>
-                        <button 
-                            className="arrow"
-                            onClick={() => {
-                                setShowcase("usages");
-                            }}
-                        ><span className="iconify" data-icon="ep:arrow-left"></span></button>
-                        <button 
-                            onClick={() => setShowcase("partenaire")}
-                        >Un partenaire de transformation</button>
-                        <button 
-                            className="arrow"
-                            onClick={() => {
-                                setShowcase("valeur");
-                            }}
-                        ><span className="iconify" data-icon="ep:arrow-right"></span></button>
-                    </div>
-
-                    <div className={`item ${showcase === 'valeur' ? 'isActive' : ""}`}>
-                        <button 
-                            className="arrow"
-                            onClick={() => {
-                                setShowcase("partenaire");
-                            }}
-                        ><span className="iconify" data-icon="ep:arrow-left"></span></button>
-                        <button 
-                            onClick={() => setShowcase("valeur")}
-                        >Une valeur ajoutée</button>
-                        <button 
-                            className="arrow"
-                            onClick={() => {
-                                setShowcase("usages");
-                            }}
-                        ><span className="iconify" data-icon="ep:arrow-right"></span></button>
-                    </div>
+                    {SHOWCASE_TABS.map((tab, i) => {
+                        const prev = SHOWCASE_TABS[(i + SHOWCASE_TABS.length - 1) % SHOWCASE_TABS.length];
+                        const next = SHOWCASE_TABS[(i + 1) % SHOWCASE_TABS.length];
+                        return (
+                            <div key={tab} className={`item ${showcase === tab ? 'isActive' : ""}`}>
+                                <button 
+                                    className="arrow"
+                                    aria-label={sc.prev}
+                                    onClick={() => setShowcase(prev)}
+                                ><span className="iconify" data-icon="ep:arrow-left"></span></button>
+                                <button 
+                                    onClick={() => setShowcase(tab)}
+                                >{sc.tabs[tab]}</button>
+                                <button 
+                                    className="arrow"
+                                    aria-label={sc.next}
+                                    onClick={() => setShowcase(next)}
+                                ><span className="iconify" data-icon="ep:arrow-right"></span></button>
+                            </div>
+                        );
+                    })}
                 </nav>
 
                 <div className='home__showcase--description'>
@@ -205,137 +178,58 @@ const Home = () => {
                     {/* Usages stratégiques */}
                     <article className={showcase != 'usages' ? 'isHidden' : ""}>
                         <ul className='home__showcase--list--usages'>
-                            <li className='card'>
-                                <IconRing
-                                    src={Avocat}
-                                />
-                                <h3 className="title">Avocats & Cabinets</h3>
-                                <p>Accélération de la recherche et des anlayses</p>
-                                <ul className="list">
-                                    <li>Recherche ultra-rapide de jurisprudence</li>
-                                    <li>Bases d'études de cas</li>
-                                    <li>Analyses comparatives OHADA</li>
-                                </ul>
-                            </li>
-                            <li className='card'>
-                                <IconRing
-                                    src={Juriste}
-                                />
-                                <h3 className="title">Juristes d'entreprise</h3>
-                                <p>Maîtrise du risque et conformité multi-pays</p>
-                                <ul className="list">
-                                    <li>Veille réglementaire</li>
-                                    <li>Conformité par juridiction</li>
-                                    <li>Accès complet aux textes applicables</li>
-                                </ul>
-                            </li>
-                            <li className='card'>
-                                <IconRing
-                                    src={Institution}
-                                />
-                                <h3 className="title">Institutions publiques</h3>
-                                <p>Modernisation et souveraineté documentaire</p>
-                                <ul className="list">
-                                    <li>Gestion centralisée</li>
-                                    <li>Archivage intelligent</li>
-                                    <li>Accès public garanti</li>
-                                </ul>
-                            </li>
-                            <li className='card'>
-                                <IconRing
-                                    src={Chercheur}
-                                />
-                                <h3 className="title">Etudiants & chercheurs</h3>
-                                <p>Accès structuré à la connaissance juridique</p>
-                                <ul className="list">
-                                    <li>Base de recherche complète</li>
-                                    <li>Citations vérifiées</li>
-                                    <li>Accès gratuit</li>
-                                </ul>
-                            </li>
-                            <li className='card'>
-                                <IconRing
-                                    src={Investisseur}
-                                />
-                                <h3 className="title">Investisseurs & IPE</h3>
-                                <p>Due diligence rapide et fiable</p>
-                                <ul className="list">
-                                    <li>Due diligence accélérée</li>
-                                    <li>Risk assessment par pays</li>
-                                    <li>Conformité sanction</li>
-                                </ul>
-                            </li>
+                            {sc.usages.map((item, i) => (
+                                <li className='card' key={item.title}>
+                                    <IconRing
+                                        src={USAGE_ICONS[i]}
+                                    />
+                                    <h3 className="title">{item.title}</h3>
+                                    <p>{item.text}</p>
+                                    <ul className="list">
+                                        {item.list.map((li) => <li key={li}>{li}</li>)}
+                                    </ul>
+                                </li>
+                            ))}
                             <li className='card'>
                                 <IconRing
                                     src={Profil}
                                 />
-                                <h3 className="title">Votre profil</h3>
-                                <p>Contactez-nous pour une démo personnalisée</p>
-                                <Link className='ui__btn' to="/produits/contact">Demander une démo</Link>
+                                <h3 className="title">{sc.profile.title}</h3>
+                                <p>{sc.profile.text}</p>
+                                <Link className='ui__btn' to={lp("/contact")}>{sc.profile.cta}</Link>
                             </li>
                         </ul>
                     </article>
 
                     {/* Partenaire de transformation */}
                     <article className={showcase != 'partenaire' ? 'isHidden' : ""}>
-                        <p>Nous accompagnons les organisations dans leur transition vers un droit augmenté par la donnée :</p>
+                        <p>{sc.partenaireIntro}</p>
                         <ul className='home__showcase--list--partenaire'>
-                            <li className='card'>
-                                <IconRing
-                                    src={Structuration}
-                                />
-                                <h3 className="title">Structuration des données</h3>
-                                <p>Nous collectons, normalisons et enrichissons l'ensemble des textes juridiques africains pour en faire une base fiable, cohérente et exploitable.</p>
-                            </li>
-                            <li className='card'>
-                                <IconRing
-                                    src={Formation}
-                                />
-                                <h3 className="title">Formation et accompagnement</h3>
-                                <p>Nos équipes forment vos collaborateurs à la prise en main de la plateforme et vous accompagnent à chaque étape pour maximiser l'adoption.</p>
-                            </li>
-                            <li className='card'>
-                                <IconRing
-                                    src={Deploiement}
-                                />
-                                <h3 className="title">Déploiement à l'échelle nationale ou institutionnelle</h3>
-                                <p>De la phase pilote au déploiement national ou multi-pays, LegOmnia est conçu pour croître avec vos besoins sans compromis sur la performance.</p>
-                            </li>
+                            {sc.partenaire.map((item, i) => (
+                                <li className='card' key={item.title}>
+                                    <IconRing
+                                        src={PARTENAIRE_ICONS[i]}
+                                    />
+                                    <h3 className="title">{item.title}</h3>
+                                    <p>{item.text}</p>
+                                </li>
+                            ))}
                         </ul>
                     </article>
 
                     {/* Valeur ajoutée */}
                     <article className={showcase != 'valeur' ? 'isHidden' : ""}>
-                        <p>LegOmnia change la donne : là où d'autres indexent, nous comprenons.</p>
+                        <p>{sc.valeurIntro}</p>
                         <ul className='home__showcase--list--valeur'>
-                            <li className='card'>
-                                <IconRing
-                                    src={Couverture}
-                                />
-                                <h3 className="title">Une couverture totale, de bout en bout</h3>
-                                <p>Approche end-to-end unique sur le marché africain</p>
-                            </li>
-                            <li className='card'>
-                                <IconRing
-                                    src={Donnee}
-                                />
-                                <h3 className="title">La donnée juridique, entièrement maîtrisée</h3>
-                                <p>Maîtrise complète de la chaîne de valeur de la donnée</p>
-                            </li>
-                            <li className='card'>
-                                <IconRing
-                                    src={AI}
-                                />
-                                <h3 className="title">Une IA qui comprend le droit local</h3>
-                                <p>IA adaptée aux spécificités juridiques locales</p>
-                            </li>
-                            <li className='card'>
-                                <IconRing
-                                    src={Secure}
-                                />
-                                <h3 className="title">Vos données, protégées et chez vous</h3>
-                                <p>Souveraineté et sécurité des données</p>
-                            </li>
+                            {sc.valeur.map((item, i) => (
+                                <li className='card' key={item.title}>
+                                    <IconRing
+                                        src={VALEUR_ICONS[i]}
+                                    />
+                                    <h3 className="title">{item.title}</h3>
+                                    <p>{item.text}</p>
+                                </li>
+                            ))}
                         </ul>
                     </article>
                 </div>
@@ -346,11 +240,11 @@ const Home = () => {
             <section className="home__ask__demo">
                 <div className="container">
                     <div className="home__ask__demo--content">
-                        <h2 className="title__h2">Prêt à transformer votre pratique juridique ?</h2>
-                        <p>LegOmnia est votre infrastructure pour accélérer vos recherches, sécuriser vos documents et prendre des décisions data-driven en Afrique francophone.</p>
+                        <h2 className="title__h2">{txt.demo.title}</h2>
+                        <p>{txt.demo.text}</p>
                         <div className="home__ask__demo--actions">
-                            <a className="ui__btn" href="/produits/omnia">Découvrir la plateforme</a>
-                            <a className="ui__btn--inline" href="/contact">Demander une démo</a>
+                            <Link className="ui__btn" to={lp("/produits/omnia")}>{txt.demo.discover}</Link>
+                            <Link className="ui__btn--inline" to={lp("/contact")}>{txt.demo.demo}</Link>
                         </div>
                         <div className="home__ask__demo--contact">
                             <div>
@@ -364,7 +258,7 @@ const Home = () => {
                                 <p>24 Commerce Street, NJ 07302</p>
                             </div>
                         </div>
-                        <img className="home__ask__demo--map" src={MapContact} alt="Où nous trouver" />
+                        <img className="home__ask__demo--map" src={MapContact} alt={txt.demo.mapAlt} />
                     </div>
                 </div>
             </section>
