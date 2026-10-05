@@ -70,21 +70,17 @@ const MentionsLegales = () => {
                 <h2 className="mentions__title">{tr("Hébergement", "Hosting")}</h2>
                 <p>
                     {tr("Le site est hébergé par :", "The website is hosted by:")}<br/>
-                    <span className='highlight'>SAS OVH</span><br/>
-                    2 rue Kellermann<br/>
-                    59100 Roubaix – France
+                    <span className='highlight'>SCALEWAY SAS</span><br/>
+                    8 rue de la Ville l'Évêque<br/>
+                    75008 Paris – France
                 </p>
                 <p className="mt">
-                    {tr("SAS au capital de 50 000 000 €", "SAS with share capital of €50,000,000")}<br/>
-                    RCS 424 761 419 Roubaix – Tourcoing<br/>
-                    {tr("Code APE : 6311Z", "APE code: 6311Z")}<br/>
-                    {tr("N° TVA : FR 22-424-761-419-00011", "VAT no.: FR 22-424-761-419-00011")}
+                    RCS Paris 433 115 904<br/>
+                    {tr("N° TVA : FR 35 433 115 904", "VAT no.: FR 35 433 115 904")}
                 </p>
                 <p className="mt">
-                    <span className='highlight'>{tr("Téléphone :", "Phone:")}</span> 0899 701 761<br/>
-                    <span className='highlight'>{tr("Fax :", "Fax:")}</span> +33 (0) 3 20 20 09 58<br/>
-                    <span className='highlight'>{tr("Site Internet :", "Website:")}</span> <a href="https://www.ovhcloud.com/fr/" target="_blank">https://www.ovhcloud.com/fr/</a><br/>
-                    <span className='highlight'>{tr("Support :", "Support:")}</span> <a href="http://ovh.com/fr/contact/support/" target="_blank">https://ovh.com/fr/contact/support/</a>
+                    <span className='highlight'>{tr("Téléphone :", "Phone:")}</span> +33 (0)1 84 13 00 00<br/>
+                    <span className='highlight'>{tr("Site Internet :", "Website:")}</span> <a href="https://www.scaleway.com/" target="_blank" rel="noopener noreferrer">https://www.scaleway.com/</a>
                 </p>
 
                 <h2 className="mentions__title">{tr("Propriété intellectuelle", "Intellectual property")}</h2>
