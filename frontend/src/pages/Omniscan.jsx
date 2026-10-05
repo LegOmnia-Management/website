@@ -303,7 +303,7 @@ const Omniscan = () => {
                             <div className='text'>
                                 <p>{tr("Contactez-nous pour une démo personnalisée.", "Contact us for a personalized demo.")}</p>
                             </div>
-                            <Link className='ui__btn--gradient' to={lp("/produits/contact")}>{tr("Demander une démo", "Request a demo")}</Link>
+                            <Link className='ui__btn--gradient' to={lp("/contact")}>{tr("Demander une démo", "Request a demo")}</Link>
                         </li>
                     </ul>
                 </div>

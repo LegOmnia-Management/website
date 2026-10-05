@@ -51,6 +51,8 @@ const STATIC_ROUTES = [
     '/blog/articles',                                      // blog/Articles.jsx
     '/blog/ressources',                                    // blog/Ressources.jsx
     '/blog/webinaires',                                    // blog/Webinaires.jsx
+    '/cgu',                                                // Cgu.jsx
+    '/confidentialite',                                    // Confidentialite.jsx
     // MentionsLegales.jsx volontairement exclue (noIndex={true})
 
     // Pages détail articles (à ajouter manuellement à chaque nouvel article
