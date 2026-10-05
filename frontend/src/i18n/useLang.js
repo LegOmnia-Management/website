@@ -10,6 +10,7 @@ export const LANG_STORAGE_KEY = 'legomnia-lang';
  *   const { lang, lp, t } = useLang();
  *   lp('/contact')          -> '/contact' ou '/en/contact'
  *   t({ fr: frDict, en: enDict }) -> dictionnaire de la langue courante
+ *   tr('Bonjour', 'Hello')  -> texte de la langue courante (texte ou JSX)
  */
 const useLang = () => {
     const { pathname } = useLocation();
@@ -19,6 +20,7 @@ const useLang = () => {
         lang,
         lp: (path) => localizePath(path, lang),
         t: (dicts) => dicts[lang] ?? dicts.fr,
+        tr: (fr, en) => (lang === 'en' ? en : fr),
     };
 };
 

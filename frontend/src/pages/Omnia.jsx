@@ -20,38 +20,42 @@ import World from '../assets/img/pictos/world.svg';
 import Document from '../assets/img/pictos/document.svg';
 import Blason from '../assets/img/pictos/blason.svg';
 
+import useLang from '../i18n/useLang';
+
 const Omnia = () => {
+
+    const { lp, tr } = useLang();
 
     const list = [
         { name: "OHADA", picto: Target },
         { name: "CCJA", picto: Cadenas },
-        { name: "UEMOA", picto: World },
+        { name: tr("UEMOA", "WAEMU"), picto: World },
         { name: "BCEAO", picto: Blason },
-        { name: "CEDEAO", picto: World },
+        { name: tr("CEDEAO", "ECOWAS"), picto: World },
         { name: "CEMAC", picto: Blason },
         { name: "OAPI", picto: Document },
-        { name: "CEEAC", picto: World },
+        { name: tr("CEEAC", "ECCAS"), picto: World },
         { name: "COMESA", picto: Blason },
-        { name: "UA", picto: Blason },
+        { name: tr("UA", "AU"), picto: Blason },
         { name: "Côte d'Ivoire", picto: Blason },
-        { name: "Journal Officiel", picto: Document },
-        { name: "Tribunal de Commerce", picto: Blason },
-        { name: "Bénin", picto: Blason },
+        { name: tr("Journal Officiel", "Official Gazette"), picto: Document },
+        { name: tr("Tribunal de Commerce", "Commercial Court"), picto: Blason },
+        { name: tr("Bénin", "Benin"), picto: Blason },
         { name: "Burkina Faso", picto: Blason },
-        { name: "Cameroun", picto: Blason },
+        { name: tr("Cameroun", "Cameroon"), picto: Blason },
         { name: "Congo", picto: Blason },
-        { name: "Guinée", picto: Blason },
-        { name: "Guinée-Bissau", picto: Blason },
+        { name: tr("Guinée", "Guinea"), picto: Blason },
+        { name: tr("Guinée-Bissau", "Guinea-Bissau"), picto: Blason },
         { name: "Mali", picto: Blason },
         { name: "Niger", picto: Blason },
-        { name: "Sénégal", picto: Blason },
-        { name: "Tchad", picto: Blason },
+        { name: tr("Sénégal", "Senegal"), picto: Blason },
+        { name: tr("Tchad", "Chad"), picto: Blason },
         { name: "Togo", picto: Blason },
-        { name: "Centrafrique", picto: Blason },
+        { name: tr("Centrafrique", "Central African Republic"), picto: Blason },
         { name: "Gabon", picto: Blason },
-        { name: "Guinée Équatoriale", picto: Blason },
-        { name: "République Démocratique du Congo", picto: Blason },
-        { name: "Sao Tomé-et-Principe", picto: Blason },
+        { name: tr("Guinée Équatoriale", "Equatorial Guinea"), picto: Blason },
+        { name: tr("République Démocratique du Congo", "Democratic Republic of the Congo"), picto: Blason },
+        { name: tr("Sao Tomé-et-Principe", "São Tomé and Príncipe"), picto: Blason },
     ]
 
     const structuredData = {
@@ -60,15 +64,15 @@ const Omnia = () => {
         "name": "OMNIA",
         "applicationCategory": "LegalTech",
         "operatingSystem": "Web",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Essai 7 jours" },
-        "description": "Moteur de recherche juridique par IA : posez vos questions en langage naturel, OMNIA interroge des centaines de milliers de textes OHADA et nationaux et cite ses sources."
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": tr("Essai 7 jours", "7-day trial") },
+        "description": tr("Moteur de recherche juridique par IA : posez vos questions en langage naturel, OMNIA interroge des centaines de milliers de textes OHADA et nationaux et cite ses sources.", "AI-powered legal search engine: ask your questions in natural language, OMNIA searches hundreds of thousands of OHADA and national texts and cites its sources.")
     };
 
     return (
         <main className="main main__omnia">
             <SEOHead
-                title="OMNIA : moteur de recherche juridique par IA"
-                description="Posez vos questions juridiques en langage naturel : OMNIA interroge des centaines de milliers de textes OHADA et nationaux et cite ses sources. Essai 7 jours."
+                title={tr("OMNIA : moteur de recherche juridique par IA", "OMNIA: AI-powered legal search engine")}
+                description={tr("Posez vos questions juridiques en langage naturel : OMNIA interroge des centaines de milliers de textes OHADA et nationaux et cite ses sources. Essai 7 jours.", "Ask your legal questions in natural language: OMNIA searches hundreds of thousands of OHADA and national texts and cites its sources. 7-day trial.")}
                 canonical="/produits/omnia"
                 structuredData={structuredData}
             />
@@ -79,14 +83,14 @@ const Omnia = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            L'intelligence juridique <br/>
-                            au service des <br/>
-                            <em className='highlight'>professionnels du droit</em>
+                            {tr("L'intelligence juridique", "Legal intelligence")} <br/>
+                            {tr("au service des", "serving")} <br/>
+                            <em className='highlight'>{tr("professionnels du droit", "legal professionals")}</em>
                         </h1>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn' to="/produits/use-cases?content=omnia">Découvrir les use cases</Link>
-                        <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
+                        <Link className='ui__btn' to={lp("/produits/use-cases?content=omnia")}>{tr("Découvrir les use cases", "Explore the use cases")}</Link>
+                        <Link className='ui__btn--inline' to={lp("/contact")}>{tr("Demander une démo", "Request a demo")}</Link>
                     </div>
 
                     <div className="omnia__hero--list">
@@ -108,27 +112,27 @@ const Omnia = () => {
             <section className="bg__circle omnia__presentation">
                 <div className="container">
                     <h2 className='title__h2'>
-                        Première plateforme de <em className='highlight'>recherche et d'analyse juridique</em> dédiée à l'Afrique francophone</h2>
+                        {tr("Première plateforme de", "The first")} <em className='highlight'>{tr("recherche et d'analyse juridique", "legal research and analysis platform")}</em> {tr("dédiée à l'Afrique francophone", "dedicated to French-speaking Africa")}</h2>
                     <div className="structure__columns omnia__presentation--description">
                         <div className="structure__content">
-                            <p>Recherche sémantique, analyse IA, génération de mémos<br/>
-                            — tout ce dont votre cabinet a besoin — </p>
+                            <p>{tr("Recherche sémantique, analyse IA, génération de mémos", "Semantic search, AI analysis, memo generation")}<br/>
+                            {tr("— tout ce dont votre cabinet a besoin —", "— everything your firm needs —")} </p>
                             <ul className="omnia__structure--listTags">
                                 <li>
-                                    <span className="ui__tag">RGPD conforme</span>
+                                    <span className="ui__tag">{tr("RGPD conforme", "GDPR compliant")}</span>
                                 </li>
                                 <li>
-                                    <span className="ui__tag">Droits OHADA</span>
+                                    <span className="ui__tag">{tr("Droits OHADA", "OHADA law")}</span>
                                 </li>
                                 <li>
-                                    <span className="ui__tag">17+ pays couverts</span>
+                                    <span className="ui__tag">{tr("17+ pays couverts", "17+ countries covered")}</span>
                                 </li>
                                 <li>
-                                    <span className="ui__tag">IA juridique</span>
+                                    <span className="ui__tag">{tr("IA juridique", "Legal AI")}</span>
                                 </li>
                             </ul>
                         </div>
-                        <img src={HomeMobile} alt="Application LegOmnia" loading="lazy"/>
+                        <img src={HomeMobile} alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
                     </div>
                 </div>
             </section>
@@ -137,31 +141,31 @@ const Omnia = () => {
             <section className="omnia__platform">
                 <div className="container">
                     <h2 className='title__h2'>
-                        Une plateforme conçue pour l'<em recherche className='highlight'>excellence juridique</em>
+                        {tr("Une plateforme conçue pour l'", "A platform built for ")}<em className='highlight'>{tr("excellence juridique", "legal excellence")}</em>
                     </h2>
                     <p className='title__subtitle'>
-                        Chaque outil de LegOmnia a été conçu avec et pour les juristes d'Afrique francophone.<br/>
-                        Précision, rapidité, fiabilité.
+                        {tr("Chaque outil de LegOmnia a été conçu avec et pour les juristes d'Afrique francophone.", "Every LegOmnia tool was designed with and for legal professionals in French-speaking Africa.")}<br/>
+                        {tr("Précision, rapidité, fiabilité.", "Precision, speed, reliability.")}
                     </p>
 
                     <div className="structure__columns omnia__platform--description">
-                        <img src={AnalyseMobile} className='screen--mobile' alt="Application LegOmnia" loading="lazy"/>
-                        <img src={AnalyseDesktop} className='screen--desktop' alt="Application LegOmnia" loading="lazy"/>
+                        <img src={AnalyseMobile} className='screen--mobile' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
+                        <img src={AnalyseDesktop} className='screen--desktop' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
                         <div className="structure__content">
-                            <p><strong>Analyse de documents en un instant</strong></p>
+                            <p><strong>{tr("Analyse de documents en un instant", "Instant document analysis")}</strong></p>
                             <br/>
-                            <p>Téléchargez n'importe quel texte juridique<br/>
-                            — code, contrat, décision — <br/>
-                            et obtenez immédiatement une synthèse structurée avec les points clés et des questions d'approfondissement générées par l'IA.</p>
+                            <p>{tr("Téléchargez n'importe quel texte juridique", "Upload any legal text")}<br/>
+                            {tr("— code, contrat, décision —", "— code, contract, decision —")} <br/>
+                            {tr("et obtenez immédiatement une synthèse structurée avec les points clés et des questions d'approfondissement générées par l'IA.", "and instantly get a structured summary with key points and AI-generated follow-up questions.")}</p>
                             <ul className="omnia__structure--listTags">
                                 <li>
-                                    Résumé exécutif automatique
+                                    {tr("Résumé exécutif automatique", "Automatic executive summary")}
                                 </li>
                                 <li>
-                                    Extraction des obligations et droits
+                                    {tr("Extraction des obligations et droits", "Extraction of obligations and rights")}
                                 </li>
                                 <li>
-                                    Questions de suivi intelligentes
+                                    {tr("Questions de suivi intelligentes", "Smart follow-up questions")}
                                 </li>
                             </ul>
                         </div>
@@ -172,22 +176,22 @@ const Omnia = () => {
             {/* Recherche */}
             <section className="bg__circle omnia__search">
                 <div className="container">
-                    <h2 className='title__h2'>Recherche sémantique et hybride</h2>
+                    <h2 className='title__h2'>{tr("Recherche sémantique et hybride", "Semantic and hybrid search")}</h2>
                     <div className="structure__columns omnia__search--description">
-                        <img src={SearchMobile} className='screen--mobile' alt="Application LegOmnia" loading="lazy"/>
-                        <img src={SearchDesktop} className='screen--desktop' alt="Application LegOmnia" loading="lazy"/>
+                        <img src={SearchMobile} className='screen--mobile' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
+                        <img src={SearchDesktop} className='screen--desktop' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
                         <div className="structure__content">
-                            <p>Posez votre question en langage naturel ou entrez des mots-clés.<br/>
-                            Le moteur syntaxique-hybride trouve les textes les plus pertinents dans la base juridique africaine complète.</p>
+                            <p>{tr("Posez votre question en langage naturel ou entrez des mots-clés.", "Ask your question in natural language or enter keywords.")}<br/>
+                            {tr("Le moteur syntaxique-hybride trouve les textes les plus pertinents dans la base juridique africaine complète.", "The hybrid syntactic engine finds the most relevant texts across the complete African legal database.")}</p>
                             <ul className="omnia__structure--listTags">
                                 <li>
-                                    <span className="ui__tag">Moteur syntaxique</span>
+                                    <span className="ui__tag">{tr("Moteur syntaxique", "Syntactic engine")}</span>
                                 </li>
                                 <li>
-                                    <span className="ui__tag">Recherche hybride IA</span>
+                                    <span className="ui__tag">{tr("Recherche hybride IA", "Hybrid AI search")}</span>
                                 </li>
                                 <li>
-                                    <span className="ui__tag">Juridiction multi-pays</span>
+                                    <span className="ui__tag">{tr("Juridiction multi-pays", "Multi-country jurisdiction")}</span>
                                 </li>
                             </ul>
                         </div>
@@ -198,28 +202,28 @@ const Omnia = () => {
             {/* IA */}
             <section className="omnia__ia">
                 <div className="container">
-                    <h2 className='title__h2'>Lisez les décisions avec leur <em className='highlight'>contexte légal intégré</em></h2>
+                    <h2 className='title__h2'>{tr("Lisez les décisions avec leur", "Read decisions with their")} <em className='highlight'>{tr("contexte légal intégré", "built-in legal context")}</em></h2>
                     <div className="structure__columns omnia__ia--description">
-                        <img src={CadreLegalMobile} className='screen--mobile' alt="Application LegOmnia" loading="lazy"/>
-                        <img src={CadreLegalDesktop} className='screen--desktop' alt="Application LegOmnia" loading="lazy"/>
+                        <img src={CadreLegalMobile} className='screen--mobile' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
+                        <img src={CadreLegalDesktop} className='screen--desktop' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
                         <div className="structure__content">
-                            <p>Chaque décision de justice s'affiche avec son cadre légal, les articles applicables, et une analyse IA en temps réel.<br/>
-                            Finis les allers-retours entre plusieurs sources.</p>
+                            <p>{tr("Chaque décision de justice s'affiche avec son cadre légal, les articles applicables, et une analyse IA en temps réel.", "Every court decision is displayed with its legal framework, the applicable articles and a real-time AI analysis.")}<br/>
+                            {tr("Finis les allers-retours entre plusieurs sources.", "No more switching back and forth between sources.")}</p>
                             <ul className="omnia__structure--listTags">
                                 <li>
-                                    Affichage côte-à-côte : document + analyse
+                                    {tr("Affichage côte-à-côte : document + analyse", "Side-by-side view: document + analysis")}
                                 </li>
                                 <li>
-                                    Extraction automatique des articles cités
+                                    {tr("Extraction automatique des articles cités", "Automatic extraction of cited articles")}
                                 </li>
                                 <li>
-                                    Résumé de décision en langage clair
+                                    {tr("Résumé de décision en langage clair", "Plain-language decision summary")}
                                 </li>
                                 <li>
-                                    Export PDF, impression, partage sécurisé
+                                    {tr("Export PDF, impression, partage sécurisé", "PDF export, printing, secure sharing")}
                                 </li>
                                 <li>
-                                    Recherche plein texte dans le document
+                                    {tr("Recherche plein texte dans le document", "Full-text search within the document")}
                                 </li>
                             </ul>
                         </div>
@@ -230,24 +234,24 @@ const Omnia = () => {
             {/* Assistant */}
             <section className="bg__circle omnia__assistant">
                 <div className="container">
-                    <h2 className='title__h2'>Un assistant qui <em className='highlight'> connaît votre dossier</em> par cœur</h2>
+                    <h2 className='title__h2'>{tr("Un assistant qui", "An assistant that")} <em className='highlight'> {tr("connaît votre dossier", "knows your case")}</em> {tr("par cœur", "inside out")}</h2>
                     <div className="structure__columns omnia__assistant--description">
-                        <img src={IaMobile} className='screen--mobile' alt="Application LegOmnia" loading="lazy"/>
-                        <img src={IaDesktop} className='screen--desktop' alt="Application LegOmnia" loading="lazy"/>
+                        <img src={IaMobile} className='screen--mobile' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
+                        <img src={IaDesktop} className='screen--desktop' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
                         <div className="structure__content">
-                            <p>L'assistant IA Omnia s'appuie sur vos documents, vos notes et la jurisprudence pour construire une argumentation complète et structurée.</p>
+                            <p>{tr("L'assistant IA Omnia s'appuie sur vos documents, vos notes et la jurisprudence pour construire une argumentation complète et structurée.", "The Omnia AI assistant draws on your documents, your notes and case law to build complete, structured arguments.")}</p>
                             <ul className="omnia__structure--listTags">
                                 <li>
-                                    <span>Mémorisation du contexte</span>
-                                    L'IA se souvient du contexte de votre dossier tout au long de la conversation.
+                                    <span>{tr("Mémorisation du contexte", "Context memory")}</span>
+                                    {tr("L'IA se souvient du contexte de votre dossier tout au long de la conversation.", "The AI remembers the context of your case throughout the conversation.")}
                                 </li>
                                 <li>
-                                    <span>Citations vérifiées</span>
-                                    Chaque réponse cite précisément les articles, arrêts et textes de référence.
+                                    <span>{tr("Citations vérifiées", "Verified citations")}</span>
+                                    {tr("Chaque réponse cite précisément les articles, arrêts et textes de référence.", "Every answer precisely cites the relevant articles, rulings and reference texts.")}
                                 </li>
                                 <li>
-                                    <span>Stratégie argumentative</span>
-                                    Construction de moyens et arguments structurés pour vos mémoires.
+                                    <span>{tr("Stratégie argumentative", "Argument strategy")}</span>
+                                    {tr("Construction de moyens et arguments structurés pour vos mémoires.", "Building structured grounds and arguments for your briefs.")}
                                 </li>
                             </ul>
                         </div>
