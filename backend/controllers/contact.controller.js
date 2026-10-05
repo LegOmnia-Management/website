@@ -1,12 +1,14 @@
 import { Contact } from "../models/index.js";
 import { Resend } from "resend";
 
+// Lues à l'appel (et non au chargement du module) : en dev, dotenv est
+// initialisé dans index.js après l'évaluation des imports.
 // Adresse qui reçoit les demandes de contact
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "contact@legomnia.com";
+const contactEmail = () => process.env.CONTACT_EMAIL || "contact@legomnia.com";
 
 // Expéditeur des e-mails : doit appartenir à un domaine vérifié sur Resend
 // (avec "onboarding@resend.dev", Resend n'envoie qu'à l'adresse du compte Resend)
-const RESEND_FROM = process.env.RESEND_FROM || "onboarding@resend.dev";
+const resendFrom = () => process.env.RESEND_FROM || "onboarding@resend.dev";
 
 // échappe les valeurs saisies avant de les injecter dans l'e-mail HTML
 const escapeHtml = (value = "") => String(value)
@@ -45,8 +47,8 @@ const createContact = async (req, res) => {
             try {
                 const resend = new Resend(process.env.RESEND_API_KEY);
                 const { error: emailError } = await resend.emails.send({
-                    from: RESEND_FROM,
-                    to: CONTACT_EMAIL,
+                    from: resendFrom(),
+                    to: contactEmail(),
                     replyTo: contact.email,
                     subject: `Nouveau message : ${contact.subject}`,
                     html: `
