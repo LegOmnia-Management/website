@@ -1,5 +1,6 @@
 import { Contact } from "../models/index.js";
 import { Resend } from "resend";
+import { MAIL_FROM, NOTIFICATION_RECIPIENTS } from "../config/mail.js";
 
 /********** HONEYPOT **********/
 // Le champ "website" est invisible pour un humain : s'il est rempli, c'est un bot.
@@ -26,12 +27,13 @@ const createContact = async (req, res) => {
 
         // Email notif (optionnel : ignoré si Resend n'est pas configuré,
         // et une erreur d'envoi ne fait jamais échouer la demande)
-        if (process.env.RESEND_API_KEY && process.env.CONTACT_EMAIL) {
+        if (process.env.RESEND_API_KEY) {
             try {
                 const resend = new Resend(process.env.RESEND_API_KEY);
                 const { error: emailError } = await resend.emails.send({
-                    from: "onboarding@resend.dev",
-                    to: process.env.CONTACT_EMAIL,
+                    from: MAIL_FROM,
+                    to: NOTIFICATION_RECIPIENTS,
+                    replyTo: contact.email,
                     subject: `Nouveau message :  ${contact.subject}`,
                     html: `
                         <p><strong>Sujet :</strong> ${contact.subject}</p>
