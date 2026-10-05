@@ -1,0 +1,31 @@
+// Header and footer texts (English)
+export default {
+    header: {
+        logoAlt: 'legOmnia logo',
+        products: 'Products',
+        omniaDesc: 'the legal research platform',
+        transformation: 'Digital transformation',
+        overview: 'Overview',
+        useCasesDesc: 'real-world use case stories',
+        articles: 'Articles',
+        webinars: 'Webinars',
+        resources: 'Resources',
+        contact: 'Contact us',
+        waitlist: 'Join the waitlist',
+        langLabel: 'Choose language',
+    },
+    footer: {
+        logoAlt: 'legOmnia logo',
+        tagline: 'The legal infrastructure of French-speaking Africa',
+        products: 'Products',
+        transformation: 'Digital transformation',
+        resources: 'Resources',
+        jurisdictions: 'Jurisdictions',
+        legal: 'Legal',
+        legalNotice: 'Legal notice',
+        terms: 'Terms of use',
+        privacy: 'Privacy',
+        cookies: 'Cookies',
+        rights: '© 2026 LegOmnia · All rights reserved',
+    },
+};

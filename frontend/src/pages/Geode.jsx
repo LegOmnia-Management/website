@@ -23,21 +23,26 @@ import DashboardGeode2 from '../assets/img/geode/dashboard2.png';
 import DashboardGeode3 from '../assets/img/geode/dashboard3.png';
 import DashboardGeode4 from '../assets/img/geode/dashboard4.png';
 
+import useLang from '../i18n/useLang';
+
 const Geode = () => {
+
+    const { lp, tr } = useLang();
+
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Géode",
         "applicationCategory": "LegalTech",
         "operatingSystem": "Web",
-        "description": "GED intelligente et cartographie juridique pour les professionnels du droit africain : centralisez, organisez et exploitez vos documents grâce à l'IA."
+        "description": tr("GED intelligente et cartographie juridique pour les professionnels du droit africain : centralisez, organisez et exploitez vos documents grâce à l'IA.", "Smart document management and legal mapping for African legal professionals: centralize, organize and make the most of your documents with AI.")
     };
 
     return (
         <main className="main main__geode">
             <SEOHead
-                title="Géode : GED intelligente et cartographie juridique"
-                description="Explorez l'environnement juridique et réglementaire de l'Afrique francophone : normes OHADA, CEDEAO, CEMAC, UEMOA et droits nationaux, en un seul outil."
+                title={tr("Géode : GED intelligente et cartographie juridique", "Géode: smart document management and legal mapping")}
+                description={tr("Explorez l'environnement juridique et réglementaire de l'Afrique francophone : normes OHADA, CEDEAO, CEMAC, UEMOA et droits nationaux, en un seul outil.", "Explore the legal and regulatory environment of French-speaking Africa: OHADA, ECOWAS, CEMAC and WAEMU standards and national laws, in a single tool.")}
                 canonical="/produits/transformation-digitale/geode"
                 structuredData={structuredData}
             />
@@ -47,16 +52,16 @@ const Geode = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            La gestion documentaire <em className='highlight'>réinventée</em> <br/>
-                            pour les professionnels du droit
+                            {tr("La gestion documentaire", "Document management")} <em className='highlight'>{tr("réinventée", "reinvented")}</em> <br/>
+                            {tr("pour les professionnels du droit", "for legal professionals")}
                         </h1>
                         <p className="subtitle">
-                            Centralisez, organisez et exploitez vos documents grâce à une GED augmentée par l’IA
+                            {tr("Centralisez, organisez et exploitez vos documents grâce à une GED augmentée par l’IA", "Centralize, organize and make the most of your documents with AI-augmented document management")}
                         </p>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn--gradientSecond' to="/produits/use-cases?content=geode">Découvrir les use cases</Link>
-                        <Link className='ui__btn--inline' to="/contact">Demander une démo</Link>
+                        <Link className='ui__btn--gradientSecond' to={lp("/produits/use-cases?content=geode")}>{tr("Découvrir les use cases", "Explore the use cases")}</Link>
+                        <Link className='ui__btn--inline' to={lp("/contact")}>{tr("Demander une démo", "Request a demo")}</Link>
                     </div>
                 </div>
             </section>
@@ -64,17 +69,17 @@ const Geode = () => {
             {/* Présentation */}
             <section className="geode__presentation">
                 <div className="container">
-                    <h2 className='title__h2'>Géode · GED intelligente · legOmnia</h2>
+                    <h2 className='title__h2'>{tr("Géode · GED intelligente · legOmnia", "Géode · Smart document management · legOmnia")}</h2>
                     <div className="structure__columns">
                         <div className="structure__content">
                             <p>
-                                Géode est la solution de Gestion Électronique de Documents (GED) intelligente de LegOmnia, conçue pour les entreprises, cabinets d'avocats et directions juridiques.
+                                {tr("Géode est la solution de Gestion Électronique de Documents (GED) intelligente de LegOmnia, conçue pour les entreprises, cabinets d'avocats et directions juridiques.", "Géode is LegOmnia's smart Electronic Document Management (EDM) solution, designed for companies, law firms and legal departments.")}
                             </p>
                             <p>
-                                Combinez un DMS moderne avec les capacités d'IA d'OMNIA et OmniScan pour une expérience documentaire sans équivalent.
+                                {tr("Combinez un DMS moderne avec les capacités d'IA d'OMNIA et OmniScan pour une expérience documentaire sans équivalent.", "Combine a modern DMS with the AI capabilities of OMNIA and OmniScan for an unmatched document experience.")}
                             </p>
                         </div>
-                        <img src={Gestion} alt="Application LegOmnia" loading="lazy"/>
+                        <img src={Gestion} alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
                     </div>
                 </div>
             </section>
@@ -82,12 +87,12 @@ const Geode = () => {
             {/* Vision */}
             <section className="bg__grid geode__vision">
                 <div className="container">
-                    <h2 className='title__h2'>Notre vision</h2>
+                    <h2 className='title__h2'>{tr("Notre vision", "Our vision")}</h2>
                     <p>
-                        <em className='highlight'>Géode transforme la gestion documentaire des professionnels du droit</em>, en combinant un système DMS moderne avec l'intelligence artificielle juridique de legOmnia.
+                        <em className='highlight'>{tr("Géode transforme la gestion documentaire des professionnels du droit", "Géode transforms document management for legal professionals")}</em>{tr(", en combinant un système DMS moderne avec l'intelligence artificielle juridique de legOmnia.", ", by combining a modern DMS with legOmnia's legal artificial intelligence.")}
                     </p>
                     <p>
-                        Intégration native avec OmniScan pour le traitement IA à l'importation et avec OMNIA pour la recherche juridique directement dans votre GED&nbsp;: créez l'expérience documentaire inédite que vous attendiez.
+                        {tr("Intégration native avec OmniScan pour le traitement IA à l'importation et avec OMNIA pour la recherche juridique directement dans votre GED : créez l'expérience documentaire inédite que vous attendiez.", "Native integration with OmniScan for AI processing on import, and with OMNIA for legal research right inside your document management system: create the groundbreaking document experience you have been waiting for.")}
                     </p>
                 </div>
             </section>
@@ -95,109 +100,109 @@ const Geode = () => {
             {/* Modules */}
             <section className="geode__modules">
                 <div className="container">
-                    <h2 className='title__h2'>Une GED conçue pour les professionnels du droit</h2>
+                    <h2 className='title__h2'>{tr("Une GED conçue pour les professionnels du droit", "Document management built for legal professionals")}</h2>
                     <p>
-                        Géode intègre 10 modules puissants&nbsp;: du stockage sécurisé aux workflows de signature, de l'import en masse à la recherche IA, tout ce dont vous avez besoin pour maîtriser votre documentation.
+                        {tr("Géode intègre 10 modules puissants : du stockage sécurisé aux workflows de signature, de l'import en masse à la recherche IA, tout ce dont vous avez besoin pour maîtriser votre documentation.", "Géode includes 10 powerful modules: from secure storage to signature workflows, from bulk import to AI search — everything you need to master your documentation.")}
                     </p>
                     <ul className='geode__modules--cards'>
                         <li className='card'>
                             <IconRing
                                 src={Ecosystem}
                             />
-                            <h3 className="title">Écosystème IA intégré</h3>
+                            <h3 className="title">{tr("Écosystème IA intégré", "Integrated AI ecosystem")}</h3>
                             <div className='text'>
                                 <p>
-                                    Géode combine naturellement OmniScan (traitement IA des documents importés) et OMNIA (recherche juridique intelligente).
+                                    {tr("Géode combine naturellement OmniScan (traitement IA des documents importés) et OMNIA (recherche juridique intelligente).", "Géode seamlessly combines OmniScan (AI processing of imported documents) and OMNIA (smart legal research).")}
                                 </p>
                                 <p>
-                                    Importez un contrat&nbsp;: OmniScan l'indexe, OMNIA le rend searchable, tout se centralise dans Géode.
+                                    {tr("Importez un contrat : OmniScan l'indexe, OMNIA le rend searchable, tout se centralise dans Géode.", "Import a contract: OmniScan indexes it, OMNIA makes it searchable, and everything is centralized in Géode.")}
                                 </p>
                             </div>
                             <p className='list__tag'>
-                                <span className='ui__tag'>OCR automatique</span>
-                                <span className='ui__tag'>Recherche sémantique</span>
-                                <span className='ui__tag'>Assistant IA</span>
+                                <span className='ui__tag'>{tr("OCR automatique", "Automatic OCR")}</span>
+                                <span className='ui__tag'>{tr("Recherche sémantique", "Semantic search")}</span>
+                                <span className='ui__tag'>{tr("Assistant IA", "AI assistant")}</span>
                             </p>
                         </li>
                         <li className='card'>
                             <IconRing
                                 src={Stockage}
                             />
-                            <h3 className="title">Stockage & versioning</h3>
+                            <h3 className="title">{tr("Stockage & versioning", "Storage & versioning")}</h3>
                             <div className='text'>
                                 <p>
-                                    Centralisez tous vos documents — contrats, dossiers clients, correspondances, archives — dans une arborescence intuitive et sécurisée.
+                                    {tr("Centralisez tous vos documents — contrats, dossiers clients, correspondances, archives — dans une arborescence intuitive et sécurisée.", "Centralize all your documents — contracts, client files, correspondence, archives — in an intuitive, secure folder structure.")}
                                 </p>
                                 <p>
-                                    Historique complet de versions et restauration en un clic.
+                                    {tr("Historique complet de versions et restauration en un clic.", "Full version history and one-click restore.")}
                                 </p>
                             </div>
                             <p className="list__tag">
-                                <span className='ui__tag'>Stockage sécurisé</span>
-                                <span className='ui__tag'>Versioning complet</span>
-                                <span className='ui__tag'>Recherche rapide</span>
+                                <span className='ui__tag'>{tr("Stockage sécurisé", "Secure storage")}</span>
+                                <span className='ui__tag'>{tr("Versioning complet", "Full versioning")}</span>
+                                <span className='ui__tag'>{tr("Recherche rapide", "Fast search")}</span>
                             </p>
                         </li>
                         <li className='card'>
                             <IconRing
                                 src={Connecteurs}
                             />
-                            <h3 className="title">Import & Connecteurs</h3>
+                            <h3 className="title">{tr("Import & Connecteurs", "Import & Connectors")}</h3>
                             <div className='text'>
                                 <p>
-                                    Importez en masse depuis tous formats (PDF, Word, Excel, images).
+                                    {tr("Importez en masse depuis tous formats (PDF, Word, Excel, images).", "Bulk import from any format (PDF, Word, Excel, images).")}
                                 </p>
                                 <p>
-                                    Connecteurs natifs&nbsp;: SharePoint, Google Drive, email, ERP.
+                                    {tr("Connecteurs natifs : SharePoint, Google Drive, email, ERP.", "Native connectors: SharePoint, Google Drive, email, ERP.")}
                                 </p>
                                 <p>
-                                    Alimentation documentaire sans friction.
+                                    {tr("Alimentation documentaire sans friction.", "Frictionless document intake.")}
                                 </p>
                             </div>
                             <p className="list__tag">
-                                <span className='ui__tag'>Multi-formats</span>
-                                <span className='ui__tag'>Import en masse</span>
-                                <span className='ui__tag'>Connecteurs</span>
+                                <span className='ui__tag'>{tr("Multi-formats", "Multi-format")}</span>
+                                <span className='ui__tag'>{tr("Import en masse", "Bulk import")}</span>
+                                <span className='ui__tag'>{tr("Connecteurs", "Connectors")}</span>
                             </p>
                         </li>
                         <li className='card'>
                             <IconRing
                                 src={Signature}
                             />
-                            <h3 className="title">Circuits de signature</h3>
+                            <h3 className="title">{tr("Circuits de signature", "Signature workflows")}</h3>
                             <div className='text'>
                                 <p>
-                                    Dématérialisation complète&nbsp;: workflows de validation, circuits d'approbation, signature électronique intégrée.
+                                    {tr("Dématérialisation complète : workflows de validation, circuits d'approbation, signature électronique intégrée.", "Fully paperless: validation workflows, approval circuits, built-in electronic signature.")}
                                 </p>
                                 <p>
-                                    Conformité aux standards légaux.
+                                    {tr("Conformité aux standards légaux.", "Compliant with legal standards.")}
                                 </p>
                             </div>
                             <p className="list__tag">
-                                <span className='ui__tag'>Workflows</span>
-                                <span className='ui__tag'>Signature électronique</span>
-                                <span className='ui__tag'>Dématérialisation</span>
+                                <span className='ui__tag'>{tr("Workflows", "Workflows")}</span>
+                                <span className='ui__tag'>{tr("Signature électronique", "Electronic signature")}</span>
+                                <span className='ui__tag'>{tr("Dématérialisation", "Paperless processing")}</span>
                             </p>
                         </li>
                         <li className='card'>
                             <IconRing
                                 src={Dashboard}
                             />
-                            <h3 className="title">Tableau de bord & Notifications</h3>
+                            <h3 className="title">{tr("Tableau de bord & Notifications", "Dashboard & Notifications")}</h3>
                             <div className='text'>
                                 <p>
-                                    Vue synthétique en temps réel&nbsp;: documents en attente, workflows, échéances.
+                                    {tr("Vue synthétique en temps réel : documents en attente, workflows, échéances.", "Real-time overview: pending documents, workflows, deadlines.")}
                                 </p>
                                 <p>
-                                    Alertes et rappels intelligents pour zéro oubli.
+                                    {tr("Alertes et rappels intelligents pour zéro oubli.", "Smart alerts and reminders so nothing slips through.")}
                                 </p>
                                 <p>
-                                    Indicateurs clés pour pilotage.
+                                    {tr("Indicateurs clés pour pilotage.", "Key indicators for management.")}
                                 </p>
                             </div>
                             <p className="list__tag">
-                                <span className='ui__tag'>Dashboards temps réel</span>
-                                <span className='ui__tag'>Alertes smartphone</span>
+                                <span className='ui__tag'>{tr("Dashboards temps réel", "Real-time dashboards")}</span>
+                                <span className='ui__tag'>{tr("Alertes smartphone", "Smartphone alerts")}</span>
                                 <span className='ui__tag'>KPI</span>
                             </p>
                         </li>
@@ -205,22 +210,22 @@ const Geode = () => {
                             <IconRing
                                 src={Admin}
                             />
-                            <h3 className="title">Admin & Conformité</h3>
+                            <h3 className="title">{tr("Admin & Conformité", "Admin & Compliance")}</h3>
                             <div className='text'>
                                 <p>
-                                    Gestion fine des utilisateurs, rôles et droits d'accès.
+                                    {tr("Gestion fine des utilisateurs, rôles et droits d'accès.", "Fine-grained management of users, roles and access rights.")}
                                 </p>
                                 <p>
-                                    Audit trail complet, logs de conformité.
+                                    {tr("Audit trail complet, logs de conformité.", "Full audit trail, compliance logs.")}
                                 </p>
                                 <p>
-                                    Conformité RGPD, données protégées, chiffrement de bout en bout.
+                                    {tr("Conformité RGPD, données protégées, chiffrement de bout en bout.", "GDPR compliance, protected data, end-to-end encryption.")}
                                 </p>
                             </div>
                             <p className="list__tag">
-                                <span className='ui__tag'>Gestion des rôles</span>
-                                <span className='ui__tag'>Audit complet</span>
-                                <span className='ui__tag'>RGPD</span>
+                                <span className='ui__tag'>{tr("Gestion des rôles", "Role management")}</span>
+                                <span className='ui__tag'>{tr("Audit complet", "Full audit")}</span>
+                                <span className='ui__tag'>{tr("RGPD", "GDPR")}</span>
                             </p>
                         </li>
                     </ul>
@@ -240,16 +245,16 @@ const Geode = () => {
                         speed={1000}
                     >
                         <SwiperSlide>
-                            <img src={DashboardGeode2} alt="Application Geode - Tableau de bord" loading="lazy"/>
+                            <img src={DashboardGeode2} alt={tr("Application Geode - Tableau de bord", "Geode application - Dashboard")} loading="lazy"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={DashboardGeode3} alt="Application Geode - Connecteurs" loading="lazy"/>
+                            <img src={DashboardGeode3} alt={tr("Application Geode - Connecteurs", "Geode application - Connectors")} loading="lazy"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={DashboardGeode4} alt="Application Geode - Assistant IA" loading="lazy"/>
+                            <img src={DashboardGeode4} alt={tr("Application Geode - Assistant IA", "Geode application - AI assistant")} loading="lazy"/>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={DashboardGeode} alt="Application Geode - Connexion" loading="lazy"/>
+                            <img src={DashboardGeode} alt={tr("Application Geode - Connexion", "Geode application - Login")} loading="lazy"/>
                         </SwiperSlide>
                     </Swiper>
                 </div>

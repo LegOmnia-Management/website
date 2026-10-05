@@ -1,7 +1,20 @@
 import { Helmet } from 'react-helmet-async';
 
+import useLang from '../i18n/useLang';
+import { localizePath } from '../i18n/routes';
+
 const BASE_URL = 'https://legomnia.com';
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
+
+const DEFAULT_TITLES = {
+    fr: 'LegOmnia — Recherche juridique IA pour l\'Afrique francophone',
+    en: 'LegOmnia — AI legal research for French-speaking Africa',
+};
+const OG_LOCALES = { fr: 'fr_FR', en: 'en_US' };
+
+// `canonical` peut être fourni en chemin français ou anglais :
+// il est converti dans la langue courante, et les alternates hreflang
+// (fr / en / x-default) sont générés automatiquement.
 
 const SEOHead = ({
     title,
@@ -11,19 +24,26 @@ const SEOHead = ({
     ogType = 'website',
     structuredData,
     noIndex = false,
+    contentLang, // langue du contenu si différente de celle du site (ex. article en anglais)
 }) => {
+    const { lang } = useLang();
+
     const fullTitle = title
         ? `${title} | LegOmnia`
-        : 'LegOmnia — Recherche juridique IA pour l\'Afrique francophone';
+        : DEFAULT_TITLES[lang];
 
-    const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : null;
+    const urlFor = (l) => `${BASE_URL}${localizePath(canonical, l)}`;
+    const canonicalUrl = canonical ? urlFor(lang) : null;
 
     return (
-        <Helmet>
+        <Helmet htmlAttributes={{ lang: contentLang || lang }}>
             <title>{fullTitle}</title>
             <meta name="description" content={description} />
             {noIndex && <meta name="robots" content="noindex, nofollow" />}
             {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+            {canonicalUrl && <link rel="alternate" hrefLang="fr" href={urlFor('fr')} />}
+            {canonicalUrl && <link rel="alternate" hrefLang="en" href={urlFor('en')} />}
+            {canonicalUrl && <link rel="alternate" hrefLang="x-default" href={urlFor('fr')} />}
 
             {/* Open Graph */}
             <meta property="og:type" content={ogType} />
@@ -32,7 +52,8 @@ const SEOHead = ({
             <meta property="og:image" content={ogImage} />
             {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
             <meta property="og:site_name" content="LegOmnia" />
-            <meta property="og:locale" content="fr_FR" />
+            <meta property="og:locale" content={OG_LOCALES[lang]} />
+            <meta property="og:locale:alternate" content={OG_LOCALES[lang === 'fr' ? 'en' : 'fr']} />
 
             {/* Twitter / X Card */}
             <meta name="twitter:card" content="summary_large_image" />

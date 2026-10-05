@@ -5,9 +5,25 @@ import '../assets/styles/header.css';
 
 import Logo from '../assets/img/logos/logoLegomnia.svg';
 
+import useLang, { LANG_STORAGE_KEY } from '../i18n/useLang';
+import { localizePath } from '../i18n/routes';
+import fr from '../locales/fr/layout';
+import en from '../locales/en/layout';
+
 const Header = () => {
 
     const location = useLocation();
+    const { lang, lp, t } = useLang();
+    const { header: txt } = t({ fr, en });
+
+    const currentPath = location.pathname + location.search + location.hash;
+    const rememberLang = (l) => {
+        try {
+            localStorage.setItem(LANG_STORAGE_KEY, l);
+        } catch {
+            // stockage indisponible (navigation privée...) : on ignore
+        }
+    };
     const [menuOpen, setMenuOpen ] = useState(null);
     const [subMenuOpen, setSubMenuOpen ] = useState(null);
 
@@ -47,10 +63,10 @@ const Header = () => {
         <header>
             <div className='container header__container'>
                 {/* Logo */}
-                <Link to="/">
+                <Link to={lp("/")}>
                     <div className='nav__logo'>
                         <span className='nav__logo--text'>legOmnia</span>
-                        <img className='nav__logo--img' src={Logo} alt="Logo legOmnia" loading="lazy"/>
+                        <img className='nav__logo--img' src={Logo} alt={txt.logoAlt} loading="lazy"/>
                     </div>
                 </Link>  
 
@@ -62,15 +78,15 @@ const Header = () => {
                             <button 
                                 onClick={ () => toggleMenu('products') }
                                 className={`link has-sublist ${menuOpen === 'products' ? 'open' : ''}`}
-                            >Produits</button>
+                            >{txt.products}</button>
 
                             {/* submenu produits */}
                             <ul className='header__nav--sublist'>
                                 {/* omnia */}
                                 <li>
-                                    <Link className='sublink' to="/produits/omnia">
+                                    <Link className='sublink' to={lp("/produits/omnia")}>
                                         Omnia
-                                        <p>la plateforme de recherche juridique</p>
+                                        <p>{txt.omniaDesc}</p>
                                     </Link>
                                 </li>
                                 <li>
@@ -78,27 +94,27 @@ const Header = () => {
                                     <button 
                                         onClick={ (e) => toggleSubMenu(e, 'transformation') }
                                         className={`sublink has-sublist ${subMenuOpen === 'transformation' ? 'open' : ''}`}
-                                    >Transformation digitale</button>
+                                    >{txt.transformation}</button>
 
                                         {/* submenu transformation digitale */}
                                         <ul className='header__nav--sublist2'>
                                             <li>
-                                                <Link className='sublink' to="/produits/transformation-digitale/presentation">Présentation générale</Link>
+                                                <Link className='sublink' to={lp("/produits/transformation-digitale/presentation")}>{txt.overview}</Link>
                                             </li>
                                             <li>
-                                                <Link className='sublink' to="/produits/transformation-digitale/geode">Géode</Link>
+                                                <Link className='sublink' to={lp("/produits/transformation-digitale/geode")}>Géode</Link>
                                             </li>
                                             <li>
-                                                <Link className='sublink' to="/produits/transformation-digitale/omniscan">OmniScan</Link>
+                                                <Link className='sublink' to={lp("/produits/transformation-digitale/omniscan")}>OmniScan</Link>
                                             </li>
                                         </ul>
                                 </li>
 
                                 {/* use cases */}
                                 <li>
-                                    <Link className='sublink' to="/produits/use-cases">
+                                    <Link className='sublink' to={lp("/produits/use-cases")}>
                                         Use Cases
-                                        <p>de réels articles de Use Case</p>
+                                        <p>{txt.useCasesDesc}</p>
                                     </Link>
                                 </li>
                             </ul>
@@ -113,15 +129,15 @@ const Header = () => {
 
                             {/* submenu blog */}
                             <ul className='header__nav--sublist'>
-                                <li><Link className='sublink' to="/blog/articles">Articles</Link></li>
-                                <li><Link className='sublink' to="/blog/webinaires">Webinaires</Link></li>
-                                <li><Link className='sublink' to="/blog/ressources">Ressources</Link></li>
+                                <li><Link className='sublink' to={lp("/blog/articles")}>{txt.articles}</Link></li>
+                                <li><Link className='sublink' to={lp("/blog/webinaires")}>{txt.webinars}</Link></li>
+                                <li><Link className='sublink' to={lp("/blog/ressources")}>{txt.resources}</Link></li>
                             </ul>
                         </li>
 
                         {/* contact */}
                         <li>
-                            <Link className='link' to="/contact">Nous contacter</Link>
+                            <Link className='link' to={lp("/contact")}>{txt.contact}</Link>
                         </li>
                     </ul>
                 </nav>
@@ -139,7 +155,22 @@ const Header = () => {
                     {/* Connexion / Inscription masqués pendant la phase de liste d'attente
                     <a href="https://app.beta.legomnia.com/login" className='ui__btn' target="_blank">Connexion</a>
                     <a href="https://app.beta.legomnia.com/signup" className='ui__btn' target="_blank">Inscription</a> */}
-                    <Link to="/liste-attente" className='ui__btn'>Inscription sur liste d'attente</Link>
+                    <Link to={lp("/liste-attente")} className='ui__btn'>{txt.waitlist}</Link>
+
+                    {/* langue */}
+                    <div className='header__lang' role="group" aria-label={txt.langLabel}>
+                        {['fr', 'en'].map((l) => (
+                            <Link
+                                key={l}
+                                to={localizePath(currentPath, l)}
+                                onClick={() => rememberLang(l)}
+                                className={`header__lang--btn ${lang === l ? 'isActive' : ''}`}
+                                aria-current={lang === l ? 'true' : undefined}
+                                hrefLang={l}
+                                lang={l}
+                            >{l === 'fr' ? 'FR' : 'EN'}</Link>
+                        ))}
+                    </div>
                 </div>
             </div>
         </header>

@@ -8,50 +8,56 @@ import SEOHead from '../components/SEOHead';
 
 import '../assets/styles/contact.css';
 
-// options des select (identiques au modèle backend)
+import useLang from '../i18n/useLang';
+import { translateApiErrors } from '../i18n/apiErrors';
+
+// options des select (identiques au modèle backend) :
+// la valeur envoyée reste en français, seul le libellé est traduit
 const PROFILES = [
-    "Avocat",
-    "Juriste d'entreprise",
-    "Magistrat",
-    "Notaire / Huissier",
-    "Administration publique",
-    "Enseignant / Chercheur",
-    "Étudiant",
-    "Autre"
+    { value: "Avocat", en: "Lawyer" },
+    { value: "Juriste d'entreprise", en: "In-house counsel" },
+    { value: "Magistrat", en: "Judge / Prosecutor" },
+    { value: "Notaire / Huissier", en: "Notary / Bailiff" },
+    { value: "Administration publique", en: "Public administration" },
+    { value: "Enseignant / Chercheur", en: "Lecturer / Researcher" },
+    { value: "Étudiant", en: "Student" },
+    { value: "Autre", en: "Other" }
 ];
 
 const COUNTRIES = [
-    "Bénin",
-    "Burkina Faso",
-    "Burundi",
-    "Cameroun",
-    "Centrafrique",
-    "Comores",
-    "Congo",
-    "Côte d'Ivoire",
-    "Djibouti",
-    "Gabon",
-    "Guinée",
-    "Guinée équatoriale",
-    "Madagascar",
-    "Mali",
-    "Maroc",
-    "Mauritanie",
-    "Niger",
-    "RD Congo",
-    "Rwanda",
-    "Sénégal",
-    "Tchad",
-    "Togo",
-    "Tunisie",
-    "Algérie",
-    "France",
-    "Autre"
+    { value: "Bénin", en: "Benin" },
+    { value: "Burkina Faso", en: "Burkina Faso" },
+    { value: "Burundi", en: "Burundi" },
+    { value: "Cameroun", en: "Cameroon" },
+    { value: "Centrafrique", en: "Central African Republic" },
+    { value: "Comores", en: "Comoros" },
+    { value: "Congo", en: "Congo" },
+    { value: "Côte d'Ivoire", en: "Côte d'Ivoire" },
+    { value: "Djibouti", en: "Djibouti" },
+    { value: "Gabon", en: "Gabon" },
+    { value: "Guinée", en: "Guinea" },
+    { value: "Guinée équatoriale", en: "Equatorial Guinea" },
+    { value: "Madagascar", en: "Madagascar" },
+    { value: "Mali", en: "Mali" },
+    { value: "Maroc", en: "Morocco" },
+    { value: "Mauritanie", en: "Mauritania" },
+    { value: "Niger", en: "Niger" },
+    { value: "RD Congo", en: "DR Congo" },
+    { value: "Rwanda", en: "Rwanda" },
+    { value: "Sénégal", en: "Senegal" },
+    { value: "Tchad", en: "Chad" },
+    { value: "Togo", en: "Togo" },
+    { value: "Tunisie", en: "Tunisia" },
+    { value: "Algérie", en: "Algeria" },
+    { value: "France", en: "France" },
+    { value: "Autre", en: "Other" }
 ];
 
 const PRODUCTS = ["Omnia", "Géode", "Omniscan"];
 
 const Waitlist = () => {
+
+    const { lang, lp, tr } = useLang();
 
     // requête saisie dans la barre de recherche de l'accueil
     const searchQuery = useLocation().state?.query || "";
@@ -89,9 +95,9 @@ const Waitlist = () => {
             window.scrollTo(0, 0);
         } catch (error) {
             if (error?.errors) {
-                setErrors(error.errors);
+                setErrors(translateApiErrors(error.errors, lang));
             } else {
-                setServerError("Une erreur est survenue. Merci de réessayer ou de nous écrire à contact@legomnia.com.");
+                setServerError(tr("Une erreur est survenue. Merci de réessayer ou de nous écrire à contact@legomnia.com.", "An error occurred. Please try again or email us at contact@legomnia.com."));
             }
         } finally {
             setIsSending(false);
@@ -103,8 +109,8 @@ const Waitlist = () => {
 
         <main className="main main__contact">
             <SEOHead
-                title="Liste d'attente LegOmnia"
-                description="Inscrivez-vous sur la liste d'attente de LegOmnia."
+                title={tr("Liste d'attente LegOmnia", "LegOmnia waitlist")}
+                description={tr("Inscrivez-vous sur la liste d'attente de LegOmnia.", "Join the LegOmnia waitlist.")}
                 canonical="/liste-attente"
                 noIndex={true}
             />
@@ -115,21 +121,21 @@ const Waitlist = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            Merci&nbsp;!
+                            {tr("Merci !", "Thank you!")}
                         </h1>
                         <p className='subtitle'>
-                            Votre inscription sur la liste d'attente est confirmée.<br/>
-                            Nous vous écrirons dès que votre accès sera disponible.
+                            {tr("Votre inscription sur la liste d'attente est confirmée.", "You're on the waitlist.")}<br/>
+                            {tr("Nous vous écrirons dès que votre accès sera disponible.", "We will email you as soon as your access is ready.")}
                         </p>
-                        <h3>En attendant</h3>
+                        <h3>{tr("En attendant", "In the meantime")}</h3>
                         <p className='subtitle'>
-                            Découvrez nos produits et nos cas d'usage.
+                            {tr("Découvrez nos produits et nos cas d'usage.", "Discover our products and use cases.")}
                         </p>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn' to="/produits/omnia">Découvrir OMNIA</Link>
-                        <Link className='ui__btn' to="/produits/transformation-digitale/presentation">Démarrer votre transformation digitale</Link>
-                        <Link className='ui__btn' to="/produits/use-cases">Voir nos Use Cases</Link>
+                        <Link className='ui__btn' to={lp("/produits/omnia")}>{tr("Découvrir OMNIA", "Discover OMNIA")}</Link>
+                        <Link className='ui__btn' to={lp("/produits/transformation-digitale/presentation")}>{tr("Démarrer votre transformation digitale", "Start your digital transformation")}</Link>
+                        <Link className='ui__btn' to={lp("/produits/use-cases")}>{tr("Voir nos Use Cases", "See our use cases")}</Link>
                     </div>
                 </div>                
             </section>
@@ -139,8 +145,8 @@ const Waitlist = () => {
     return (
         <main className="main main__contact">
             <SEOHead
-                title="Liste d'attente LegOmnia | Accès anticipé à Omnia"
-                description="Inscrivez-vous sur la liste d'attente de LegOmnia pour obtenir un accès anticipé à Omnia, la plateforme de recherche juridique IA pour l'Afrique francophone."
+                title={tr("Liste d'attente LegOmnia | Accès anticipé à Omnia", "LegOmnia waitlist | Early access to Omnia")}
+                description={tr("Inscrivez-vous sur la liste d'attente de LegOmnia pour obtenir un accès anticipé à Omnia, la plateforme de recherche juridique IA pour l'Afrique francophone.", "Join the LegOmnia waitlist to get early access to Omnia, the AI legal research platform for French-speaking Africa.")}
                 canonical="/liste-attente"
             />
 
@@ -150,16 +156,19 @@ const Waitlist = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            Rejoindre la liste d'attente
+                            {tr("Rejoindre la liste d'attente", "Join the waitlist")}
                         </h1>
                         {searchQuery && (
                             <p className='subtitle'>
-                                La recherche «&nbsp;{searchQuery}&nbsp;» sera disponible dans Omnia dès l'ouverture de votre accès.
+                                {tr(
+                                    <>La recherche «&nbsp;{searchQuery}&nbsp;» sera disponible dans Omnia dès l'ouverture de votre accès.</>,
+                                    <>Your search “{searchQuery}” will be available in Omnia as soon as your access opens.</>
+                                )}
                             </p>
                         )}
                         <p className='subtitle'>
-                            La plateforme LegOmnia ouvre progressivement ses accès.<br/>
-                            Inscrivez-vous pour faire partie des premiers utilisateurs, c'est gratuit et sans engagement.
+                            {tr("La plateforme LegOmnia ouvre progressivement ses accès.", "The LegOmnia platform is gradually opening up access.")}<br/>
+                            {tr("Inscrivez-vous pour faire partie des premiers utilisateurs, c'est gratuit et sans engagement.", "Sign up to be among the first users — it's free, with no commitment.")}
                         </p>
                     </div>
                 </div>                
@@ -167,14 +176,14 @@ const Waitlist = () => {
 
             <section className="contact__content">
                 <form className='contact__form' onSubmit={handleSubmit}>
-                    <p className="asterisk">* Champs obligatoires</p>
+                    <p className="asterisk">{tr("* Champs obligatoires", "* Required fields")}</p>
                     <p className='form__item--half'>
-                        <label htmlFor="firstName">Prénom*</label>
+                        <label htmlFor="firstName">{tr("Prénom*", "First name*")}</label>
                         <input 
                             type="text" 
                             id="firstName"
                             name="firstName"
-                            placeholder="Votre prénom*" 
+                            placeholder={tr("Votre prénom*", "Your first name*")} 
                             autoComplete="given-name"
                             minLength={2}
                             maxLength={50}
@@ -182,12 +191,12 @@ const Waitlist = () => {
                         <span className="form__item--error">{errors.firstName}</span>
                     </p>
                     <p className='form__item--half'>
-                        <label htmlFor="lastName">Nom*</label>
+                        <label htmlFor="lastName">{tr("Nom*", "Last name*")}</label>
                         <input 
                             type="text" 
                             id="lastName"
                             name="lastName"
-                            placeholder="Votre nom*" 
+                            placeholder={tr("Votre nom*", "Your last name*")} 
                             autoComplete="family-name"
                             minLength={2}
                             maxLength={50}
@@ -195,54 +204,54 @@ const Waitlist = () => {
                         <span className="form__item--error">{errors.lastName}</span>
                     </p>
                     <p className='form__item--half'>
-                        <label htmlFor="email">Email professionnel*</label>
+                        <label htmlFor="email">{tr("Email professionnel*", "Work email*")}</label>
                         <input 
                             type="email" 
                             id="email"
                             name="email"
-                            placeholder="vous@organisation.com*" 
+                            placeholder={tr("vous@organisation.com*", "you@organization.com*")} 
                             autoComplete="email"
                             required/>
                         <span className="form__item--error">{errors.email}</span>
                     </p>
                     <p className='form__item--half'>
-                        <label htmlFor="organization">Organisation</label>
+                        <label htmlFor="organization">{tr("Organisation", "Organization")}</label>
                         <input 
                             type="text" 
                             id="organization" 
                             name="organization"
-                            placeholder="Cabinet, entreprise, institution..."
+                            placeholder={tr("Cabinet, entreprise, institution...", "Law firm, company, institution...")}
                             autoComplete="organization"
                             maxLength={100}/>
                         <span className="form__item--error">{errors.organization}</span>
                     </p>
                     <p className='form__item--half'>
-                        <label htmlFor="profile">Vous êtes*</label>
+                        <label htmlFor="profile">{tr("Vous êtes*", "You are*")}</label>
                         <select
                             id="profile" 
                             name="profile"
                             defaultValue=""
                             required>
-                            <option value="" disabled hidden>-- Sélectionnez votre profil --</option>
-                            {PROFILES.map(p => <option key={p} value={p}>{p}</option>)}
+                            <option value="" disabled hidden>{tr("-- Sélectionnez votre profil --", "-- Select your profile --")}</option>
+                            {PROFILES.map(p => <option key={p.value} value={p.value}>{tr(p.value, p.en)}</option>)}
                         </select>
                         <span className="form__item--error">{errors.profile}</span>
                     </p>
                     <p className='form__item--half'>
-                        <label htmlFor="country">Pays*</label>
+                        <label htmlFor="country">{tr("Pays*", "Country*")}</label>
                         <select
                             id="country" 
                             name="country"
                             defaultValue=""
                             autoComplete="country-name"
                             required>
-                            <option value="" disabled hidden>-- Sélectionnez votre pays --</option>
-                            {COUNTRIES.map(c => <option key={c} value={c}>{c}</option>)}
+                            <option value="" disabled hidden>{tr("-- Sélectionnez votre pays --", "-- Select your country --")}</option>
+                            {COUNTRIES.map(c => <option key={c.value} value={c.value}>{tr(c.value, c.en)}</option>)}
                         </select>
                         <span className="form__item--error">{errors.country}</span>
                     </p>
                     <fieldset className='form__item form__choices'>
-                        <legend>Produits qui vous intéressent</legend>
+                        <legend>{tr("Produits qui vous intéressent", "Products you are interested in")}</legend>
                         {PRODUCTS.map(p => (
                             <label key={p} className='form__choice'>
                                 <input type="checkbox" name="products" value={p}/>
@@ -254,7 +263,7 @@ const Waitlist = () => {
 
                     {/* Honeypot anti-spam : champ invisible pour un humain, rempli par les bots */}
                     <div className='form__hp' aria-hidden="true">
-                        <label htmlFor="website">Ne pas remplir ce champ</label>
+                        <label htmlFor="website">{tr("Ne pas remplir ce champ", "Do not fill in this field")}</label>
                         <input
                             type="text"
                             id="website"
@@ -274,7 +283,10 @@ const Waitlist = () => {
                                 required
                             />
                             <label htmlFor="consentAccepted">
-                                J'accepte que LegOmnia utilise ces informations pour me contacter au sujet de mon accès, conformément à la <Link to="/confidentialite" target="_blank">politique de confidentialité</Link>*
+                                {tr(
+                                    <>J'accepte que LegOmnia utilise ces informations pour me contacter au sujet de mon accès, conformément à la <Link to={lp("/confidentialite")} target="_blank">politique de confidentialité</Link>*</>,
+                                    <>I agree that LegOmnia may use this information to contact me about my access, in accordance with the <Link to={lp("/confidentialite")} target="_blank">privacy policy</Link>*</>
+                                )}
                             </label>
                             <span className="form__item--error">{errors.consentAccepted}</span>
                         </p>
@@ -285,7 +297,7 @@ const Waitlist = () => {
                                 type="checkbox"
                             />
                             <label htmlFor="newsletter">
-                                Je souhaite aussi recevoir les actualités de LegOmnia (désinscription possible à tout moment)
+                                {tr("Je souhaite aussi recevoir les actualités de LegOmnia (désinscription possible à tout moment)", "I would also like to receive LegOmnia news (you can unsubscribe at any time)")}
                             </label>
                         </p>
                     </div>
@@ -296,10 +308,10 @@ const Waitlist = () => {
                         type="submit" 
                         className={`ui__btn form__submit ${isSending ? '' : 'isActive'}`}
                         disabled={isSending}
-                    >{isSending ? "Inscription en cours..." : "M'inscrire sur la liste d'attente"}</button>
+                    >{isSending ? tr("Inscription en cours...", "Signing up...") : tr("M'inscrire sur la liste d'attente", "Join the waitlist")}</button>
 
                     <p className='form__note'>
-                        Une question&nbsp;? Écrivez-nous à <a href="mailto:contact@legomnia.com">contact@legomnia.com</a>
+                        {tr("Une question\u00a0? Écrivez-nous à", "Any questions? Email us at")} <a href="mailto:contact@legomnia.com">contact@legomnia.com</a>
                     </p>
                 </form>
             </section>

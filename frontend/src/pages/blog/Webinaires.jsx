@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
 
 import HeroBg from '../../components/HeroBg';
+import useLang from '../../i18n/useLang';
 import SEOHead from '../../components/SEOHead';
 
 const Webinaires = () => {
+    const { lp, tr } = useLang();
+
     return (
         <main className="main">
             <SEOHead
-                title="Webinaires LegOmnia : droit africain et legaltech"
-                description="Participez aux webinaires LegOmnia sur le droit OHADA, la legaltech en Afrique et les outils de recherche juridique pour avocats et juristes."
+                title={tr("Webinaires LegOmnia : droit africain et legaltech", "LegOmnia webinars: African law and legaltech")}
+                description={tr("Participez aux webinaires LegOmnia sur le droit OHADA, la legaltech en Afrique et les outils de recherche juridique pour avocats et juristes.", "Join LegOmnia webinars on OHADA law, legaltech in Africa and legal research tools for lawyers and in-house counsel.")}
                 canonical="/blog/webinaires"
             />
 
@@ -25,11 +28,11 @@ const Webinaires = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            Page <em className='highlight'>bientôt disponible</em>
+                            Page <em className='highlight'>{tr("bientôt disponible", "coming soon")}</em>
                         </h1>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn' to="/">Retour à l'accueil</Link>
+                        <Link className='ui__btn' to={lp("/")}>{tr("Retour à l'accueil", "Back to home")}</Link>
                     </div>
                 </div>
             </section>

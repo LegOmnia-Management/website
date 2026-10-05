@@ -8,7 +8,21 @@ import SEOHead from '../components/SEOHead';
 
 import '../assets/styles/contact.css';
 
+import useLang from '../i18n/useLang';
+import { translateApiErrors } from '../i18n/apiErrors';
+
+// Sujets : la valeur (envoyée à l'API) reste en français, seul le libellé est traduit
+const SUBJECTS = [
+    { value: "Demande d'information", en: "Information request" },
+    { value: "Demande de démo", en: "Demo request" },
+    { value: "Partenariat", en: "Partnership" },
+    { value: "Support technique", en: "Technical support" },
+    { value: "Autre", en: "Other" },
+];
+
 const Contact = () => {
+
+    const { lang, lp, tr } = useLang();
 
     // stocker erreurs
     const [ datas, setDatas ] = useState({
@@ -40,7 +54,8 @@ const Contact = () => {
     const [ isSubmit, setIsSubmit ] = useState(false);
 
     // verif valeur des champs
-    const validateItem = (value, name, label = "") => {
+    // label : [libellé FR, libellé EN] du champ
+    const validateItem = (value, name, label = ["", ""]) => {
 
         let msg = "";
         let empty = {...fields};
@@ -49,11 +64,11 @@ const Contact = () => {
             case "firstName":
             case "lastName":
                 if ( !value || value.trim().length === 0 ){
-                    msg =  `Le ${label} est obligatoire`;
+                    msg =  tr(`Le ${label[0]} est obligatoire`, `${label[1]} is required`);
                     empty[name] = true;
                 } else {
                     if ( value && value.trim().length < 2 ){
-                        msg =  `Le ${label} doit contenir 2 caractères minimum`;
+                        msg =  tr(`Le ${label[0]} doit contenir 2 caractères minimum`, `${label[1]} must be at least 2 characters long`);
                     } else {
                         msg = "";
                     }
@@ -62,13 +77,13 @@ const Contact = () => {
                 break;
             case "email":
                 if ( !value || value.trim().length === 0 ){
-                    msg =  "L'email est obligatoire";
+                    msg =  tr("L'email est obligatoire", "Email is required");
                     empty[name] = true;
                 } else {
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     
                     if (!emailRegex.test(value)) {
-                        msg = "L'email est invalide";
+                        msg = tr("L'email est invalide", "Email is invalid");
                     } else {
                         msg =  "";
                     }
@@ -77,13 +92,13 @@ const Contact = () => {
                 break;
             case "phone":
                 if ( !value || value.trim().length === 0 ){
-                    msg =  "Le numéro de téléphone obligatoire";
+                    msg =  tr("Le numéro de téléphone est obligatoire", "Phone number is required");
                     empty[name] = true;
                 } else {
                     const phoneRegex = /^\+?[0-9 ]{7,20}$/;
                     
                     if (!phoneRegex.test(value)) {
-                        msg = "Le numéro de téléphone est invalide";
+                        msg = tr("Le numéro de téléphone est invalide", "Phone number is invalid");
                     } else {
                         msg =  "";
                     }
@@ -92,24 +107,18 @@ const Contact = () => {
                 break;
             case "company":
                 if ( value && value.trim().length < 2 ){
-                    msg =  "L'entreprise doit contenir 2 caractères minimum";
+                    msg =  tr("L'entreprise doit contenir 2 caractères minimum", "Company must be at least 2 characters long");
                 } else {
                     msg = "";
                 }
                 break;
             case "subject":
                 if ( !value || value.trim().length === 0 ){
-                    msg =  "Le sujet est obligatoire";
+                    msg =  tr("Le sujet est obligatoire", "Subject is required");
                     empty[name] = true;
                 } else {
-                    if ( 
-                        value != "Demande d'information" 
-                        && value != "Demande de démo" 
-                        && value != "Partenariat" 
-                        && value != "Support technique" 
-                        && value != "Autre" 
-                    ) {
-                        msg =  "Veuillez choisir le sujet parmi la liste proposée";
+                    if ( !SUBJECTS.some(subject => subject.value === value) ) {
+                        msg =  tr("Veuillez choisir le sujet parmi la liste proposée", "Please choose a subject from the list");
                     } else {
                         msg =  "";
                     }
@@ -118,11 +127,11 @@ const Contact = () => {
                 break;
             case "message" :
                 if ( !value || value.trim().length === 0 ){
-                    msg =  "Le message est obligatoire";
+                    msg =  tr("Le message est obligatoire", "Message is required");
                     empty[name] = true;
                 } else {
                     if ( value.trim().length < 10 ){
-                        msg =  "Le message doit contenir 10 caractères minimum";
+                        msg =  tr("Le message doit contenir 10 caractères minimum", "Message must be at least 10 characters long");
                     } else {
                         msg =  "";
                     }
@@ -164,7 +173,7 @@ const Contact = () => {
 
             if (error.errors) {
                 // stocker les erreurs
-                setDatas(prev => ({ ...prev, ...error.errors })); 
+                setDatas(prev => ({ ...prev, ...translateApiErrors(error.errors, lang) })); 
             } else {
                 console.error("Erreur lors de la création du contact :", error);
             }
@@ -205,21 +214,21 @@ const Contact = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            Nous contacter
+                            {tr("Nous contacter", "Contact us")}
                         </h1>
                         <p className='subtitle'>
-                            Votre demande a bien été prise en compte.<br/>
-                            Nous vous recontacterons dans les plus brefs délais.
+                            {tr("Votre demande a bien été prise en compte.", "Your request has been received.")}<br/>
+                            {tr("Nous vous recontacterons dans les plus brefs délais.", "We will get back to you as soon as possible.")}
                         </p>
-                        <h3>En attendant</h3>
+                        <h3>{tr("En attendant", "In the meantime")}</h3>
                         <p className='subtitle'>
-                            Nous vous invitons à parcourir notre site pour découvrir nos produits.
+                            {tr("Nous vous invitons à parcourir notre site pour découvrir nos produits.", "Feel free to browse our website to discover our products.")}
                         </p>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn' to="/produits/omnia">Découvrir OMNIA</Link>
-                        <Link className='ui__btn' to="/produits/transformation-digitale/presentation">Démarrer votre transformation digitale</Link>
-                        <Link className='ui__btn' to="/produits/use-cases">Voir nos Use Cases</Link>
+                        <Link className='ui__btn' to={lp("/produits/omnia")}>{tr("Découvrir OMNIA", "Discover OMNIA")}</Link>
+                        <Link className='ui__btn' to={lp("/produits/transformation-digitale/presentation")}>{tr("Démarrer votre transformation digitale", "Start your digital transformation")}</Link>
+                        <Link className='ui__btn' to={lp("/produits/use-cases")}>{tr("Voir nos Use Cases", "See our use cases")}</Link>
                     </div>
                 </div>                
             </section>
@@ -229,8 +238,8 @@ const Contact = () => {
     return (
         <main className="main main__contact">
             <SEOHead
-                title="Contacter l'équipe LegOmnia | Demander une démo"
-                description="Une question sur la plateforme, un partenariat, une démonstration ? Contactez l'équipe LegOmnia, basée à Paris et tournée vers l'Afrique francophone."
+                title={tr("Contacter l'équipe LegOmnia | Demander une démo", "Contact the LegOmnia team | Request a demo")}
+                description={tr("Une question sur la plateforme, un partenariat, une démonstration ? Contactez l'équipe LegOmnia, basée à Paris et tournée vers l'Afrique francophone.", "A question about the platform, a partnership, a demo? Contact the LegOmnia team, based in Paris and focused on French-speaking Africa.")}
                 canonical="/contact"
             />
 
@@ -240,11 +249,11 @@ const Contact = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            Nous contacter
+                            {tr("Nous contacter", "Contact us")}
                         </h1>
                         <p className='subtitle'>
-                        Vous avez une question ou souhaitez en savoir plus sur nos solutions&nbsp;?<br/>
-                        Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.
+                        {tr("Vous avez une question ou souhaitez en savoir plus sur nos solutions ?", "Have a question or want to learn more about our solutions?")}<br/>
+                        {tr("Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.", "Fill in the form below and we will get back to you quickly.")}
                         </p>
                     </div>
                 </div>                
@@ -252,27 +261,27 @@ const Contact = () => {
 
             <section className="contact__content">
                 <form className='contact__form' onSubmit={handleSubmit}>
-                    <p className="asterisk">* Champs obligatoires</p>
+                    <p className="asterisk">{tr("* Champs obligatoires", "* Required fields")}</p>
                     <p className='form__item--half'>
-                        <label htmlFor="firstName">Prénom*</label>
+                        <label htmlFor="firstName">{tr("Prénom*", "First name*")}</label>
                         <input 
                             type="text" 
                             id="firstName"
                             name="firstName"
-                            placeholder="Votre prénom*" 
+                            placeholder={tr("Votre prénom*", "Your first name*")} 
                             required
-                            onChange={e => validateItem(e.target.value, e.target.name, "prénom")}/>
+                            onChange={e => validateItem(e.target.value, e.target.name, ["prénom", "First name"])}/>
                         <span className="form__item--error">{datas.firstName}</span>
                     </p>
                     <p className='form__item--half'>
-                        <label htmlFor="lastName">Nom*</label>
+                        <label htmlFor="lastName">{tr("Nom*", "Last name*")}</label>
                         <input 
                             type="text" 
                             id="lastName"
                             name="lastName"
-                            placeholder="Votre nom*" 
+                            placeholder={tr("Votre nom*", "Your last name*")} 
                             required
-                            onChange={e => validateItem(e.target.value, e.target.name, "nom")}/>
+                            onChange={e => validateItem(e.target.value, e.target.name, ["nom", "Last name"])}/>
                         <span className="form__item--error">{datas.lastName}</span>
                     </p>
                     <p className='form__item--half'>
@@ -281,47 +290,45 @@ const Contact = () => {
                             type="email" 
                             id="email"
                             name="email"
-                            placeholder="Votre email*" 
+                            placeholder={tr("Votre email*", "Your email*")} 
                             required
                             onChange={e => validateItem(e.target.value, e.target.name)}/>
                         <span className="form__item--error">{datas.email}</span>
                     </p>
                     <p className='form__item--half'>
-                        <label htmlFor="phone">Téléphone*</label>
+                        <label htmlFor="phone">{tr("Téléphone*", "Phone*")}</label>
                         <input 
                             type="tel" 
                             id="phone"
                             name="phone"
                             pattern="^\+?[0-9 ]{7,20}$"
-                            placeholder="Votre numéro de téléphone*" 
+                            placeholder={tr("Votre numéro de téléphone*", "Your phone number*")} 
                             required
                             onChange={e => validateItem(e.target.value, e.target.name)}/>
                         <span className="form__item--error">{datas.phone}</span>
                     </p>
                     <p className='form__item'>
-                        <label htmlFor="company">Entreprise</label>
+                        <label htmlFor="company">{tr("Entreprise", "Company")}</label>
                         <input 
                             type="text" 
                             id="company" 
                             name="company"
-                            placeholder="Entreprise"
+                            placeholder={tr("Entreprise", "Company")}
                             onChange={e => validateItem(e.target.value, e.target.name)}/>
                         <span className="form__item--error">{datas.company}</span>
                     </p>
                     <p className='form__item'>
-                        <label htmlFor="subject">Sujet*</label>
+                        <label htmlFor="subject">{tr("Sujet*", "Subject*")}</label>
                         <select
                             id="subject" 
                             name="subject"
                             defaultValue=""
                             required
                             onChange={e => validateItem(e.target.value, e.target.name)}>
-                            <option value="" disabled hidden>-- Sélectionnez un sujet --</option>
-                            <option value="Demande d'information">Demande d'information</option>
-                            <option value="Demande de démo">Demande de démo</option>
-                            <option value="Partenariat">Partenariat</option>
-                            <option value="Support technique">Support technique</option>
-                            <option value="Autre">Autre</option>
+                            <option value="" disabled hidden>{tr("-- Sélectionnez un sujet --", "-- Select a subject --")}</option>
+                            {SUBJECTS.map(subject => (
+                                <option key={subject.value} value={subject.value}>{tr(subject.value, subject.en)}</option>
+                            ))}
                         </select>
                         <span className="form__item--error">{datas.subject}</span>
                     </p>
@@ -331,7 +338,7 @@ const Contact = () => {
                             type="text" 
                             id="message"
                             name="message"
-                            placeholder="Votre message*" 
+                            placeholder={tr("Votre message*", "Your message*")} 
                             rows="10"
                             onChange={e => validateItem(e.target.value, e.target.name)}></textarea>
                         <span className="form__item--error">{datas.message}</span>
@@ -339,7 +346,7 @@ const Contact = () => {
 
                     {/* Honeypot anti-spam : champ invisible pour un humain, rempli par les bots */}
                     <div className='form__hp' aria-hidden="true">
-                        <label htmlFor="website">Ne pas remplir ce champ</label>
+                        <label htmlFor="website">{tr("Ne pas remplir ce champ", "Do not fill in this field")}</label>
                         <input
                             type="text"
                             id="website"
@@ -358,7 +365,7 @@ const Contact = () => {
                                 type="checkbox"
                                 onChange={e => validateItem(e.target.checked, e.target.name)}
                             />
-                            <label htmlFor="check">J'accepte les CGU</label>
+                            <label htmlFor="check">{tr("J'accepte les CGU", "I accept the terms of use")}</label>
                             <span className="form__item--error">{datas.cguAccepted}</span>
                         </p>
                     </div>
@@ -366,7 +373,7 @@ const Contact = () => {
                     <button 
                         type="submit" 
                         className={`ui__btn form__submit ${isActive ? 'isActive' : ""}`}
-                    >Envoyer le message</button>
+                    >{tr("Envoyer le message", "Send message")}</button>
                 </form>
             </section>
         </main>

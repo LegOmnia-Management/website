@@ -17,6 +17,7 @@ export const articles = [
             class: 'legaltech'
         }, {
             name: 'Domaine sectoriel',
+            nameEn: 'Industry sector',
             class: 'sectoriel'
         }],
         title: 'Intellectual Property and Data Protection : Strategic Foundations of Digital Innovation in Africa',
@@ -30,25 +31,32 @@ export const articles = [
         id: 2,
         img: Art2,
         alt: 'Afrique francophone',
+        altEn: 'French-speaking Africa',
         lang: 'fr',
         category: [{
             name: 'IA & Souveraineté Numérique',
+            nameEn: 'AI & Digital Sovereignty',
             class: 'ia'
         }],
         title: 'LegOmnia : quand l’intelligence artificielle met le droit au service du développement durable en Afrique francophone',
+        titleEn: 'LegOmnia: when artificial intelligence puts law at the service of sustainable development in French-speaking Africa',
         slug: 'quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone',
         recap: 'Il existe une injustice silencieuse qui traverse l’Afrique francophone depuis des décennies : l’accès au droit.',
+        recapEn: 'A silent injustice has run through French-speaking Africa for decades: access to law.',
         author: 'LegOmnia',
         date: '27 février 2026',
+        dateEn: '27 February 2026',
         time: '5 min'
     },
     {
         id: 3,
         img: Art3,
         alt: 'Documents archivés',
+        altEn: 'Archived documents',
         lang: 'fr',
         category: [{
             name: 'IA & Souveraineté Numérique',
+            nameEn: 'AI & Digital Sovereignty',
             class: 'ia'
         },
         {
@@ -57,11 +65,14 @@ export const articles = [
         },
         {
             name: 'Domaine sectoriel',
+            nameEn: 'Industry sector',
             class: 'sectoriel'
         }],
         title: 'Gestion Électronique des Documents',
+        titleEn: 'Electronic Document Management',
         slug: 'gestion-electronique-des-documents',
         recap: 'Dans un monde où le volume de données ne cesse de croître, la Gestion Électronique des Documents (GED) s’est imposée comme un pilier stratégique pour les entreprises et les administrations.',
+        recapEn: 'In a world where the volume of data keeps growing, Electronic Document Management (EDM) has become a strategic pillar for companies and public administrations.',
         author: 'LegOmnia',
         date: '2026-02-24',
         time: '5 min'
@@ -77,6 +88,7 @@ export const articles = [
         },
         {
             name: 'Domaine sectoriel',
+            nameEn: 'Industry sector',
             class: 'sectoriel'
         }],
         title: 'LegOmnia : The AI Platform Revolutionizing Access to Law in Francophone Africa',
@@ -87,6 +99,26 @@ export const articles = [
         time: '6 min'
     }
 ];
+
+/**
+ * Champs d'un article dans la langue du site : les champs `xxxEn` sont
+ * utilisés sur le site anglais s'ils existent, sinon le champ d'origine.
+ */
+export const localizeArticle = (article, lang) => {
+    if (!article || lang !== 'en') return article;
+    return {
+        ...article,
+        title: article.titleEn || article.title,
+        recap: article.recapEn || article.recap,
+        alt: article.altEn || article.alt,
+        date: article.dateEn || article.date,
+        lang: article.titleEn ? 'en' : article.lang,
+        category: article.category.map(cat => ({ ...cat, name: cat.nameEn || cat.name })),
+    };
+};
+
+export const localizeContent = (content, lang) =>
+    content && lang === 'en' && content.htmlEn ? { ...content, html: content.htmlEn } : content;
 
 export const articlesContent = [
     {
@@ -186,6 +218,94 @@ export const articlesContent = [
     {
         id: 2,
         slug: 'quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone',
+        // version anglaise (affichée sur le site /en)
+        htmlEn: (
+            <>
+                <p>
+                    A silent injustice has run through French-speaking Africa for decades: access to law. Not law as an ideal, but law in its everyday reality — court decisions, applicable texts, the case law that determines the rights of citizens, businesses and families.<br/>
+                    This information exists. But it is buried in paper archives, scattered across courts that do not communicate with one another, and out of reach for most people.
+                </p>
+                <p>
+                    This is precisely the challenge LegOmnia has set out to solve.
+                </p>
+                <h2>
+                    An AI platform serving a sovereign legal infrastructure
+                </h2>
+                <p>
+                    LegOmnia is an AI-powered SaaS legal research platform covering 17 French-speaking African countries. It aggregates legal data from the OHADA, WAEMU, ECOWAS, CEMAC and African Union regional frameworks and makes it accessible through a contextual search engine, an interactive legal chatbot and automated document analysis tools.
+                </p>
+                <p>
+                    But LegOmnia does not only serve legal professionals. The platform also supports African states in digitizing, anonymizing and securely publishing their court decisions, enabling them to build sovereign, structured and interoperable legal databases over which they retain full control.
+                </p>
+                <p>
+                    This dual approach — commercial on one side, institutional on the other — is no accident. It reflects a deep conviction: the digital transformation of law cannot be left to market forces alone. It must be driven by states and designed in the interest of all citizens.
+                </p>
+                <h2>
+                    SDG 16: Peace, justice and strong institutions — the heart of our mission
+                </h2>
+                <p>
+                    Sustainable Development Goal 16 calls for promoting peaceful and inclusive societies, providing access to justice for all, and building effective, accountable and transparent institutions at all levels.<br/>
+                    LegOmnia embodies this goal in every one of its features.
+                </p>
+                <p>
+                    When a Court of Appeal decision remains locked away in an inaccessible court registry, it does not contribute to building the rule of law: it weakens it. By making case law accessible, verifiable and analyzable, LegOmnia strengthens judicial transparency, reduces arbitrariness and creates the conditions for more predictable and fairer justice.<br/>
+                    For governments, it is also a tool against corruption: when decisions are public and searchable, abuses become harder to conceal.
+                </p>
+                <h2>
+                    SDG 9: Innovation and resilient infrastructure
+                </h2>
+                <p>
+                    To this end, LegOmnia deploys a range of cutting-edge technologies: natural language processing (NLP), large language models (LLMs), named entity recognition (NER) for anonymization, optical character recognition (OCR) for digitizing paper archives, and interoperable cloud architectures.<br/>
+                    These technologies are not an end in themselves: they serve a sustainable public infrastructure over which African states are sovereign.
+                </p>
+                <h2>
+                    SDG 10: Reduced inequalities
+                </h2>
+                <p>
+                    Asymmetry of legal information is one of the deepest forms of inequality. A large international law firm has the resources to access the legal information it needs. A small entrepreneur in Burkina Faso, a craftsman in Cameroon, a law student in Lomé: they do not.
+                </p>
+                <p>
+                    LegOmnia structurally narrows this gap. Thanks to a subscription model priced by profile — individual, law firm, company, university — and an interface that works in natural language, the platform democratizes access to a resource that nonetheless determines everyone's rights and opportunities.
+                </p>
+                <h2>
+                    SDG 5: Gender equality
+                </h2>
+                <p>
+                    This goal may be the least obvious at first glance, but it is one of the most concrete in our approach.
+                </p>
+                <p>
+                    Court decisions contain sensitive data: names, gender, family situation, address, community affiliation. Publishing them without anonymization primarily exposes women — in cases of domestic violence, divorce or inheritance — to real risks of stigmatization, discrimination and even danger.<br/>
+                    LegOmnia integrates enhanced anonymization technology that systematically protects this data before any publication or sharing.
+                </p>
+                <p>
+                    By making open justice possible without sacrificing the protection of vulnerable people, LegOmnia reconciles two values too often set against each other: transparency and safety.
+                </p>
+                <h2>
+                    SDG 17: Partnerships for the goals
+                </h2>
+                <p>
+                    <img src={Art2Illus1} alt="LegOmnia illustration" loading="lazy"/>
+                    No transformation of this scale can be achieved alone. LegOmnia is designed as a multi-stakeholder partnership tool: African governments, international donors (World Bank, UNDP, AfDB, European Union), regional organizations, universities and the private sector.
+                </p>
+                <p>
+                    Our B2G institutional partnership model makes it possible to roll out large-scale national digitization programs while guaranteeing states' sovereignty over their data. This is the condition for development that truly belongs to those it is meant to serve.
+                </p>
+                <h2>
+                    A vision: making law a public good accessible to all
+                </h2>
+                <p>
+                    Beyond indicators and targets, LegOmnia carries a simple but ambitious vision: law must be a public good. Not a privilege reserved for those who can afford the right law firms or the right databases. Not an opacity maintained at the expense of the most vulnerable citizens.
+                </p>
+                <p>
+                    Artificial intelligence now gives us the tools to make this vision a reality at an unprecedented scale and speed. We still have to choose to put them at the service of the common good — and that is the choice LegOmnia has made from day one.
+                </p>
+                <hr/>
+                <p>
+                    <i>LegOmnia is available to discuss the collaboration arrangements needed to implement national or regional digital transformation programs.</i><br/>
+                    Contact: <a href="mailto:contact@legomnia.com">contact@legomnia.com</a>
+                </p>
+            </>
+        ),
         html: (
             <>
                 <p>
@@ -277,6 +397,167 @@ export const articlesContent = [
     {
         id: 3,
         slug: 'gestion-electronique-des-documents',
+        // version anglaise (affichée sur le site /en)
+        htmlEn: (
+            <>
+                <h2>Introduction</h2>
+                <p>
+                    In a world where the volume of data keeps growing, Electronic Document Management (EDM) has become a strategic pillar for companies and public administrations. It refers to all the techniques, tools and processes used to manage the complete life cycle of a digital document: from its creation to its archiving, including its distribution, retrieval and controlled destruction.
+                </p>
+                <p>
+                    Faced with the explosion of document flows, EDM is no longer a simple IT tool but a genuine lever for organizational performance, regulatory compliance and digital transformation.
+                </p>
+                <h2>
+                    What is EDM?
+                </h2>
+                <p>
+                    EDM (known in French as GED – Gestion Électronique des Documents) covers all the technologies used to digitize, classify, store, search and share documents within an organization. It applies both to born-digital documents (emails, Office files, PDFs) and to physical documents digitized with a scanner.
+                </p>
+                <h3>
+                    The core components
+                </h3>
+                <p>
+                    <img src={Art3Illus1} alt="LegOmnia illustration" loading="lazy"/>
+                    - <strong>Capture and digitization: </strong>turning paper documents into usable digital files.<br/>
+                    - <strong>Indexing: </strong>assigning metadata (date, author, type, keywords) to make documents easier to find.<br/>
+                    - <strong>Secure storage: </strong>keeping documents in centralized repositories or in the cloud.<br/>
+                    - <strong>Search and retrieval: </strong>fast, targeted access by keyword, filter or full-text search.<br/>
+                    - <strong>Access rights management: </strong>granular control of permissions according to user profiles.<br/>
+                    - <strong>Document workflow: </strong>automation of approval and signature circuits.<br/>
+                    - <strong>Archiving and traceability: </strong>legal retention and a complete audit trail.
+                </p>
+                <p>
+                    <strong><i>To learn more about our EDM solution, contact: <a href="mailto:contact@legomnia.com">contact@legomnia.com</a></i></strong>
+                </p>
+                <h2>
+                    The benefits of EDM
+                </h2>
+                <h3>
+                    Productivity gains
+                </h3>
+                <p>
+                    Searching for documents accounts on average for 30 to 40% of an employee's working time. With EDM, this time is cut dramatically: a document is found in seconds with a simple query. Approval circuits are automated, duplicates disappear and collaboration becomes smoother, even remotely.
+                </p>
+                <h3>
+                    Cost reduction
+                </h3>
+                <p>
+                    Going paperless drastically reduces the costs of printing, physical storage, postage and paper archive management. According to several studies, a company saves on average several thousand euros per employee per year by adopting an effective EDM solution.
+                </p>
+                <h3>
+                    Security and regulatory compliance
+                </h3>
+                <p>
+                    Companies are subject to numerous legal obligations regarding document retention (GDPR, commercial code, tax obligations, etc.). EDM guarantees the integrity of documents, the traceability of access and changes, and compliance with legal retention periods. Inspections and audits therefore become simpler and more reliable.
+                </p>
+                <h3>
+                    Business continuity and resilience
+                </h3>
+                <p>
+                    In the event of a disaster (fire, flood, theft), documents that have been digitized and backed up in the cloud remain accessible. Disaster recovery plans (DRPs) increasingly rely on robust EDM solutions to ensure business continuity.
+                </p>
+                <h2>
+                    How does an EDM system work?
+                </h2>
+                <h3>
+                    The document life cycle
+                </h3>
+                <p>
+                    Every document goes through several stages in an EDM system:<br/>
+                    - <strong>Creation or capture: </strong>direct entry, scanning, import from email or a business application.<br/>
+                    - <strong>Classification: </strong>filing in a logical folder structure and indexing with metadata.<br/>
+                    - <strong>Distribution and collaboration: </strong>secure sharing, co-editing, comments and version management.<br/>
+                    - <strong>Approval: </strong>electronic signature and approval workflow.<br/>
+                    - <strong>Archiving: </strong>transfer to an archive space with timestamping and sealing.<br/>
+                    - <strong>Destruction: </strong>secure deletion at the end of the legal retention period.<br/>
+                </p>
+                <h3>
+                    OCR and artificial intelligence
+                </h3>
+                <p>
+                    Modern solutions include Optical Character Recognition (OCR) to make scanned documents searchable and indexable. Artificial intelligence goes even further, enabling automatic document classification, smart data extraction (invoices, contracts) and the detection of anomalies or duplicates.
+                </p>
+                <h2>
+                    The main EDM solutions on the market
+                </h2>
+                <p>
+                    The EDM market is rich and varied, with solutions suited to organizations of all sizes:<br/>
+                    - <strong>Microsoft SharePoint: </strong>Microsoft's collaborative platform, widely used in large companies.<br/>
+                    - <strong>Alfresco: </strong>a robust open-source solution suited to complex environments.<br/>
+                    - <strong>M-Files: </strong>an innovative solution based on metadata rather than folders.<br/>
+                    - <strong>DocuWare: </strong>a cloud solution recognized for invoice and HR management.<br/>
+                    - <strong>Zeendoc: </strong>a 100% cloud French solution popular with SMEs.<br/>
+                    - <strong>Nuxeo: </strong>an API-oriented enterprise content management platform.<br/>
+                </p>
+                <h2>
+                    Implementing EDM: the key steps
+                </h2>
+                <p>
+                    Deploying an EDM solution is a structuring project that requires a methodical approach. Here are the main steps to follow to ensure the project's success:
+                </p>
+                <h3>
+                    1. Audit and requirements gathering
+                </h3>
+                <p>
+                    First and foremost, it is essential to map existing document flows, identify pain points and precisely define the expected objectives (time savings, compliance, collaboration, etc.). This audit involves business departments, the IT department and senior management.
+                </p>
+                <h3>
+                    2. Choosing the solution
+                </h3>
+                <p>
+                    The choice of solution must take into account the size of the organization, the integrations required with existing systems (ERP, CRM, email), the deployment model (on-premise, cloud, hybrid) and the available budget.
+                </p>
+                <h3>
+                    3. Filing plan and document repository
+                </h3>
+                <p>
+                    Creating a consistent filing plan is a critical and often underestimated step. Poor classification leads to an unusable EDM system. Document categories, associated metadata, naming rules and retention periods all need to be defined.
+                </p>
+                <h3>
+                    4. Migration and configuration
+                </h3>
+                <p>
+                    Migrating existing documents to the new solution must be carefully planned. Access rights, workflows and retention rules are configured in collaboration with business teams.
+                </p>
+                <h3>
+                    5. Training and change management
+                </h3>
+                <p>
+                    User adoption is the decisive success factor in an EDM project. Training tailored to each profile, the appointment of internal champions and regular communication are essential to overcome resistance to change.
+                </p>
+                <h2>
+                    Current challenges and issues
+                </h2>
+                <h3>
+                    Cybersecurity
+                </h3>
+                <p>
+                    EDM systems concentrate sensitive data and are prime targets for cyberattacks. Data encryption, multi-factor authentication (MFA) and regular backups are essential measures to protect the organization's document assets.
+                </p>
+                <h3>
+                    Interoperability
+                </h3>
+                <p>
+                    <img src={Art3Illus2} alt="LegOmnia illustration" loading="lazy"/>
+                    Effective EDM must integrate seamlessly with the entire information system: ERP, CRM, email and collaboration tools. Architectures based on standardized APIs (REST, CMIS) make these interconnections easier and ensure a smooth user experience.
+                </p>
+                <h3>
+                    Artificial intelligence and automation
+                </h3>
+                <p>
+                    Integrating AI into EDM solutions opens up new possibilities: automatic recognition of document types, structured data extraction, filing suggestions, and detection of contracts due for renewal or non-compliant documents. These features turn EDM into a genuine smart assistant for business teams.
+                </p>
+                <h2>
+                    Conclusion
+                </h2>
+                <p>
+                    Electronic Document Management is much more than a simple digital filing tool. It is a strategic infrastructure at the heart of organizations' digital transformation. By streamlining document flows, ensuring regulatory compliance and freeing employees from low-value tasks, EDM directly contributes to a company's competitiveness and agility.
+                </p>
+                <p>
+                    At a time when remote work, regulatory dematerialization and remote collaboration have become the norm, investing in an effective EDM solution is no longer optional but a strategic necessity for any organization that wants to remain efficient, secure and compliant with the demands of the digital world.
+                </p>
+            </>
+        ),
         html: (
             <>
                 <h2>Introduction</h2>

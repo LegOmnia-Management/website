@@ -25,6 +25,8 @@ import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 
+import { localizePath } from './src/i18n/routes.js';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DIST_DIR = path.resolve(__dirname, 'dist');
@@ -49,6 +51,8 @@ const STATIC_ROUTES = [
     '/blog/articles',                                      // blog/Articles.jsx
     '/blog/ressources',                                    // blog/Ressources.jsx
     '/blog/webinaires',                                    // blog/Webinaires.jsx
+    '/cgu',                                                // Cgu.jsx
+    '/confidentialite',                                    // Confidentialite.jsx
     // MentionsLegales.jsx volontairement exclue (noIndex={true})
 
     // Pages détail articles (à ajouter manuellement à chaque nouvel article
@@ -58,6 +62,10 @@ const STATIC_ROUTES = [
     '/blog/articles/gestion-electronique-des-documents',
     '/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa',
 ];
+
+// Chaque route existe aussi en anglais (préfixe /en, chemins traduits :
+// voir src/i18n/routes.js)
+const ALL_ROUTES = STATIC_ROUTES.flatMap((route) => [route, localizePath(route, 'en')]);
 
 function startStaticServer() {
     return new Promise((resolve) => {
@@ -103,7 +111,7 @@ async function main() {
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 
-    const routes = STATIC_ROUTES;
+    const routes = ALL_ROUTES;
 
     console.log(`🔧 Prerendering de ${routes.length} route(s)...`);
 
