@@ -68,8 +68,8 @@ CLIENT_URL=http://localhost:3000
 
 # Resend (envoi d'e-mails)
 RESEND_API_KEY=<votre_clé_api_resend>
-CONTACT_EMAIL=<email_destinataire_des_demandes_de_contact>
-WAITLIST_EMAIL=contact@legomnia.com
+MAIL_FROM=LegOmnia <contact@legomnia.com>
+NOTIFICATION_EMAILS=contact@legomnia.com,jp.bertaud@legomnia.com,alexandra.esmel@legomnia.com
 ```
 
 ### Frontend — `frontend/.env.local`
@@ -144,13 +144,20 @@ La route `POST /api/contact` effectue dans l'ordre :
 1. Honeypot : si le champ caché `website` est rempli (bot), réponse 201 factice, rien n'est enregistré
 2. Validation des champs (express-validator)
 3. Sauvegarde en base MongoDB
-4. Envoi d'un e-mail de notification via Resend (optionnel : ignoré si `RESEND_API_KEY` ou `CONTACT_EMAIL` est absent ; une erreur d'envoi ne fait pas échouer la demande)
+4. Envoi d'un e-mail de notification via Resend (optionnel : ignoré si `RESEND_API_KEY` est absent ; une erreur d'envoi ne fait pas échouer la demande)
+
+Les notifications (contact et liste d'attente) partent de `MAIL_FROM` (défaut
+`LegOmnia <contact@legomnia.com>`) vers `NOTIFICATION_EMAILS` (défaut
+`contact@legomnia.com`, `jp.bertaud@legomnia.com`, `alexandra.esmel@legomnia.com`),
+voir `backend/config/mail.js`. Le domaine `legomnia.com` doit être vérifié dans
+Resend (Domains → Add domain, puis ajout des enregistrements DNS SPF/DKIM),
+sinon Resend refuse l'envoi.
 
 La route `POST /api/waitlist` (formulaire de la page `/liste-attente`, accessible
 via le bouton « Inscription sur liste d'attente » du header) suit le même principe :
 honeypot, validation, sauvegarde (collection `waitlists`, une seule inscription par
 e-mail ; un doublon reçoit la même réponse de succès) puis notification Resend à
-`WAITLIST_EMAIL` (par défaut `contact@legomnia.com`).
+`NOTIFICATION_EMAILS`.
 
 Les demandes de contact ne sont pas exposées par l'API : elles se consultent
 directement dans MongoDB (collection `contacts`).
@@ -326,8 +333,8 @@ Dans le dashboard Vercel → Settings → Environment Variables, ajouter :
 MONGO_URI
 CLIENT_URL           # URL de production du frontend (ex: https://legomnia.com)
 RESEND_API_KEY
-CONTACT_EMAIL
-WAITLIST_EMAIL       # optionnel, défaut : contact@legomnia.com
+MAIL_FROM            # optionnel, défaut : LegOmnia <contact@legomnia.com>
+NOTIFICATION_EMAILS  # optionnel, défaut : contact@, jp.bertaud@, alexandra.esmel@legomnia.com
 ADMIN_API_KEY
 NODE_ENV             # production
 VITE_API_URL         # laisser vide ou mettre l'URL Vercel (les appels /api/* sont relatifs)
@@ -338,4 +345,4 @@ VITE_API_URL         # laisser vide ou mettre l'URL Vercel (les appels /api/* so
 ## Notes pour la mise en ligne
 
 - En production, le `CLIENT_URL` dans le backend doit correspondre exactement au domaine du frontend (ex: `https://legomnia.com`) pour que le CORS fonctionne.
-- L'adresse e-mail expéditrice Resend (`from`) utilise actuellement `onboarding@resend.dev` (domaine de test). Pour la production, configurer un domaine vérifié sur Resend et mettre à jour le champ `from` dans `contact.controller.js`.
+- L'adresse expéditrice Resend (`MAIL_FROM`, défaut `LegOmnia <contact@legomnia.com>`) exige que le domaine `legomnia.com` soit vérifié sur Resend ; tant que ce n'est pas fait, les notifications sont refusées (la demande est quand même enregistrée).

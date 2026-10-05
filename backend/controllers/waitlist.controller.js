@@ -1,8 +1,6 @@
 import { Waitlist } from "../models/index.js";
 import { Resend } from "resend";
-
-// Adresse qui reçoit les nouvelles inscriptions
-const WAITLIST_EMAIL = process.env.WAITLIST_EMAIL || "contact@legomnia.com";
+import { MAIL_FROM, NOTIFICATION_RECIPIENTS } from "../config/mail.js";
 
 const SUCCESS_MESSAGE = "Votre inscription sur la liste d'attente a bien été prise en compte";
 
@@ -61,8 +59,8 @@ const createWaitlist = async (req, res) => {
             try {
                 const resend = new Resend(process.env.RESEND_API_KEY);
                 const { error: emailError } = await resend.emails.send({
-                    from: "onboarding@resend.dev",
-                    to: WAITLIST_EMAIL,
+                    from: MAIL_FROM,
+                    to: NOTIFICATION_RECIPIENTS,
                     replyTo: entry.email,
                     subject: `Liste d'attente : ${entry.firstName} ${entry.lastName}`,
                     html: `
