@@ -3,18 +3,21 @@ import { Link } from 'react-router-dom';
 import '../../assets/styles/general.css';
 import '../../assets/styles/blog.css';
 
-import { articles } from './ArticlesList';
+import { articles, localizeArticle } from './ArticlesList';
 
 import HeroBg from '../../components/HeroBg';
 import SEOHead from '../../components/SEOHead';
+import useLang from '../../i18n/useLang';
 
 const Articles = () => {
+
+    const { lang, lp, tr } = useLang();
 
     return (
         <main className="main">
             <SEOHead
-                title="Blog LegOmnia : droit OHADA, legaltech et actualité juridique africaine"
-                description="Analyses, guides pratiques et veille juridique sur le droit des affaires en Afrique francophone : OHADA, jurisprudence, réglementation par pays."
+                title={tr("Blog LegOmnia : droit OHADA, legaltech et actualité juridique africaine", "LegOmnia blog: OHADA law, legaltech and African legal news")}
+                description={tr("Analyses, guides pratiques et veille juridique sur le droit des affaires en Afrique francophone : OHADA, jurisprudence, réglementation par pays.", "Analysis, practical guides and legal monitoring on business law in French-speaking Africa: OHADA, case law, regulations by country.")}
                 canonical="/blog/articles"
             />
 
@@ -24,10 +27,10 @@ const Articles = () => {
                 <div className="container hero__container">
                 <div className="hero__title">
                         <h1 className='main-title'>
-                            Le blog d'intelligence juridique <br/>
-                            <em className='highlight'>au service de l'Afrique Francophone</em>
+                            {tr("Le blog d'intelligence juridique", "The legal intelligence blog")} <br/>
+                            <em className='highlight'>{tr("au service de l'Afrique Francophone", "serving French-speaking Africa")}</em>
                         </h1>
-                        <h2 className='subtitle'>Découvrez nos derniers articles et actualités sur la transformation digitale des institutions juridiques.</h2>
+                        <h2 className='subtitle'>{tr("Découvrez nos derniers articles et actualités sur la transformation digitale des institutions juridiques.", "Discover our latest articles and news on the digital transformation of legal institutions.")}</h2>
                     </div>
                 </div>
             </section>
@@ -35,8 +38,8 @@ const Articles = () => {
             {/* Breadcrumb */}
             <section className="breadcrumb">
                 <div className="container">
-                    <nav aria-label="Fil d'Ariane">
-                        <Link to="/">Accueil</Link> {'>'} <span>Articles</span>
+                    <nav aria-label={tr("Fil d'Ariane", "Breadcrumb")}>
+                        <Link to={lp("/")}>{tr("Accueil", "Home")}</Link> {'>'} <span>Articles</span>
                     </nav>
                 </div>
             </section>
@@ -51,9 +54,9 @@ const Articles = () => {
                 <div className="container">
                     <div className="articles__content--list">
                         {
-                            articles.map(article => (
-                                <Link to={`/blog/articles/${article.slug}`} className='articles__card--link' key={article.id}>
-                                    <article className='articles__card'>
+                            articles.map(item => localizeArticle(item, lang)).map(article => (
+                                <Link to={lp(`/blog/articles/${article.slug}`)} className='articles__card--link' key={article.id}>
+                                    <article className='articles__card' lang={article.lang}>
                                         <img className="articles__card--img" src={article.img} alt={article.alt} />
                                         <div className="articles__card--content">
                                             <header className="articles__card--header">

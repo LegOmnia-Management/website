@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
     <!-- Pages principales -->
     <url>
         <loc>https://legomnia.com/</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/"/>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/"/>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -11,26 +23,81 @@
     <!-- Produits -->
     <url>
         <loc>https://legomnia.com/produits/omnia</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/produits/omnia"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/products/omnia"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/produits/omnia"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/products/omnia</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/produits/omnia"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/products/omnia"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/produits/omnia"/>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://legomnia.com/produits/transformation-digitale/omniscan</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/produits/transformation-digitale/omniscan"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/products/digital-transformation/omniscan"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/produits/transformation-digitale/omniscan"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/products/digital-transformation/omniscan</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/produits/transformation-digitale/omniscan"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/products/digital-transformation/omniscan"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/produits/transformation-digitale/omniscan"/>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://legomnia.com/produits/transformation-digitale/geode</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/produits/transformation-digitale/geode"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/products/digital-transformation/geode"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/produits/transformation-digitale/geode"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/products/digital-transformation/geode</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/produits/transformation-digitale/geode"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/products/digital-transformation/geode"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/produits/transformation-digitale/geode"/>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://legomnia.com/produits/transformation-digitale/presentation</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/produits/transformation-digitale/presentation"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/products/digital-transformation/overview"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/produits/transformation-digitale/presentation"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/products/digital-transformation/overview</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/produits/transformation-digitale/presentation"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/products/digital-transformation/overview"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/produits/transformation-digitale/presentation"/>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://legomnia.com/produits/use-cases</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/produits/use-cases"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/products/use-cases"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/produits/use-cases"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/products/use-cases</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/produits/use-cases"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/products/use-cases"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/produits/use-cases"/>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -38,6 +105,17 @@
     <!-- Contact / Démo -->
     <url>
         <loc>https://legomnia.com/contact</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/contact"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/contact"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/contact"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/contact</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/contact"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/contact"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/contact"/>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -45,6 +123,17 @@
     <!-- Liste d'attente -->
     <url>
         <loc>https://legomnia.com/liste-attente</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/liste-attente"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/waitlist"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/liste-attente"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/waitlist</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/liste-attente"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/waitlist"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/liste-attente"/>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -52,6 +141,17 @@
     <!-- Juridictions -->
     <url>
         <loc>https://legomnia.com/juridictions</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions"/>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -59,16 +159,49 @@
     <!-- Blog -->
     <url>
         <loc>https://legomnia.com/blog/articles</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles"/>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/blog/articles</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles"/>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://legomnia.com/blog/ressources</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/ressources"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/resources"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/ressources"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/blog/resources</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/ressources"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/resources"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/ressources"/>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://legomnia.com/blog/webinaires</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/webinaires"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/webinars"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/webinaires"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/blog/webinars</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/webinaires"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/webinars"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/webinaires"/>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -76,6 +209,17 @@
     <!-- FAQ -->
     <url>
         <loc>https://legomnia.com/faq</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/faq"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/faq"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/faq"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/faq</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/faq"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/faq"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/faq"/>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -83,16 +227,49 @@
     <!-- Pages légales (noindex mais présentes dans le sitemap pour cohérence) -->
     <url>
         <loc>https://legomnia.com/mentions-legales</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/mentions-legales"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/legal-notice"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/mentions-legales"/>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/legal-notice</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/mentions-legales"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/legal-notice"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/mentions-legales"/>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://legomnia.com/cgu</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/cgu"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/terms"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/cgu"/>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/terms</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/cgu"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/terms"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/cgu"/>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://legomnia.com/confidentialite</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/confidentialite"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/privacy"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/confidentialite"/>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/privacy</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/confidentialite"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/privacy"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/confidentialite"/>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>

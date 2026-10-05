@@ -187,6 +187,43 @@ curl -X DELETE -H "Authorization: Bearer $ADMIN_API_KEY" https://www.legomnia.co
 | `/cgu` | CGU |
 | `/cookies` | Politique cookies |
 
+Chaque page existe aussi en anglais sous `/en` avec un chemin traduit
+(ex. `/produits/omnia` → `/en/products/omnia`) : voir la section suivante.
+
+---
+
+## Version anglaise (FR / EN)
+
+Le français reste la langue par défaut (URL sans préfixe). La version anglaise
+est servie sous `/en`, et les boutons **FR / EN** du header basculent vers la
+même page dans l'autre langue.
+
+- **Correspondance des URL** : `frontend/src/i18n/routes.js` (`ROUTES`). Les
+  routes de `App.jsx` sont générées dans les deux langues à partir de ce fichier.
+- **Langue courante** : hook `useLang()` (`frontend/src/i18n/useLang.js`),
+  déduite de l'URL. Il fournit :
+  - `tr('texte FR', 'English text')` : texte (ou JSX) dans la langue courante,
+    utilisé directement dans les pages ;
+  - `lp('/contact')` : lien interne dans la langue courante (`/en/contact` en anglais).
+    **Tous les liens internes doivent passer par `lp()`.**
+  - `t({ fr, en })` : dictionnaire de la langue courante (header, footer et
+    accueil, dont les textes sont dans `frontend/src/locales/{fr,en}/`).
+- **SEO** : `SEOHead` génère le canonical dans la langue courante, les liens
+  `hreflang` (fr / en / x-default) et `og:locale`. Les pages anglaises sont
+  prérendues automatiquement et listées dans `public/sitemap.xml`.
+- **Formulaires** : les valeurs envoyées à l'API restent en français (seuls les
+  libellés sont traduits) ; les messages d'erreur de l'API sont traduits côté
+  front via `frontend/src/i18n/apiErrors.js` (à compléter si un message est
+  ajouté dans `backend/validators`).
+- **Blog** : un article peut avoir une version anglaise via les champs
+  `titleEn`, `recapEn`, `altEn`, `dateEn`, `nameEn` (catégories) et `htmlEn`
+  dans `ArticlesList.jsx` ; sinon l'article d'origine est affiché.
+- **Pages légales** : traduites à titre informatif, avec une mention indiquant
+  que la version française prévaut.
+
+Pour ajouter ou modifier un texte : écrire les deux versions côte à côte,
+`{tr("…", "…")}`.
+
 ---
 
 ## SEO — Prerendering
@@ -211,6 +248,8 @@ nginx sert ensuite ces fichiers nativement, sans configuration additionnelle.
 Toute nouvelle page utilisant le composant `SEOHead` (sans `noIndex`) doit
 être ajoutée manuellement à `STATIC_ROUTES` dans `frontend/prerender.js`,
 sous peine de ne pas être prérendue.
+La version anglaise de chaque route est ajoutée automatiquement (à condition
+que la page soit déclarée dans `frontend/src/i18n/routes.js`).
 
 ### Tester en local
 

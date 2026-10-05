@@ -24,6 +24,7 @@ const SEOHead = ({
     ogType = 'website',
     structuredData,
     noIndex = false,
+    contentLang, // langue du contenu si différente de celle du site (ex. article en anglais)
 }) => {
     const { lang } = useLang();
 
@@ -35,7 +36,7 @@ const SEOHead = ({
     const canonicalUrl = canonical ? urlFor(lang) : null;
 
     return (
-        <Helmet htmlAttributes={{ lang }}>
+        <Helmet htmlAttributes={{ lang: contentLang || lang }}>
             <title>{fullTitle}</title>
             <meta name="description" content={description} />
             {noIndex && <meta name="robots" content="noindex, nofollow" />}

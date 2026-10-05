@@ -14,9 +14,11 @@ const readStoredLang = () => {
 
 /**
  * - Met à jour l'attribut lang de <html> selon l'URL.
- * - À l'arrivée sur le site, redirige vers la langue choisie précédemment
- *   via le sélecteur FR / EN (uniquement si un choix a été mémorisé : pas de
- *   détection automatique, pour ne pas gêner l'indexation des moteurs).
+ * - À l'arrivée sur la page d'accueil, redirige vers la langue choisie
+ *   précédemment via le sélecteur FR / EN (uniquement si un choix a été
+ *   mémorisé : pas de détection automatique, pour ne pas gêner l'indexation
+ *   des moteurs). Un lien direct vers une page (ex. /en/contact) est toujours
+ *   respecté.
  */
 const LangSync = () => {
     const location = useLocation();
@@ -26,14 +28,15 @@ const LangSync = () => {
 
     useEffect(() => {
         document.documentElement.lang = lang;
-    }, [lang]);
+    }, [lang, location.pathname]);
 
     useEffect(() => {
         if (checked.current) return;
         checked.current = true;
 
+        const isHome = location.pathname === '/' || location.pathname === '/en';
         const stored = readStoredLang();
-        if (LANGS.includes(stored) && stored !== lang) {
+        if (isHome && LANGS.includes(stored) && stored !== lang) {
             const { pathname, search, hash } = location;
             navigate(localizePath(pathname + search + hash, stored), { replace: true });
         }

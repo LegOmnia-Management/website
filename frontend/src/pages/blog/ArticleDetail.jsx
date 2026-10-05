@@ -1,22 +1,23 @@
 import { Link, Navigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
 
 import '../../assets/styles/general.css';
 import '../../assets/styles/blog.css';
 
-import { articles, articlesContent } from './ArticlesList';
+import { articles, articlesContent, localizeArticle, localizeContent } from './ArticlesList';
 
 import HeroBg from '../../components/HeroBg';
 import SEOHead from '../../components/SEOHead';
+import useLang from '../../i18n/useLang';
 
 const ArticleDetail = () => {
 
     // recup slug article en cours
     const { slug } = useParams();
+    const { lang, lp, tr } = useLang();
 
-    // recup article en cours
-    const article = articles.find(a => a.slug === slug);
-    const content = articlesContent.find(c => c.slug === slug);
+    // recup article en cours (dans la langue du site si une traduction existe)
+    const article = localizeArticle(articles.find(a => a.slug === slug), lang);
+    const content = localizeContent(articlesContent.find(c => c.slug === slug), lang);
 
     // recup index article en cours
     const currentIndex = articles.findIndex(a => a.slug === slug);
@@ -31,13 +32,9 @@ const ArticleDetail = () => {
         ? articles[currentIndex + 1]
         : null;
     
-    useEffect(() => {
-        document.documentElement.lang = article.lang || 'fr'; 
-    }, [article]);
-
     // article introuvable -> redirection vers la liste
     if (!article) {
-        return <Navigate to="/blog/articles" replace />;
+        return <Navigate to={lp("/blog/articles")} replace />;
     }
 
     return (
@@ -48,6 +45,7 @@ const ArticleDetail = () => {
                 description={article.recap}
                 canonical={`/blog/articles/${article.slug}`}
                 image={article.img}
+                contentLang={article.lang}
             />
 
             <script
@@ -57,9 +55,9 @@ const ArticleDetail = () => {
                         "@context": "https://schema.org",
                         "@type": "BreadcrumbList",
                         "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://legomnia.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Articles", "item": "https://legomnia.com/blog/articles" },
-                            { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://legomnia.com/blog/articles/${article.slug}` }
+                            { "@type": "ListItem", "position": 1, "name": tr("Accueil", "Home"), "item": `https://legomnia.com${lp("/")}` },
+                            { "@type": "ListItem", "position": 2, "name": "Articles", "item": `https://legomnia.com${lp("/blog/articles")}` },
+                            { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://legomnia.com${lp(`/blog/articles/${article.slug}`)}` }
                         ]
                     })
                 }}
@@ -88,7 +86,7 @@ const ArticleDetail = () => {
                         },
                         "mainEntityOfPage": {
                             "@type": "WebPage",
-                            "@id": `https://legomnia.com/blog/articles/${article.slug}`
+                            "@id": `https://legomnia.com${lp(`/blog/articles/${article.slug}`)}`
                         }
                     })
                 }}
@@ -101,12 +99,12 @@ const ArticleDetail = () => {
 
                     {/* Breadcrumb */}
                     <section className="breadcrumb">
-                        <nav aria-label="Fil d'Ariane">
-                            <Link to="/">Accueil</Link> {'>'} <Link to="/blog/articles">Articles</Link> {'>'} <span>{article.title}</span>
+                        <nav aria-label={tr("Fil d'Ariane", "Breadcrumb")}>
+                            <Link to={lp("/")}>{tr("Accueil", "Home")}</Link> {'>'} <Link to={lp("/blog/articles")}>Articles</Link> {'>'} <span>{article.title}</span>
                         </nav>
                     </section>
                 
-                    <Link to="/blog/articles" className="detail__backLink">Retour à la liste des articles</Link>
+                    <Link to={lp("/blog/articles")} className="detail__backLink">{tr("Retour à la liste des articles", "Back to all articles")}</Link>
                     <header className="detail__header">
                         <img className="" src={article.img} alt={article.alt} loading="eager" fetchpriority="high" />
                         <div>
@@ -146,19 +144,19 @@ const ArticleDetail = () => {
                 <div className="container">
                     {previousArticle && (
                         <Link
-                            to={`/blog/articles/${previousArticle.slug}`}
+                            to={lp(`/blog/articles/${previousArticle.slug}`)}
                             className="detail__previous"
                         >
-                            Article précédent
+                            {tr("Article précédent", "Previous article")}
                         </Link>
                         )}
 
                         {nextArticle && (
                         <Link
-                            to={`/blog/articles/${nextArticle.slug}`}
+                            to={lp(`/blog/articles/${nextArticle.slug}`)}
                             className="detail__next"
                         >
-                            Article suivant
+                            {tr("Article suivant", "Next article")}
                         </Link>
                         )}
                 </div>

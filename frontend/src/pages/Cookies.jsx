@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 
 import HeroBg from '../components/HeroBg';
+import useLang from '../i18n/useLang';
 
 const Cookies = () => {
+    const { lp, tr } = useLang();
+
     return (
         <main className="main">
 
@@ -19,11 +22,11 @@ const Cookies = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            Page <em className='highlight'>bientôt disponible</em>
+                            Page <em className='highlight'>{tr("bientôt disponible", "coming soon")}</em>
                         </h1>
                     </div>
                     <div className="hero__actions">
-                        <Link className='ui__btn' to="/">Retour à l'accueil</Link>
+                        <Link className='ui__btn' to={lp("/")}>{tr("Retour à l'accueil", "Back to home")}</Link>
                     </div>
                 </div>
             </section>
