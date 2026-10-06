@@ -15,8 +15,8 @@ Modèle Mongoose : `backend/models/Contact.js`
 | Champ | Type | Obligatoire | Contraintes | Description |
 |-------|------|-------------|-------------|--------------|
 | `_id` | ObjectId | auto | généré par MongoDB | Identifiant unique du document |
-| `firstName` | String | ✅ | 2 à 50 caractères, trim | Prénom du contact |
-| `lastName` | String | ✅ | 2 à 50 caractères, trim | Nom du contact |
+| `firstName` | String | ✅* | 2 à 50 caractères, trim | Prénom du contact |
+| `lastName` | String | ✅* | 2 à 50 caractères, trim | Nom du contact |
 | `email` | String | ✅ | format email, trim, minuscules | Adresse e-mail du contact |
 | `phone` | String | ✅ | format `+?[0-9 ]{7,20}`, trim | Numéro de téléphone |
 | `company` | String | ❌ | max 100 caractères, trim, `null` par défaut | Entreprise du contact |
@@ -58,20 +58,23 @@ Modèle Mongoose : `backend/models/Contact.js`
 
 ## Collection : `waitlists`
 
-Stocke les inscriptions à la liste d'attente (`/liste-attente`, modèle `backend/models/Waitlist.js`).
+Stocke les inscriptions à la liste d'attente (`/liste-attente` et pop-up affichée à l'arrivée sur le site, modèle `backend/models/Waitlist.js`).
+
+La pop-up (`POST /api/waitlist/quick`) ne demande que l'e-mail : les champs marqués ✅* ne sont obligatoires que pour `source: "page"`. Si une adresse inscrite via la pop-up remplit ensuite le formulaire complet, sa fiche est complétée (`source` passe à `page`).
 
 | Champ | Type | Requis | Contraintes | Description |
 |-------|------|--------|-------------|-------------|
-| `firstName` | String | ✅ | 2 à 50 caractères, trim | Prénom |
-| `lastName` | String | ✅ | 2 à 50 caractères, trim | Nom |
+| `firstName` | String | ✅* | 2 à 50 caractères, trim | Prénom |
+| `lastName` | String | ✅* | 2 à 50 caractères, trim | Nom |
 | `email` | String | ✅ | format email, minuscules, **unique** | Adresse e-mail |
 | `organization` | String | ❌ | max 100 caractères, `null` par défaut | Cabinet, entreprise, institution |
-| `profile` | String | ✅ | valeur de `WAITLIST_PROFILES` | Profil (Avocat, Magistrat, Étudiant…) |
-| `country` | String | ✅ | max 60 caractères | Pays |
+| `profile` | String | ✅* | valeur de `WAITLIST_PROFILES` | Profil (Avocat, Magistrat, Étudiant…) |
+| `country` | String | ✅* | max 60 caractères | Pays |
 | `products` | [String] | ❌ | valeurs de `WAITLIST_PRODUCTS` | Produits d'intérêt (Omnia, Géode, Omniscan) |
 | `consentAccepted` | Boolean | ✅ | | Consentement à la politique de confidentialité |
 | `consentAcceptedAt` | Date | ❌ | `Date.now` par défaut | Date du consentement |
 | `newsletter` | Boolean | ❌ | `false` par défaut | Opt-in actualités |
+| `source` | String | ❌ | `page` ou `popup`, `page` par défaut | Origine de l'inscription |
 | `createdAt` / `updatedAt` | Date | auto | | Timestamps Mongoose |
 
 ---

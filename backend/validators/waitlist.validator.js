@@ -58,4 +58,17 @@ const validateWaitlist = [
     returnErrors
 ];
 
-export { validateWaitlist };
+// pop-up : seule l'adresse e-mail est demandée
+const validateWaitlistQuick = [
+    body("email")
+        .trim()
+        .notEmpty()
+        .withMessage("L'email est obligatoire")
+        .bail()
+        .isEmail()
+        .withMessage("L'email est invalide"),
+
+    returnErrors
+];
+
+export { validateWaitlist, validateWaitlistQuick };

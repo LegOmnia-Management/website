@@ -18,18 +18,26 @@ export const WAITLIST_PRODUCTS = [
     "Omniscan"
 ];
 
+// origine de l'inscription : formulaire complet (/liste-attente) ou pop-up (e-mail seul)
+export const WAITLIST_SOURCES = ["page", "popup"];
+
+// champs obligatoires uniquement pour le formulaire complet
+const requiredOnPage = function () {
+    return this.source !== "popup";
+};
+
 const waitlistSchema = new mongoose.Schema(
     {
         firstName: {
             type: String,
-            required: true,
+            required: requiredOnPage,
             trim: true,
             minlength: 2,
             maxlength: 50
         },
         lastName: {
             type: String,
-            required: true,
+            required: requiredOnPage,
             trim: true,
             minlength: 2,
             maxlength: 50
@@ -50,12 +58,12 @@ const waitlistSchema = new mongoose.Schema(
         },
         profile: {
             type: String,
-            required: true,
+            required: requiredOnPage,
             enum: WAITLIST_PROFILES
         },
         country: {
             type: String,
-            required: true,
+            required: requiredOnPage,
             trim: true,
             maxlength: 60
         },
@@ -75,6 +83,11 @@ const waitlistSchema = new mongoose.Schema(
         newsletter: {
             type: Boolean,
             default: false
+        },
+        source: {
+            type: String,
+            enum: WAITLIST_SOURCES,
+            default: "page"
         }
     },
     {

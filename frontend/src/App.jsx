@@ -25,6 +25,7 @@ import Webinaires from './pages/blog/Webinaires';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import WaitlistPopup from './components/WaitlistPopup';
 
 import { ROUTES, LANGS } from './i18n/routes';
 
@@ -77,6 +78,7 @@ function App() {
             </Routes>
 
             <Footer/>
+            <WaitlistPopup/>
         </BrowserRouter>
     )
 }
