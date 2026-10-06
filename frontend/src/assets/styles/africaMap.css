@@ -95,6 +95,21 @@
     }
   }
   
+  .africa-map-country-flag {
+    width: 28px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+  }
+
+  .africa-map-country-name--with-flag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
   .africa-map-country-name {
     font-size: 20px;
     font-weight: 600;

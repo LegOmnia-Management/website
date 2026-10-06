@@ -104,6 +104,19 @@ const TEXTS = {
   },
 };
 
+// Codes ISO alpha-2 (pour les drapeaux)
+const ISO2 = {
+  BEN: "bj", BFA: "bf", CMR: "cm", COM: "km", COG: "cg", CIV: "ci", GAB: "ga", GIN: "gn",
+  GNB: "gw", GNQ: "gq", MLI: "ml", NER: "ne", CAF: "cf", COD: "cd", SEN: "sn", TCD: "td",
+  TGO: "tg", CPV: "cv", GMB: "gm", GHA: "gh", LBR: "lr", NGA: "ng", SLE: "sl", BDI: "bi",
+  DJI: "dj", EGY: "eg", ERI: "er", SWZ: "sz", ETH: "et", KEN: "ke", LBY: "ly", MDG: "mg",
+  MWI: "mw", MUS: "mu", UGA: "ug", RWA: "rw", SYC: "sc", SOM: "so", SDN: "sd", TUN: "tn",
+  ZMB: "zm", ZWE: "zw", DZA: "dz", AGO: "ao", ZAF: "za", ESH: "eh", BWA: "bw", MAR: "ma",
+  MOZ: "mz", NAM: "na", TZA: "tz", SSD: "ss", STP: "st", LSO: "ls", MRT: "mr",
+};
+
+const flagUrl = (iso) => (ISO2[iso] ? `https://flagcdn.com/${ISO2[iso]}.svg` : null);
+
 const countryName = (data, lang) => (lang === "en" ? data.nameEn : data.name);
 
 const ORG_COLORS = {
@@ -329,7 +342,18 @@ export default function AfricaMap() {
           <div className="africa-map-country-info">
             {selected ? (
               <div className="africa-map-country-detail">
-                <h3 className="africa-map-country-name">{countryName(selected, lang)}</h3>
+                <h3 className="africa-map-country-name africa-map-country-name--with-flag">
+                  {flagUrl(selectedCountry) && (
+                    <img
+                      className="africa-map-country-flag"
+                      src={flagUrl(selectedCountry)}
+                      alt=""
+                      width="28"
+                      height="20"
+                    />
+                  )}
+                  {countryName(selected, lang)}
+                </h3>
                 <p className="africa-map-country-orgs-label">{txt.organisations}</p>
                 <div className="africa-map-country-orgs">
                   {selected.orgs && selected.orgs.length > 0 ? (
