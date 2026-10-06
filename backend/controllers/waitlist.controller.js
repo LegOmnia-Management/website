@@ -28,87 +28,130 @@ const honeypot = (req, res, next) => {
     next();
 };
 
-/********** CREATE **********/
+// Email notif (optionnel : ignoré si Resend n'est pas configuré,
+// et une erreur d'envoi ne fait jamais échouer l'inscription)
+const notify = async (subject, rows) => {
+    if (!process.env.RESEND_API_KEY) return;
+    try {
+        const resend = new Resend(process.env.RESEND_API_KEY);
+        const { error: emailError } = await resend.emails.send({
+            from: "onboarding@resend.dev",
+            to: WAITLIST_EMAIL,
+            replyTo: rows.Email,
+            subject,
+            html: `
+                <p><strong>Nouvelle inscription sur la liste d'attente</strong></p>
+                <hr/>
+                ${Object.entries(rows).map(([label, value]) =>
+                    `<p><strong>${label} :</strong> ${escapeHtml(value || "-")}</p>`
+                ).join("")}
+            `,
+        });
+        if (emailError) {
+            console.error("Erreur envoi email :", emailError.message);
+        }
+    } catch (emailError) {
+        console.error("Erreur envoi email :", emailError.message);
+    }
+};
+
+const success = (res) => res.status(201).json({
+    success: true,
+    message: SUCCESS_MESSAGE
+});
+
+const serverError = (res, error) => {
+    if (process.env.NODE_ENV === "development") {
+        console.error("Erreur serveur :", error);
+    }
+    return res.status(500).json({ 
+        success: false,
+        message: "Erreur serveur" 
+    });
+};
+
+/********** CREATE (formulaire complet) **********/
 const createWaitlist = async (req, res) => {
 
     try {
         const { firstName, lastName, email, organization, profile, country, products, newsletter } = req.body;
 
-        // déjà inscrit : même réponse, pour ne pas révéler qui est sur la liste
-        const existing = await Waitlist.findOne({ email: email.toLowerCase() });
-        if (existing) {
-            return res.status(201).json({
-                success: true,
-                message: SUCCESS_MESSAGE
-            });
-        }
-
-        const entry = await Waitlist.create({
+        const details = {
             firstName,
             lastName,
-            email,
             organization: organization || null,
             profile,
             country,
             products: products || [],
             consentAccepted: true,
-            newsletter: newsletter === "on"
-        });
+            consentAcceptedAt: Date.now(),
+            newsletter: newsletter === "on",
+            source: "page"
+        };
 
-        // Email notif (optionnel : ignoré si Resend n'est pas configuré,
-        // et une erreur d'envoi ne fait jamais échouer l'inscription)
-        if (process.env.RESEND_API_KEY) {
-            try {
-                const resend = new Resend(process.env.RESEND_API_KEY);
-                const { error: emailError } = await resend.emails.send({
-                    from: "onboarding@resend.dev",
-                    to: WAITLIST_EMAIL,
-                    replyTo: entry.email,
-                    subject: `Liste d'attente : ${entry.firstName} ${entry.lastName}`,
-                    html: `
-                        <p><strong>Nouvelle inscription sur la liste d'attente</strong></p>
-                        <hr/>
-                        <p><strong>Nom :</strong> ${escapeHtml(entry.firstName)} ${escapeHtml(entry.lastName)}</p>
-                        <p><strong>Email :</strong> ${escapeHtml(entry.email)}</p>
-                        <p><strong>Organisation :</strong> ${escapeHtml(entry.organization || "-")}</p>
-                        <p><strong>Profil :</strong> ${escapeHtml(entry.profile)}</p>
-                        <p><strong>Pays :</strong> ${escapeHtml(entry.country)}</p>
-                        <p><strong>Produits :</strong> ${escapeHtml(entry.products.join(", ") || "-")}</p>
-                        <p><strong>Newsletter :</strong> ${entry.newsletter ? "Oui" : "Non"}</p>
-                    `,
-                });
-                if (emailError) {
-                    console.error("Erreur envoi email :", emailError.message);
-                }
-            } catch (emailError) {
-                console.error("Erreur envoi email :", emailError.message);
-            }
+        const existing = await Waitlist.findOne({ email: email.toLowerCase() });
+        let entry;
+
+        if (existing?.source === "popup") {
+            // inscrit via la pop-up (e-mail seul) : on complète sa fiche
+            entry = await Waitlist.findByIdAndUpdate(existing._id, details, { new: true, runValidators: true });
+        } else if (existing) {
+            // déjà inscrit : même réponse, pour ne pas révéler qui est sur la liste
+            return success(res);
+        } else {
+            entry = await Waitlist.create({ email, ...details });
         }
+
+        await notify(`Liste d'attente : ${entry.firstName} ${entry.lastName}`, {
+            "Nom": `${entry.firstName} ${entry.lastName}`,
+            "Email": entry.email,
+            "Organisation": entry.organization,
+            "Profil": entry.profile,
+            "Pays": entry.country,
+            "Produits": entry.products.join(", "),
+            "Newsletter": entry.newsletter ? "Oui" : "Non",
+            "Source": existing ? "Formulaire complet (complète une inscription pop-up)" : "Formulaire complet",
+        });
 
         // retour de l'API (sans renvoyer les données personnelles)
-        return res.status(201).json({
-            success: true,
-            message: SUCCESS_MESSAGE
-        });
+        return success(res);
     } catch (error) {
         // inscription simultanée avec la même adresse (index unique)
-        if (error?.code === 11000) {
-            return res.status(201).json({
-                success: true,
-                message: SUCCESS_MESSAGE
-            });
-        }
-        if (process.env.NODE_ENV === "development") {
-            console.error("Erreur serveur :", error);
-        }
-        return res.status(500).json({ 
-            success: false,
-            message: "Erreur serveur" 
+        if (error?.code === 11000) return success(res);
+        return serverError(res, error);
+    }
+};
+
+/********** CREATE (pop-up, e-mail seul) **********/
+const createWaitlistQuick = async (req, res) => {
+
+    try {
+        const { email } = req.body;
+
+        // déjà inscrit : même réponse, pour ne pas révéler qui est sur la liste
+        const existing = await Waitlist.findOne({ email: email.toLowerCase() });
+        if (existing) return success(res);
+
+        const entry = await Waitlist.create({
+            email,
+            consentAccepted: true,
+            source: "popup"
         });
+
+        await notify(`Liste d'attente (pop-up) : ${entry.email}`, {
+            "Email": entry.email,
+            "Source": "Pop-up (e-mail seul)",
+        });
+
+        return success(res);
+    } catch (error) {
+        if (error?.code === 11000) return success(res);
+        return serverError(res, error);
     }
 };
 
 export { 
     honeypot,
-    createWaitlist
+    createWaitlist,
+    createWaitlistQuick
 };
