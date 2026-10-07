@@ -16,8 +16,10 @@ import guineeBissau from './guinee-bissau';
 import tchad from './tchad';
 import guineeEquatoriale from './guinee-equatoriale';
 import comores from './comores';
+import { diversify } from './diversify';
 
-export const JURISDICTIONS = {
+// Les questions des quiz sont réparties entre pays pour limiter les répétitions
+export const JURISDICTIONS = diversify({
     COD: rdc,
     CIV: coteDIvoire,
     SEN: senegal,
@@ -35,4 +37,4 @@ export const JURISDICTIONS = {
     TCD: tchad,
     GNQ: guineeEquatoriale,
     COM: comores,
-};
+});
