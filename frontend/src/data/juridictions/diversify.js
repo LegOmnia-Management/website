@@ -10,7 +10,8 @@
 import { QUIZ_POOL, ARBITER_POOL } from './quizPool';
 
 const SECTIONS = {
-    quiz: { pool: QUIZ_POOL, key: (item) => `${item.q}|${item.o.join('|')}` },
+    // Même question et même bonne réponse = doublon (la Constitution de chaque pays reste distincte)
+    quiz: { pool: QUIZ_POOL, key: (item) => `${item.q}|${item.o[item.a]}` },
     arbiter: { pool: ARBITER_POOL, key: (item) => item.q },
 };
 
@@ -39,7 +40,8 @@ export const diversify = (jurisdictions) => {
             const en = country.content.en.games[section];
             const rand = seeded(hash(`${iso}-${section}`));
             const memberOf = new Set(country.content.fr.orgs.items.map((org) => org.id));
-            const candidates = shuffle(pool.filter((p) => !p.requires || memberOf.has(p.requires)), rand);
+            const applies = (p) => !p.requires || [].concat(p.requires).some((org) => memberOf.has(org));
+            const candidates = shuffle(pool.filter(applies), rand);
             const local = new Set(fr.items.map(key));
 
             const frItems = [...fr.items];
