@@ -15,6 +15,8 @@ const BASE_URL = 'https://legomnia.com';
 // Dimensions du support interactif (conçu à largeur fixe)
 const MAP_WIDTH = 1600;
 const MAP_HEIGHT = 1040;
+// Largeur de la partie carte du support, cadrée seule sur écran étroit
+const MAP_FOCUS_WIDTH = 880;
 
 /**
  * Page juridiction d'un pays : /juridictions/:slug (FR) et /en/jurisdictions/:slug (EN).
@@ -110,6 +112,7 @@ const CountryPage = () => {
                     title={c.map.frameTitle}
                     width={MAP_WIDTH}
                     height={MAP_HEIGHT}
+                    focusWidth={MAP_FOCUS_WIDTH}
                     openLabel={c.map.open}
                     caption={c.map.text}
                 />

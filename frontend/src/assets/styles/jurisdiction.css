@@ -232,12 +232,22 @@
 
 .scaled-frame__viewport {
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     border-radius: var(--radiusMd);
     box-shadow: var(--boxShadow);
     background: #0E0A24;
 
+    .scaled-frame__sizer {
+        position: relative;
+        overflow: hidden;
+    }
+
     iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
         border: 0;
         display: block;
         transform-origin: top left;

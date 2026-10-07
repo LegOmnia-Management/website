@@ -9,6 +9,7 @@
  */
 export const COUNTRY_PAGES = {
     COD: { fr: 'rdc', en: 'drc' },
+    CIV: { fr: 'cote-d-ivoire', en: 'cote-d-ivoire' },
 };
 
 export const JURISDICTION_BASE = { fr: '/juridictions/', en: '/en/jurisdictions/' };
