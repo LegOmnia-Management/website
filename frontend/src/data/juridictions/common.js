@@ -15,6 +15,7 @@ export const ORG_COLORS = {
     UEMOA: '#db4f9b', ENTENTE: '#3b82f6', ABN: '#16a34a', OMVS: '#3b82f6',
     OMVG: '#0d9488', MRU: '#9333ea', ZMAO: '#e11d48', AES: '#14a89a',
     CEMAC: '#db4f9b', CEEAC: '#14a89a', CBLT: '#16a34a', COMIFAC: '#3b82f6',
+    COMESA: '#db4f9b', SADC: '#3b82f6', COI: '#16a34a',
 };
 
 // ─── Organisations ──────────────────────────────────────────────────────────
@@ -148,6 +149,33 @@ export const ORGS = {
         effect: pick(lang, `Conventions soumises au régime général des traités (${law.fr}).`, `Conventions subject to the general treaty regime (${law.en}).`),
         court: pick(lang, 'Pas de juridiction communautaire.', 'No community court.'),
         data: pick(lang, 'Conventions de bassin et textes sur la gestion des ressources partagées.', 'Basin conventions and texts on the management of shared resources.'),
+    }),
+    COMESA: (lang, { membership }) => ({
+        id: 'COMESA', sig: 'COMESA', members: 21,
+        name: pick(lang, "Marché commun de l'Afrique orientale et australe", 'Common Market for Eastern and Southern Africa'),
+        seat: 'Lusaka', membership,
+        approach: pick(lang, 'Zone de libre-échange et règlements communautaires, dont un contrôle régional des concentrations par la Commission de la concurrence.', 'Free trade area and community regulations, including regional merger control by the Competition Commission.'),
+        effect: pick(lang, "Les règlements de concurrence s'imposent aux opérations transfrontalières concernant les États membres.", 'Competition regulations apply to cross-border transactions involving member states.'),
+        court: pick(lang, 'Cour de justice du COMESA.', 'COMESA Court of Justice.'),
+        data: pick(lang, 'Décisions de la Commission de la concurrence et de la Cour, utiles aux opérations transfrontalières.', 'Decisions of the Competition Commission and the Court, useful for cross-border transactions.'),
+    }),
+    SADC: (lang, { membership }) => ({
+        id: 'SADC', sig: 'SADC', members: 16,
+        name: pick(lang, "Communauté de développement de l'Afrique australe", 'Southern African Development Community'),
+        seat: 'Gaborone', membership,
+        approach: pick(lang, 'Intégration par protocoles sectoriels (commerce, finance et investissement, énergie…), chacun soumis à ratification.', 'Integration through sector protocols (trade, finance and investment, energy…), each subject to ratification.'),
+        effect: pick(lang, "Effet subordonné à la ratification de chaque protocole et à son intégration dans l'ordre interne.", 'Effect depends on the ratification of each protocol and its incorporation into domestic law.'),
+        court: pick(lang, 'Tribunal de la SADC suspendu depuis 2010.', 'SADC Tribunal suspended since 2010.'),
+        data: pick(lang, 'Cartographie des protocoles ratifiés et de leurs textes nationaux de mise en œuvre.', 'Mapping of ratified protocols and their national implementing texts.'),
+    }),
+    COI: (lang, { membership, law }) => ({
+        id: 'COI', sig: pick(lang, 'COI', 'IOC'), members: 5,
+        name: pick(lang, "Commission de l'océan Indien", 'Indian Ocean Commission'),
+        seat: pick(lang, 'Ebène (Maurice)', 'Ebene (Mauritius)'), membership,
+        approach: pick(lang, "Coopération entre États insulaires du sud-ouest de l'océan Indien : environnement, sécurité maritime, santé, économie bleue.", 'Cooperation between island states of the south-western Indian Ocean: environment, maritime security, health, blue economy.'),
+        effect: pick(lang, `Accords de coopération soumis au régime général des traités (${law.fr}).`, `Cooperation agreements subject to the general treaty regime (${law.en}).`),
+        court: pick(lang, 'Pas de juridiction communautaire.', 'No community court.'),
+        data: pick(lang, 'Textes de coopération régionale insulaire.', 'Regional island cooperation texts.'),
     }),
     COMIFAC: (lang, { membership, law }) => ({
         id: 'COMIFAC', sig: 'COMIFAC', members: 10,
@@ -311,6 +339,6 @@ export const QUIZ = {
 };
 
 // ─── Phrase « où en est LegOmnia » ──────────────────────────────────────────
-export const LEGOMNIA_STATUS = (lang, { adjFr, adjEn, dont, au }) => pick(lang,
-    { q: `Où en est LegOmnia sur le droit ${adjFr} ?`, a: `${dont.charAt(0).toUpperCase() + dont.slice(1)} fait partie de nos juridictions prioritaires, et son intégration est en cours. Nous construisons la couverture étape par étape : le droit OHADA, commun aux 17 États membres, en constitue le socle, et les textes et la jurisprudence propres au droit ${adjFr} viennent l'enrichir progressivement. Les inscrits à la liste d'attente seront informés en priorité de chaque nouvelle avancée. OmniScan peut, dès aujourd'hui, être déployé ${au} pour numériser et indexer des fonds documentaires juridiques.` },
+export const LEGOMNIA_STATUS = (lang, { adjFr, adjEn, dont, au, plural = false }) => pick(lang,
+    { q: `Où en est LegOmnia sur le droit ${adjFr} ?`, a: `${dont.charAt(0).toUpperCase() + dont.slice(1)} ${plural ? 'font' : 'fait'} partie de nos juridictions prioritaires, et ${plural ? 'leur' : 'son'} intégration est en cours. Nous construisons la couverture étape par étape : le droit OHADA, commun aux 17 États membres, en constitue le socle, et les textes et la jurisprudence propres au droit ${adjFr} viennent l'enrichir progressivement. Les inscrits à la liste d'attente seront informés en priorité de chaque nouvelle avancée. OmniScan peut, dès aujourd'hui, être déployé ${au} pour numériser et indexer des fonds documentaires juridiques.` },
     { q: `Where does LegOmnia stand on ${adjEn} law?`, a: `This is one of our priority jurisdictions and its integration is under way. We are building coverage step by step: OHADA law, shared by the 17 member states, is the foundation, progressively enriched with texts and case law specific to ${adjEn} law. People on the waitlist will be the first to hear about each new milestone. OmniScan can already be deployed there today to digitise and index legal document collections.` });

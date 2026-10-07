@@ -1,12 +1,70 @@
 /**
- * Gabarit des pages des pays de la CEMAC (Cameroun, Gabon, Congo, Centrafrique…).
+ * Gabarit des pages des pays d'une union monétaire membre de l'OHADA :
+ * CEMAC (Cameroun, Gabon, Congo, Centrafrique, Tchad, Guinée équatoriale)
+ * ou UEMOA (Burkina Faso, Niger, Togo, Guinée-Bissau).
  *
- * Le contenu commun (CEMAC, CEEAC, OHADA, quiz, FAQ) est construit ici ;
+ * Le contenu commun (union, OHADA, quiz, FAQ) est construit ici ;
  * chaque pays fournit ses spécificités dans un objet `cfg` aux valeurs { fr, en }.
  */
-import { ORG_COLORS, ARTICULATION_OHADA_CEMAC, GAMES_UI, ARBITER_END, QUIZ_END, QUIZ, LEGOMNIA_STATUS } from './common';
+import { ORG_COLORS, ARTICULATION_OHADA_CEMAC, ARTICULATION_OHADA_UEMOA, GAMES_UI, ARBITER_END, QUIZ_END, QUIZ, LEGOMNIA_STATUS } from './common';
 
-export const buildCemacPage = (cfg) => {
+// Textes propres à chaque union monétaire
+const ZONES = {
+    CEMAC: {
+        seoOrgs: { fr: 'OHADA, CEMAC, CEEAC', en: 'OHADA, CEMAC, ECCAS' },
+        eyebrow: { fr: 'Juridiction · Afrique centrale', en: 'Jurisdiction · Central Africa' },
+        lawOf: { fr: 'le droit de la CEMAC', en: 'CEMAC law' },
+        level2: {
+            t: { fr: 'Droit OHADA et droit CEMAC', en: 'OHADA and CEMAC law' },
+            d: { fr: 'Les Actes uniformes OHADA et les règlements de la CEMAC sont directement applicables et priment toute disposition contraire de droit interne, antérieure ou postérieure.', en: 'OHADA Uniform Acts and CEMAC regulations are directly applicable and prevail over any conflicting provision of domestic law, whether earlier or later.' },
+            basis: { fr: 'Traité OHADA, art. 10 ; Traité CEMAC', en: 'OHADA Treaty, art. 10; CEMAC Treaty' },
+            guard: { fr: 'CCJA (Abidjan), Cour de justice de la CEMAC', en: 'CCJA (Abidjan), CEMAC Court of Justice' },
+        },
+        articulation: ARTICULATION_OHADA_CEMAC,
+        regulationCase: {
+            fr: { q: 'Un règlement de la CEMAC sur les établissements de crédit entre en conflit avec une loi nationale.', o: ['La loi nationale', 'Le règlement de la CEMAC'], a: 1, e: 'Les règlements de la CEMAC sont directement applicables et priment le droit national contraire.' },
+            en: { q: 'A CEMAC regulation on credit institutions conflicts with a national statute.', o: ['The national statute', 'The CEMAC regulation'], a: 1, e: 'CEMAC regulations are directly applicable and prevail over conflicting national law.' },
+        },
+        quizFirst: (lang, cfg) => QUIZ.notUemoa(lang, cfg.le.fr, cfg.le.en),
+        quizRest: (lang, adjFr, adjEn) => [
+            QUIZ.beac(lang), QUIZ.cemacCommission(lang), QUIZ.cemacCourt(lang), QUIZ.ceeacSeat(lang),
+            QUIZ.cemacCount(lang), QUIZ.cemacRegulation(lang, adjFr, adjEn), QUIZ.cemacVsCeeac(lang),
+        ],
+        currencyFaq: (cfg) => ({
+            fr: { q: `${cfg.Le.fr} utilise-t-${cfg.pronoun.fr} le même franc CFA que le Sénégal ou la Côte d'Ivoire ?`, a: `Non. ${cfg.Le.fr} est membre de la CEMAC, dont le franc CFA (XAF) est émis par la Banque des États de l'Afrique centrale (BEAC), qui siège à Yaoundé. Le Sénégal et la Côte d'Ivoire relèvent de l'UEMOA, dont le franc CFA (XOF) est émis par la BCEAO. Les deux monnaies ont la même parité mais sont distinctes.` },
+            en: { q: `Does ${cfg.le.en} use the same CFA franc as Senegal or Côte d'Ivoire?`, a: `No. ${cfg.Le.en} is a member of CEMAC, whose CFA franc (XAF) is issued by the Bank of Central African States (BEAC), headquartered in Yaoundé. Senegal and Côte d'Ivoire belong to WAEMU, whose CFA franc (XOF) is issued by the BCEAO. The two currencies have the same parity but are distinct.` },
+        }),
+        treaty: { fr: 'Traité de la CEMAC', en: 'CEMAC Treaty' },
+    },
+    UEMOA: {
+        seoOrgs: { fr: 'OHADA, UEMOA', en: 'OHADA, WAEMU' },
+        eyebrow: { fr: "Juridiction · Afrique de l'Ouest", en: 'Jurisdiction · West Africa' },
+        lawOf: { fr: "le droit de l'UEMOA", en: 'WAEMU law' },
+        level2: {
+            t: { fr: 'Droit OHADA et droit UEMOA', en: 'OHADA and WAEMU law' },
+            d: { fr: "Les Actes uniformes OHADA et les règlements de l'UEMOA sont directement applicables et priment toute disposition contraire de droit interne, antérieure ou postérieure. Les directives de l'UEMOA doivent, elles, être transposées.", en: 'OHADA Uniform Acts and WAEMU regulations are directly applicable and prevail over any conflicting provision of domestic law, whether earlier or later. WAEMU directives, by contrast, must be transposed.' },
+            basis: { fr: 'Traité OHADA, art. 10 ; Traité UEMOA', en: 'OHADA Treaty, art. 10; WAEMU Treaty' },
+            guard: { fr: "CCJA (Abidjan), Cour de justice de l'UEMOA", en: 'CCJA (Abidjan), WAEMU Court of Justice' },
+        },
+        articulation: ARTICULATION_OHADA_UEMOA,
+        regulationCase: {
+            fr: { q: "Un règlement de l'UEMOA sur les relations financières extérieures entre en conflit avec une loi nationale.", o: ['La loi nationale', "Le règlement de l'UEMOA"], a: 1, e: "Les règlements de l'UEMOA sont directement applicables et priment le droit national contraire." },
+            en: { q: 'A WAEMU regulation on external financial relations conflicts with a national statute.', o: ['The national statute', 'The WAEMU regulation'], a: 1, e: 'WAEMU regulations are directly applicable and prevail over conflicting national law.' },
+        },
+        quizFirst: (lang, cfg) => QUIZ.notCemac(lang, cfg.le.fr, cfg.le.en),
+        quizRest: (lang, adjFr, adjEn) => [
+            QUIZ.bceao(lang), QUIZ.uemoaSeat(lang), QUIZ.uemoaCount(lang),
+            QUIZ.uemoaRegulation(lang, adjFr, adjEn), QUIZ.portLouis(lang),
+        ],
+        currencyFaq: (cfg) => ({
+            fr: { q: `${cfg.Le.fr} est-${cfg.pronoun.fr} membre de la CEMAC ?`, a: `Non. ${cfg.Le.fr} est membre de l'UEMOA (Union économique et monétaire ouest-africaine), dont le franc CFA (XOF) est émis par la BCEAO, qui siège à Dakar. La CEMAC regroupe six États d'Afrique centrale, dont le franc CFA (XAF) est émis par une autre banque centrale, la BEAC.` },
+            en: { q: `Is ${cfg.le.en} a member of CEMAC?`, a: `No. ${cfg.Le.en} is a member of WAEMU (West African Economic and Monetary Union), whose CFA franc (XOF) is issued by the BCEAO, headquartered in Dakar. CEMAC brings together six Central African states, whose CFA franc (XAF) is issued by a different central bank, the BEAC.` },
+        }),
+        treaty: { fr: "Traité de l'UEMOA", en: 'WAEMU Treaty' },
+    },
+};
+
+const buildZonePage = (cfg, Z) => {
     const build = (lang) => {
         const t = (fr, en) => (lang === 'en' ? en : fr);
         const L = (pair) => pair[lang];
@@ -18,12 +76,12 @@ export const buildCemacPage = (cfg) => {
 
         return {
             seo: {
-                title: t(`Droit ${cfg.au.fr} : OHADA, CEMAC, CEEAC et hiérarchie des normes`, `${cfg.name.en} law: OHADA, CEMAC, ECCAS and hierarchy of norms`),
+                title: t(`Droit ${cfg.au.fr} : ${Z.seoOrgs.fr} et hiérarchie des normes`, `${cfg.name.en} law: ${Z.seoOrgs.en} and hierarchy of norms`),
                 description: L(cfg.seoDescription),
             },
             breadcrumb: { home: t('Accueil', 'Home'), jurisdictions: t('Juridictions', 'Jurisdictions'), current: L(cfg.name) },
             hero: {
-                eyebrow: t('Juridiction · Afrique centrale', 'Jurisdiction · Central Africa'),
+                eyebrow: L(Z.eyebrow),
                 titlePrefix: L(cfg.titlePrefix),
                 titleCountry: L(cfg.titleCountry || cfg.name),
                 intro: L(cfg.intro),
@@ -43,7 +101,7 @@ export const buildCemacPage = (cfg) => {
                 overlapTitle: t('Le « bol de spaghettis » régional', 'The regional "spaghetti bowl"'),
                 overlap: L(cfg.overlap),
             },
-            articulation: ARTICULATION_OHADA_CEMAC(lang, L(cfg.le)),
+            articulation: Z.articulation(lang, L(cfg.le)),
             map: {
                 title: t('Carte interactive', 'Interactive map'),
                 text: t(`Sélectionnez une organisation pour voir ses membres, ou affichez les chevauchements avec ${cfg.le.fr}. Le défi carte propose six questions de géographie juridique.`, `Select an organization to see its members, or display overlaps with ${cfg.le.en}. The map challenge offers six legal geography questions. The map is in French.`),
@@ -52,11 +110,11 @@ export const buildCemacPage = (cfg) => {
             },
             norms: {
                 title: t("Quelle norme l'emporte ?", 'Which norm prevails?'),
-                intro: t(`L'ordre juridique ${adjFr} s'organise en cinq niveaux. Le droit OHADA et le droit de la CEMAC y occupent une place particulière : directement applicables, ils s'imposent même à une loi postérieure.`, `The ${adjEn} legal order has five levels. OHADA law and CEMAC law hold a special place: directly applicable, they prevail even over a later statute.`),
+                intro: t(`L'ordre juridique ${adjFr} s'organise en cinq niveaux. Le droit OHADA et ${Z.lawOf.fr} y occupent une place particulière : directement applicables, ils s'imposent même à une loi postérieure.`, `The ${adjEn} legal order has five levels. OHADA law and ${Z.lawOf.en} hold a special place: directly applicable, they prevail even over a later statute.`),
                 labels: { basis: t('Fondement', 'Legal basis'), guard: t('Gardien', 'Guardian'), strength: t('Force juridique croissante', 'Increasing legal force') },
                 levels: [
                     { k: t('Niveau 1 · norme suprême', 'Level 1 · supreme norm'), t: 'Constitution', d: level1, basis: L(cfg.refs.revise || { fr: 'Constitution', en: 'Constitution' }), guard: L(cfg.constitutionalCourt) },
-                    { k: t('Niveau 2 · supranational', 'Level 2 · supranational'), t: t('Droit OHADA et droit CEMAC', 'OHADA and CEMAC law'), d: t('Les Actes uniformes OHADA et les règlements de la CEMAC sont directement applicables et priment toute disposition contraire de droit interne, antérieure ou postérieure.', 'OHADA Uniform Acts and CEMAC regulations are directly applicable and prevail over any conflicting provision of domestic law, whether earlier or later.'), basis: t('Traité OHADA, art. 10 ; Traité CEMAC', 'OHADA Treaty, art. 10; CEMAC Treaty'), guard: t('CCJA (Abidjan), Cour de justice de la CEMAC', 'CCJA (Abidjan), CEMAC Court of Justice') },
+                    { k: t('Niveau 2 · supranational', 'Level 2 · supranational'), t: L(Z.level2.t), d: L(Z.level2.d), basis: L(Z.level2.basis), guard: L(Z.level2.guard) },
                     { k: t('Niveau 3 · conventionnel', 'Level 3 · treaties'), t: t('Traités et accords ratifiés', 'Ratified treaties and agreements'), d: t(`${cfg.treatyList.fr} : les traités régulièrement ratifiés et publiés ont une autorité supérieure à celle des lois, sous réserve de réciprocité.`, `${cfg.treatyList.en}: duly ratified and published treaties prevail over statutes, subject to reciprocity.`), basis: L(cfg.refs.authority), guard: t('Juridictions nationales et communautaires', 'National and community courts') },
                     { k: t('Niveau 4 · législatif', 'Level 4 · legislative'), t: t('Lois et ordonnances', 'Statutes and ordinances'), d: t('Lois organiques, lois ordinaires et ordonnances. Elles doivent respecter la Constitution et céder devant les traités ratifiés et le droit communautaire.', 'Organic laws, ordinary laws and ordinances. They must comply with the Constitution and yield to ratified treaties and community law.'), basis: t('Constitution, domaine de la loi', 'Constitution, scope of statute law'), guard: t(`${cfg.constitutionalCourt.fr}, juridictions ordinaires`, `${cfg.constitutionalCourt.en}, ordinary courts`) },
                     { k: t('Niveau 5 · réglementaire', 'Level 5 · regulatory'), t: t('Décrets, arrêtés, actes des collectivités', 'Decrees, orders, local authority acts'), d: t('Actes du pouvoir exécutif et des collectivités territoriales, pris dans le respect des lois. Un acte réglementaire illégal peut être annulé.', 'Acts of the executive and local authorities, adopted in compliance with statutes. An unlawful regulatory act can be annulled.'), basis: t('Principe de légalité', 'Principle of legality'), guard: L(cfg.adminCourt) },
@@ -74,8 +132,7 @@ export const buildCemacPage = (cfg) => {
                             { q: `A later ${adjEn} statute adds a formality for transferring company shares, contrary to the Uniform Act on commercial companies.`, o: ['The national statute, which is more recent', 'The OHADA Uniform Act'], a: 1, e: 'The Uniform Act applies notwithstanding any conflicting domestic provision, even a later one (Treaty, art. 10).' }),
                         t({ q: "Un pourvoi en cassation porte sur l'application de l'Acte uniforme portant organisation des sûretés.", o: [cfg.supremeCourt.fr.charAt(0).toUpperCase() + cfg.supremeCourt.fr.slice(1), 'La CCJA'], a: 1, e: 'La CCJA, qui siège à Abidjan, est compétente (art. 14 du Traité) ; la juridiction nationale saisie doit se dessaisir à son profit.' },
                             { q: 'An appeal in cassation concerns the application of the Uniform Act on securities.', o: [cfg.supremeCourt.en.charAt(0).toUpperCase() + cfg.supremeCourt.en.slice(1), 'The CCJA'], a: 1, e: 'The CCJA, based in Abidjan, has jurisdiction (Treaty, art. 14); the national court seised must decline jurisdiction in its favour.' }),
-                        t({ q: 'Un règlement de la CEMAC sur les établissements de crédit entre en conflit avec une loi nationale.', o: ['La loi nationale', 'Le règlement de la CEMAC'], a: 1, e: 'Les règlements de la CEMAC sont directement applicables et priment le droit national contraire.' },
-                            { q: 'A CEMAC regulation on credit institutions conflicts with a national statute.', o: ['The national statute', 'The CEMAC regulation'], a: 1, e: 'CEMAC regulations are directly applicable and prevail over conflicting national law.' }),
+                        L(Z.regulationCase),
                         t({ q: 'Un traité régulièrement ratifié et publié contredit une loi nationale antérieure.', o: ['Le traité', 'La loi'], a: 0, e: `${cfg.refs.authorityShort.fr} : le traité a une autorité supérieure à celle des lois, sous réserve de son application par l'autre partie.` },
                             { q: 'A duly ratified and published treaty conflicts with an earlier national statute.', o: ['The treaty', 'The statute'], a: 0, e: `${cfg.refs.authorityShort.en}: the treaty prevails over statutes, provided the other party applies it.` }),
                         cfg.arbiterExtra(lang),
@@ -86,17 +143,12 @@ export const buildCemacPage = (cfg) => {
                 },
                 quiz: {
                     title: t('Quiz : intégration régionale', 'Quiz: regional integration'),
+                    // 15 questions : 1 + spécifiques + communes (complétées à 15 si besoin)
                     items: [
-                        QUIZ.notUemoa(lang, cfg.le.fr, cfg.le.en),
+                        Z.quizFirst(lang, cfg),
                         ...cfg.quizSpecific(lang),
                         QUIZ.ccjaSeat(lang),
-                        QUIZ.beac(lang),
-                        QUIZ.cemacCommission(lang),
-                        QUIZ.cemacCourt(lang),
-                        QUIZ.ceeacSeat(lang),
-                        QUIZ.cemacCount(lang),
-                        QUIZ.cemacRegulation(lang, adjFr, adjEn),
-                        QUIZ.cemacVsCeeac(lang),
+                        ...Z.quizRest(lang, adjFr, adjEn),
                         QUIZ.ohadaApproach(lang),
                         QUIZ.treatyAuthority(lang, cfg.refs.authorityShort),
                         QUIZ.ohadaCount(lang, L(cfg.le)),
@@ -108,10 +160,9 @@ export const buildCemacPage = (cfg) => {
             faq: {
                 title: t(`Questions fréquentes sur le droit ${adjFr}`, `Frequently asked questions about ${adjEn} law`),
                 items: [
-                    t({ q: `${cfg.Le.fr} utilise-t-${cfg.pronoun.fr} le même franc CFA que le Sénégal ou la Côte d'Ivoire ?`, a: `Non. ${cfg.Le.fr} est membre de la CEMAC, dont le franc CFA (XAF) est émis par la Banque des États de l'Afrique centrale (BEAC), qui siège à Yaoundé. Le Sénégal et la Côte d'Ivoire relèvent de l'UEMOA, dont le franc CFA (XOF) est émis par la BCEAO. Les deux monnaies ont la même parité mais sont distinctes.` },
-                        { q: `Does ${cfg.le.en} use the same CFA franc as Senegal or Côte d'Ivoire?`, a: `No. ${cfg.Le.en} is a member of CEMAC, whose CFA franc (XAF) is issued by the Bank of Central African States (BEAC), headquartered in Yaoundé. Senegal and Côte d'Ivoire belong to WAEMU, whose CFA franc (XOF) is issued by the BCEAO. The two currencies have the same parity but are distinct.` }),
-                    t({ q: `Le droit OHADA s'applique-t-il ${cfg.au.fr} ?`, a: `Oui. ${cfg.Le.fr} est membre fondateur de l'OHADA, dont le Traité a été signé à Port-Louis en 1993. Les Actes uniformes y sont directement applicables, sans transposition, nonobstant toute disposition contraire de droit interne, antérieure ou postérieure (article 10 du Traité OHADA).` },
-                        { q: `Does OHADA law apply ${cfg.au.en}?`, a: `Yes. ${cfg.Le.en} is a founding member of OHADA, whose Treaty was signed in Port Louis in 1993. The Uniform Acts are directly applicable there without transposition, notwithstanding any conflicting provision of domestic law, whether earlier or later (OHADA Treaty, art. 10).` }),
+                    L(Z.currencyFaq(cfg)),
+                    t({ q: `Le droit OHADA s'applique-t-il ${cfg.au.fr} ?`, a: `Oui. ${cfg.Le.fr} est ${cfg.ohadaFounding === false ? "membre de l'OHADA" : "membre fondateur de l'OHADA, dont le Traité a été signé à Port-Louis en 1993"}. Les Actes uniformes y sont directement applicables, sans transposition, nonobstant toute disposition contraire de droit interne, antérieure ou postérieure (article 10 du Traité OHADA).` },
+                        { q: `Does OHADA law apply ${cfg.au.en}?`, a: `Yes. ${cfg.Le.en} is ${cfg.ohadaFounding === false ? 'a member of OHADA' : 'a founding member of OHADA, whose Treaty was signed in Port Louis in 1993'}. The Uniform Acts are directly applicable there without transposition, notwithstanding any conflicting provision of domestic law, whether earlier or later (OHADA Treaty, art. 10).` }),
                     t({ q: 'Quelle juridiction statue en cassation sur le droit OHADA ?', a: `La Cour commune de justice et d'arbitrage (CCJA), qui siège à Abidjan. Elle se prononce en cassation sur l'application des Actes uniformes, en lieu et place de ${cfg.supremeCourt.fr} (article 14 du Traité), et ses arrêts sont exécutoires sur le territoire de tous les États parties (article 20).` },
                         { q: 'Which court rules in cassation on OHADA law?', a: `The Common Court of Justice and Arbitration (CCJA), based in Abidjan. It rules in cassation on the application of the Uniform Acts, in place of ${cfg.supremeCourt.en} (Treaty, art. 14), and its judgments are enforceable in all member states (art. 20).` }),
                     ...cfg.faqSpecific(lang),
@@ -127,8 +178,8 @@ export const buildCemacPage = (cfg) => {
                 omniscan: t('Découvrir OmniScan', 'Discover OmniScan'),
             },
             disclaimer: t(
-                `Contenu pédagogique de synthèse ; il ne constitue pas une consultation juridique. Références : ${cfg.disclaimerRefs.fr}, Traité OHADA (art. 10, 14, 20), Traité de la CEMAC, Accord ZLECAf (art. 19). Appartenances à jour en octobre 2026.`,
-                `Educational summary; it does not constitute legal advice. References: ${cfg.disclaimerRefs.en}, OHADA Treaty (arts. 10, 14, 20), CEMAC Treaty, AfCFTA Agreement (art. 19). Memberships as of October 2026.`),
+                `Contenu pédagogique de synthèse ; il ne constitue pas une consultation juridique. Références : ${cfg.disclaimerRefs.fr}, Traité OHADA (art. 10, 14, 20), ${Z.treaty.fr}, Accord ZLECAf (art. 19). Appartenances à jour en octobre 2026.`,
+                `Educational summary; it does not constitute legal advice. References: ${cfg.disclaimerRefs.en}, OHADA Treaty (arts. 10, 14, 20), ${Z.treaty.en}, AfCFTA Agreement (art. 19). Memberships as of October 2026.`),
         };
     };
 
@@ -142,3 +193,6 @@ export const buildCemacPage = (cfg) => {
         content: { fr: build('fr'), en: build('en') },
     };
 };
+
+export const buildCemacPage = (cfg) => buildZonePage(cfg, ZONES.CEMAC);
+export const buildUemoaPage = (cfg) => buildZonePage(cfg, ZONES.UEMOA);

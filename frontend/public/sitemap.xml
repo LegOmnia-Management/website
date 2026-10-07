@@ -322,6 +322,119 @@
         <priority>0.8</priority>
     </url>
 
+    <url>
+        <loc>https://legomnia.com/juridictions/burkina-faso</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/burkina-faso"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/burkina-faso"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/burkina-faso"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/burkina-faso</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/burkina-faso"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/burkina-faso"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/burkina-faso"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/niger</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/niger"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/niger"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/niger"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/niger</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/niger"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/niger"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/niger"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/togo</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/togo"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/togo"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/togo"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/togo</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/togo"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/togo"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/togo"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/guinee-bissau</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/guinee-bissau"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/guinea-bissau"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/guinee-bissau"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/guinea-bissau</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/guinee-bissau"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/guinea-bissau"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/guinee-bissau"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/tchad</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/tchad"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/chad"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/tchad"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/chad</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/tchad"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/chad"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/tchad"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/guinee-equatoriale</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/guinee-equatoriale"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/equatorial-guinea"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/guinee-equatoriale"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/equatorial-guinea</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/guinee-equatoriale"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/equatorial-guinea"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/guinee-equatoriale"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/comores</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/comores"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/comoros"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/comores"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/comoros</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/comores"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/comoros"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/comores"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Blog -->
     <url>
         <loc>https://legomnia.com/blog/articles</loc>
