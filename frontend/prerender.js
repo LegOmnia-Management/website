@@ -26,6 +26,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 import { localizePath } from './src/i18n/routes.js';
+import { COUNTRY_PAGES, JURISDICTION_BASE } from './src/data/countryPages.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -61,6 +62,9 @@ const STATIC_ROUTES = [
     '/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone',
     '/blog/articles/gestion-electronique-des-documents',
     '/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa',
+
+    // Pages pays (CountryPage.jsx), générées depuis src/data/countryPages.js
+    ...Object.values(COUNTRY_PAGES).map(({ fr }) => `${JURISDICTION_BASE.fr}${fr}`),
 ];
 
 // Chaque route existe aussi en anglais (préfixe /en, chemins traduits :

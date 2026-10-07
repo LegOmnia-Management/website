@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import Faq from './pages/Faq';
 import Geode from './pages/Geode';
 import Juridictions from './pages/Juridictions';
+import CountryPage from './pages/CountryPage';
 import Home from './pages/Home';
 import MentionsLegales from './pages/MentionsLegales';
 import Omnia from './pages/Omnia';
@@ -51,6 +52,7 @@ const PAGES = [
     { route: ROUTES.contact, element: <Contact/> },
     { route: ROUTES.faq, element: <Faq/> },
     { route: ROUTES.juridictions, element: <Juridictions/> },
+    { route: { fr: `${ROUTES.juridictions.fr}/:slug`, en: `${ROUTES.juridictions.en}/:slug` }, element: <CountryPage/> },
     { route: ROUTES.waitlist, element: <Waitlist/> },
     { route: ROUTES.mentionsLegales, element: <MentionsLegales/> },
 

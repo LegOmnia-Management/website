@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 import useLang from "../i18n/useLang";
+import { countryPagePath } from "../data/countryPages";
 
 import '../assets/styles/africaMap.css';
 
@@ -9,19 +10,19 @@ import '../assets/styles/africaMap.css';
 const COUNTRY_DATA = {
   // OHADA (17 membres)
   BEN: { name: "Bénin", nameEn: "Benin", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
-  BFA: { name: "Burkina Faso", nameEn: "Burkina Faso", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
+  BFA: { name: "Burkina Faso", nameEn: "Burkina Faso", orgs: ["OHADA", "UEMOA", "UA"] },
   CMR: { name: "Cameroun", nameEn: "Cameroon", orgs: ["OHADA", "CEMAC", "UA"] },
   COM: { name: "Comores", nameEn: "Comoros", orgs: ["OHADA", "COMESA", "UA"] },
-  COG: { name: "Congo", nameEn: "Congo", orgs: ["OHADA", "CEMAC", "COMESA", "UA"] },
+  COG: { name: "Congo", nameEn: "Congo", orgs: ["OHADA", "CEMAC", "UA"] },
   CIV: { name: "Côte d'Ivoire", nameEn: "Côte d'Ivoire", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
   GAB: { name: "Gabon", nameEn: "Gabon", orgs: ["OHADA", "CEMAC", "UA"] },
   GIN: { name: "Guinée", nameEn: "Guinea", orgs: ["OHADA", "CEDEAO", "UA"] },
   GNB: { name: "Guinée-Bissau", nameEn: "Guinea-Bissau", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
   GNQ: { name: "Guinée équatoriale", nameEn: "Equatorial Guinea", orgs: ["OHADA", "CEMAC", "UA"] },
-  MLI: { name: "Mali", nameEn: "Mali", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
-  NER: { name: "Niger", nameEn: "Niger", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
+  MLI: { name: "Mali", nameEn: "Mali", orgs: ["OHADA", "UEMOA", "UA"] },
+  NER: { name: "Niger", nameEn: "Niger", orgs: ["OHADA", "UEMOA", "UA"] },
   CAF: { name: "République centrafricaine", nameEn: "Central African Republic", orgs: ["OHADA", "CEMAC", "UA"] },
-  COD: { name: "République démocratique du Congo", nameEn: "Democratic Republic of the Congo", orgs: ["OHADA", "CEMAC", "COMESA", "UA"] },
+  COD: { name: "République démocratique du Congo", nameEn: "Democratic Republic of the Congo", orgs: ["OHADA", "COMESA", "UA"] },
   SEN: { name: "Sénégal", nameEn: "Senegal", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
   TCD: { name: "Tchad", nameEn: "Chad", orgs: ["OHADA", "CEMAC", "UA"] },
   TGO: { name: "Togo", nameEn: "Togo", orgs: ["OHADA", "CEDEAO", "UEMOA", "UA"] },
@@ -370,7 +371,7 @@ export default function AfricaMap() {
                     <span className="africa-map-org-empty">{txt.noData}</span>
                   )}
                 </div>
-                <Link to={lp("/liste-attente")} className="ui__btn--black">
+                <Link to={countryPagePath(selectedCountry, lang) || lp("/liste-attente")} className="ui__btn--black">
                   {txt.seeMore}
                 </Link>
               </div>
