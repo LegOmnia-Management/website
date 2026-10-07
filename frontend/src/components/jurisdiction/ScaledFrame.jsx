@@ -8,7 +8,7 @@ const MIN_SCALE = 0.5;
  * Iframe d'un support conçu pour une largeur fixe (ex. 1600 px),
  * réduite pour tenir dans la largeur disponible.
  */
-const ScaledFrame = ({ src, title, width, height, openLabel }) => {
+const ScaledFrame = ({ src, title, width, height, openLabel, caption }) => {
     const boxRef = useRef(null);
     const [scale, setScale] = useState(null);
 
@@ -33,11 +33,11 @@ const ScaledFrame = ({ src, title, width, height, openLabel }) => {
                         title={title}
                         width={width}
                         height={height}
-                        loading="lazy"
                         style={{ transform: `scale(${scale})` }}
                     />
                 </div>
             )}
+            {caption && <p className="scaled-frame__caption">{caption}</p>}
             <a className="ui__btn--inline scaled-frame__open" href={src} target="_blank" rel="noopener">
                 {openLabel}
             </a>

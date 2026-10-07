@@ -22,15 +22,19 @@ const Juridictions = () => {
             {/* Hero */}
             <section className="hero jurisdiction__hero">
                 <HeroBg />
-                <div className="container">
-                    <p className="jurisdiction__eyebrow">{tr("Afrique francophone · espace OHADA", "French-speaking Africa · OHADA area")}</p>
-                    <h1 className="jurisdiction__title">{tr("Juridictions couvertes", "Jurisdictions covered")}</h1>
-                    <p className="jurisdiction__intro">
-                        {tr(
-                            "Pour chaque pays : son système juridique, les organisations régionales dont il est membre, la hiérarchie des normes et la place du droit OHADA. De nouvelles juridictions sont ajoutées régulièrement.",
-                            "For each country: its legal system, the regional organizations it belongs to, the hierarchy of norms and the role of OHADA law. New jurisdictions are added regularly."
-                        )}
-                    </p>
+                <div className="container hero__container">
+                    <div className="hero__title">
+                        <p className="jurisdiction__eyebrow">{tr("Afrique francophone · espace OHADA", "French-speaking Africa · OHADA area")}</p>
+                        <h1 className="main-title">
+                            {tr("Juridictions", "Jurisdictions")} <em className="highlight">{tr("couvertes", "covered")}</em>
+                        </h1>
+                        <p className="jurisdiction__intro">
+                            {tr(
+                                "Pour chaque pays : son système juridique, les organisations régionales dont il est membre, la hiérarchie des normes et la place du droit OHADA. De nouvelles juridictions sont ajoutées régulièrement.",
+                                "For each country: its legal system, the regional organizations it belongs to, the hierarchy of norms and the role of OHADA law. New jurisdictions are added regularly."
+                            )}
+                        </p>
+                    </div>
                 </div>
             </section>
 
