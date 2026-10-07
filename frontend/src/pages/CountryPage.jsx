@@ -73,34 +73,46 @@ const CountryPage = () => {
                 structuredData={structuredData}
             />
 
-            {/* Hero */}
+            {/* Hero (même présentation que les pages produits) */}
             <section className="hero jurisdiction__hero">
                 <HeroBg />
-                <div className="container">
+                <div className="container hero__container">
                     <nav className="breadcrumb" aria-label={tr("Fil d'Ariane", 'Breadcrumb')}>
                         <Link to={lp('/')}>{c.breadcrumb.home}</Link> {'>'}{' '}
                         <Link to={lp('/juridictions')}>{c.breadcrumb.jurisdictions}</Link> {'>'}{' '}
                         <span aria-current="page">{c.breadcrumb.current}</span>
                     </nav>
 
-                    <p className="jurisdiction__eyebrow">{c.hero.eyebrow}</p>
-                    <h1 className="jurisdiction__title">
-                        <img
-                            className="jurisdiction__flag"
-                            src={`https://flagcdn.com/${country.flag}.svg`}
-                            alt=""
-                            width="48"
-                            height="34"
-                        />
-                        {c.hero.title}
-                    </h1>
-                    <p className="jurisdiction__intro">{c.hero.intro}</p>
-
-                    <div className="jurisdiction__actions">
-                        <a className="ui__btn" href="#organisations">{c.orgs.title}</a>
-                        <a className="ui__btn--inline" href="#quiz">{c.games.title}</a>
+                    <div className="hero__title">
+                        <p className="jurisdiction__eyebrow">
+                            <img
+                                className="jurisdiction__flag"
+                                src={`https://flagcdn.com/${country.flag}.svg`}
+                                alt=""
+                                width="32"
+                                height="23"
+                            />
+                            {c.hero.eyebrow}
+                        </p>
+                        <h1 className="main-title">
+                            {c.hero.titlePrefix} <br/>
+                            <em className="highlight">{c.hero.titleCountry}</em>
+                        </h1>
+                        <p className="jurisdiction__intro">{c.hero.intro}</p>
                     </div>
                 </div>
+            </section>
+
+            {/* Carte interactive, au premier plan */}
+            <section id="carte" className="container jurisdiction__section jurisdiction__section--map" aria-label={c.map.title}>
+                <ScaledFrame
+                    src={country.mapUrl}
+                    title={c.map.frameTitle}
+                    width={MAP_WIDTH}
+                    height={MAP_HEIGHT}
+                    openLabel={c.map.open}
+                    caption={c.map.text}
+                />
             </section>
 
             {/* Repères */}
@@ -130,18 +142,19 @@ const CountryPage = () => {
                         >
                             <header className="org-card__header">
                                 <h3 className="org-card__sig">{org.sig}</h3>
-                                <span className="org-card__members">{org.members} {c.orgs.labels.members}</span>
+                                <span className="org-card__badge">{org.membership}</span>
                             </header>
                             <p className="org-card__name">{org.name}</p>
-                            <p className="org-card__meta">
-                                {c.orgs.labels.membership} : <strong>{org.membership}</strong> · {c.orgs.labels.seat} : {org.seat}
-                            </p>
-                            <dl className="org-card__details">
-                                <dt>{c.orgs.labels.approach}</dt><dd>{org.approach}</dd>
-                                <dt>{c.orgs.labels.effect}</dt><dd>{org.effect}</dd>
-                                <dt>{c.orgs.labels.court}</dt><dd>{org.court}</dd>
-                                <dt>{c.orgs.labels.data}</dt><dd>{org.data}</dd>
-                            </dl>
+                            <details className="org-card__more">
+                                <summary>{c.orgs.labels.more}</summary>
+                                <dl className="org-card__details">
+                                    <dt>{c.orgs.labels.seat}</dt><dd>{org.seat} · {org.members} {c.orgs.labels.members}</dd>
+                                    <dt>{c.orgs.labels.approach}</dt><dd>{org.approach}</dd>
+                                    <dt>{c.orgs.labels.effect}</dt><dd>{org.effect}</dd>
+                                    <dt>{c.orgs.labels.court}</dt><dd>{org.court}</dd>
+                                    <dt>{c.orgs.labels.data}</dt><dd>{org.data}</dd>
+                                </dl>
+                            </details>
                         </article>
                     ))}
                 </div>
@@ -160,19 +173,6 @@ const CountryPage = () => {
                         <p>{c.orgs.overlap}</p>
                     </aside>
                 </div>
-            </section>
-
-            {/* Carte interactive */}
-            <section id="carte" className="container jurisdiction__section" aria-labelledby="map-title">
-                <h2 id="map-title" className="title__h2">{c.map.title}</h2>
-                <p className="title__subtitle">{c.map.text}</p>
-                <ScaledFrame
-                    src={country.mapUrl}
-                    title={c.map.frameTitle}
-                    width={MAP_WIDTH}
-                    height={MAP_HEIGHT}
-                    openLabel={c.map.open}
-                />
             </section>
 
             {/* Hiérarchie des normes */}
