@@ -208,6 +208,55 @@
         <priority>0.8</priority>
     </url>
 
+    <url>
+        <loc>https://legomnia.com/juridictions/mali</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/mali"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/mali"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/mali"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/mali</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/mali"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/mali"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/mali"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/guinee</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/guinee"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/guinea"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/guinee"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/guinea</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/guinee"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/guinea"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/guinee"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/benin</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/benin"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/benin"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/benin"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/benin</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/benin"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/benin"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/benin"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Blog -->
     <url>
         <loc>https://legomnia.com/blog/articles</loc>
