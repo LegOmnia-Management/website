@@ -11,6 +11,9 @@ export const COUNTRY_PAGES = {
     COD: { fr: 'rdc', en: 'drc' },
     CIV: { fr: 'cote-d-ivoire', en: 'cote-d-ivoire' },
     SEN: { fr: 'senegal', en: 'senegal' },
+    MLI: { fr: 'mali', en: 'mali' },
+    GIN: { fr: 'guinee', en: 'guinea' },
+    BEN: { fr: 'benin', en: 'benin' },
 };
 
 export const JURISDICTION_BASE = { fr: '/juridictions/', en: '/en/jurisdictions/' };
