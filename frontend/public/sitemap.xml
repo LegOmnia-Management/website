@@ -156,6 +156,24 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- Pages pays -->
+    <url>
+        <loc>https://legomnia.com/juridictions/rdc</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/rdc"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/drc"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/rdc"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/drc</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/rdc"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/drc"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/rdc"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Blog -->
     <url>
         <loc>https://legomnia.com/blog/articles</loc>

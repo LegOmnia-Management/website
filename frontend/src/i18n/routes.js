@@ -5,6 +5,8 @@
  * Pour ajouter une page : ajouter une entrée ici, puis la route dans App.jsx
  * (les routes sont générées automatiquement dans les deux langues).
  */
+import { JURISDICTION_BASE, countryPagePath, isoFromSlug } from '../data/countryPages.js';
+
 export const LANGS = ['fr', 'en'];
 export const DEFAULT_LANG = 'fr';
 
@@ -56,6 +58,11 @@ export const localizePath = (path, lang) => {
         if (pathname.startsWith(route[from])) {
             return route[lang] + pathname.slice(route[from].length) + suffix;
         }
+    }
+    // Pages pays : le slug est traduit (/juridictions/rdc <-> /en/jurisdictions/drc)
+    if (pathname.startsWith(JURISDICTION_BASE[from])) {
+        const iso = isoFromSlug(pathname.slice(JURISDICTION_BASE[from].length), from);
+        if (iso) return countryPagePath(iso, lang) + suffix;
     }
     // Chemin inconnu : simple ajout / retrait du préfixe
     if (from === lang) return pathname + suffix;
