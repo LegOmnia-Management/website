@@ -191,6 +191,23 @@
         <priority>0.8</priority>
     </url>
 
+    <url>
+        <loc>https://legomnia.com/juridictions/senegal</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/senegal"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/senegal"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/senegal"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/senegal</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/senegal"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/senegal"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/senegal"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Blog -->
     <url>
         <loc>https://legomnia.com/blog/articles</loc>
