@@ -91,6 +91,21 @@ const fr = {
         overlapTitle: 'Le « bol de spaghettis » régional',
         overlap: "Ces appartenances multiples créent des obligations parfois concurrentes. Le Bénin et le Togo partagent par exemple quatre organisations sous-régionales avec la Côte d'Ivoire. La ZLECAf vise à rationaliser cet enchevêtrement.",
     },
+    articulation: {
+        title: 'OHADA et UEMOA : articulation et zones de convergence',
+        intro: "Les huit États membres de l'UEMOA, dont la Côte d'Ivoire, appartiennent aussi à l'OHADA. Deux droits communautaires s'y appliquent donc simultanément, avec des champs distincts mais des points de contact.",
+        items: [
+            { title: 'Complémentarité', text: "L'OHADA se concentre strictement sur la sécurité juridique des affaires et le droit commercial, tandis que l'UEMOA dispose d'un champ d'action plus large : politique monétaire, union douanière, marchés financiers, fiscalité." },
+            { title: 'Coexistence et conflits de normes', text: "Dans les huit pays membres des deux organisations, des collisions peuvent survenir entre les Actes uniformes de l'OHADA et les règlements ou directives de l'UEMOA, par exemple en matière de comptabilité ou de droit financier." },
+            { title: 'Un cadre permanent de concertation', text: "Pour éviter les conflits de compétences et harmoniser leurs actions, un Cadre permanent de concertation (CPC) a été mis en place entre l'OHADA et les institutions de l'UEMOA." },
+        ],
+        sourcesLabel: 'Sources',
+        sources: [
+            { label: 'Presses universitaires d’Aix-Marseille (OpenEdition)', url: 'https://books.openedition.org/puam/404' },
+            { label: 'Revue de l’ERSUMA, 2018 (Cairn)', url: 'https://droit.cairn.info/revue-revue-de-lersuma-2018-1-page-185?lang=fr' },
+            { label: 'UEMOA', url: 'https://www.uemoa.int/index.php/actualites/renforcement-des-relations-institutionnelles-entre-luemoa-et-lohada-pour-une-meilleure' },
+        ],
+    },
     map: {
         title: 'Carte interactive',
         text: "Sélectionnez une organisation pour voir ses membres, ou affichez les chevauchements avec la Côte d'Ivoire. Le défi carte propose six questions de géographie juridique.",
@@ -251,6 +266,21 @@ const en = {
         ],
         overlapTitle: 'The regional "spaghetti bowl"',
         overlap: "These overlapping memberships create sometimes competing obligations. Benin and Togo, for example, share four sub-regional organizations with Côte d'Ivoire. The AfCFTA aims to rationalise this tangle.",
+    },
+    articulation: {
+        title: 'OHADA and WAEMU: how they fit together',
+        intro: "The eight WAEMU member states, including Côte d'Ivoire, also belong to OHADA. Two bodies of community law therefore apply there at the same time, with distinct scopes but points of contact.",
+        items: [
+            { title: 'Complementarity', text: 'OHADA focuses strictly on legal certainty for business and commercial law, while WAEMU has a broader remit: monetary policy, customs union, financial markets, taxation.' },
+            { title: 'Coexistence and conflicts of norms', text: 'In the eight countries belonging to both organizations, collisions can arise between OHADA Uniform Acts and WAEMU regulations or directives, for example in accounting or financial law.' },
+            { title: 'A permanent consultation framework', text: 'To avoid conflicts of competence and harmonise their action, a Permanent Consultation Framework has been set up between OHADA and the WAEMU institutions.' },
+        ],
+        sourcesLabel: 'Sources',
+        sources: [
+            { label: 'Presses universitaires d’Aix-Marseille (OpenEdition)', url: 'https://books.openedition.org/puam/404' },
+            { label: 'Revue de l’ERSUMA, 2018 (Cairn)', url: 'https://droit.cairn.info/revue-revue-de-lersuma-2018-1-page-185?lang=fr' },
+            { label: 'UEMOA', url: 'https://www.uemoa.int/index.php/actualites/renforcement-des-relations-institutionnelles-entre-luemoa-et-lohada-pour-une-meilleure' },
+        ],
     },
     map: {
         title: 'Interactive map',
