@@ -9,6 +9,13 @@ import cameroun from './cameroun';
 import gabon from './gabon';
 import republiqueDuCongo from './republique-du-congo';
 import centrafrique from './centrafrique';
+import burkinaFaso from './burkina-faso';
+import niger from './niger';
+import togo from './togo';
+import guineeBissau from './guinee-bissau';
+import tchad from './tchad';
+import guineeEquatoriale from './guinee-equatoriale';
+import comores from './comores';
 
 export const JURISDICTIONS = {
     COD: rdc,
@@ -21,4 +28,11 @@ export const JURISDICTIONS = {
     GAB: gabon,
     COG: republiqueDuCongo,
     CAF: centrafrique,
+    BFA: burkinaFaso,
+    NER: niger,
+    TGO: togo,
+    GNB: guineeBissau,
+    TCD: tchad,
+    GNQ: guineeEquatoriale,
+    COM: comores,
 };

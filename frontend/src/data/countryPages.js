@@ -18,6 +18,13 @@ export const COUNTRY_PAGES = {
     GAB: { fr: 'gabon', en: 'gabon' },
     COG: { fr: 'republique-du-congo', en: 'republic-of-the-congo' },
     CAF: { fr: 'centrafrique', en: 'central-african-republic' },
+    BFA: { fr: 'burkina-faso', en: 'burkina-faso' },
+    NER: { fr: 'niger', en: 'niger' },
+    TGO: { fr: 'togo', en: 'togo' },
+    GNB: { fr: 'guinee-bissau', en: 'guinea-bissau' },
+    TCD: { fr: 'tchad', en: 'chad' },
+    GNQ: { fr: 'guinee-equatoriale', en: 'equatorial-guinea' },
+    COM: { fr: 'comores', en: 'comoros' },
 };
 
 export const JURISDICTION_BASE = { fr: '/juridictions/', en: '/en/jurisdictions/' };
