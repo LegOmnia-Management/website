@@ -14,7 +14,7 @@ export const ORG_COLORS = {
     UA: '#d4a017', ZLECAF: '#ea7a2a', OHADA: '#7c5cfc', CEDEAO: '#14a89a',
     UEMOA: '#db4f9b', ENTENTE: '#3b82f6', ABN: '#16a34a', OMVS: '#3b82f6',
     OMVG: '#0d9488', MRU: '#9333ea', ZMAO: '#e11d48', AES: '#14a89a',
-    CEMAC: '#94a3b8', CEEAC: '#94a3b8',
+    CEMAC: '#db4f9b', CEEAC: '#14a89a', CBLT: '#16a34a', COMIFAC: '#3b82f6',
 };
 
 // ─── Organisations ──────────────────────────────────────────────────────────
@@ -122,6 +122,42 @@ export const ORGS = {
         court: pick(lang, 'Pas de juridiction propre.', 'No court of its own.'),
         data: pick(lang, 'Textes de coordination monétaire et de convergence macroéconomique.', 'Monetary coordination and macroeconomic convergence texts.'),
     }),
+    CEMAC: (lang, { membership }) => ({
+        id: 'CEMAC', sig: 'CEMAC', members: 6,
+        name: pick(lang, "Communauté économique et monétaire de l'Afrique centrale", 'Central African Economic and Monetary Community'),
+        seat: pick(lang, 'Bangui (Commission)', 'Bangui (Commission)'), membership,
+        approach: pick(lang, 'Règlements directement applicables et directives ; union douanière, marché financier régional ; franc CFA émis par la BEAC, dont le siège est à Yaoundé.', 'Directly applicable regulations and directives; customs union, regional financial market; CFA franc issued by the BEAC, headquartered in Yaoundé.'),
+        effect: pick(lang, "Primauté du droit communautaire : les règlements s'appliquent sans mesure nationale de transposition.", 'Primacy of community law: regulations apply without any national transposition measure.'),
+        court: pick(lang, "Cour de justice de la CEMAC (N'Djamena).", "CEMAC Court of Justice (N'Djamena)."),
+        data: pick(lang, 'Règlements, directives et décisions communautaires, notamment en droit bancaire, financier et douanier.', 'Community regulations, directives and decisions, notably in banking, financial and customs law.'),
+    }),
+    CEEAC: (lang, { membership, law }) => ({
+        id: 'CEEAC', sig: pick(lang, 'CEEAC', 'ECCAS'), members: 11,
+        name: pick(lang, "Communauté économique des États de l'Afrique centrale", 'Economic Community of Central African States'),
+        seat: 'Libreville', membership,
+        approach: pick(lang, 'Intégration économique et architecture de paix et de sécurité ; protocoles et décisions à mettre en œuvre par les États.', 'Economic integration and a peace and security architecture; protocols and decisions to be implemented by member states.'),
+        effect: pick(lang, `Les instruments ratifiés relèvent du régime des traités (${law.fr}) ; leur effet concret dépend des mesures nationales d'exécution.`, `Ratified instruments fall under the treaty regime (${law.en}); their practical effect depends on national implementing measures.`),
+        court: pick(lang, 'Une juridiction communautaire est prévue par les textes.', 'A community court is provided for in the texts.'),
+        data: pick(lang, 'Veille sur les décisions communautaires et leur mise en œuvre nationale.', 'Monitoring of community decisions and their national implementation.'),
+    }),
+    CBLT: (lang, { membership, law }) => ({
+        id: 'CBLT', sig: pick(lang, 'CBLT', 'LCBC'), members: 6,
+        name: pick(lang, 'Commission du bassin du lac Tchad', 'Lake Chad Basin Commission'),
+        seat: "N'Djamena", membership,
+        approach: pick(lang, 'Gestion concertée des eaux et des ressources du bassin du lac Tchad entre six États.', 'Joint management of the waters and resources of the Lake Chad basin between six states.'),
+        effect: pick(lang, `Conventions soumises au régime général des traités (${law.fr}).`, `Conventions subject to the general treaty regime (${law.en}).`),
+        court: pick(lang, 'Pas de juridiction communautaire.', 'No community court.'),
+        data: pick(lang, 'Conventions de bassin et textes sur la gestion des ressources partagées.', 'Basin conventions and texts on the management of shared resources.'),
+    }),
+    COMIFAC: (lang, { membership, law }) => ({
+        id: 'COMIFAC', sig: 'COMIFAC', members: 10,
+        name: pick(lang, "Commission des forêts d'Afrique centrale", 'Central African Forests Commission'),
+        seat: 'Yaoundé', membership,
+        approach: pick(lang, 'Coordination des politiques forestières et environnementales du bassin du Congo entre dix États.', 'Coordination of forest and environmental policies in the Congo Basin between ten states.'),
+        effect: pick(lang, `Engagements soumis au régime général des traités (${law.fr}).`, `Commitments subject to the general treaty regime (${law.en}).`),
+        court: pick(lang, 'Pas de juridiction communautaire.', 'No community court.'),
+        data: pick(lang, "Textes forestiers et environnementaux harmonisés à l'échelle du bassin du Congo.", 'Forest and environmental texts harmonised across the Congo Basin.'),
+    }),
 };
 
 // ─── Pièges : organisations dont le pays n'est pas membre ──────────────────
@@ -165,6 +201,25 @@ export const ARTICULATION_OHADA_UEMOA = (lang, dont) => (lang === 'en' ? {
         { title: 'Un cadre permanent de concertation', text: "Pour éviter les conflits de compétences et harmoniser leurs actions, un Cadre permanent de concertation (CPC) a été mis en place entre l'OHADA et les institutions de l'UEMOA." },
     ],
     sourcesLabel: 'Sources', sources: ARTICULATION_SOURCES,
+});
+
+// ─── Section OHADA / CEMAC (pays membres des deux organisations) ────────────
+export const ARTICULATION_OHADA_CEMAC = (lang, dont) => (lang === 'en' ? {
+    title: 'OHADA and CEMAC: how they fit together',
+    intro: `The six CEMAC member states, including ${dont}, also belong to OHADA. Two bodies of community law therefore apply there at the same time, with distinct scopes but points of contact.`,
+    items: [
+        { title: 'Complementarity', text: 'OHADA focuses on business law (companies, securities, debt recovery, insolvency, arbitration), while CEMAC covers monetary policy (BEAC), the customs union, the regional financial market and banking regulation (COBAC).' },
+        { title: 'Coexistence and overlaps', text: 'In the six countries belonging to both organizations, overlaps can arise, for example between OHADA company law and the community rules governing credit institutions or the financial market.' },
+        { title: 'Two reference courts', text: "The CCJA (Abidjan) rules on the application of the Uniform Acts; the CEMAC Court of Justice (N'Djamena) rules on the interpretation and application of CEMAC community law." },
+    ],
+} : {
+    title: 'OHADA et CEMAC : articulation et zones de convergence',
+    intro: `Les six États membres de la CEMAC, dont ${dont}, appartiennent aussi à l'OHADA. Deux droits communautaires s'y appliquent donc simultanément, avec des champs distincts mais des points de contact.`,
+    items: [
+        { title: 'Complémentarité', text: "L'OHADA se concentre sur le droit des affaires (sociétés, sûretés, recouvrement, procédures collectives, arbitrage), tandis que la CEMAC couvre la politique monétaire (BEAC), l'union douanière, le marché financier régional et la réglementation bancaire (COBAC)." },
+        { title: 'Coexistence et recoupements', text: "Dans les six pays membres des deux organisations, des recoupements peuvent apparaître, par exemple entre le droit OHADA des sociétés et les règles communautaires applicables aux établissements de crédit ou au marché financier." },
+        { title: 'Deux juges de référence', text: "La CCJA (Abidjan) se prononce sur l'application des Actes uniformes ; la Cour de justice de la CEMAC (N'Djamena) sur l'interprétation et l'application du droit communautaire de la CEMAC." },
+    ],
 });
 
 // ─── Libellés des exercices ─────────────────────────────────────────────────
@@ -226,6 +281,30 @@ export const QUIZ = {
     abnRiver: (lang) => pick(lang,
         { q: "L'Autorité du bassin du Niger, qui siège à Niamey, réunit combien d'États ?", o: ['4', '6', '9', '12'], a: 2, e: "L'ABN réunit neuf États riverains du bassin du Niger : Bénin, Burkina Faso, Cameroun, Côte d'Ivoire, Guinée, Mali, Niger, Nigeria et Tchad." },
         { q: 'How many states does the Niger Basin Authority, based in Niamey, bring together?', o: ['4', '6', '9', '12'], a: 2, e: "The NBA brings together nine states of the Niger basin: Benin, Burkina Faso, Cameroon, Chad, Côte d'Ivoire, Guinea, Mali, Niger and Nigeria." }),
+    notUemoa: (lang, nameFr, nameEn) => pick(lang,
+        { q: `Laquelle de ces organisations ne compte PAS ${nameFr} parmi ses membres ?`, o: ['CEMAC', 'OHADA', 'UEMOA', 'CEEAC'], a: 2, e: "L'UEMOA est l'union économique et monétaire de huit États d'Afrique de l'Ouest ; son franc CFA est émis par la BCEAO, et non par la BEAC." },
+        { q: `Which of these organizations does NOT count ${nameEn} among its members?`, o: ['CEMAC', 'OHADA', 'WAEMU', 'ECCAS'], a: 2, e: 'WAEMU is the economic and monetary union of eight West African states; its CFA franc is issued by the BCEAO, not the BEAC.' }),
+    beac: (lang) => pick(lang,
+        { q: 'Où siège la BEAC, banque centrale des États de la CEMAC ?', o: ['Libreville', 'Yaoundé', 'Bangui', 'Dakar'], a: 1, e: "La Banque des États de l'Afrique centrale (BEAC), qui émet le franc CFA d'Afrique centrale, a son siège à Yaoundé." },
+        { q: 'Where is the BEAC, the central bank of the CEMAC states, headquartered?', o: ['Libreville', 'Yaoundé', 'Bangui', 'Dakar'], a: 1, e: 'The Bank of Central African States (BEAC), which issues the Central African CFA franc, is headquartered in Yaoundé.' }),
+    cemacCommission: (lang) => pick(lang,
+        { q: 'Où siège la Commission de la CEMAC ?', o: ['Yaoundé', 'Libreville', 'Bangui', "N'Djamena"], a: 2, e: 'La Commission de la CEMAC siège à Bangui, en Centrafrique.' },
+        { q: 'Where is the CEMAC Commission based?', o: ['Yaoundé', 'Libreville', 'Bangui', "N'Djamena"], a: 2, e: 'The CEMAC Commission sits in Bangui, Central African Republic.' }),
+    cemacCourt: (lang) => pick(lang,
+        { q: 'Où siège la Cour de justice de la CEMAC ?', o: ["N'Djamena", 'Abidjan', 'Bangui', 'Yaoundé'], a: 0, e: "La Cour de justice de la CEMAC siège à N'Djamena, au Tchad." },
+        { q: 'Where is the CEMAC Court of Justice based?', o: ["N'Djamena", 'Abidjan', 'Bangui', 'Yaoundé'], a: 0, e: "The CEMAC Court of Justice sits in N'Djamena, Chad." }),
+    cemacCount: (lang) => pick(lang,
+        { q: "Combien d'États sont membres de la CEMAC ?", o: ['4', '6', '8', '11'], a: 1, e: 'La CEMAC réunit six États : Cameroun, Centrafrique, Congo, Gabon, Guinée équatoriale et Tchad.' },
+        { q: 'How many states are members of CEMAC?', o: ['4', '6', '8', '11'], a: 1, e: 'CEMAC brings together six states: Cameroon, Central African Republic, Congo, Gabon, Equatorial Guinea and Chad.' }),
+    ceeacSeat: (lang) => pick(lang,
+        { q: 'Où siège la CEEAC ?', o: ['Libreville', 'Kinshasa', 'Yaoundé', 'Luanda'], a: 0, e: 'La Communauté économique des États de l’Afrique centrale (CEEAC) a son siège à Libreville, au Gabon.' },
+        { q: 'Where is ECCAS headquartered?', o: ['Libreville', 'Kinshasa', 'Yaoundé', 'Luanda'], a: 0, e: 'The Economic Community of Central African States (ECCAS) is headquartered in Libreville, Gabon.' }),
+    cemacRegulation: (lang, adjFr, adjEn) => pick(lang,
+        { q: `Un règlement de la CEMAC doit-il être transposé en droit ${adjFr} ?`, o: ['Oui, par une loi', 'Oui, par un décret', 'Non, il est directement applicable', "Seulement s'il est publié par la BEAC"], a: 2, e: 'Les règlements de la CEMAC sont directement applicables dans les États membres.' },
+        { q: `Must a CEMAC regulation be transposed into ${adjEn} law?`, o: ['Yes, by statute', 'Yes, by decree', 'No, it is directly applicable', 'Only if published by the BEAC'], a: 2, e: 'CEMAC regulations are directly applicable in the member states.' }),
+    cemacVsCeeac: (lang) => pick(lang,
+        { q: 'Lequel de ces États est membre de la CEEAC, mais PAS de la CEMAC ?', o: ['Le Gabon', 'Le Tchad', 'La RDC', 'Le Cameroun'], a: 2, e: 'La RDC est membre de la CEEAC (11 États) sans appartenir à la CEMAC (6 États).' },
+        { q: 'Which of these states is a member of ECCAS but NOT of CEMAC?', o: ['Gabon', 'Chad', 'The DRC', 'Cameroon'], a: 2, e: 'The DRC is a member of ECCAS (11 states) without belonging to CEMAC (6 states).' }),
     notCemac: (lang, nameFr, nameEn, uemoa = true) => pick(lang,
         { q: `Laquelle de ces organisations ne compte PAS ${nameFr} parmi ses membres ?`, o: [uemoa ? 'UEMOA' : 'CEDEAO', 'OHADA', 'CEMAC', 'ZLECAf'], a: 2, e: "La CEMAC est l'union économique et monétaire de six États d'Afrique centrale." },
         { q: `Which of these organizations does NOT count ${nameEn} among its members?`, o: [uemoa ? 'WAEMU' : 'ECOWAS', 'OHADA', 'CEMAC', 'AfCFTA'], a: 2, e: 'CEMAC is the economic and monetary union of six Central African states.' }),

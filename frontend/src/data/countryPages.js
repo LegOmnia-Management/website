@@ -14,6 +14,10 @@ export const COUNTRY_PAGES = {
     MLI: { fr: 'mali', en: 'mali' },
     GIN: { fr: 'guinee', en: 'guinea' },
     BEN: { fr: 'benin', en: 'benin' },
+    CMR: { fr: 'cameroun', en: 'cameroon' },
+    GAB: { fr: 'gabon', en: 'gabon' },
+    COG: { fr: 'republique-du-congo', en: 'republic-of-the-congo' },
+    CAF: { fr: 'centrafrique', en: 'central-african-republic' },
 };
 
 export const JURISDICTION_BASE = { fr: '/juridictions/', en: '/en/jurisdictions/' };

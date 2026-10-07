@@ -257,6 +257,71 @@
         <priority>0.8</priority>
     </url>
 
+    <url>
+        <loc>https://legomnia.com/juridictions/cameroun</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/cameroun"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/cameroon"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/cameroun"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/cameroon</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/cameroun"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/cameroon"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/cameroun"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/gabon</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/gabon"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/gabon"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/gabon"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/gabon</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/gabon"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/gabon"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/gabon"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/republique-du-congo</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/republique-du-congo"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/republic-of-the-congo"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/republique-du-congo"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/republic-of-the-congo</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/republique-du-congo"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/republic-of-the-congo"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/republique-du-congo"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/juridictions/centrafrique</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/centrafrique"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/central-african-republic"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/centrafrique"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/jurisdictions/central-african-republic</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/juridictions/centrafrique"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/jurisdictions/central-african-republic"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/juridictions/centrafrique"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Blog -->
     <url>
         <loc>https://legomnia.com/blog/articles</loc>
