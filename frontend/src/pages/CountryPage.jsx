@@ -178,6 +178,33 @@ const CountryPage = () => {
                 </div>
             </section>
 
+            {/* Articulation entre deux ordres juridiques (facultatif, ex. OHADA / UEMOA) */}
+            {c.articulation && (
+                <section className="container jurisdiction__section" aria-labelledby="articulation-title">
+                    <h2 id="articulation-title" className="title__h2">{c.articulation.title}</h2>
+                    <p className="title__subtitle">{c.articulation.intro}</p>
+                    <div className="jurisdiction__articulation">
+                        {c.articulation.items.map(({ title, text }) => (
+                            <article key={title} className="jurisdiction__note">
+                                <h3>{title}</h3>
+                                <p>{text}</p>
+                            </article>
+                        ))}
+                    </div>
+                    {c.articulation.sources && (
+                        <p className="jurisdiction__sources">
+                            {c.articulation.sourcesLabel} :{' '}
+                            {c.articulation.sources.map(({ label, url }, i) => (
+                                <span key={url}>
+                                    {i > 0 && ' · '}
+                                    <a href={url} target="_blank" rel="noopener">{label}</a>
+                                </span>
+                            ))}
+                        </p>
+                    )}
+                </section>
+            )}
+
             {/* Hiérarchie des normes */}
             <section className="container jurisdiction__section" aria-labelledby="norms-title">
                 <h2 id="norms-title" className="title__h2">{c.norms.title}</h2>

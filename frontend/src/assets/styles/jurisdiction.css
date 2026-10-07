@@ -651,3 +651,27 @@
 
     .norms__bar { width: calc(60% + var(--level) * 10%); }
 }
+
+/* Articulation entre deux ordres juridiques (ex. OHADA / UEMOA) */
+.jurisdiction__articulation {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+}
+
+.jurisdiction__sources {
+    color: var(--text4);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-top: 1.6rem;
+
+    a {
+        text-decoration: underline;
+
+        &:hover { color: var(--violetDark); }
+    }
+}
+
+@media screen and (min-width: 80rem) {
+    .jurisdiction__articulation { grid-template-columns: repeat(3, 1fr); }
+}
