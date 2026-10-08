@@ -212,13 +212,6 @@
     padding: 1.6rem 1.8rem;
 }
 
-.cmap__panel--cta {
-    background: linear-gradient(165deg, rgba(94, 234, 212, .12) 0%, rgba(94, 234, 212, .04) 100%);
-    border-color: rgba(94, 234, 212, .35);
-
-    p { color: #E9E5FA; font-size: 1.4rem; line-height: 1.5; }
-    .cmap__btn { align-self: flex-start; }
-}
 
 .cmap__label {
     color: #C4B5FD;
