@@ -174,8 +174,11 @@ const CoverageMap = () => {
                     <button type="button" className="cmap__btn cmap__btn--gold" onClick={challenge ? () => setChallenge(null) : startChallenge}>
                         {challenge ? tr('Quitter le quiz carte', 'Leave the map quiz') : tr('Quiz carte', 'Map quiz')}
                     </button>
+                    <button type="button" className="cmap__btn cmap__btn--teal" onClick={openQuiz}>
+                        {tr('Testez vos connaissances', 'Test your knowledge')}
+                    </button>
                     {!challenge && (
-                        <p>{tr("Trouvez sur la carte les sièges des grandes institutions juridiques africaines.", "Find the seats of Africa's major legal institutions on the map.")}</p>
+                        <p>{tr("Situez les grandes institutions juridiques africaines sur la carte, ou testez ce que vous savez du droit OHADA et de l'intégration régionale.", "Locate Africa's major legal institutions on the map, or test what you know about OHADA law and regional integration.")}</p>
                     )}
                 </div>
                 </div>
@@ -255,13 +258,6 @@ const CoverageMap = () => {
                                 </div>
                             </div>
                         )}
-                    </div>
-
-                    <div className="cmap__panel cmap__panel--cta">
-                        <p>{tr("Arbitrez des cas concrets et testez ce que vous savez du droit OHADA et de l'intégration régionale.", 'Work through real cases and test what you know about OHADA law and regional integration.')}</p>
-                        <button type="button" className="cmap__btn cmap__btn--teal" onClick={openQuiz}>
-                            {tr('Testez vos connaissances', 'Test your knowledge')}
-                        </button>
                     </div>
                 </aside>
             </div>
