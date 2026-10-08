@@ -52,11 +52,6 @@
     }
 }
 
-.cmap__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .8rem;
-}
 
 .cmap__btn {
     align-items: center;
@@ -173,7 +168,7 @@
     display: flex;
     flex-direction: column;
     gap: .8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     padding: 1.2rem 1.4rem;
 
     .cmap__btn { align-self: flex-start; }
@@ -353,4 +348,26 @@
 @media screen and (min-width: 80rem) {
     .cmap__grid { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
     .cmap__chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Colonne carte + bouton « Quiz carte » en dessous */
+.cmap__map-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    min-width: 0;
+}
+
+.cmap__map-bar {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.4rem;
+
+    p {
+        color: var(--cmap-muted);
+        flex: 1 1 22rem;
+        font-size: 1.35rem;
+        line-height: 1.45;
+    }
 }

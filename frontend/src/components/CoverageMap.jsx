@@ -117,48 +117,12 @@ const CoverageMap = () => {
                     <button type="button" aria-pressed={view === 'org'} onClick={() => setView('org')}>{tr('Par organisation', 'By organization')}</button>
                     <button type="button" aria-pressed={view === 'overlap'} onClick={() => setView('overlap')}>{tr('Chevauchements', 'Overlaps')}</button>
                 </div>
-                <div className="cmap__actions">
-                    <button type="button" className="cmap__btn cmap__btn--gold" onClick={challenge ? () => setChallenge(null) : startChallenge}>
-                        {challenge ? tr('Quitter le quiz carte', 'Leave the map quiz') : tr('Quiz carte', 'Map quiz')}
-                    </button>
-                    <button type="button" className="cmap__btn cmap__btn--teal" onClick={openQuiz}>
-                        {tr('Testez vos connaissances', 'Test your knowledge')}
-                    </button>
-                </div>
             </div>
 
             <div className="cmap__grid">
-                {/* Carte */}
+                {/* Carte, puis le quiz carte juste en dessous */}
+                <div className="cmap__map-col">
                 <div className="cmap__map">
-                    {challenge && (
-                        <div className="cmap__challenge" role="status">
-                            <div className="cmap__challenge-head">
-                                <span>{tr('Quiz carte', 'Map quiz')} · {challenge.done ? tr('terminé', 'finished') : `${challenge.i + 1}/${challenge.items.length}`}</span>
-                                <strong>{tr('Score', 'Score')} : {challenge.score}</strong>
-                            </div>
-                            {challenge.done ? (
-                                <>
-                                    <p className="cmap__challenge-q">
-                                        {challenge.score === challenge.items.length
-                                            ? tr('Sans-faute : vous maîtrisez la géographie juridique africaine !', 'Perfect score: you have mastered African legal geography!')
-                                            : tr(`${challenge.score} bonne(s) réponse(s) sur ${challenge.items.length}. Relancez pour viser le sans-faute.`, `${challenge.score} correct answer(s) out of ${challenge.items.length}. Play again to aim for a perfect score.`)}
-                                    </p>
-                                    <button type="button" className="cmap__btn cmap__btn--gold" onClick={startChallenge}>{tr('Rejouer', 'Play again')}</button>
-                                </>
-                            ) : (
-                                <>
-                                    <p className="cmap__challenge-q">{L(challenge.items[challenge.i]).q}</p>
-                                    {challenge.fb && <p className={`cmap__challenge-fb ${challenge.fb.ok ? 'is-ok' : 'is-ko'}`}>{challenge.fb.ok ? tr('Bravo ! ', 'Well done! ') : ''}{challenge.fb.text}</p>}
-                                    {challenge.solved && (
-                                        <button type="button" className="cmap__btn cmap__btn--gold" onClick={nextChallenge}>
-                                            {challenge.i + 1 >= challenge.items.length ? tr('Voir le résultat', 'See the result') : tr('Question suivante', 'Next question')}
-                                        </button>
-                                    )}
-                                </>
-                            )}
-                        </div>
-                    )}
-
                     <svg viewBox={VIEW_BOX} className="cmap__svg" role="img" aria-label={tr("Carte de l'Afrique colorée selon les organisations régionales", 'Map of Africa coloured by regional organization')}>
                         {SHAPES.map(({ iso, d }, i) => <path key={`${iso}-${i}`} d={d} {...shapeProps(iso)} />)}
                         {ISLANDS.map(({ iso, cx, cy, r }) => <circle key={iso} cx={cx} cy={cy} r={r + 1} {...shapeProps(iso)} />)}
@@ -175,6 +139,45 @@ const CoverageMap = () => {
                             <span key={t} className="cmap__legend-item"><i style={{ background: c }} />{t}</span>
                         ))}
                     </div>
+                </div>
+
+                {challenge && (
+                    <div className="cmap__challenge" role="status">
+                        <div className="cmap__challenge-head">
+                            <span>{tr('Quiz carte', 'Map quiz')} · {challenge.done ? tr('terminé', 'finished') : `${challenge.i + 1}/${challenge.items.length}`}</span>
+                            <strong>{tr('Score', 'Score')} : {challenge.score}</strong>
+                        </div>
+                        {challenge.done ? (
+                            <>
+                                <p className="cmap__challenge-q">
+                                    {challenge.score === challenge.items.length
+                                        ? tr('Sans-faute : vous maîtrisez la géographie juridique africaine !', 'Perfect score: you have mastered African legal geography!')
+                                        : tr(`${challenge.score} bonne(s) réponse(s) sur ${challenge.items.length}. Relancez pour viser le sans-faute.`, `${challenge.score} correct answer(s) out of ${challenge.items.length}. Play again to aim for a perfect score.`)}
+                                </p>
+                                <button type="button" className="cmap__btn cmap__btn--gold" onClick={startChallenge}>{tr('Rejouer', 'Play again')}</button>
+                            </>
+                        ) : (
+                            <>
+                                <p className="cmap__challenge-q">{L(challenge.items[challenge.i]).q}</p>
+                                {challenge.fb && <p className={`cmap__challenge-fb ${challenge.fb.ok ? 'is-ok' : 'is-ko'}`}>{challenge.fb.ok ? tr('Bravo ! ', 'Well done! ') : ''}{challenge.fb.text}</p>}
+                                {challenge.solved && (
+                                    <button type="button" className="cmap__btn cmap__btn--gold" onClick={nextChallenge}>
+                                        {challenge.i + 1 >= challenge.items.length ? tr('Voir le résultat', 'See the result') : tr('Question suivante', 'Next question')}
+                                    </button>
+                                )}
+                            </>
+                        )}
+                    </div>
+                )}
+
+                <div className="cmap__map-bar">
+                    <button type="button" className="cmap__btn cmap__btn--gold" onClick={challenge ? () => setChallenge(null) : startChallenge}>
+                        {challenge ? tr('Quitter le quiz carte', 'Leave the map quiz') : tr('Quiz carte', 'Map quiz')}
+                    </button>
+                    {!challenge && (
+                        <p>{tr("Trouvez sur la carte les sièges des grandes institutions juridiques africaines.", "Find the seats of Africa's major legal institutions on the map.")}</p>
+                    )}
+                </div>
                 </div>
 
                 {/* Panneau latéral */}
