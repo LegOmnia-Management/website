@@ -7,7 +7,7 @@ import SEOHead from '../components/SEOHead';
 
 import AfricaParticles from '../components/AfricaParticles';
 import HeroBg from '../components/HeroBg';
-import AfricaMap from '../components/AfricaMap';
+import CoverageMap from '../components/CoverageMap';
 import IconRing from '../components/IconRing';
 
 import Video from '../assets/video/african_law_enter_in_new_era.mp4';
@@ -132,7 +132,7 @@ const Home = () => {
                     <h2 className='title__h2'>{txt.map.title}</h2>
                     <p className='title__subtitle'>{txt.map.subtitle}</p>
 
-                    <AfricaMap />
+                    <CoverageMap />
                 </div>
             </section>
 
