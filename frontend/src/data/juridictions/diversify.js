@@ -21,13 +21,20 @@ const seeded = (seed) => () => {
     seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
     return seed / 2 ** 32;
 };
-const shuffle = (array, rand) => {
+const shuffle = (array, rand = Math.random) => {
     const a = [...array];
     for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(rand() * (i + 1));
         [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
+};
+
+/** Mélange les propositions d'une question { fr, en } (même ordre dans les deux langues). */
+export const shuffleOptions = ({ fr, en }, rand = Math.random) => {
+    const order = shuffle(fr.o.map((_, i) => i), rand);
+    const apply = (q) => ({ ...q, o: order.map((i) => q.o[i]), a: order.indexOf(q.a) });
+    return { fr: apply(fr), en: apply(en) };
 };
 
 export const diversify = (jurisdictions) => {
@@ -57,8 +64,9 @@ export const diversify = (jurisdictions) => {
                         if (!best || (usage.get(ck) || 0) < (usage.get(key(best.fr)) || 0)) best = c;
                     }
                     if (best && (usage.get(key(best.fr)) || 0) < used) {
-                        frItems[i] = best.fr;
-                        enItems[i] = best.en;
+                        const mixed = shuffleOptions(best, rand);
+                        frItems[i] = mixed.fr;
+                        enItems[i] = mixed.en;
                         local.add(key(best.fr));
                         use(key(best.fr));
                         return;
