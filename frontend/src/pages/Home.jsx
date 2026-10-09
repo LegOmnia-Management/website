@@ -5,7 +5,7 @@ import '../assets/styles/home.css';
 
 import SEOHead from '../components/SEOHead';
 
-import AfricaParticles from '../components/AfricaParticles';
+import AfricaMotion from '../components/africaMotion/AfricaMotion';
 import HeroBg from '../components/HeroBg';
 import CoverageMap from '../components/CoverageMap';
 import IconRing from '../components/IconRing';
@@ -78,9 +78,9 @@ const Home = () => {
             />
             {/* Hero */}
             <section className="hero">
-                <AfricaParticles 
+                <AfricaMotion
                     className="component__hero--canvas"
-                    style= {{position : "absolute"}}
+                    options={{ mapCenterX: 0.5, mapHeight: 0.95 }}
                 />
                 <HeroBg />
                 <div className="container hero__container">
