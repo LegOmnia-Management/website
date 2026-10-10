@@ -250,12 +250,10 @@ const Home = () => {
                             <div>
                                 <span className="iconify" data-icon="teenyicons:pin-outline"></span>
                                 <p><strong>Paris</strong></p>
-                                <p>8 rue du Chevalier de la Barre, 75018</p>
                             </div>
                             <div>
                                 <span className="iconify" data-icon="teenyicons:pin-outline"></span>
-                                <p><strong>Jersey City</strong></p>
-                                <p>24 Commerce Street, NJ 07302</p>
+                                <p><strong>New York City</strong></p>
                             </div>
                         </div>
                         <img className="home__ask__demo--map" src={MapContact} alt={txt.demo.mapAlt} />
