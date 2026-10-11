@@ -1,8 +1,8 @@
 // Home page (English)
 export default {
     seo: {
-        title: 'LegOmnia — AI legal research for French-speaking Africa',
-        description: 'Centralize laws, decrees and case law from 17+ French-speaking African countries. AI-powered legal research, automated monitoring and secure document management. Request a demo.',
+        title: 'African case law search for French-speaking Africa: AI legal research',
+        description: 'African case law, laws and decrees from 17+ French-speaking countries (OHADA, CCJA, ECOWAS, CEMAC) in one AI-powered legal search engine. Request a demo.',
         offer: '7-day free trial',
         appDescription: 'AI legal search engine for French-speaking Africa: laws, decrees, OHADA, CCJA, ECOWAS and CEMAC case law, and 17+ countries.',
     },

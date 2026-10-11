@@ -55,18 +55,30 @@ const Home = () => {
 
     const structuredData = {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "LegOmnia",
-        "url": "https://legomnia.com",
-        "applicationCategory": "LegalTech",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "EUR",
-            "description": txt.seo.offer
-        },
-        "description": txt.seo.appDescription
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://legomnia.com/#website",
+                "url": "https://legomnia.com",
+                "name": "LegOmnia",
+                "inLanguage": ["fr", "en"],
+                "publisher": { "@type": "Organization", "name": "LegOmnia", "url": "https://legomnia.com" }
+            },
+            {
+                "@type": "WebApplication",
+                "name": "LegOmnia",
+                "url": "https://legomnia.com",
+                "applicationCategory": "LegalTech",
+                "operatingSystem": "Web",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "EUR",
+                    "description": txt.seo.offer
+                },
+                "description": txt.seo.appDescription
+            }
+        ]
     };
 
     return (

@@ -1,8 +1,8 @@
 // Page d'accueil (français)
 export default {
     seo: {
-        title: "LegOmnia — Recherche juridique IA pour l'Afrique francophone",
-        description: "Centralisez lois, décrets et jurisprudence de 17+ pays d'Afrique francophone. Recherche juridique par IA, veille automatisée et GED sécurisée. Demandez une démo.",
+        title: "Jurisprudence Afrique francophone : recherche juridique IA",
+        description: "Jurisprudence africaine, lois et décrets de 17+ pays d'Afrique francophone (OHADA, CCJA, CEDEAO, CEMAC) réunis dans un moteur de recherche juridique par IA. Demandez une démo.",
         offer: 'Essai gratuit 7 jours',
         appDescription: "Moteur de recherche juridique par IA pour l'Afrique francophone : lois, décrets, jurisprudence OHADA, CCJA, CEDEAO, CEMAC et 17+ pays.",
     },

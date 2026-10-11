@@ -62,6 +62,7 @@ const STATIC_ROUTES = [
     '/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone',
     '/blog/articles/gestion-electronique-des-documents',
     '/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa',
+    '/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver',
 
     // Pages pays (CountryPage.jsx), générées depuis src/data/countryPages.js
     ...Object.values(COUNTRY_PAGES).map(({ fr }) => `${JURISDICTION_BASE.fr}${fr}`),

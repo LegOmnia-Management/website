@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Art1 from '../../assets/img/blog/article1.webp';
 import Art2 from '../../assets/img/blog/article2.webp';
 import Art3 from '../../assets/img/blog/article3.webp';
@@ -25,6 +27,7 @@ export const articles = [
         recap: 'The African digital ecosystem is experiencing unprecedented growth, raising crucial issues regarding intellectual property.',
         author: 'LegOmnia',
         date: '2026-01-14',
+        isoDate: '2026-01-14',
         time: '2 min'
     },
     {
@@ -45,6 +48,7 @@ export const articles = [
         recapEn: 'A silent injustice has run through French-speaking Africa for decades: access to law.',
         author: 'LegOmnia',
         date: '27 février 2026',
+        isoDate: '2026-02-27',
         dateEn: '27 February 2026',
         time: '5 min'
     },
@@ -75,6 +79,7 @@ export const articles = [
         recapEn: 'In a world where the volume of data keeps growing, Electronic Document Management (EDM) has become a strategic pillar for companies and public administrations.',
         author: 'LegOmnia',
         date: '2026-02-24',
+        isoDate: '2026-02-24',
         time: '5 min'
     },
     {
@@ -96,6 +101,31 @@ export const articles = [
         recap: 'Picture an entrepreneur in Abidjan trying to register a business but unable to locate the applicable regulations.',
         author: 'LegOmnia',
         date: '2026-02-18',
+        isoDate: '2026-02-18',
+        time: '6 min'
+    },
+    {
+        id: 5,
+        img: Art2,
+        alt: 'Jurisprudence en Afrique francophone',
+        altEn: 'Case law in French-speaking Africa',
+        lang: 'fr',
+        category: [{
+            name: 'LegalTech',
+            class: 'legaltech'
+        },
+        {
+            name: 'Domaine sectoriel',
+            nameEn: 'Industry sector',
+            class: 'sectoriel'
+        }],
+        title: 'Jurisprudence en Afrique francophone : où la trouver et comment la rechercher efficacement',
+        slug: 'jurisprudence-afrique-francophone-ou-la-trouver',
+        recap: 'Décisions de la CCJA, des cours suprêmes nationales, des juridictions communautaires : la jurisprudence africaine existe, mais elle est dispersée. Guide pratique pour la trouver et l’exploiter.',
+        author: 'LegOmnia',
+        date: '11 octobre 2026',
+        dateEn: '11 October 2026',
+        isoDate: '2026-10-11',
         time: '6 min'
     }
 ];
@@ -800,6 +830,81 @@ export const articlesContent = [
                 <hr></hr>
                 <p>
                     <i>Want to learn more or join the waitlist ? <a href="mailto:contact@legomnia.com">contact@legomnia.com</a></i>
+                </p>
+            </>
+        )
+    },
+    {
+        id: 5,
+        slug: 'jurisprudence-afrique-francophone-ou-la-trouver',
+        html: (
+            <>
+                <p>
+                    Quand un avocat de Dakar, un juriste d’entreprise à Abidjan ou une étudiante de Yaoundé cherche « la jurisprudence » sur un point de droit, la première difficulté n’est pas juridique : c’est de <strong>trouver les décisions</strong>. En Afrique francophone, la jurisprudence existe bel et bien, mais elle est dispersée entre de nombreuses institutions, publiée de façon inégale et rarement numérisée de bout en bout.
+                </p>
+                <p>
+                    Ce guide présente les grandes sources de jurisprudence, une méthode de recherche simple, les pièges à éviter, et la manière dont l’intelligence artificielle change aujourd’hui la donne.
+                </p>
+
+                <h2>Pourquoi la jurisprudence africaine est-elle si difficile à trouver ?</h2>
+                <p>
+                    Trois obstacles reviennent systématiquement :
+                </p>
+                <p>
+                    <strong>- La dispersion.</strong> Une même question peut relever d’une juridiction nationale, de la Cour commune de justice et d’arbitrage (CCJA) de l’OHADA ou d’une cour communautaire. Il n’existe pas un point d’entrée unique.<br/>
+                    <strong>- La publication inégale.</strong> Selon le pays, la juridiction et la période, les décisions sont publiées dans des bulletins, des recueils, sur des sites institutionnels, ou pas du tout.<br/>
+                    <strong>- Le format.</strong> De nombreuses décisions restent disponibles uniquement sur papier ou en PDF scannés, sans texte exploitable ni moteur de recherche.
+                </p>
+
+                <h2>Les grandes sources de jurisprudence en Afrique francophone</h2>
+                <h3>1. La jurisprudence de la CCJA (droit OHADA)</h3>
+                <p>
+                    Établie à Abidjan, la CCJA joue le rôle de juridiction de cassation pour le contentieux relatif à l’application des Actes uniformes OHADA, en droit des sociétés, des sûretés, des procédures collectives, du recouvrement, de l’arbitrage ou du droit commercial général. Ses arrêts s’imposent à l’ensemble des États membres de l’OHADA : c’est la source la plus structurante pour le droit des affaires.
+                </p>
+                <h3>2. Les cours suprêmes et cours de cassation nationales</h3>
+                <p>
+                    Chaque État dispose de ses hautes juridictions (cour de cassation, cour suprême, conseil d’État, cour constitutionnelle selon les systèmes). Leurs décisions sont publiées dans des bulletins officiels, des recueils ou sur les sites des juridictions, avec un niveau de disponibilité variable d’un pays à l’autre.
+                </p>
+                <h3>3. Les juridictions communautaires et régionales</h3>
+                <p>
+                    Les cours des organisations d’intégration, comme la Cour de justice de la CEDEAO, la Cour de justice de l’UEMOA ou la juridiction de la CEMAC, rendent des décisions qui peuvent s’appliquer directement aux États, aux entreprises et aux particuliers (droits de l’homme, libre circulation, concurrence, droit communautaire).
+                </p>
+                <h3>4. Les portails et bases de données en ligne</h3>
+                <p>
+                    Certains portails rassemblent des décisions de cours suprêmes francophones, par exemple Juricaf, porté par le réseau des hautes juridictions de cassation francophones. Des sites spécialisés en droit OHADA et des revues juridiques complètent l’offre. Leur couverture, leur actualité et leur gratuité varient : il faut toujours vérifier le périmètre avant de conclure qu’une décision « n’existe pas ».
+                </p>
+
+                <h2>Comment rechercher efficacement une décision : la méthode en 5 étapes</h2>
+                <p>
+                    <strong>1. Identifier le bon niveau de droit.</strong> La question relève-t-elle d’un Acte uniforme OHADA, d’un règlement communautaire ou du droit national ? Cela détermine la juridiction à interroger.<br/>
+                    <strong>2. Partir du texte.</strong> Cherchez par numéro d’article (par exemple un article d’un Acte uniforme) plutôt que par expression vague : les décisions visent presque toujours les textes appliqués.<br/>
+                    <strong>3. Combiner mots-clés et notions juridiques.</strong> Testez les synonymes et les termes techniques (« résiliation », « résolution », « déchéance »…), car les juges n’emploient pas toujours le vocabulaire courant.<br/>
+                    <strong>4. Vérifier la date, la juridiction et la portée.</strong> Une décision peut avoir été infirmée, nuancée ou abandonnée par un revirement ultérieur.<br/>
+                    <strong>5. Citer précisément.</strong> Juridiction, date, numéro de la décision et source : sans ces éléments, une citation n’est pas vérifiable.
+                </p>
+
+                <h2>Les pièges à éviter</h2>
+                <p>
+                    <strong>- Confondre jurisprudence publiée et jurisprudence existante.</strong> L’absence de résultat en ligne ne signifie pas l’absence de décision.<br/>
+                    <strong>- Se fier à une version non officielle.</strong> Retranscriptions, extraits et résumés peuvent être incomplets ou erronés : remontez à la décision d’origine.<br/>
+                    <strong>- Ignorer l’évolution du droit.</strong> Une jurisprudence rendue avant une réforme d’un Acte uniforme peut ne plus s’appliquer.<br/>
+                    <strong>- Négliger la protection des données.</strong> Les décisions comportent des données personnelles : leur réutilisation obéit aux règles d’anonymisation et de protection des données applicables.
+                </p>
+
+                <h2>Ce que l’intelligence artificielle change pour la recherche de jurisprudence</h2>
+                <p>
+                    Lorsque les décisions sont numérisées, structurées et rattachées aux textes qu’elles appliquent, la recherche change de nature. Au lieu de multiplier les mots-clés, on peut poser une question en langage naturel et obtenir les décisions pertinentes, avec leurs références vérifiables.
+                </p>
+                <p>
+                    C’est précisément la mission de <Link to="/produits/omnia">Omnia</Link>, l’application de recherche juridique de LegOmnia : réunir lois, décrets et jurisprudence de plus de 17 pays d’Afrique francophone, des textes OHADA aux droits nationaux, et les rendre interrogeables par IA. La couverture se construit étape par étape ; vous pouvez consulter l’état d’avancement pays par pays sur nos <Link to="/juridictions">pages juridictions</Link>.
+                </p>
+                <p>
+                    Vous souhaitez tester la recherche de jurisprudence africaine ? <Link to="/liste-attente">Rejoignez la liste d’attente</Link> ou <Link to="/contact">contactez-nous pour une démonstration</Link>.
+                </p>
+
+                <h2>En résumé</h2>
+                <p>
+                    Pour trouver de la jurisprudence en Afrique francophone : identifiez d’abord le niveau de droit (OHADA, communautaire, national), partez des textes, croisez plusieurs sources, vérifiez la portée de chaque décision et citez-la précisément. Et lorsque la donnée est enfin structurée et accessible, c’est toute la pratique juridique qui gagne en rapidité et en fiabilité.
                 </p>
             </>
         )

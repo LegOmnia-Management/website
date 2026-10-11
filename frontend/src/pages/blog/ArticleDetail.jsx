@@ -41,10 +41,10 @@ const ArticleDetail = () => {
         <main className="main detailArticle">
 
             <SEOHead
-                title={`${article.title} | Blog LegOmnia`}
+                title={article.title}
                 description={article.recap}
                 canonical={`/blog/articles/${article.slug}`}
-                image={article.img}
+                ogImage={article.img}
                 contentLang={article.lang}
             />
 
@@ -71,7 +71,9 @@ const ArticleDetail = () => {
                         "@type": "BlogPosting",
                         "headline": article.title,
                         "description": article.recap,
-                        "image": article.img,
+                        "image": new URL(article.img, 'https://legomnia.com').href,
+                        ...(article.isoDate && { "datePublished": article.isoDate, "dateModified": article.isoDate }),
+                        "inLanguage": article.lang,
                         "author": {
                             "@type": "Organization",
                             "name": article.author
@@ -81,7 +83,7 @@ const ArticleDetail = () => {
                             "name": "LegOmnia",
                             "logo": {
                                 "@type": "ImageObject",
-                                "url": "https://legomnia.com/logo.png"
+                                "url": "https://legomnia.com/favicon.svg"
                             }
                         },
                         "mainEntityOfPage": {

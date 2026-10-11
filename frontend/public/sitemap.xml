@@ -552,5 +552,86 @@
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
+    <!-- Articles du blog -->
+    <url>
+        <loc>https://legomnia.com/blog/articles/intellectual-property-and-data-protection</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles/intellectual-property-and-data-protection"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles/intellectual-property-and-data-protection"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles/intellectual-property-and-data-protection"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/blog/articles/intellectual-property-and-data-protection</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles/intellectual-property-and-data-protection"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles/intellectual-property-and-data-protection"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles/intellectual-property-and-data-protection"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/blog/articles/gestion-electronique-des-documents</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles/gestion-electronique-des-documents"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles/gestion-electronique-des-documents"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles/gestion-electronique-des-documents"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/blog/articles/gestion-electronique-des-documents</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles/gestion-electronique-des-documents"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles/gestion-electronique-des-documents"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles/gestion-electronique-des-documents"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles/the-ai-platform-revolutionizing-access-to-lawlin-francophone-africa"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/en/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
 
 </urlset>
