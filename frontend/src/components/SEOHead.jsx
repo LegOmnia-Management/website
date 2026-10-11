@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import useLang from '../i18n/useLang';
 import { localizePath } from '../i18n/routes';
 
-import { BASE_URL, OG_IMAGES, X_HANDLE } from '../data/siteMeta';
+import { BASE_URL, OG_IMAGES } from '../data/siteMeta';
 
 const absoluteUrl = (u) => (/^https?:\/\//.test(u) ? u : `${BASE_URL}${u}`);
 
@@ -66,8 +66,6 @@ const SEOHead = ({
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={imageUrl} />
             <meta name="twitter:image:alt" content={fullTitle} />
-            <meta name="twitter:site" content={X_HANDLE} />
-            <meta name="twitter:creator" content={X_HANDLE} />
 
             {/* Structured data JSON-LD */}
             {structuredData && (

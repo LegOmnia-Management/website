@@ -125,3 +125,29 @@ footer {
         padding-top: 1rem;
     }
 }
+/***************** Réseaux sociaux *****************/
+.footer__socials {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+
+    a {
+        display: grid;
+        place-items: center;
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 50%;
+        background-color: var(--bgBtnGrey);
+        border: 1px solid transparent;
+        color: var(--text2);
+        transition: all .3s ease;
+
+        &:hover,
+        &:focus-visible {
+            border-color: var(--violet);
+            color: var(--violet);
+            transform: translateY(-2px);
+        }
+    }
+}
