@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../assets/styles/home.css';
 
 import SEOHead from '../components/SEOHead';
+import FaqSection from '../components/FaqSection';
 
 import AfricaMotion from '../components/africaMotion/AfricaMotion';
 import HeroBg from '../components/HeroBg';
@@ -260,6 +261,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <FaqSection group="home" />
         </main>
     );
 };

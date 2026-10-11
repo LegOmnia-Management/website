@@ -2,6 +2,8 @@ import '../assets/styles/transformation.css';
 
 import HeroBg from '../components/HeroBg';
 import SEOHead from '../components/SEOHead';
+import { OG_IMAGES } from '../data/siteMeta';
+import FaqSection from '../components/FaqSection';
 import IconRing from '../components/IconRing';
 
 import Geode from '../assets/img/divers/geode.svg';
@@ -21,6 +23,7 @@ const Transformation = () => {
     return (
         <main className="main main__transformation">
             <SEOHead
+                ogImage={OG_IMAGES.transformation}
                 title={tr("Transformation digitale juridique en Afrique francophone", "Legal digital transformation in French-speaking Africa")}
                 description={tr("LegOmnia accompagne institutions et cabinets dans leur transformation digitale : numérisation, structuration et exploitation des données juridiques africaines.", "LegOmnia supports institutions and law firms in their digital transformation: digitization, structuring and use of African legal data.")}
                 canonical="/produits/transformation-digitale/presentation"
@@ -174,6 +177,7 @@ const Transformation = () => {
                     </div>
                 </div>
             </section>
+            <FaqSection group="transformation" />
         </main>
     );
 };

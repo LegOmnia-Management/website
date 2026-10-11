@@ -5,6 +5,7 @@ import '../assets/styles/useCases.css';
 
 import HeroBg from '../components/HeroBg';
 import SEOHead from '../components/SEOHead';
+import { OG_IMAGES } from '../data/siteMeta';
 
 import Cabinet from '../assets/img/pictos/cabinet.svg';
 import CabinetColorOmnia from '../assets/img/pictos/cabinetColorOmnia.svg';
@@ -84,6 +85,7 @@ const UseCases = () => {
     return (
         <main className="main main__cases">
             <SEOHead
+                ogImage={OG_IMAGES.useCases}
                 title={tr("Cas d'usage LegOmnia : avocats, juristes, institutions", "LegOmnia use cases: lawyers, in-house counsel, institutions")}
                 description={tr("Découvrez comment avocats, juristes d'entreprise, institutions publiques et investisseurs utilisent LegOmnia pour accélérer leur recherche juridique en Afrique francophone.", "Discover how lawyers, in-house counsel, public institutions and investors use LegOmnia to speed up their legal research in French-speaking Africa.")}
                 canonical="/produits/use-cases"
