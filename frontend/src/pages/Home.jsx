@@ -139,6 +139,27 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Jurisprudence */}
+            <section className="home__jurisprudence" aria-labelledby="home-jurisprudence">
+                <div className="container">
+                    <h2 id="home-jurisprudence" className='title__h2'>{txt.jurisprudence.title}</h2>
+                    <p className='title__subtitle'>{txt.jurisprudence.intro}</p>
+                    <ul className="home__jurisprudence--list">
+                        {txt.jurisprudence.items.map((item) => (
+                            <li key={item.title}>
+                                <h3>{item.title}</h3>
+                                <p>{item.text}</p>
+                            </li>
+                        ))}
+                    </ul>
+                    <p className="home__jurisprudence--note">{txt.jurisprudence.note}</p>
+                    <div className="hero__actions">
+                        <Link className='ui__btn' to={lp("/juridictions")}>{txt.jurisprudence.coverage}</Link>
+                        <Link className='ui__btn--inline' to={lp("/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver")}>{txt.jurisprudence.guide}</Link>
+                    </div>
+                </div>
+            </section>
+
             {/* Carte */}
             <section className="home__map">
                 <div className="container">
