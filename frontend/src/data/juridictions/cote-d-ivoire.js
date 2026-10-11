@@ -14,7 +14,7 @@ const ORG_COLORS = {
 
 const fr = {
     seo: {
-        title: "Droit en Côte d'Ivoire : OHADA, UEMOA, CEDEAO et hiérarchie des normes",
+        title: "Droit et jurisprudence en Côte d'Ivoire : OHADA, UEMOA, CEDEAO",
         description: "Droit ivoirien : membre fondateur de l'OHADA et siège de la CCJA, UEMOA, CEDEAO, hiérarchie des normes et place des traités. Carte interactive et quiz.",
     },
     breadcrumb: { home: 'Accueil', jurisdictions: 'Juridictions', current: "Côte d'Ivoire" },
@@ -190,7 +190,7 @@ const fr = {
 
 const en = {
     seo: {
-        title: "Côte d'Ivoire law: OHADA, WAEMU, ECOWAS and hierarchy of norms",
+        title: "Côte d'Ivoire law and case law: OHADA, WAEMU, ECOWAS",
         description: "Ivorian law: founding member of OHADA and seat of the CCJA, WAEMU, ECOWAS, hierarchy of norms and status of treaties. Interactive map and quiz.",
     },
     breadcrumb: { home: 'Home', jurisdictions: 'Jurisdictions', current: "Côte d'Ivoire" },

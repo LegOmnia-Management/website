@@ -15,7 +15,7 @@ const ORG_COLORS = {
 
 const fr = {
     seo: {
-        title: 'Droit en RDC : OHADA, organisations régionales et hiérarchie des normes',
+        title: 'Droit et jurisprudence en RDC : OHADA, organisations régionales',
         description: "Droit de la République démocratique du Congo : appartenance à l'OHADA, à la SADC, au COMESA, à l'EAC et à la CEEAC, hiérarchie des normes, rôle de la CCJA. Carte interactive et quiz.",
     },
     breadcrumb: { home: 'Accueil', jurisdictions: 'Juridictions', current: 'RDC' },
@@ -181,7 +181,7 @@ const fr = {
 
 const en = {
     seo: {
-        title: 'DRC law: OHADA, regional organizations and hierarchy of norms',
+        title: 'DRC law and case law: OHADA, regional organizations',
         description: 'Law of the Democratic Republic of the Congo: membership of OHADA, SADC, COMESA, the EAC and ECCAS, hierarchy of norms, role of the CCJA. Interactive map and quiz.',
     },
     breadcrumb: { home: 'Home', jurisdictions: 'Jurisdictions', current: 'DRC' },

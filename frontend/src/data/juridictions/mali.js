@@ -12,7 +12,7 @@ const build = (lang) => {
 
     return {
         seo: {
-            title: t('Droit au Mali : OHADA, UEMOA, OMVS et hiérarchie des normes', 'Mali law: OHADA, WAEMU, OMVS and hierarchy of norms'),
+            title: t('Droit et jurisprudence au Mali : OHADA, UEMOA, OMVS', 'Mali law and case law: OHADA, WAEMU, OMVS'),
             description: t("Droit malien : membre fondateur de l'OHADA et de l'UEMOA, OMVS, Autorité du bassin du Niger, hiérarchie des normes et place des traités. Carte interactive et quiz.", 'Malian law: founding member of OHADA and WAEMU, OMVS, Niger Basin Authority, hierarchy of norms and status of treaties. Interactive map and quiz.'),
         },
         breadcrumb: { home: t('Accueil', 'Home'), jurisdictions: t('Juridictions', 'Jurisdictions'), current: 'Mali' },

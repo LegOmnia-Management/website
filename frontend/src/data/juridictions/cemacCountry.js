@@ -76,7 +76,7 @@ const buildZonePage = (cfg, Z) => {
 
         return {
             seo: {
-                title: t(`Droit ${cfg.au.fr} : ${Z.seoOrgs.fr} et hiérarchie des normes`, `${cfg.name.en} law: ${Z.seoOrgs.en} and hierarchy of norms`),
+                title: t(`Droit et jurisprudence ${cfg.au.fr} : ${Z.seoOrgs.fr}`, `${cfg.name.en} law and case law: ${Z.seoOrgs.en}`),
                 description: L(cfg.seoDescription),
             },
             breadcrumb: { home: t('Accueil', 'Home'), jurisdictions: t('Juridictions', 'Jurisdictions'), current: L(cfg.name) },

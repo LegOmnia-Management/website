@@ -20,7 +20,7 @@ const SOURCES = [
 
 const fr = {
     seo: {
-        title: 'Droit au Sénégal : OHADA, UEMOA, CEDEAO et hiérarchie des normes',
+        title: 'Droit et jurisprudence au Sénégal : OHADA, UEMOA, CEDEAO',
         description: "Droit sénégalais : membre fondateur de l'OHADA, de l'UEMOA et de la CEDEAO, siège de la BCEAO, hiérarchie des normes et place des traités. Carte interactive et quiz.",
     },
     breadcrumb: { home: 'Accueil', jurisdictions: 'Juridictions', current: 'Sénégal' },
@@ -192,7 +192,7 @@ const fr = {
 
 const en = {
     seo: {
-        title: 'Senegal law: OHADA, WAEMU, ECOWAS and hierarchy of norms',
+        title: 'Senegal law and case law: OHADA, WAEMU, ECOWAS',
         description: 'Senegalese law: founding member of OHADA, WAEMU and ECOWAS, seat of the BCEAO, hierarchy of norms and status of treaties. Interactive map and quiz.',
     },
     breadcrumb: { home: 'Home', jurisdictions: 'Jurisdictions', current: 'Senegal' },
