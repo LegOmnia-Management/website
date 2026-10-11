@@ -27,8 +27,8 @@
     overflow-y: auto;
     padding: 4rem 3.2rem 3.2rem;
     background: #fff;
-    border-radius: 2.8rem;
-    box-shadow: 0 2rem 6rem rgba(74, 15, 157, .25);
+    border-radius: var(--radiusMd);
+    box-shadow: var(--boxShadow);
 }
 
 .waitlist-popup__close {
@@ -37,20 +37,19 @@
     right: 1.6rem;
     display: grid;
     place-items: center;
-    width: 4.4rem;
-    height: 4.4rem;
-    border: 1px solid var(--blackOutline);
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid transparent;
     border-radius: 50%;
-    background: #fff;
+    background: var(--bgBtnGrey);
     color: var(--text2);
     cursor: pointer;
     transition: all .2s ease;
 
     &:hover,
     &:focus-visible {
-        color: var(--violetDark);
-        border-color: var(--violetOutline);
-        background: var(--violetLightSoft);
+        color: var(--violet);
+        border-color: var(--violet);
     }
 }
 
@@ -62,8 +61,8 @@
     background: var(--violetSoft);
     color: var(--violetDark);
     font-size: 1.2rem;
-    font-weight: 900;
-    letter-spacing: .2em;
+    font-weight: 700;
+    letter-spacing: .1em;
     text-transform: uppercase;
 }
 
@@ -79,7 +78,7 @@
 .waitlist-popup__text {
     margin-bottom: 2.4rem;
     color: var(--text4);
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     line-height: 1.6;
 
     & + .waitlist-popup__text {
@@ -103,14 +102,14 @@
 
 .waitlist-popup__input {
     width: 100%;
-    padding: 1.6rem 2rem;
-    border: 2px solid var(--text1);
-    border-radius: 1.6rem;
+    padding: 1rem;
+    border: 1px solid var(--blackOutline);
+    border-radius: var(--radiusSm);
     background: #fff;
     color: var(--text1);
     font: inherit;
-    font-size: 1.7rem;
-    transition: box-shadow .2s ease;
+    font-size: 1.4rem;
+    transition: border-color .2s ease;
 
     &::placeholder {
         color: var(--text3);
@@ -118,7 +117,7 @@
 
     &:focus {
         outline: none;
-        box-shadow: 0 0 0 4px var(--blue);
+        border-color: var(--violet);
     }
 
     &[aria-invalid="true"] {
@@ -133,33 +132,11 @@
 }
 
 .waitlist-popup__submit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: inherit;
     width: 100%;
     margin-top: 1.6rem;
-    padding: 1.8rem 2.4rem;
-    border: none;
-    border-radius: 1.6rem;
-    background: var(--violet);
-    box-shadow: 0 .6rem 0 var(--violetDark);
-    color: #fff;
-    font: inherit;
-    font-size: 1.7rem;
-    font-weight: 900;
+    font-weight: 700;
     text-align: center;
-    cursor: pointer;
-    transition: transform .15s ease, box-shadow .15s ease, background-color .2s ease;
-
-    &:hover,
-    &:focus-visible {
-        background: var(--violetLight);
-    }
-
-    &:active {
-        transform: translateY(.4rem);
-        box-shadow: 0 .2rem 0 var(--violetDark);
-    }
 
     &:disabled {
         opacity: .7;
@@ -199,7 +176,6 @@
 @media (max-width: 480px) {
     .waitlist-popup__card {
         padding: 3.2rem 2rem 2.4rem;
-        border-radius: 2rem;
     }
 
     .waitlist-popup__title {

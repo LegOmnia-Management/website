@@ -153,7 +153,7 @@ const WaitlistPopup = () => {
                         </p>
                         <Link
                             to={lp("/liste-attente")}
-                            className="waitlist-popup__submit"
+                            className="ui__btn waitlist-popup__submit"
                             onClick={() => dialogRef.current.close()}
                         >{tr("Compléter mon profil", "Complete my profile")}</Link>
                     </>
@@ -200,7 +200,7 @@ const WaitlistPopup = () => {
 
                             {error && <p id="waitlist-popup-error" className="waitlist-popup__error" role="alert">{error}</p>}
 
-                            <button type="submit" className="waitlist-popup__submit" disabled={isSending}>
+                            <button type="submit" className="ui__btn waitlist-popup__submit" disabled={isSending}>
                                 {isSending
                                     ? tr("Inscription en cours...", "Joining...")
                                     : tr("Rejoindre la liste d'attente", "Join the waiting list")}

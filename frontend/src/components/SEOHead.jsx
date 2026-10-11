@@ -3,8 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import useLang from '../i18n/useLang';
 import { localizePath } from '../i18n/routes';
 
-const BASE_URL = 'https://legomnia.com';
-const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
+import { BASE_URL, OG_IMAGES, X_HANDLE } from '../data/siteMeta';
+
+const absoluteUrl = (u) => (/^https?:\/\//.test(u) ? u : `${BASE_URL}${u}`);
 
 const DEFAULT_TITLES = {
     fr: 'LegOmnia — Recherche juridique IA pour l\'Afrique francophone',
@@ -20,7 +21,7 @@ const SEOHead = ({
     title,
     description,
     canonical,
-    ogImage = DEFAULT_IMAGE,
+    ogImage = OG_IMAGES.default, // chemin (/og/xxx.jpg) ou URL absolue ; voir OG_IMAGES
     ogType = 'website',
     structuredData,
     noIndex = false,
@@ -32,6 +33,7 @@ const SEOHead = ({
         ? `${title} | LegOmnia`
         : DEFAULT_TITLES[lang];
 
+    const imageUrl = absoluteUrl(ogImage);
     const urlFor = (l) => `${BASE_URL}${localizePath(canonical, l)}`;
     const canonicalUrl = canonical ? urlFor(lang) : null;
 
@@ -49,7 +51,10 @@ const SEOHead = ({
             <meta property="og:type" content={ogType} />
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
-            <meta property="og:image" content={ogImage} />
+            <meta property="og:image" content={imageUrl} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <meta property="og:image:alt" content={fullTitle} />
             {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
             <meta property="og:site_name" content="LegOmnia" />
             <meta property="og:locale" content={OG_LOCALES[lang]} />
@@ -59,7 +64,10 @@ const SEOHead = ({
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={ogImage} />
+            <meta name="twitter:image" content={imageUrl} />
+            <meta name="twitter:image:alt" content={fullTitle} />
+            <meta name="twitter:site" content={X_HANDLE} />
+            <meta name="twitter:creator" content={X_HANDLE} />
 
             {/* Structured data JSON-LD */}
             {structuredData && (

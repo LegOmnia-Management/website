@@ -1,5 +1,7 @@
 import { Link } from 'react-router';
 import SEOHead from '../components/SEOHead';
+import { OG_IMAGES } from '../data/siteMeta';
+import FaqSection from '../components/FaqSection';
 
 import '../assets/styles/omniscan.css';
 
@@ -40,6 +42,7 @@ const Omniscan = () => {
     return (
         <main className="main main__omniscan">
             <SEOHead
+                ogImage={OG_IMAGES.omniscan}
                 title={tr("OmniScan : analyse IA de contrats et documents juridiques", "OmniScan: AI analysis of contracts and legal documents")}
                 description={tr("Analysez, synthétisez et comparez vos contrats et actes juridiques grâce à l'IA. GED intelligente adaptée aux cabinets et institutions africains.", "Analyze, summarize and compare your contracts and legal instruments with AI. Smart document management tailored to African law firms and institutions.")}
                 canonical="/produits/transformation-digitale/omniscan"
@@ -309,6 +312,7 @@ const Omniscan = () => {
                 </div>
             </section>
 
+            <FaqSection group="omniscan" />
         </main>
     );
 };
