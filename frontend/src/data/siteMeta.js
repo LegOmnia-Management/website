@@ -1,5 +1,5 @@
 // Constantes SEO partagées (SEOHead, index.html à garder synchronisé pour sameAs)
-export const BASE_URL = 'https://legomnia.com';
+export const BASE_URL = 'https://www.legomnia.com';
 
 // Réseaux sociaux : footer + schema.org Organization (sameAs, à garder synchronisé avec index.html)
 export const SOCIALS = {

@@ -58,16 +58,16 @@ const Home = () => {
         "@graph": [
             {
                 "@type": "WebSite",
-                "@id": "https://legomnia.com/#website",
-                "url": "https://legomnia.com",
+                "@id": "https://www.legomnia.com/#website",
+                "url": "https://www.legomnia.com",
                 "name": "LegOmnia",
                 "inLanguage": ["fr", "en"],
-                "publisher": { "@type": "Organization", "name": "LegOmnia", "url": "https://legomnia.com" }
+                "publisher": { "@type": "Organization", "name": "LegOmnia", "url": "https://www.legomnia.com" }
             },
             {
                 "@type": "WebApplication",
                 "name": "LegOmnia",
-                "url": "https://legomnia.com",
+                "url": "https://www.legomnia.com",
                 "applicationCategory": "LegalTech",
                 "operatingSystem": "Web",
                 "offers": {

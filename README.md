@@ -324,7 +324,7 @@ Dans le dashboard Vercel → Settings → Environment Variables, ajouter :
 
 ```
 MONGO_URI
-CLIENT_URL           # URL de production du frontend (ex: https://legomnia.com)
+CLIENT_URL           # URL de production du frontend (ex: https://www.legomnia.com)
 RESEND_API_KEY
 CONTACT_EMAIL
 WAITLIST_EMAIL       # optionnel, défaut : contact@legomnia.com
@@ -337,5 +337,5 @@ VITE_API_URL         # laisser vide ou mettre l'URL Vercel (les appels /api/* so
 
 ## Notes pour la mise en ligne
 
-- En production, le `CLIENT_URL` dans le backend doit correspondre exactement au domaine du frontend (ex: `https://legomnia.com`) pour que le CORS fonctionne.
+- En production, le `CLIENT_URL` dans le backend doit correspondre exactement au domaine du frontend (ex: `https://www.legomnia.com`) pour que le CORS fonctionne.
 - L'adresse e-mail expéditrice Resend (`from`) utilise actuellement `onboarding@resend.dev` (domaine de test). Pour la production, configurer un domaine vérifié sur Resend et mettre à jour le champ `from` dans `contact.controller.js`.
