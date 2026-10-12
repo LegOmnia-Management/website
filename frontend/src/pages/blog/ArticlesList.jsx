@@ -127,6 +127,30 @@ export const articles = [
         dateEn: '11 October 2026',
         isoDate: '2026-10-11',
         time: '6 min'
+    },
+    {
+        id: 6,
+        img: Art3,
+        alt: 'Jurisprudence de la CCJA',
+        altEn: 'CCJA case law',
+        lang: 'fr',
+        category: [{
+            name: 'LegalTech',
+            class: 'legaltech'
+        },
+        {
+            name: 'Domaine sectoriel',
+            nameEn: 'Industry sector',
+            class: 'sectoriel'
+        }],
+        title: 'Jurisprudence de la CCJA : comprendre et rechercher les arrêts de la Cour commune de justice et d’arbitrage',
+        slug: 'jurisprudence-ccja-ohada-comprendre-et-rechercher-les-arrets',
+        recap: 'La CCJA unifie l’interprétation du droit OHADA dans 17 États. Rôle, types de décisions, méthode de recherche et pièges à éviter : le guide pour exploiter sa jurisprudence.',
+        author: 'LegOmnia',
+        date: '12 octobre 2026',
+        dateEn: '12 October 2026',
+        isoDate: '2026-10-12',
+        time: '6 min'
     }
 ];
 
@@ -905,6 +929,84 @@ export const articlesContent = [
                 <h2>En résumé</h2>
                 <p>
                     Pour trouver de la jurisprudence en Afrique francophone : identifiez d’abord le niveau de droit (OHADA, communautaire, national), partez des textes, croisez plusieurs sources, vérifiez la portée de chaque décision et citez-la précisément. Et lorsque la donnée est enfin structurée et accessible, c’est toute la pratique juridique qui gagne en rapidité et en fiabilité.
+                </p>
+            </>
+        )
+    },
+    {
+        id: 6,
+        slug: 'jurisprudence-ccja-ohada-comprendre-et-rechercher-les-arrets',
+        html: (
+            <>
+                <p>
+                    Pour un avocat, un juriste d’entreprise ou un magistrat qui travaille en droit des affaires en Afrique francophone, une question revient sans cesse : <strong>comment les Actes uniformes de l’OHADA sont-ils réellement appliqués ?</strong> La réponse se trouve, en grande partie, dans la jurisprudence de la Cour commune de justice et d’arbitrage (CCJA).
+                </p>
+                <p>
+                    Ce guide explique ce qu’est la CCJA, quelles décisions elle rend, comment les rechercher efficacement et quelles erreurs éviter lorsqu’on s’appuie sur sa jurisprudence.
+                </p>
+
+                <h2>La CCJA, juge commun du droit OHADA</h2>
+                <p>
+                    Établie à Abidjan, la CCJA a été créée par le Traité relatif à l’harmonisation du droit des affaires en Afrique. Sa mission est d’assurer <strong>l’interprétation et l’application communes</strong> du traité, des règlements et des Actes uniformes dans l’ensemble des États membres de l’OHADA.
+                </p>
+                <p>
+                    Concrètement, un même article d’un Acte uniforme (droit des sociétés, sûretés, procédures collectives, recouvrement, droit commercial général…) doit recevoir la même interprétation à Dakar, à Douala ou à Libreville. La CCJA est la garante de cette unité.
+                </p>
+
+                <h2>Les trois fonctions de la CCJA</h2>
+                <h3>1. Juge de cassation</h3>
+                <p>
+                    La CCJA est saisie des pourvois formés contre les décisions rendues par les juridictions nationales d’appel dans les affaires qui soulèvent des questions relatives à l’application des Actes uniformes. Lorsqu’elle casse une décision, elle peut <strong>évoquer</strong> et statuer elle-même sur le fond.
+                </p>
+                <h3>2. Organe consultatif</h3>
+                <p>
+                    La Cour peut être consultée sur l’interprétation et l’application du traité, des règlements et des Actes uniformes. Ses <strong>avis consultatifs</strong> éclairent les États, les juridictions nationales et les institutions concernées.
+                </p>
+                <h3>3. Institution d’arbitrage</h3>
+                <p>
+                    La CCJA administre aussi des procédures d’arbitrage et exerce un contrôle sur les sentences rendues sous son égide, notamment par l’exequatur. Cette fonction repose sur des règles propres, distinctes de celles du contentieux judiciaire.
+                </p>
+
+                <h2>Pourquoi sa jurisprudence est incontournable</h2>
+                <p>
+                    <strong>- Une portée régionale.</strong> Un arrêt de la CCJA éclaire la lecture d’un texte commun à tous les États membres, et pas seulement celle d’un pays.<br/>
+                    <strong>- Une force exécutoire.</strong> Les arrêts de la Cour ont l’autorité de la chose jugée et une force exécutoire sur le territoire de chaque État partie.<br/>
+                    <strong>- Un repère pour la pratique.</strong> Rédaction de contrats, conseil en gouvernance, recouvrement, prévention des difficultés des entreprises : connaître la position de la Cour réduit l’incertitude juridique.<br/>
+                    <strong>- Un argument de poids devant les juridictions nationales.</strong> Citer un arrêt de la CCJA sur le texte litigieux est souvent la référence la plus solide.
+                </p>
+
+                <h2>Comment rechercher un arrêt de la CCJA : la méthode en 5 étapes</h2>
+                <p>
+                    <strong>1. Partir de l’article de l’Acte uniforme.</strong> Les arrêts visent les textes qu’ils appliquent : le numéro d’article est le meilleur point d’entrée.<br/>
+                    <strong>2. Identifier la notion juridique.</strong> Essayez les termes techniques du texte (« cessation des paiements », « opposabilité », « déchéance »…) en complément des mots-clés courants.<br/>
+                    <strong>3. Croiser plusieurs sources.</strong> Site de l’OHADA, publications officielles, revues spécialisées, bases de données juridiques : aucune source n’est exhaustive à elle seule.<br/>
+                    <strong>4. Lire la décision en entier.</strong> Un résumé ou un chapeau ne remplace pas le raisonnement de la Cour, ni les faits qui conditionnent la portée de la solution.<br/>
+                    <strong>5. Vérifier la date et la suite donnée.</strong> La Cour peut préciser ou infléchir sa position ; une décision ancienne doit être confrontée aux plus récentes et aux éventuelles modifications des Actes uniformes.
+                </p>
+
+                <h2>Les pièges à éviter</h2>
+                <p>
+                    <strong>- Confondre CCJA et juridictions nationales.</strong> La CCJA ne juge que les affaires relevant des Actes uniformes ; les autres questions restent de la compétence des juridictions nationales.<br/>
+                    <strong>- Généraliser une solution d’espèce.</strong> Un arrêt répond à une situation de fait précise : vérifiez que la vôtre est comparable.<br/>
+                    <strong>- Citer sans référence complète.</strong> Indiquez la juridiction, la date, le numéro de la décision et la source, pour que la citation soit vérifiable.<br/>
+                    <strong>- Ignorer l’état du texte.</strong> L’Acte uniforme appliqué a pu être révisé depuis : contrôlez la version applicable à la date des faits.
+                </p>
+
+                <h2>Ce que l’IA change pour la recherche de jurisprudence OHADA</h2>
+                <p>
+                    Lorsque les arrêts sont numérisés, structurés et rattachés aux articles qu’ils interprètent, la recherche change d’échelle : au lieu d’enchaîner les mots-clés, on peut poser sa question en langage naturel et obtenir les décisions pertinentes, avec leurs références.
+                </p>
+                <p>
+                    C’est l’objectif de <Link to="/produits/omnia">Omnia</Link>, l’application de recherche juridique de LegOmnia, qui réunit textes OHADA, droits nationaux et jurisprudence. La couverture se construit étape par étape ; vous pouvez suivre son avancement sur les pages <Link to="/juridictions">juridictions</Link>. Pour une vue d’ensemble des sources de jurisprudence en Afrique francophone, consultez notre <Link to="/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver">guide pour trouver la jurisprudence africaine</Link>.
+                </p>
+
+                <h2>En résumé</h2>
+                <p>
+                    La CCJA est la clé de voûte du droit OHADA : en cassation, en consultation et en arbitrage, elle fixe le sens des Actes uniformes pour l’ensemble des États membres. Pour exploiter sa jurisprudence, partez du texte, lisez les décisions en entier, vérifiez leur date et citez-les précisément.
+                </p>
+                <hr></hr>
+                <p>
+                    <i>Vous souhaitez tester la recherche de jurisprudence OHADA ? <Link to="/liste-attente">Rejoignez la liste d’attente</Link> ou <a href="mailto:contact@legomnia.com">contactez-nous</a>.</i>
                 </p>
             </>
         )

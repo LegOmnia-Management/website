@@ -503,6 +503,23 @@
         <priority>0.6</priority>
     </url>
 
+    <url>
+        <loc>https://www.legomnia.com/blog/articles/jurisprudence-ccja-ohada-comprendre-et-rechercher-les-arrets</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.legomnia.com/blog/articles/jurisprudence-ccja-ohada-comprendre-et-rechercher-les-arrets"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.legomnia.com/en/blog/articles/jurisprudence-ccja-ohada-comprendre-et-rechercher-les-arrets"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.legomnia.com/blog/articles/jurisprudence-ccja-ohada-comprendre-et-rechercher-les-arrets"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.legomnia.com/en/blog/articles/jurisprudence-ccja-ohada-comprendre-et-rechercher-les-arrets</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.legomnia.com/blog/articles/jurisprudence-ccja-ohada-comprendre-et-rechercher-les-arrets"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.legomnia.com/en/blog/articles/jurisprudence-ccja-ohada-comprendre-et-rechercher-les-arrets"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.legomnia.com/blog/articles/jurisprudence-ccja-ohada-comprendre-et-rechercher-les-arrets"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
     <!-- Pages légales -->
     <url>
         <loc>https://www.legomnia.com/cgu</loc>
