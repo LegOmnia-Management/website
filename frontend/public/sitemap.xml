@@ -503,23 +503,7 @@
         <priority>0.6</priority>
     </url>
 
-    <!-- Pages légales (noindex mais présentes dans le sitemap pour cohérence) -->
-    <url>
-        <loc>https://legomnia.com/mentions-legales</loc>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/mentions-legales"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/legal-notice"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/mentions-legales"/>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://legomnia.com/en/legal-notice</loc>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/mentions-legales"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/legal-notice"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/mentions-legales"/>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
+    <!-- Pages légales -->
     <url>
         <loc>https://legomnia.com/cgu</loc>
         <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/cgu"/>
