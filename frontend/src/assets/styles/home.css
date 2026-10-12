@@ -65,6 +65,37 @@ section {
     }
 }
 
+/***************** Jurisprudence *****************/
+.home__jurisprudence {
+    text-align: center;
+}
+
+.home__jurisprudence--list {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    list-style: none;
+    margin: 3rem auto;
+    max-width: 110rem;
+    padding: 0;
+    text-align: left;
+
+    li {
+        background-color: var(--violetLightSoft);
+        border-radius: var(--radiusMd);
+        padding: 2.4rem;
+    }
+
+    h3 {
+        margin-bottom: 1rem;
+    }
+}
+
+.home__jurisprudence--note {
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
 /***************** Map *****************/
 .home__map {
     background: linear-gradient(90deg, var(--bgHeroStart) 0%, var(--bgHeroEnd) 100%);

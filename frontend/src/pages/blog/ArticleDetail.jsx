@@ -41,10 +41,10 @@ const ArticleDetail = () => {
         <main className="main detailArticle">
 
             <SEOHead
-                title={`${article.title} | Blog LegOmnia`}
+                title={article.title}
                 description={article.recap}
                 canonical={`/blog/articles/${article.slug}`}
-                image={article.img}
+                ogImage={article.img}
                 contentLang={article.lang}
             />
 
@@ -55,9 +55,9 @@ const ArticleDetail = () => {
                         "@context": "https://schema.org",
                         "@type": "BreadcrumbList",
                         "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": tr("Accueil", "Home"), "item": `https://legomnia.com${lp("/")}` },
-                            { "@type": "ListItem", "position": 2, "name": "Articles", "item": `https://legomnia.com${lp("/blog/articles")}` },
-                            { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://legomnia.com${lp(`/blog/articles/${article.slug}`)}` }
+                            { "@type": "ListItem", "position": 1, "name": tr("Accueil", "Home"), "item": `https://www.legomnia.com${lp("/")}` },
+                            { "@type": "ListItem", "position": 2, "name": "Articles", "item": `https://www.legomnia.com${lp("/blog/articles")}` },
+                            { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://www.legomnia.com${lp(`/blog/articles/${article.slug}`)}` }
                         ]
                     })
                 }}
@@ -71,7 +71,9 @@ const ArticleDetail = () => {
                         "@type": "BlogPosting",
                         "headline": article.title,
                         "description": article.recap,
-                        "image": article.img,
+                        "image": new URL(article.img, 'https://www.legomnia.com').href,
+                        ...(article.isoDate && { "datePublished": article.isoDate, "dateModified": article.isoDate }),
+                        "inLanguage": article.lang,
                         "author": {
                             "@type": "Organization",
                             "name": article.author
@@ -81,12 +83,12 @@ const ArticleDetail = () => {
                             "name": "LegOmnia",
                             "logo": {
                                 "@type": "ImageObject",
-                                "url": "https://legomnia.com/logo.png"
+                                "url": "https://www.legomnia.com/favicon.svg"
                             }
                         },
                         "mainEntityOfPage": {
                             "@type": "WebPage",
-                            "@id": `https://legomnia.com${lp(`/blog/articles/${article.slug}`)}`
+                            "@id": `https://www.legomnia.com${lp(`/blog/articles/${article.slug}`)}`
                         }
                     })
                 }}

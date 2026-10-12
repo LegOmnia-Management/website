@@ -12,7 +12,7 @@ const build = (lang) => {
 
     return {
         seo: {
-            title: t('Droit en Guinée : OHADA, CEDEAO, OMVS et hiérarchie des normes', 'Guinea law: OHADA, ECOWAS, OMVS and hierarchy of norms'),
+            title: t('Droit et jurisprudence en Guinée : OHADA, CEDEAO, OMVS', 'Guinea law and case law: OHADA, ECOWAS, OMVS'),
             description: t("Droit guinéen : OHADA, CEDEAO, Union du fleuve Mano, OMVS, OMVG, Autorité du bassin du Niger, hiérarchie des normes et place des traités. Carte interactive et quiz.", 'Guinean law: OHADA, ECOWAS, Mano River Union, OMVS, OMVG, Niger Basin Authority, hierarchy of norms and status of treaties. Interactive map and quiz.'),
         },
         breadcrumb: { home: t('Accueil', 'Home'), jurisdictions: t('Juridictions', 'Jurisdictions'), current: t('Guinée', 'Guinea') },

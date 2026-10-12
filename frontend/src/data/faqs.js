@@ -33,6 +33,12 @@ export const FAQ_GROUPS = [
                 "Yes, a free 7-day trial is available. You can also request a personalized demo from the Contact page."
             ),
             qa(
+                "Où trouver la jurisprudence africaine avec LegOmnia ?",
+                "LegOmnia rassemble la jurisprudence de la CCJA (OHADA), des cours suprêmes nationales et des juridictions communautaires (CEDEAO, UEMOA, CEMAC), rattachée aux lois et décrets qu'elle applique, et la rend interrogeable en langage naturel. La couverture se construit étape par étape ; l'état d'avancement pays par pays est détaillé sur la page Juridictions.",
+                "Where can I find African case law with LegOmnia?",
+                "LegOmnia gathers case law from the CCJA (OHADA), national supreme courts and community courts (ECOWAS, WAEMU, CEMAC), linked to the laws and decrees they apply, and makes it searchable in natural language. Coverage is built step by step; progress country by country is detailed on the Jurisdictions page."
+            ),
+            qa(
                 "Mes données sont-elles protégées ?",
                 "Oui. LegOmnia repose sur une approche de souveraineté des données : vos documents restent chez vous, les accès sont gérés par rôles et la plateforme respecte le RGPD.",
                 "Is my data protected?",

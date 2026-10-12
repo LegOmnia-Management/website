@@ -12,7 +12,7 @@ const build = (lang) => {
 
     return {
         seo: {
-            title: t('Droit au Bénin : OHADA, UEMOA, CEDEAO et hiérarchie des normes', 'Benin law: OHADA, WAEMU, ECOWAS and hierarchy of norms'),
+            title: t('Droit et jurisprudence au Bénin : OHADA, UEMOA, CEDEAO', 'Benin law and case law: OHADA, WAEMU, ECOWAS'),
             description: t("Droit béninois : membre fondateur de l'OHADA, siège de l'ERSUMA, UEMOA, CEDEAO, hiérarchie des normes et place des traités. Carte interactive et quiz.", 'Beninese law: founding member of OHADA, seat of ERSUMA, WAEMU, ECOWAS, hierarchy of norms and status of treaties. Interactive map and quiz.'),
         },
         breadcrumb: { home: t('Accueil', 'Home'), jurisdictions: t('Juridictions', 'Jurisdictions'), current: t('Bénin', 'Benin') },

@@ -12,7 +12,7 @@ const build = (lang) => {
 
     return {
         seo: {
-            title: t('Droit aux Comores : OHADA, COMESA, SADC et hiérarchie des normes', 'Comoros law: OHADA, COMESA, SADC and hierarchy of norms'),
+            title: t('Droit et jurisprudence aux Comores : OHADA, COMESA, SADC', 'Comoros law and case law: OHADA, COMESA, SADC'),
             description: t("Droit comorien : OHADA, COMESA, SADC, Commission de l'océan Indien, hiérarchie des normes et place des traités. Le seul État de l'océan Indien membre de l'OHADA. Carte interactive et quiz.", 'Comorian law: OHADA, COMESA, SADC, Indian Ocean Commission, hierarchy of norms and status of treaties. The only Indian Ocean state in OHADA. Interactive map and quiz.'),
         },
         breadcrumb: { home: t('Accueil', 'Home'), jurisdictions: t('Juridictions', 'Jurisdictions'), current: t('Comores', 'Comoros') },

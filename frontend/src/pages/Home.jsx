@@ -55,18 +55,30 @@ const Home = () => {
 
     const structuredData = {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "LegOmnia",
-        "url": "https://legomnia.com",
-        "applicationCategory": "LegalTech",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "EUR",
-            "description": txt.seo.offer
-        },
-        "description": txt.seo.appDescription
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://www.legomnia.com/#website",
+                "url": "https://www.legomnia.com",
+                "name": "LegOmnia",
+                "inLanguage": ["fr", "en"],
+                "publisher": { "@type": "Organization", "name": "LegOmnia", "url": "https://www.legomnia.com" }
+            },
+            {
+                "@type": "WebApplication",
+                "name": "LegOmnia",
+                "url": "https://www.legomnia.com",
+                "applicationCategory": "LegalTech",
+                "operatingSystem": "Web",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "EUR",
+                    "description": txt.seo.offer
+                },
+                "description": txt.seo.appDescription
+            }
+        ]
     };
 
     return (
@@ -123,6 +135,27 @@ const Home = () => {
                     <div className="home__presentation--text">
                         <p>{txt.presentation.p1}</p>
                         <p>{txt.presentation.p2}</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Jurisprudence */}
+            <section className="home__jurisprudence" aria-labelledby="home-jurisprudence">
+                <div className="container">
+                    <h2 id="home-jurisprudence" className='title__h2'>{txt.jurisprudence.title}</h2>
+                    <p className='title__subtitle'>{txt.jurisprudence.intro}</p>
+                    <ul className="home__jurisprudence--list">
+                        {txt.jurisprudence.items.map((item) => (
+                            <li key={item.title}>
+                                <h3>{item.title}</h3>
+                                <p>{item.text}</p>
+                            </li>
+                        ))}
+                    </ul>
+                    <p className="home__jurisprudence--note">{txt.jurisprudence.note}</p>
+                    <div className="hero__actions">
+                        <Link className='ui__btn' to={lp("/juridictions")}>{txt.jurisprudence.coverage}</Link>
+                        <Link className='ui__btn--inline' to={lp("/blog/articles/jurisprudence-afrique-francophone-ou-la-trouver")}>{txt.jurisprudence.guide}</Link>
                     </div>
                 </div>
             </section>

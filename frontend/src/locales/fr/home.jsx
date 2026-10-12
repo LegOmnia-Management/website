@@ -1,17 +1,17 @@
 // Page d'accueil (français)
 export default {
     seo: {
-        title: "LegOmnia — Recherche juridique IA pour l'Afrique francophone",
-        description: "Centralisez lois, décrets et jurisprudence de 17+ pays d'Afrique francophone. Recherche juridique par IA, veille automatisée et GED sécurisée. Demandez une démo.",
+        title: "Jurisprudence Afrique francophone : recherche juridique IA",
+        description: "Jurisprudence africaine, lois et décrets de 17+ pays d'Afrique francophone (OHADA, CCJA, CEDEAO, CEMAC) réunis dans un moteur de recherche juridique par IA. Demandez une démo.",
         offer: 'Essai gratuit 7 jours',
         appDescription: "Moteur de recherche juridique par IA pour l'Afrique francophone : lois, décrets, jurisprudence OHADA, CCJA, CEDEAO, CEMAC et 17+ pays.",
     },
     mainLabel: 'Accueil LegOmnia',
     hero: {
-        kicker: "L'IA juridique pour l'Afrique francophone",
+        kicker: "Jurisprudence et droit d'Afrique francophone, par l'IA",
         title: <>Le droit africain entre <span className='break'>dans une <em className='highlight'>nouvelle ère</em></span></>,
-        subtitle: <>Découvrez <span className='highlight'>Omnia</span>, notre application de recherche juridique d'Afrique francophone</>,
-        searchPlaceholder: 'Commencez votre recherche ici...',
+        subtitle: <>Découvrez <span className='highlight'>Omnia</span>, notre application de recherche de jurisprudence et de droit d'Afrique francophone</>,
+        searchPlaceholder: 'Recherchez une jurisprudence, une loi, un décret...',
         searchLabel: 'Rechercher',
         discover: 'Découvrir la plateforme',
         demo: 'Demander une démo',
@@ -19,12 +19,24 @@ export default {
     presentation: {
         title: <>Une vision simple : rendre le droit en Afrique francophone enfin <em className='highlight'>accessible, structuré et actionnable</em></>,
         videoFallback: 'Votre navigateur ne supporte pas la vidéo HTML5',
-        p1: <>Aujourd'hui, la donnée juridique est <span className="highlight">fragmentée, non digitalisée, difficilement exploitable</span>.</>,
+        p1: <>Aujourd'hui, la jurisprudence et la donnée juridique sont <span className="highlight">fragmentées, non digitalisées, difficilement exploitables</span>.</>,
         p2: <>LegOmnia propose <span className="highlight">un écosystème complet</span> permettant de passer de cette donnée non digitalisée à <span className="highlight">une intelligence juridique</span> unifiée et structurée.</>,
     },
     map: {
         title: 'Notre couverture en Afrique francophone',
-        subtitle: 'Explorez notre présence et les organisations juridiques intégrées',
+        subtitle: 'Explorez notre couverture : jurisprudence, lois et organisations juridiques intégrées',
+    },
+    jurisprudence: {
+        title: <>La jurisprudence africaine, enfin <em className='highlight'>accessible</em></>,
+        intro: "Trouver une décision de justice en Afrique francophone relève encore du parcours du combattant : la jurisprudence est dispersée entre de nombreuses juridictions, publiée de façon inégale et rarement numérisée. LegOmnia la rassemble, la structure et la rattache aux textes qu'elle applique, pour la rendre interrogeable en langage naturel.",
+        items: [
+            { title: 'Jurisprudence OHADA et CCJA', text: "Les arrêts de la Cour commune de justice et d'arbitrage, qui fixent l'interprétation des Actes uniformes dans l'ensemble des États membres." },
+            { title: 'Jurisprudence nationale', text: 'Les décisions des cours suprêmes et cours de cassation, pays par pays, reliées aux lois et décrets qu\'elles appliquent.' },
+            { title: 'Jurisprudence communautaire', text: 'Les décisions des juridictions des organisations régionales : CEDEAO, UEMOA, CEMAC.' },
+        ],
+        note: 'La couverture de la jurisprudence se construit étape par étape, juridiction par juridiction.',
+        coverage: 'Voir la couverture par pays',
+        guide: 'Guide : où trouver la jurisprudence africaine',
     },
     showcase: {
         title: "Une infrastructure déjà à l'œuvre",
@@ -44,9 +56,9 @@ export default {
         next: 'Suivant',
         usages: [
             { title: 'Avocats & Cabinets', text: 'Accélération de la recherche et des analyses', list: ['Recherche ultra-rapide de jurisprudence', "Bases d'études de cas", 'Analyses comparatives OHADA'] },
-            { title: "Juristes d'entreprise", text: 'Maîtrise du risque et conformité multi-pays', list: ['Veille réglementaire', 'Conformité par juridiction', 'Accès complet aux textes applicables'] },
+            { title: "Juristes d'entreprise", text: 'Maîtrise du risque et conformité multi-pays', list: ['Veille réglementaire et jurisprudentielle', 'Conformité par juridiction', 'Accès complet aux textes applicables'] },
             { title: 'Institutions publiques', text: 'Modernisation et souveraineté documentaire', list: ['Gestion centralisée', 'Archivage intelligent', 'Accès public garanti'] },
-            { title: 'Etudiants & chercheurs', text: 'Accès structuré à la connaissance juridique', list: ['Base de recherche complète', 'Citations vérifiées', 'Accès gratuit'] },
+            { title: 'Etudiants & chercheurs', text: 'Accès structuré à la connaissance juridique', list: ['Base de jurisprudence et de textes complète', 'Citations vérifiées', 'Accès gratuit'] },
             { title: 'Investisseurs & IPE', text: 'Due diligence rapide et fiable', list: ['Due diligence accélérée', 'Risk assessment par pays', 'Conformité sanction'] },
         ],
         profile: { title: 'Votre profil', text: 'Contactez-nous pour une démo personnalisée', cta: 'Demander une démo' },
