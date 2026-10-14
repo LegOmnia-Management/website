@@ -1,0 +1,23 @@
+// Domaines d'e-mails jetables / temporaires courants (liste non exhaustive).
+export const DISPOSABLE_DOMAINS = new Set([
+    "10minutemail.com", "10minutemail.net", "20minutemail.com", "33mail.com", "anonaddy.me",
+    "burnermail.io", "byom.de", "cock.li", "dispostable.com", "dropmail.me", "emailondeck.com",
+    "fakeinbox.com", "fakemail.net", "fakemailgenerator.com", "getairmail.com", "getnada.com",
+    "grr.la", "guerrillamail.biz", "guerrillamail.com", "guerrillamail.de", "guerrillamail.net",
+    "guerrillamail.org", "guerrillamailblock.com", "harakirimail.com", "inboxbear.com",
+    "inboxkitten.com", "jetable.org", "mail-temp.com", "mail.tm", "mailcatch.com", "maildrop.cc",
+    "mailinator.com", "mailinator.net", "mailnesia.com", "mailnull.com", "mailsac.com",
+    "mailtemp.net", "mintemail.com", "mohmal.com", "moakt.com", "mytemp.email", "mytrashmail.com",
+    "nada.email", "net2mail.top", "sharklasers.com", "spam4.me", "spamavert.com", "spambog.com",
+    "spamgourmet.com", "spamex.com", "temp-mail.io", "temp-mail.org", "tempail.com", "tempemail.co",
+    "tempemail.net", "tempinbox.com", "tempmail.com", "tempmail.dev", "tempmail.net", "tempmailaddress.com",
+    "tempmailo.com", "temporary-mail.net", "throwam.com", "throwawaymail.com", "tmail.ws", "tmpmail.net",
+    "tmpmail.org", "trashmail.at", "trashmail.com", "trashmail.io", "trashmail.me", "trashmail.net",
+    "trbvm.com", "wegwerfmail.de", "yopmail.com", "yopmail.fr", "yopmail.net", "zetmail.com",
+    "emailfake.com", "emkei.cz", "email-fake.com", "luxusmail.org", "mailpoof.com", "mail7.io",
+    "1secmail.com", "1secmail.net", "1secmail.org", "dcctb.com", "esiix.com", "wwjmp.com", "xojxe.com",
+    "vjuum.com", "laafd.com", "txcct.com", "oosln.com", "tmails.net", "discard.email", "discardmail.com",
+    "mailforspam.com", "mailmoat.com", "mailnator.com", "mailtothis.com", "owlymail.com", "rcpt.at",
+    "spamfree24.org", "teleworm.us", "armyspy.com", "cuvox.de", "dayrep.com", "einrot.com",
+    "fleckens.hu", "gustr.com", "jourrapide.com", "rhyta.com", "superrito.com",
+]);

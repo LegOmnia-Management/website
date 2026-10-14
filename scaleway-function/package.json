@@ -1,0 +1,10 @@
+{
+  "name": "legomnia-waitlist-function",
+  "version": "1.0.0",
+  "description": "Fonction Scaleway : inscription à la liste d'attente (e-mails via SMTP)",
+  "main": "handler.js",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "nodemailer": "^7.0.0"
+  }
+}

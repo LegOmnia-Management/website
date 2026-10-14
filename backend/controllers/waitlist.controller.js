@@ -1,5 +1,6 @@
 import { Waitlist } from "../models/index.js";
 import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 // Adresse qui reçoit les nouvelles inscriptions
 const WAITLIST_EMAIL = process.env.WAITLIST_EMAIL || "contact@legomnia.com";
@@ -28,18 +29,31 @@ const honeypot = (req, res, next) => {
     next();
 };
 
-// Expéditeur : doit appartenir à un domaine vérifié sur Resend, sinon Resend
-// (avec onboarding@resend.dev) ne livre qu'au propriétaire du compte Resend.
+// Expéditeur affiché dans les e-mails
 const MAIL_FROM = process.env.MAIL_FROM || "LegOmnia <onboarding@resend.dev>";
 
-// Envoi via Resend (optionnel : ignoré si Resend n'est pas configuré,
-// et une erreur d'envoi ne fait jamais échouer l'inscription)
+// Transport SMTP (ex. Infomaniak) : prioritaire s'il est configuré
+const smtpTransport = process.env.SMTP_HOST
+    ? nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: Number(process.env.SMTP_PORT) || 465,
+        secure: (Number(process.env.SMTP_PORT) || 465) === 465,
+        auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+    })
+    : null;
+
+// Envoi d'e-mail (optionnel : SMTP si configuré, sinon Resend, sinon ignoré ;
+// une erreur d'envoi ne fait jamais échouer l'inscription)
 const send = async (message) => {
-    if (!process.env.RESEND_API_KEY) {
-        console.warn("RESEND_API_KEY absent : e-mail non envoyé");
-        return;
-    }
     try {
+        if (smtpTransport) {
+            await smtpTransport.sendMail({ from: MAIL_FROM, ...message });
+            return;
+        }
+        if (!process.env.RESEND_API_KEY) {
+            console.warn("Ni SMTP_HOST ni RESEND_API_KEY : e-mail non envoyé");
+            return;
+        }
         const resend = new Resend(process.env.RESEND_API_KEY);
         const { error: emailError } = await resend.emails.send({ from: MAIL_FROM, ...message });
         if (emailError) {

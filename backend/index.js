@@ -12,6 +12,9 @@ connectDB();
 
 const app = express();
 
+// derrière Caddy puis nginx : req.ip doit refléter l'IP du visiteur
+app.set("trust proxy", 2);
+
 app.use(cors({
     origin: [process.env.CLIENT_URL, 'https://website-lemon-gamma-10.vercel.app'],
     credentials: true
