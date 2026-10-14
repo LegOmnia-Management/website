@@ -26,6 +26,10 @@ const API_ERRORS_EN = {
     "Le pays est invalide": "Country is invalid",
     "Produit inconnu": "Unknown product",
     "Vous devez accepter la politique de confidentialité": "You must accept the privacy policy",
+    "Les adresses e-mail temporaires ne sont pas acceptées": "Temporary email addresses are not accepted",
+    "Cette adresse e-mail n'est pas acceptée": "This email address is not accepted",
+    "Le domaine de cette adresse e-mail est introuvable": "The domain of this email address could not be found",
+    "Trop de demandes, veuillez réessayer plus tard": "Too many requests, please try again later",
 };
 
 /** Traduit l'objet { champ: message } renvoyé par l'API dans la langue courante. */
