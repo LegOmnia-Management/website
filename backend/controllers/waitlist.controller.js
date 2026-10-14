@@ -28,25 +28,20 @@ const honeypot = (req, res, next) => {
     next();
 };
 
-// Email notif (optionnel : ignoré si Resend n'est pas configuré,
+// Expéditeur : doit appartenir à un domaine vérifié sur Resend, sinon Resend
+// (avec onboarding@resend.dev) ne livre qu'au propriétaire du compte Resend.
+const MAIL_FROM = process.env.MAIL_FROM || "LegOmnia <onboarding@resend.dev>";
+
+// Envoi via Resend (optionnel : ignoré si Resend n'est pas configuré,
 // et une erreur d'envoi ne fait jamais échouer l'inscription)
-const notify = async (subject, rows) => {
-    if (!process.env.RESEND_API_KEY) return;
+const send = async (message) => {
+    if (!process.env.RESEND_API_KEY) {
+        console.warn("RESEND_API_KEY absent : e-mail non envoyé");
+        return;
+    }
     try {
         const resend = new Resend(process.env.RESEND_API_KEY);
-        const { error: emailError } = await resend.emails.send({
-            from: "onboarding@resend.dev",
-            to: WAITLIST_EMAIL,
-            replyTo: rows.Email,
-            subject,
-            html: `
-                <p><strong>Nouvelle inscription sur la liste d'attente</strong></p>
-                <hr/>
-                ${Object.entries(rows).map(([label, value]) =>
-                    `<p><strong>${label} :</strong> ${escapeHtml(value || "-")}</p>`
-                ).join("")}
-            `,
-        });
+        const { error: emailError } = await resend.emails.send({ from: MAIL_FROM, ...message });
         if (emailError) {
             console.error("Erreur envoi email :", emailError.message);
         }
@@ -54,6 +49,33 @@ const notify = async (subject, rows) => {
         console.error("Erreur envoi email :", emailError.message);
     }
 };
+
+// Accusé de réception pour l'administrateur
+const notify = (subject, rows) => send({
+    to: WAITLIST_EMAIL,
+    replyTo: rows.Email,
+    subject,
+    html: `
+        <p><strong>Nouvelle inscription sur la liste d'attente</strong></p>
+        <hr/>
+        ${Object.entries(rows).map(([label, value]) =>
+            `<p><strong>${label} :</strong> ${escapeHtml(value || "-")}</p>`
+        ).join("")}
+    `,
+});
+
+// Confirmation d'inscription pour l'utilisateur
+const confirmToUser = (email, firstName) => send({
+    to: email,
+    replyTo: WAITLIST_EMAIL,
+    subject: "Votre inscription sur la liste d'attente LegOmnia",
+    html: `
+        <p>Bonjour${firstName ? ` ${escapeHtml(firstName)}` : ""},</p>
+        <p>Nous confirmons que votre inscription sur la liste d'attente LegOmnia a bien été prise en compte.</p>
+        <p>Nous vous contacterons dès que l'accès sera disponible.</p>
+        <p>À bientôt,<br/>L'équipe LegOmnia</p>
+    `,
+});
 
 const success = (res) => res.status(201).json({
     success: true,
@@ -113,6 +135,8 @@ const createWaitlist = async (req, res) => {
             "Source": existing ? "Formulaire complet (complète une inscription pop-up)" : "Formulaire complet",
         });
 
+        await confirmToUser(entry.email, entry.firstName);
+
         // retour de l'API (sans renvoyer les données personnelles)
         return success(res);
     } catch (error) {
@@ -142,6 +166,8 @@ const createWaitlistQuick = async (req, res) => {
             "Email": entry.email,
             "Source": "Pop-up (e-mail seul)",
         });
+
+        await confirmToUser(entry.email);
 
         return success(res);
     } catch (error) {
