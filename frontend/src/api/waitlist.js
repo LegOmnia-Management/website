@@ -1,4 +1,7 @@
-const ENDPOINT = import.meta.env.VITE_API_URL || "";
+// En production, la liste d'attente est servie par une fonction Scaleway (pas de serveur backend).
+// VITE_API_URL permet de la remplacer (ex. backend local en développement).
+const WAITLIST_FUNCTION_URL = "https://legomniawfcmwxzi-fct-relaxed-banzai.functions.fnc.fr-par.scw.cloud";
+const ENDPOINT = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? WAITLIST_FUNCTION_URL : "");
 
 // inscription liste d'attente
 export const joinWaitlist = async (form) => {
