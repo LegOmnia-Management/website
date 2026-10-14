@@ -1,6 +1,5 @@
 import { Waitlist } from "../models/index.js";
-import { Resend } from "resend";
-import nodemailer from "nodemailer";
+import { sendMail } from "../utils/mailer.js";
 
 // Adresse qui reçoit les nouvelles inscriptions
 const WAITLIST_EMAIL = process.env.WAITLIST_EMAIL || "contact@legomnia.com";
@@ -29,43 +28,8 @@ const honeypot = (req, res, next) => {
     next();
 };
 
-// Expéditeur affiché dans les e-mails
-const MAIL_FROM = process.env.MAIL_FROM || "LegOmnia <onboarding@resend.dev>";
-
-// Transport SMTP (ex. Infomaniak) : prioritaire s'il est configuré
-const smtpTransport = process.env.SMTP_HOST
-    ? nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT) || 465,
-        secure: (Number(process.env.SMTP_PORT) || 465) === 465,
-        auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-    })
-    : null;
-
-// Envoi d'e-mail (optionnel : SMTP si configuré, sinon Resend, sinon ignoré ;
-// une erreur d'envoi ne fait jamais échouer l'inscription)
-const send = async (message) => {
-    try {
-        if (smtpTransport) {
-            await smtpTransport.sendMail({ from: MAIL_FROM, ...message });
-            return;
-        }
-        if (!process.env.RESEND_API_KEY) {
-            console.warn("Ni SMTP_HOST ni RESEND_API_KEY : e-mail non envoyé");
-            return;
-        }
-        const resend = new Resend(process.env.RESEND_API_KEY);
-        const { error: emailError } = await resend.emails.send({ from: MAIL_FROM, ...message });
-        if (emailError) {
-            console.error("Erreur envoi email :", emailError.message);
-        }
-    } catch (emailError) {
-        console.error("Erreur envoi email :", emailError.message);
-    }
-};
-
 // Accusé de réception pour l'administrateur
-const notify = (subject, rows) => send({
+const notify = (subject, rows) => sendMail({
     to: WAITLIST_EMAIL,
     replyTo: rows.Email,
     subject,
@@ -79,7 +43,7 @@ const notify = (subject, rows) => send({
 });
 
 // Confirmation d'inscription pour l'utilisateur
-const confirmToUser = (email, firstName) => send({
+const confirmToUser = (email, firstName) => sendMail({
     to: email,
     replyTo: WAITLIST_EMAIL,
     subject: "Votre inscription sur la liste d'attente LegOmnia",
