@@ -1,5 +1,5 @@
 import { Contact } from "../models/index.js";
-import { Resend } from "resend";
+import { sendMail } from "../utils/mailer.js";
 
 /********** HONEYPOT **********/
 // Le champ "website" est invisible pour un humain : s'il est rempli, c'est un bot.
@@ -24,31 +24,23 @@ const createContact = async (req, res) => {
 
         const contact = await Contact.create(formData);
 
-        // Email notif (optionnel : ignoré si Resend n'est pas configuré,
+        // Email notif (optionnel : ignoré si SMTP ou CONTACT_EMAIL est absent,
         // et une erreur d'envoi ne fait jamais échouer la demande)
-        if (process.env.RESEND_API_KEY && process.env.CONTACT_EMAIL) {
-            try {
-                const resend = new Resend(process.env.RESEND_API_KEY);
-                const { error: emailError } = await resend.emails.send({
-                    from: "onboarding@resend.dev",
-                    to: process.env.CONTACT_EMAIL,
-                    subject: `Nouveau message :  ${contact.subject}`,
-                    html: `
-                        <p><strong>Sujet :</strong> ${contact.subject}</p>
-                        <hr/>
-                        <p><strong>Expéditeur :</strong> ${contact.firstName} ${contact.lastName}</p>
-                        <p><strong>Email :</strong> ${contact.email}</p>
-                        <p><strong>Téléphone :</strong> ${contact.phone}</p>
-                        <p><strong>Entreprise :</strong> ${contact.company}</p>
-                        <p><strong>Message :</strong> ${contact.message}</p>
-                    `,
-                });
-                if (emailError) {
-                    console.error("Erreur envoi email :", emailError.message);
-                }
-            } catch (emailError) {
-                console.error("Erreur envoi email :", emailError.message);
-            }
+        if (process.env.CONTACT_EMAIL) {
+            await sendMail({
+                to: process.env.CONTACT_EMAIL,
+                replyTo: contact.email,
+                subject: `Nouveau message :  ${contact.subject}`,
+                html: `
+                    <p><strong>Sujet :</strong> ${contact.subject}</p>
+                    <hr/>
+                    <p><strong>Expéditeur :</strong> ${contact.firstName} ${contact.lastName}</p>
+                    <p><strong>Email :</strong> ${contact.email}</p>
+                    <p><strong>Téléphone :</strong> ${contact.phone}</p>
+                    <p><strong>Entreprise :</strong> ${contact.company}</p>
+                    <p><strong>Message :</strong> ${contact.message}</p>
+                `,
+            });
         }
 
         // retour de l'API
