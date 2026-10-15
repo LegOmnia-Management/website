@@ -24,7 +24,7 @@ const createContact = async (req, res) => {
 
         const contact = await Contact.create(formData);
 
-        // Email notif (optionnel : ignoré si SMTP ou CONTACT_EMAIL est absent,
+        // Email notif (optionnel : ignoré si SENDGRID_API_KEY ou CONTACT_EMAIL est absent,
         // et une erreur d'envoi ne fait jamais échouer la demande)
         if (process.env.CONTACT_EMAIL) {
             await sendMail({

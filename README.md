@@ -11,7 +11,7 @@ Site vitrine de **Legomnia**, présentant les produits Omnia, Géode, Omniscan e
 | Frontend | React 19, Vite, React Router v7, Swiper |
 | Backend | Node.js, Express 5, Mongoose |
 | Base de données | MongoDB |
-| E-mail | SMTP (Infomaniak) via Nodemailer |
+| E-mail | SendGrid (API v3, fetch natif) |
 | Anti-spam | Honeypot (champ caché) |
 | Déploiement | VPS (Docker Compose + Caddy), Vercel pour la préprod |
 
@@ -66,12 +66,10 @@ MONGO_URI=mongodb+srv://<user>:<password>@<cluster>.mongodb.net/<dbname>
 # URL du frontend (pour CORS)
 CLIENT_URL=http://localhost:3000
 
-# SMTP (envoi d'e-mails, ex. Infomaniak)
-SMTP_HOST=mail.infomaniak.com
-SMTP_PORT=465
-SMTP_USER=notifications@legomnia.com
-SMTP_PASS=<mot_de_passe_de_la_boite>
-# Expéditeur affiché dans les e-mails
+# SendGrid (envoi d'e-mails via l'API v3)
+# Clé API créée dans le dashboard SendGrid (Settings → API Keys, permission « Mail Send »)
+SENDGRID_API_KEY=<clé_api_sendgrid>
+# Expéditeur des e-mails (doit être une adresse vérifiée dans SendGrid : Sender Authentication)
 MAIL_FROM=LegOmnia <notifications@legomnia.com>
 CONTACT_EMAIL=<email_destinataire_des_demandes_de_contact>
 WAITLIST_EMAIL=contact@legomnia.com
@@ -94,7 +92,7 @@ VITE_API_URL=http://localhost:5171
 
 - Node.js ≥ 18
 - Un compte MongoDB Atlas (ou instance MongoDB locale)
-- Une boîte mail avec accès SMTP (ex. Infomaniak) pour l'envoi d'e-mails
+- Un compte SendGrid avec une clé API « Mail Send » et l'expéditeur `notifications@legomnia.com` vérifié
 
 ### 1. Cloner le dépôt
 
@@ -149,12 +147,12 @@ La route `POST /api/contact` effectue dans l'ordre :
 1. Honeypot : si le champ caché `website` est rempli (bot), réponse 201 factice, rien n'est enregistré
 2. Validation des champs (express-validator)
 3. Sauvegarde en base MongoDB
-4. Envoi d'un e-mail de notification par SMTP (optionnel : ignoré si `SMTP_HOST` ou `CONTACT_EMAIL` est absent ; une erreur d'envoi ne fait pas échouer la demande)
+4. Envoi d'un e-mail de notification via SendGrid (optionnel : ignoré si `SENDGRID_API_KEY` ou `CONTACT_EMAIL` est absent ; une erreur d'envoi ne fait pas échouer la demande)
 
 La route `POST /api/waitlist` (formulaire de la page `/liste-attente`, accessible
 via le bouton « Inscription sur liste d'attente » du header) suit le même principe :
 honeypot, validation, sauvegarde (collection `waitlists`, une seule inscription par
-e-mail ; un doublon reçoit la même réponse de succès) puis notification SMTP à
+e-mail ; un doublon reçoit la même réponse de succès) puis notification SendGrid à
 `WAITLIST_EMAIL` (par défaut `contact@legomnia.com`) et e-mail de confirmation à l'inscrit.
 
 Les demandes de contact ne sont pas exposées par l'API : elles se consultent
@@ -330,10 +328,7 @@ Dans le dashboard Vercel → Settings → Environment Variables, ajouter :
 ```
 MONGO_URI
 CLIENT_URL           # URL de production du frontend (ex: https://legomnia.com)
-SMTP_HOST
-SMTP_PORT
-SMTP_USER
-SMTP_PASS
+SENDGRID_API_KEY
 MAIL_FROM
 CONTACT_EMAIL
 WAITLIST_EMAIL       # optionnel, défaut : contact@legomnia.com
@@ -347,4 +342,4 @@ VITE_API_URL         # laisser vide ou mettre l'URL Vercel (les appels /api/* so
 ## Notes pour la mise en ligne
 
 - En production, le `CLIENT_URL` dans le backend doit correspondre exactement au domaine du frontend (ex: `https://legomnia.com`) pour que le CORS fonctionne.
-- L'expéditeur des e-mails est la boîte SMTP configurée (`SMTP_USER` / `MAIL_FROM`) ; le domaine doit autoriser cette boîte (SPF/DKIM chez l'hébergeur de messagerie).
+- L'expéditeur des e-mails est `MAIL_FROM` (`notifications@legomnia.com`) ; l'adresse ou le domaine `legomnia.com` doit être vérifié dans SendGrid (Sender Authentication : enregistrements DNS SPF/DKIM fournis par SendGrid).
