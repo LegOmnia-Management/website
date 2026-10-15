@@ -108,6 +108,13 @@ const checkEmail = async (email) => {
     return null;
 };
 
+// Version texte brut dérivée du HTML (un e-mail HTML seul est un signal de spam courant)
+const htmlToText = (html = "") => String(html)
+    .replace(/<\/(p|div|h[1-6]|li|tr)>/gi, "\n").replace(/<br\s*\/?>/gi, "\n").replace(/<hr\s*\/?>/gi, "\n---\n")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+
 // Envoi via l'API SendGrid (v3 /mail/send) avec le fetch natif de Node ≥ 18.
 const send = async ({ to, replyTo, subject, html }) => {
     const apiKey = process.env.SENDGRID_API_KEY;
@@ -119,7 +126,7 @@ const send = async ({ to, replyTo, subject, html }) => {
         personalizations: [{ to: [parseAddress(to)] }],
         from: parseAddress(MAIL_FROM),
         subject,
-        content: [{ type: "text/html", value: html }],
+        content: [{ type: "text/plain", value: htmlToText(html) }, { type: "text/html", value: html }],
     };
     if (replyTo) payload.reply_to = parseAddress(replyTo);
     try {
