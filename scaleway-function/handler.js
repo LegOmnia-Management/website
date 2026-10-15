@@ -6,9 +6,9 @@
 //   POST /api/waitlist        formulaire complet
 //   POST /api/waitlist/quick  pop-up (e-mail seul)
 const dns = require("dns").promises;
-const nodemailer = require("nodemailer");
 const DISPOSABLE_DOMAINS = require("./disposable-domains");
 
+const SENDGRID_API_URL = "https://api.sendgrid.com/v3/mail/send";
 const WAITLIST_EMAIL = process.env.WAITLIST_EMAIL || "contact@legomnia.com";
 const MAIL_FROM = process.env.MAIL_FROM || "LegOmnia <notifications@legomnia.com>";
 const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "https://www.legomnia.com,https://legomnia.com")
@@ -20,12 +20,12 @@ const escapeHtml = (value = "") => String(value)
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 
-const transport = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || "mail.infomaniak.com",
-    port: Number(process.env.SMTP_PORT) || 465,
-    secure: (Number(process.env.SMTP_PORT) || 465) === 465,
-    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-});
+// "LegOmnia <notifications@legomnia.com>" → { name, email }
+const parseAddress = (value) => {
+    const match = String(value).trim().match(/^(?:"?([^"<]*)"?\s*)?<([^>]+)>$/);
+    if (match) return { name: match[1]?.trim() || undefined, email: match[2].trim() };
+    return { email: String(value).trim() };
+};
 
 const corsHeaders = (origin) => ({
     "Access-Control-Allow-Origin": ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
@@ -108,9 +108,29 @@ const checkEmail = async (email) => {
     return null;
 };
 
-const send = async (message) => {
+// Envoi via l'API SendGrid (v3 /mail/send) avec le fetch natif de Node ≥ 18.
+const send = async ({ to, replyTo, subject, html }) => {
+    const apiKey = process.env.SENDGRID_API_KEY;
+    if (!apiKey) {
+        console.warn("SENDGRID_API_KEY absente : e-mail non envoyé");
+        return;
+    }
+    const payload = {
+        personalizations: [{ to: [parseAddress(to)] }],
+        from: parseAddress(MAIL_FROM),
+        subject,
+        content: [{ type: "text/html", value: html }],
+    };
+    if (replyTo) payload.reply_to = parseAddress(replyTo);
     try {
-        await transport.sendMail({ from: MAIL_FROM, ...message });
+        const response = await fetch(SENDGRID_API_URL, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        });
+        if (!response.ok) {
+            console.error(`Erreur envoi email (SendGrid ${response.status}) :`, await response.text().catch(() => ""));
+        }
     } catch (error) {
         console.error("Erreur envoi email :", error.message);
     }
