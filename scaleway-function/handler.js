@@ -113,7 +113,7 @@ const htmlToText = (html = "") => String(html)
     .replace(/<\/(p|div|h[1-6]|li|tr)>/gi, "\n").replace(/<br\s*\/?>/gi, "\n").replace(/<hr\s*\/?>/gi, "\n---\n")
     .replace(/<[^>]+>/g, "")
     .replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'")
-    .replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+    .replace(/^[ \t]+/gm, "").replace(/[ \t]+$/gm, "").replace(/\n{3,}/g, "\n\n").trim();
 
 // Envoi via l'API SendGrid (v3 /mail/send) avec le fetch natif de Node ≥ 18.
 const send = async ({ to, replyTo, subject, html }) => {

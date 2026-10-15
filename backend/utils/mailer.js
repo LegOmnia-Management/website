@@ -20,7 +20,7 @@ const htmlToText = (html = "") => String(html)
     .replace(/<[^>]+>/g, "")
     .replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"').replace(/&#39;/g, "'")
-    .replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+    .replace(/^[ \t]+/gm, "").replace(/[ \t]+$/gm, "").replace(/\n{3,}/g, "\n\n").trim();
 
 // Signature : sendMail({ to, replyTo, subject, html, text })
 export const sendMail = async ({ to, replyTo, subject, html, text }) => {
