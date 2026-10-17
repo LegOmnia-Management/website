@@ -1,3 +1,54 @@
+/***************** Fond continu (transitions entre sections) *****************/
+.main__home {
+    background-color: #fafae6;
+}
+
+/* Le héro garde sa lumière chaude mais finit sur la couleur de base ;
+   plus de bords nets : halos non coupés, carte à points estompée en bas. */
+.main__home .hero {
+    background: linear-gradient(180deg, #fdfde1 0%, #fafae6 100%);
+    overflow-x: clip;
+    overflow-y: visible;
+}
+
+.main__home .component__hero--bg {
+    overflow: visible;
+}
+
+.main__home .component__hero--canvas {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 86%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0, #000 86%, transparent 100%);
+}
+
+/* Vision et infrastructure : identité violette en voile fondu, pas en bloc */
+.main__home .home__presentation::after,
+.main__home .home__showcase::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(120% 70% at 50% 50%, rgba(124, 92, 252, .09), transparent 72%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 clamp(120px, 14vw, 220px), #000 calc(100% - clamp(120px, 14vw, 220px)), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 clamp(120px, 14vw, 220px), #000 calc(100% - clamp(120px, 14vw, 220px)), transparent 100%);
+}
+
+/* la trame de points s'estompe aussi en haut et en bas */
+.main__home .bg__circle::before {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 clamp(120px, 14vw, 220px), #000 calc(100% - clamp(120px, 14vw, 220px)), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 clamp(120px, 14vw, 220px), #000 calc(100% - clamp(120px, 14vw, 220px)), transparent 100%);
+}
+
+.main__home .faqSection {
+    background: transparent;
+}
+
+/* Pied de page : prolongement du crème (accueil uniquement) */
+.main__home ~ footer {
+    background: linear-gradient(180deg, #fafae6 0%, #efeee0 100%);
+    border-top: 1px solid rgba(124, 92, 252, .12);
+}
+
 .main__home {
 
     .hero__title {
@@ -30,7 +81,7 @@ section {
 
 /***************** Présentation *****************/
 .home__presentation {
-    background-color: var(--violetLightSoft);
+    background-color: transparent;
 }
 
 .home__presentation__container {
@@ -67,12 +118,12 @@ section {
 
 /***************** Map *****************/
 .home__map {
-    background: linear-gradient(90deg, var(--bgHeroStart) 0%, var(--bgHeroEnd) 100%);
+    background: transparent;
 }
 
 /***************** Mise en avant *****************/
 .home__showcase {
-    background-color: var(--violetLightSoft);
+    background-color: transparent;
 }
 
 .home__showcase--subtitle {
@@ -214,9 +265,20 @@ section {
 
 /***************** Demo *****************/
 .home__ask__demo {
-    background: #F8F7FE;
-    background: linear-gradient(180deg,#F8F7FE 0%, #F8F7FE 30%, #F8F8E6 31%, #F8F8E6 100%);
+    background: transparent;
     padding-block: 0 6rem;
+    position: relative;
+    isolation: isolate;
+}
+
+/* halo centré (remplace l'ancien dégradé à coupure nette) */
+.home__ask__demo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(60% 50% at 50% 40%, rgba(124, 92, 252, .08), transparent 70%);
 }
 
 .home__ask__demo--content {

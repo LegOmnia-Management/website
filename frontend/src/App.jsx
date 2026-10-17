@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
 
 import ScrollToTop from './components/ScrollToTop';
@@ -31,6 +32,9 @@ import WaitlistPopup from './components/WaitlistPopup';
 import { ROUTES, LANGS } from './i18n/routes';
 
 import './assets/styles/general.css';
+import './assets/styles/motion.css';
+
+import { initPageProgress } from './motion/legomnia-motion';
 
 // Chaque page est déclarée une fois et servie dans les deux langues
 // (chemins définis dans i18n/routes.js)
@@ -64,6 +68,9 @@ const PAGES = [
 ];
 
 function App() {
+
+    // barre de progression de lecture + en-tête translucide au défilement
+    useEffect(() => initPageProgress(), []);
 
     return (
         <BrowserRouter>
