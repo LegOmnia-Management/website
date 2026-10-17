@@ -6,8 +6,6 @@
 
 :root {
     --lg-ease: cubic-bezier(.22, 1, .36, 1);
-    --lg-fade: clamp(120px, 14vw, 220px);
-    --lg-mask: linear-gradient(to bottom, transparent 0, #000 var(--lg-fade), #000 calc(100% - var(--lg-fade)), transparent 100%);
 }
 
 /* Barre de progression de lecture */
@@ -32,26 +30,6 @@ header.lg-scrolled {
     -webkit-backdrop-filter: saturate(1.4) blur(14px);
     backdrop-filter: saturate(1.4) blur(14px);
     box-shadow: 0 1px 0 rgba(107, 99, 208, .12);
-}
-
-/* ---------- Transitions entre sections (accueil) ----------
-   Les points ne s'arrêtent plus net aux bords d'une section : ils s'estompent
-   en haut et en bas, et un voile violet très léger se fond avec la section voisine. */
-.main__home .bg__circle::before {
-    -webkit-mask-image: var(--lg-mask);
-    mask-image: var(--lg-mask);
-    opacity: .7;
-}
-
-.main__home .bg__circle::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-    background: radial-gradient(120% 70% at 50% 50%, rgba(124, 92, 252, .10), transparent 72%);
-    -webkit-mask-image: var(--lg-mask);
-    mask-image: var(--lg-mask);
 }
 
 /* Révélation au défilement (fondu + montée + netteté) */
@@ -99,24 +77,6 @@ header.lg-scrolled {
 
 .lg-zoom.lg-in video {
     transform: scale(1);
-}
-
-/* Héro : carte à points, halos et particules conservés tels quels.
-   On supprime seulement les bords nets en bas de la section :
-   les halos ne sont plus coupés et se fondent dans la section suivante ;
-   la carte à points s'estompe doucement en bas pendant son animation. */
-section.hero {
-    overflow-x: clip;
-    overflow-y: visible;
-}
-
-.component__hero--bg {
-    overflow: visible;
-}
-
-.component__hero--canvas {
-    -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 86%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0, #000 86%, transparent 100%);
 }
 
 /* Boutons : élévation au survol */
