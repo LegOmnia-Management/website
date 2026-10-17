@@ -1,0 +1,208 @@
+/* =========================================================
+   LegOmnia — motion design (page d'accueil et navigation)
+   Les classes lg-* sont posées par src/motion/legomnia-motion.js
+   et SplitWords : aucune modification de structure n'est nécessaire.
+   ========================================================= */
+
+:root {
+    --lg-ease: cubic-bezier(.22, 1, .36, 1);
+    --lg-fade: clamp(120px, 14vw, 220px);
+    --lg-mask: linear-gradient(to bottom, transparent 0, #000 var(--lg-fade), #000 calc(100% - var(--lg-fade)), transparent 100%);
+}
+
+/* Barre de progression de lecture */
+.lg-progress {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 2px;
+    z-index: 9999;
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    pointer-events: none;
+    background: linear-gradient(90deg, var(--violet, #6b63d0), var(--violetLight, #8b84e0));
+}
+
+/* En-tête : devient translucide au défilement (utile si l'en-tête est fixé/sticky) */
+header {
+    transition: background-color .4s var(--lg-ease), box-shadow .4s var(--lg-ease), backdrop-filter .4s;
+}
+
+header.lg-scrolled {
+    background-color: rgba(255, 255, 255, .8);
+    -webkit-backdrop-filter: saturate(1.4) blur(14px);
+    backdrop-filter: saturate(1.4) blur(14px);
+    box-shadow: 0 1px 0 rgba(107, 99, 208, .12);
+}
+
+/* ---------- Transitions entre sections (accueil) ----------
+   Les points ne s'arrêtent plus net aux bords d'une section : ils s'estompent
+   en haut et en bas, et un voile violet très léger se fond avec la section voisine. */
+.main__home .bg__circle::before {
+    -webkit-mask-image: var(--lg-mask);
+    mask-image: var(--lg-mask);
+    opacity: .7;
+}
+
+.main__home .bg__circle::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background: radial-gradient(120% 70% at 50% 50%, rgba(124, 92, 252, .10), transparent 72%);
+    -webkit-mask-image: var(--lg-mask);
+    mask-image: var(--lg-mask);
+}
+
+/* Révélation au défilement (fondu + montée + netteté) */
+.lg-rv {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+    transition: opacity .9s var(--lg-ease), transform 1s var(--lg-ease), filter .9s var(--lg-ease);
+    transition-delay: calc(var(--lg-i, 0) * 90ms);
+}
+
+.lg-rv.lg-in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+}
+
+/* Titre principal : apparition mot par mot (rendu par SplitWords) */
+.lg-w {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding-bottom: .08em;
+}
+
+.lg-w > span {
+    display: inline-block;
+    transform: translateY(105%);
+    transition: transform 1.1s var(--lg-ease);
+}
+
+.lg-hero-in .lg-w > span {
+    transform: none;
+}
+
+/* Vidéo : léger zoom arrière à l'entrée */
+.lg-zoom {
+    overflow: hidden;
+}
+
+.lg-zoom video {
+    transform: scale(1.08);
+    transition: transform 1.6s var(--lg-ease);
+}
+
+.lg-zoom.lg-in video {
+    transform: scale(1);
+}
+
+/* Héro : carte à points, halos et particules conservés tels quels.
+   On supprime seulement les bords nets en bas de la section :
+   les halos ne sont plus coupés et se fondent dans la section suivante ;
+   la carte à points s'estompe doucement en bas pendant son animation. */
+section.hero {
+    overflow-x: clip;
+    overflow-y: visible;
+}
+
+.component__hero--bg {
+    overflow: visible;
+}
+
+.component__hero--canvas {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 86%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0, #000 86%, transparent 100%);
+}
+
+/* Boutons : élévation au survol */
+.hero a,
+.home__ask__demo a,
+.home__showcase a {
+    transition: transform .35s var(--lg-ease), box-shadow .35s var(--lg-ease);
+}
+
+.hero a:hover,
+.home__ask__demo a:hover,
+.home__showcase a:hover {
+    transform: translateY(-2px);
+}
+
+/* Cartes : élévation et halo qui suit la souris */
+.lg-card {
+    position: relative;
+}
+
+.lg-card.lg-in.lg-done {
+    transition: transform .45s var(--lg-ease), box-shadow .45s var(--lg-ease);
+    transition-delay: 0s;
+}
+
+.lg-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 0%), rgba(139, 132, 224, .16), transparent 60%);
+    opacity: 0;
+    transition: opacity .4s;
+}
+
+.lg-card.lg-in:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 40px -24px rgba(74, 15, 157, .35);
+}
+
+.lg-card:hover::after {
+    opacity: 1;
+}
+
+/* Bloc démo : liseré lumineux en rotation lente */
+.home__ask__demo--content {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.home__ask__demo--content::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    z-index: -2;
+    background: conic-gradient(from 0deg, transparent, rgba(139, 132, 224, .35), transparent 30%);
+    animation: lg-spin 14s linear infinite;
+}
+
+.home__ask__demo--content::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(180deg, #efebfe, #e9e4fd);
+}
+
+@keyframes lg-spin {
+    to { transform: rotate(1turn); }
+}
+
+/* Accessibilité : aucun mouvement si l'utilisateur l'a demandé */
+@media (prefers-reduced-motion: reduce) {
+    .lg-rv,
+    .lg-w > span,
+    .lg-zoom video {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+    }
+
+    .home__ask__demo--content::before {
+        animation: none !important;
+    }
+}

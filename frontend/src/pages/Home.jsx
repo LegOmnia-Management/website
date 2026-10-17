@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import '../assets/styles/home.css';
@@ -9,6 +9,8 @@ import AfricaParticles from '../components/AfricaParticles';
 import HeroBg from '../components/HeroBg';
 import CoverageMap from '../components/CoverageMap';
 import IconRing from '../components/IconRing';
+import SplitWords from '../components/SplitWords';
+import { initHomeMotion } from '../motion/legomnia-motion';
 
 import Video from '../assets/video/african_law_enter_in_new_era.mp4';
 import Avocat from '../assets/img/pictos/avocat.svg';
@@ -52,6 +54,9 @@ const Home = () => {
 
     const [ showcase, setShowcase ] = useState("usages");
 
+    // motion design : révélation au défilement, compteurs, halos des cartes
+    useEffect(() => initHomeMotion(), []);
+
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "WebApplication",
@@ -87,7 +92,7 @@ const Home = () => {
                     <div className="hero__title">
                         <p className='subtitle'>{txt.hero.kicker}</p>
                         <h1 className='main-title'>
-                            {txt.hero.title}
+                            <SplitWords>{txt.hero.title}</SplitWords>
                         </h1>
                         <p className="subtitle">{txt.hero.subtitle}</p>
                     </div>
