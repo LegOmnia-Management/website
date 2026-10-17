@@ -7,6 +7,9 @@ services:
     image: ghcr.io/legomnia-management/website-backend:latest
     restart: unless-stopped
     env_file: .env
+    # Autorité qui signe le TLS du MongoDB auto-hébergé (tlsCAFile de MONGO_URI), déposée à côté de ce fichier sur le VPS.
+    volumes:
+      - ./mongodb-ca.pem:/certs/mongodb-ca.pem:ro
     environment:
       PORT: 8080
       NODE_ENV: production

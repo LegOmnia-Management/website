@@ -4,8 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../assets/styles/home.css';
 
 import SEOHead from '../components/SEOHead';
+import FaqSection from '../components/FaqSection';
 
-import AfricaParticles from '../components/AfricaParticles';
+import AfricaMotion from '../components/africaMotion/AfricaMotion';
 import HeroBg from '../components/HeroBg';
 import CoverageMap from '../components/CoverageMap';
 import IconRing from '../components/IconRing';
@@ -83,9 +84,9 @@ const Home = () => {
             />
             {/* Hero */}
             <section className="hero">
-                <AfricaParticles 
+                <AfricaMotion
                     className="component__hero--canvas"
-                    style= {{position : "absolute"}}
+                    options={{ mapCenterX: 0.5, mapHeight: 0.95 }}
                 />
                 <HeroBg />
                 <div className="container hero__container">
@@ -255,18 +256,17 @@ const Home = () => {
                             <div>
                                 <span className="iconify" data-icon="teenyicons:pin-outline"></span>
                                 <p><strong>Paris</strong></p>
-                                <p>8 rue du Chevalier de la Barre, 75018</p>
                             </div>
                             <div>
                                 <span className="iconify" data-icon="teenyicons:pin-outline"></span>
-                                <p><strong>Jersey City</strong></p>
-                                <p>24 Commerce Street, NJ 07302</p>
+                                <p><strong>New York City</strong></p>
                             </div>
                         </div>
                         <img className="home__ask__demo--map" src={MapContact} alt={txt.demo.mapAlt} />
                     </div>
                 </div>
             </section>
+            <FaqSection group="home" />
         </main>
     );
 };

@@ -1,0 +1,7 @@
+{
+  "name": "legomnia-waitlist-function",
+  "version": "1.0.0",
+  "description": "Fonction Scaleway : inscription à la liste d'attente (e-mails via SendGrid)",
+  "main": "handler.js",
+  "license": "UNLICENSED"
+}

@@ -29,7 +29,7 @@ export default {
     showcase: {
         title: "Une infrastructure déjà à l'œuvre",
         stats: [
-            { value: '50 000+', label: 'textes' },
+            { value: '100 000+', label: 'documents' },
             { value: '17+', label: 'pays' },
             { value: '98%', label: 'satisfaction' },
         ],

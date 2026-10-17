@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import '../assets/styles/omnia.css';
 
 import SEOHead from '../components/SEOHead';
+import { OG_IMAGES } from '../data/siteMeta';
+import FaqSection from '../components/FaqSection';
 
 import HeroBg from '../components/HeroBg';
 import HomeMobile from '../assets/img/application/homeMobile.png';
@@ -71,6 +73,7 @@ const Omnia = () => {
     return (
         <main className="main main__omnia">
             <SEOHead
+                ogImage={OG_IMAGES.omnia}
                 title={tr("OMNIA : moteur de recherche juridique par IA", "OMNIA: AI-powered legal search engine")}
                 description={tr("Posez vos questions juridiques en langage naturel : OMNIA interroge des centaines de milliers de textes OHADA et nationaux et cite ses sources. Essai 7 jours.", "Ask your legal questions in natural language: OMNIA searches hundreds of thousands of OHADA and national texts and cites its sources. 7-day trial.")}
                 canonical="/produits/omnia"
@@ -258,6 +261,7 @@ const Omnia = () => {
                     </div>
                 </div>
             </section>
+            <FaqSection group="omnia" />
         </main>
     );
 };

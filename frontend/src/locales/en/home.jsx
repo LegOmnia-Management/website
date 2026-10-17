@@ -29,7 +29,7 @@ export default {
     showcase: {
         title: 'An infrastructure already at work',
         stats: [
-            { value: '50,000+', label: 'texts' },
+            { value: '100,000+', label: 'documents' },
             { value: '17+', label: 'countries' },
             { value: '98%', label: 'satisfaction' },
         ],

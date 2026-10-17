@@ -5,6 +5,8 @@ import { Navigation, Pagination } from "swiper/modules";
 import '../assets/styles/geode.css';
 
 import SEOHead from '../components/SEOHead';
+import { OG_IMAGES } from '../data/siteMeta';
+import FaqSection from '../components/FaqSection';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -41,6 +43,7 @@ const Geode = () => {
     return (
         <main className="main main__geode">
             <SEOHead
+                ogImage={OG_IMAGES.geode}
                 title={tr("Géode : GED intelligente et cartographie juridique", "Géode: smart document management and legal mapping")}
                 description={tr("Explorez l'environnement juridique et réglementaire de l'Afrique francophone : normes OHADA, CEDEAO, CEMAC, UEMOA et droits nationaux, en un seul outil.", "Explore the legal and regulatory environment of French-speaking Africa: OHADA, ECOWAS, CEMAC and WAEMU standards and national laws, in a single tool.")}
                 canonical="/produits/transformation-digitale/geode"
@@ -259,6 +262,7 @@ const Geode = () => {
                     </Swiper>
                 </div>
             </section>
+            <FaqSection group="geode" />
         </main>
     );
 };
