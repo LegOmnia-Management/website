@@ -5,6 +5,7 @@ import '../assets/styles/home.css';
 
 import SEOHead from '../components/SEOHead';
 import FaqSection from '../components/FaqSection';
+import LatestPublications from '../components/LatestPublications';
 
 import AfricaMotion from '../components/africaMotion/AfricaMotion';
 import HeroBg from '../components/HeroBg';
@@ -266,6 +267,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <LatestPublications />
             <FaqSection group="home" />
         </main>
     );
