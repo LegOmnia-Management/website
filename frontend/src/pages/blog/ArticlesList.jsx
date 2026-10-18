@@ -346,13 +346,13 @@ export const articlesContent = [
                     L'OHADA a déjà engagé l'informatisation du Registre du commerce et du crédit mobilier, pour rendre l'information sur les entreprises et les sûretés accessible en temps réel. L'étape suivante concerne la donnée juridique elle-même : numériser les décisions, les structurer, les rendre interrogeables.
                 </p>
                 <p>
-                    C'est ici que l'intelligence artificielle et les legaltech africaines ont un rôle à jouer, à l'image de LegOmnia, plateforme d'IA de recherche juridique dédiée à l'Afrique francophone. Ces outils permettent de centraliser les textes et la jurisprudence de l'espace, d'y effectuer des recherches contextuelles en quelques secondes et d'analyser des documents juridiques. Ils peuvent surtout réduire le coût de l'information juridique, encore réservée à une minorité de professionnels.
+                    C'est ici que l'intelligence artificielle et les legaltech africaines ont un rôle à jouer, à l'image de <a href="https://www.legomnia.com">LegOmnia</a>, plateforme d'IA de recherche juridique dédiée à l'Afrique francophone, et de son produit <a href="https://www.legomnia.com/produits/omnia">Omnia</a>. Ces outils permettent de centraliser les textes et la jurisprudence de l'espace, d'y effectuer des recherches contextuelles en quelques secondes et d'analyser des documents juridiques. Ils peuvent surtout réduire le coût de l'information juridique, encore réservée à une minorité de professionnels.
                 </p>
                 <p>
                     Cette transition pose aussi des questions neuves. La publication massive de décisions de justice impose une anonymisation rigoureuse, pour protéger l'identité, la situation familiale ou le genre des justiciables, mais aussi les magistrats. Elle soulève enfin un enjeu de souveraineté numérique : les États doivent garder la maîtrise de leurs données judiciaires.
                 </p>
                 <p>
-                    C'est le sens de l'initiative LegOmnia. La plateforme centralise les données juridiques de 17 pays d'Afrique francophone et propose une recherche juridique alimentée par l'IA. Elle accompagne aussi les États dans la numérisation, l'anonymisation et la diffusion sécurisée de leurs décisions, au sein de bases souveraines et interopérables. L'objectif rejoint celui de Port-Louis : faire du droit des affaires un levier de confiance et de développement, accessible à tous.
+                    C'est le sens de l'initiative <a href="https://www.legomnia.com">LegOmnia</a>. Avec <a href="https://www.legomnia.com/produits/omnia">Omnia</a>, la plateforme centralise les données juridiques de 17 pays d'Afrique francophone et propose une recherche juridique alimentée par l'IA. Elle accompagne aussi les États dans la numérisation, l'anonymisation et la diffusion sécurisée de leurs décisions, au sein de bases souveraines et interopérables. L'objectif rejoint celui de Port-Louis : faire du droit des affaires un levier de confiance et de développement, accessible à tous.
                 </p>
                 <h2>
                     Chronologie express
