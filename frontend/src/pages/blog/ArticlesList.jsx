@@ -243,16 +243,16 @@ export const articlesContent = [
                     Des décisions qui ont fait le droit OHADA
                 </h3>
                 <p>
-                    <strong>L'avis du 30 avril 2001 : la supranationalité affirmée.</strong> Saisie par la Côte d'Ivoire, la CCJA livre la lecture de référence de l'article 10 du Traité. Les Actes uniformes s'appliquent directement et priment sur le droit interne, antérieur comme postérieur. Sauf dérogation prévue par les Actes eux-mêmes, toute disposition nationale contraire est abrogée, et toute disposition future contraire interdite. Cet avis reste, vingt-cinq ans après, la pierre angulaire du système (CCJA, avis n° 1/2001/EP du 30 avril 2001, Ohadata J-02-04).
+                    <strong>L'avis du 30 avril 2001 : la supranationalité affirmée.</strong> Saisie par la Côte d'Ivoire, la CCJA livre la lecture de référence de l'article 10 du Traité. Les Actes uniformes s'appliquent directement et priment sur le droit interne, antérieur comme postérieur. Sauf dérogation prévue par les Actes eux-mêmes, toute disposition nationale contraire est abrogée, et toute disposition future contraire interdite. Cet avis reste, vingt-cinq ans après, la pierre angulaire du système (CCJA, avis n° 1/2001/EP du 30 avril 2001).
                 </p>
                 <p>
-                    <strong>L'avis du 16 février 2017 : le législateur national encadré.</strong> Interrogée sur la compatibilité de la loi ivoirienne n° 2015-903 du 30 décembre 2015 avec l'Acte uniforme sur les sociétés commerciales, la Cour pose une règle nette. Dans les matières couvertes par le droit OHADA, seules sont admises les dispositions nationales que les Actes uniformes autorisent. La logique unificatrice est réaffirmée, dans le prolongement des avis de 1999, 2001 et 2012 (CCJA, avis n° 002/2017 du 16 février 2017, commenté dans L'Essentiel Droits africains des affaires, juin 2017).
+                    <strong>L'avis du 16 février 2017 : le législateur national encadré.</strong> Interrogée sur la compatibilité de la loi ivoirienne n° 2015-903 du 30 décembre 2015 avec l'Acte uniforme sur les sociétés commerciales, la Cour pose une règle nette. Dans les matières couvertes par le droit OHADA, seules sont admises les dispositions nationales que les Actes uniformes autorisent. La logique unificatrice est réaffirmée, dans le prolongement des avis de 1999, 2001 et 2012 (CCJA, avis n° 002/2017 du 16 février 2017).
                 </p>
                 <p>
-                    <strong>Le dialogue, parfois tendu, avec les cours suprêmes nationales.</strong> L'article 18 du Traité ouvre un recours en annulation lorsqu'une juridiction suprême nationale statue en méconnaissance de la compétence de la CCJA. La Cour a retenu sa compétence sur ce fondement à plusieurs reprises, comme le recense l'étude des grands arrêts de la CCJA présentée au séminaire de l'AHJUCAF à Rabat. Les doubles pourvois restent une réalité : dans une affaire guinéenne, une même décision avait été attaquée en 2007 devant la Cour de cassation de Guinée et devant la CCJA, qui a statué en 2015 puis en 2017 (CCJA, 1re ch., 27 avril 2017, commenté dans L'Essentiel Droits africains des affaires). Ces frictions rappellent que l'intégration judiciaire demande une vigilance constante.
+                    <strong>Le dialogue, parfois tendu, avec les cours suprêmes nationales.</strong> L'article 18 du Traité ouvre un recours en annulation lorsqu'une juridiction suprême nationale statue en méconnaissance de la compétence de la CCJA. La Cour a retenu sa compétence sur ce fondement à plusieurs reprises. Les doubles pourvois restent une réalité : dans une affaire guinéenne, une même décision avait été attaquée en 2007 devant la Cour de cassation de Guinée et devant la CCJA, qui a statué en 2015 puis en 2017 (CCJA, 1re ch., 27 avril 2017). Ces frictions rappellent que l'intégration judiciaire demande une vigilance constante.
                 </p>
                 <p>
-                    <strong>Une jurisprudence au service des praticiens.</strong> Au fil des années, la Cour a forgé une jurisprudence abondante, notamment sur l'injonction de payer et les saisies. Elle juge par exemple de façon constante que le président de la juridiction est compétent pour les difficultés d'exécution, sur le fondement de l'article 49 de l'Acte uniforme sur les voies d'exécution (grands arrêts de la CCJA, AHJUCAF). Ce contentieux du quotidien a directement nourri la réforme adoptée à Kinshasa en 2023.
+                    <strong>Une jurisprudence au service des praticiens.</strong> Au fil des années, la Cour a forgé une jurisprudence abondante, notamment sur l'injonction de payer et les saisies. Elle juge par exemple de façon constante que le président de la juridiction est compétent pour les difficultés d'exécution, sur le fondement de l'article 49 de l'Acte uniforme sur les voies d'exécution. Ce contentieux du quotidien a directement nourri la réforme adoptée à Kinshasa en 2023.
                 </p>
                 <p>
                     Le défi principal de la CCJA reste son engorgement et ses délais. Le Conseil des ministres réuni à Lomé le 27 juillet 2026 a d'ailleurs procédé à l'élection de nouveaux juges pour renforcer la Cour (communiqué final de la 61e session).
@@ -283,7 +283,7 @@ export const articlesContent = [
                     <li>En juillet 2017, la Cour d'appel fédérale du circuit de Washington confirme. Elle reconnaît la CCJA comme une autorité compétente au sens de la Convention de New York.</li>
                 </ol>
                 <p>
-                    <strong>Une saga largement couverte.</strong> L'affaire a dépassé le cercle des spécialistes africains. Aux États-Unis, Courthouse News a rendu compte du refus d'exécution d'une sentence d'environ 42 millions de dollars. Les revues et blogs de référence de l'arbitrage international l'ont analysée en détail : le Kluwer Arbitration Blog, Global Arbitration News ou Letters Blogatory. En Afrique, la Revue du droit des affaires en Afrique y a vu la preuve de la reconnaissance internationale de la CCJA. La saga a connu des prolongements devant la Cour de cassation française et dans un arbitrage parallèle devant le CIRDI (italaw).
+                    <strong>Une saga largement couverte.</strong> L'affaire a dépassé le cercle des spécialistes africains, jusqu'aux juridictions américaines, qui ont refusé l'exécution d'une sentence d'environ 42 millions de dollars. La saga a connu des prolongements devant la Cour de cassation française et dans un arbitrage parallèle devant le CIRDI.
                 </p>
                 <p>
                     La portée de cette saga est considérable. L'affaire a démontré que l'arbitrage CCJA n'est pas un arbitrage de seconde zone. Ses règles s'imposent aux arbitres eux-mêmes, et ses décisions sont respectées par les juridictions les plus exigeantes du monde.
@@ -328,10 +328,10 @@ export const articlesContent = [
                     <strong>L'élargissement, un chantier relancé.</strong> Après quatorze ans sans nouvelle adhésion, la question d'un 18e État membre est de nouveau d'actualité.
                 </p>
                 <p>
-                    Le <strong>Burundi</strong> est le candidat le plus avancé. En mai 2024, le Secrétaire permanent de l'OHADA s'est rendu à Bujumbura pour encourager la démarche (ABP, via OHADA.com). Les 27 et 28 mai 2025, un atelier national réuni à Gitega a validé une étude de faisabilité commandée par le ministère de la Justice (Iwacu). En novembre 2025, un ouvrage collectif de quarante experts, <i>OHADA Burundi : perspectives stratégiques et convergences juridiques</i>, a été présenté à Paris (OHADA.com). Un colloque organisé à Bujumbura en 2026 a conclu que la place du pays était à l'OHADA (Jimbere). La décision relève désormais de la volonté politique de Gitega.
+                    Le <strong>Burundi</strong> est le candidat le plus avancé. En mai 2024, le Secrétaire permanent de l'OHADA s'est rendu à Bujumbura pour encourager la démarche (ABP). Les 27 et 28 mai 2025, un atelier national réuni à Gitega a validé une étude de faisabilité commandée par le ministère de la Justice (Iwacu). En novembre 2025, un ouvrage collectif de quarante experts, <i>OHADA Burundi : perspectives stratégiques et convergences juridiques</i>, a été présenté à Paris. Un colloque organisé à Bujumbura en 2026 a conclu que la place du pays était à l'OHADA (Jimbere). La décision relève désormais de la volonté politique de Gitega.
                 </p>
                 <p>
-                    <strong>Madagascar</strong> est régulièrement cité comme candidat naturel, en raison de la proximité de son droit des affaires avec le modèle OHADA. Le débat académique s'y structure, avec le lancement d'une collection d'ouvrages « Madagascar-OHADA » consacrée au droit comparé (OHADA.com). Aucune procédure formelle d'adhésion n'a toutefois été engagée à ce jour.
+                    <strong>Madagascar</strong> est régulièrement cité comme candidat naturel, en raison de la proximité de son droit des affaires avec le modèle OHADA. Le débat académique s'y structure, avec le lancement d'une collection d'ouvrages « Madagascar-OHADA » consacrée au droit comparé. Aucune procédure formelle d'adhésion n'a toutefois été engagée à ce jour.
                 </p>
                 <p>
                     Au-delà, l'enjeu est de séduire des États non francophones, notamment en Afrique de l'Est et australe. L'adhésion de la RDC, membre de la Communauté d'Afrique de l'Est, et la pratique des quatre langues de travail sont des atouts. Le modèle inspire aussi au-delà du continent, comme en témoigne le projet OHADAC d'harmonisation du droit des affaires dans la Caraïbe (VeilleMag).
@@ -355,38 +355,6 @@ export const articlesContent = [
                     C'est le sens de l'initiative <a href="https://www.legomnia.com">LegOmnia</a>. Avec <a href="https://www.legomnia.com/produits/omnia">Omnia</a>, la plateforme centralise les données juridiques de 17 pays d'Afrique francophone et propose une recherche juridique alimentée par l'IA. Elle accompagne aussi les États dans la numérisation, l'anonymisation et la diffusion sécurisée de leurs décisions, au sein de bases souveraines et interopérables. L'objectif rejoint celui de Port-Louis : faire du droit des affaires un levier de confiance et de développement, accessible à tous.
                 </p>
                 <h2>
-                    Chronologie express
-                </h2>
-                <div className="detail__table">
-                <table>
-                    <thead>
-                        <tr><th>Date</th><th>Événement</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>17 octobre 1993</td><td>Signature du Traité de Port-Louis par 14 États</td></tr>
-                        <tr><td>18 septembre 1995</td><td>Entrée en vigueur du Traité</td></tr>
-                        <tr><td>17 avril 1997</td><td>Trois premiers Actes uniformes : droit commercial général, sociétés, sûretés</td></tr>
-                        <tr><td>10 avril 1998</td><td>Actes uniformes sur les voies d'exécution et les procédures collectives</td></tr>
-                        <tr><td>11 mars 1999</td><td>Acte uniforme sur l'arbitrage et Règlement d'arbitrage de la CCJA</td></tr>
-                        <tr><td>24 mars 2000</td><td>Acte uniforme sur la comptabilité des entreprises</td></tr>
-                        <tr><td>30 avril 2001</td><td>Avis de la CCJA sur la portée supranationale de l'article 10</td></tr>
-                        <tr><td>22 mars 2003</td><td>Acte uniforme sur le transport de marchandises par route</td></tr>
-                        <tr><td>17 octobre 2008</td><td>Révision du Traité à Québec</td></tr>
-                        <tr><td>15 décembre 2010</td><td>Nouveaux Actes sur le droit commercial général et les sûretés ; Acte sur les coopératives</td></tr>
-                        <tr><td>12 septembre 2012</td><td>Entrée en vigueur pour la RDC, 17e État membre</td></tr>
-                        <tr><td>30 janvier 2014</td><td>Nouveau droit des sociétés et création de la SAS</td></tr>
-                        <tr><td>10 septembre 2015</td><td>Réforme des procédures collectives</td></tr>
-                        <tr><td>2017</td><td>AUDCIF et SYSCOHADA révisé ; réforme de l'arbitrage ; Acte uniforme sur la médiation</td></tr>
-                        <tr><td>Juillet 2017</td><td>La justice fédérale américaine reconnaît la CCJA comme autorité compétente</td></tr>
-                        <tr><td>22 décembre 2022</td><td>Acte uniforme sur la comptabilité des entités à but non lucratif</td></tr>
-                        <tr><td>17 octobre 2023</td><td>Nouvel Acte uniforme sur les voies d'exécution, adopté à Kinshasa</td></tr>
-                        <tr><td>27-28 mai 2025</td><td>Atelier de Gitega sur la faisabilité de l'adhésion du Burundi</td></tr>
-                        <tr><td>27 juillet 2026</td><td>61e session à Lomé : réformes de gouvernance et nouveaux juges à la CCJA</td></tr>
-                        <tr><td>17 octobre 2026</td><td>33e anniversaire de l'OHADA</td></tr>
-                    </tbody>
-                </table>
-                </div>
-                <h2>
                     Conclusion : trente-trois ans, et l'essentiel devant soi
                 </h2>
                 <p>
@@ -402,24 +370,14 @@ export const articlesContent = [
                     Sources
                 </h2>
                 <ul>
-                    <li>Présentation générale de l'OHADA, UNIDA-OHADA.com : dates de ratification, Actes uniformes, institutions</li>
-                    <li>« À 30 ans, l'OHADA dans la force de l'âge », OHADA.com</li>
-                    <li>Avis CCJA n° 1/2001/EP du 30 avril 2001, Ohadata J-02-04</li>
-                    <li>CCJA, avis n° 002/2017 du 16 février 2017, L'Essentiel Droits africains des affaires</li>
-                    <li>Getma International v. Republic of Guinea, D.C. Circuit, 2017 (Justia)</li>
-                    <li>The Strange Case of Getma v. Guinea, Kluwer Arbitration Blog</li>
-                    <li>Révision de l'AUPSRVE, Kinshasa 2023, OHADA.com</li>
-                    <li>Règlement du Conseil des ministres du 12 septembre 2025, Lextenso</li>
+                    <li>Avis CCJA n° 1/2001/EP du 30 avril 2001</li>
+                    <li>CCJA, avis n° 002/2017 du 16 février 2017</li>
+                    <li>Règlement du Conseil des ministres du 12 septembre 2025</li>
                     <li>Communiqué final de la 61e session du Conseil des ministres, OHADA.org</li>
                     <li>« Lomé au cœur de la relance de l'OHADA », ministère des Finances du Togo</li>
-                    <li>« Annulled Arbitration », Courthouse News</li>
-                    <li>D.C. Circuit affirms refusal to enforce award, Global Arbitration News</li>
-                    <li>Getma v. Guinea, Letters Blogatory</li>
-                    <li>Arrêt de la Cour d'appel du circuit de D.C., 7 juillet 2017 (italaw)</li>
-                    <li>Revue du droit des affaires en Afrique, septembre 2016, OHADA.com</li>
-                    <li>« Le Burundi s'apprête à rejoindre les 17 États membres de l'OHADA », ABP via OHADA.com</li>
+                    <li>Getma International v. Republic of Guinea, arrêt de la Cour d'appel du circuit de D.C., 7 juillet 2017</li>
+                    <li>« Le Burundi s'apprête à rejoindre les 17 États membres de l'OHADA », ABP</li>
                     <li>« Le Burundi explore son adhésion à l'OHADA », Iwacu</li>
-                    <li>Présentation de l'ouvrage OHADA Burundi, OHADA.com</li>
                     <li>« Adhésion à l'OHADA : le Burundi face à un choix stratégique », Jimbere</li>
                     <li>« OHADA : un modèle africain qui s'étend », VeilleMag</li>
                 </ul>
