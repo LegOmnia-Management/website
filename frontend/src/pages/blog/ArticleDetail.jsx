@@ -41,10 +41,11 @@ const ArticleDetail = () => {
         <main className="main detailArticle">
 
             <SEOHead
-                title={`${article.title} | Blog LegOmnia`}
-                description={article.recap}
+                title={article.seoTitle || `${article.title} | Blog LegOmnia`}
+                description={article.seoDescription || article.recap}
                 canonical={`/blog/articles/${article.slug}`}
-                image={article.img}
+                ogImage={article.ogImage || article.img}
+                ogType="article"
                 contentLang={article.lang}
             />
 
@@ -70,8 +71,11 @@ const ArticleDetail = () => {
                         "@context": "https://schema.org",
                         "@type": "BlogPosting",
                         "headline": article.title,
-                        "description": article.recap,
+                        "description": article.seoDescription || article.recap,
                         "image": article.img,
+                        ...(article.isoDate && { "datePublished": article.isoDate, "dateModified": article.isoDate }),
+                        ...(article.keywords && { "keywords": article.keywords }),
+                        "inLanguage": article.lang,
                         "author": {
                             "@type": "Organization",
                             "name": article.author

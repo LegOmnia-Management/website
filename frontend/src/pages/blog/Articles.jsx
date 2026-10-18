@@ -57,7 +57,7 @@ const Articles = () => {
                             articles.map(item => localizeArticle(item, lang)).map(article => (
                                 <Link to={lp(`/blog/articles/${article.slug}`)} className='articles__card--link' key={article.id}>
                                     <article className='articles__card' lang={article.lang}>
-                                        <img className="articles__card--img" src={article.img} alt={article.alt} />
+                                        <img className="articles__card--img" src={article.img} alt={article.alt} style={article.imgPosition ? { objectPosition: article.imgPosition } : undefined} />
                                         <div className="articles__card--content">
                                             <header className="articles__card--header">
                                                 <p className="card__header--categories">
