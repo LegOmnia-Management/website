@@ -2,11 +2,39 @@ import Art1 from '../../assets/img/blog/article1.webp';
 import Art2 from '../../assets/img/blog/article2.webp';
 import Art3 from '../../assets/img/blog/article3.webp';
 import Art4 from '../../assets/img/blog/article4.webp';
+import Art5 from '../../assets/img/blog/article5.webp';
 import Art2Illus1 from '../../assets/img/blog/article2_illustration1.png';
 import Art3Illus1 from '../../assets/img/blog/article3_illustration1.png';
 import Art3Illus2 from '../../assets/img/blog/article3_illustration2.png';
 
 export const articles = [
+    {
+        id: 5,
+        img: Art5,
+        imgPosition: 'center 25%',
+        ogImage: '/og/ohada-33-ans.jpg',
+        alt: 'Allégorie de la justice africaine, les yeux bandés et couronnée de lauriers, devant la carte de l’Afrique : 33 ans de l’OHADA',
+        lang: 'fr',
+        category: [{
+            name: 'Droit des affaires OHADA',
+            nameEn: 'OHADA business law',
+            class: 'droit'
+        }, {
+            name: 'LegalTech',
+            class: 'legaltech'
+        }],
+        title: 'OHADA, d’hier à aujourd’hui : 33 ans de défis juridiques',
+        slug: 'ohada-33-ans-histoire-defis-droit-des-affaires',
+        seoTitle: 'OHADA : 33 ans de droit des affaires en Afrique (1993-2026)',
+        seoDescription: 'Traité de Port-Louis, Actes uniformes, CCJA, arbitrage, adhésion du Burundi : retour sur 33 ans d’OHADA, ses défis et le rôle du numérique et de l’IA.',
+        recap: 'Le 17 octobre 1993, quatorze États africains signaient à Port-Louis un traité audacieux. Trente-trois ans plus tard, l’OHADA réunit 17 États, onze Actes uniformes et une Cour commune.',
+        author: 'LegOmnia',
+        date: '17 octobre 2026',
+        dateEn: '17 October 2026',
+        isoDate: '2026-10-17',
+        keywords: 'OHADA, CCJA, Actes uniformes, arbitrage OHADA, droit des affaires, Traité de Port-Louis, Afrique francophone',
+        time: '19 min'
+    },
     {
         id: 1,
         img: Art1,
@@ -121,6 +149,283 @@ export const localizeContent = (content, lang) =>
     content && lang === 'en' && content.htmlEn ? { ...content, html: content.htmlEn } : content;
 
 export const articlesContent = [
+    {
+        id: 5,
+        slug: 'ohada-33-ans-histoire-defis-droit-des-affaires',
+        html: (
+            <>
+                <p>
+                    Au début des années 1990, l'investisseur qui s'intéressait à l'Afrique francophone découvrait un paysage juridique éclaté. Les textes hérités de l'époque coloniale coexistaient avec des législations nationales divergentes, souvent mal diffusées. Les juridictions, faute de moyens, rendaient des décisions parfois contradictoires. L'insécurité juridique et judiciaire était régulièrement citée comme l'un des premiers freins à l'investissement.
+                </p>
+                <p>
+                    C'est à ce constat que répond l'OHADA. Son ambition tient en une idée simple et radicale : un même droit des affaires, appliqué de la même manière, de Dakar à Kinshasa.
+                </p>
+                <h2>
+                    1993, Port-Louis : la naissance d'une ambition
+                </h2>
+                <p>
+                    Le Traité relatif à l'harmonisation du droit des affaires en Afrique est signé le 17 octobre 1993 à Port-Louis, à l'île Maurice. Le projet avait été préparé lors de réunions à Libreville, en juillet 1993, puis amendé à Abidjan en septembre. Le Sénégal en est l'État dépositaire.
+                </p>
+                <p>
+                    Quatorze États, unis par l'usage du français et pour la plupart par la zone franc, signent le texte fondateur. Le Sénégal ouvre le bal des ratifications dès juin 1994. Le Traité entre en vigueur le 18 septembre 1995 dans un premier groupe de sept pays : Sénégal, Centrafrique, Mali, Comores, Burkina Faso, Bénin et Niger. Les autres suivent au fil de leurs ratifications.
+                </p>
+                <p>
+                    Son père spirituel, le juriste sénégalais Kéba Mbaye, résumait volontiers la philosophie du projet : l'OHADA a une origine africaine et sa raison d'être est économique. Le préambule du Traité le confirme. Il vise un droit des affaires « harmonisé, simple, moderne et adapté », appliqué avec diligence pour garantir la sécurité juridique et encourager l'investissement.
+                </p>
+                <p>
+                    La méthode retenue est inédite. Plutôt que de rapprocher des lois nationales, les États acceptent de se doter de textes communs, directement applicables chez eux sans transposition : les Actes uniformes. Et pour en garantir une lecture identique partout, ils créent une juridiction supranationale, siégeant à Abidjan.
+                </p>
+                <h2>
+                    Un espace qui s'élargit, de 14 à 17 États
+                </h2>
+                <p>
+                    L'OHADA s'est voulue ouverte dès l'origine. L'article 53 du Traité permet l'adhésion de tout État membre de l'Union africaine, et même d'États tiers invités du commun accord des membres. Cette ouverture a rapidement dépassé la seule sphère francophone.
+                </p>
+                <div className="detail__table">
+                <table>
+                    <thead>
+                        <tr><th>Date d'entrée en vigueur</th><th>État</th><th>Ce que cela change</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>18 septembre 1995</td><td>Sept premiers États</td><td>Naissance juridique de l'OHADA</td></tr>
+                        <tr><td>20 février 1996</td><td>Guinée-Bissau</td><td>Premier État lusophone de l'organisation</td></tr>
+                        <tr><td>5 avril 1998</td><td>Gabon</td><td>Entrée en vigueur en Afrique centrale</td></tr>
+                        <tr><td>17 juillet 1999</td><td>Congo</td><td>Ratification achevée après plusieurs années</td></tr>
+                        <tr><td>13 août 1999</td><td>Guinée équatoriale</td><td>Premier État hispanophone de l'organisation</td></tr>
+                        <tr><td>21 novembre 2000</td><td>Guinée</td><td>L'espace se complète en Afrique de l'Ouest</td></tr>
+                        <tr><td>12 septembre 2012</td><td>République démocratique du Congo</td><td>Le plus vaste pays de l'espace rejoint l'OHADA, qui atteint 17 États</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>
+                    L'adhésion de la RDC est le tournant majeur de cette histoire. Avec elle, l'espace OHADA change d'échelle : il compte aujourd'hui plus de 275 millions d'habitants, selon l'UNIDA. Kinshasa a déposé son instrument d'adhésion le 13 juillet 2012, avec l'ambition affichée d'assainir son climat des affaires.
+                </p>
+                <p>
+                    La dimension multilingue s'est imposée avec ces adhésions. Le français, l'anglais, l'espagnol et le portugais sont désormais les quatre langues de travail. Le Cameroun anglophone, la Guinée équatoriale et la Guinée-Bissau en ont fait une nécessité pratique.
+                </p>
+                <p>
+                    Depuis 2012, aucune nouvelle adhésion n'est intervenue. Mais plusieurs pays, au premier rang desquels le Burundi et Madagascar, frappent aujourd'hui à la porte.
+                </p>
+                <h2>
+                    Les Actes uniformes : l'architecture d'un droit commun
+                </h2>
+                <p>
+                    Les Actes uniformes sont le cœur battant de l'OHADA. Adoptés par le Conseil des ministres de la Justice et des Finances, ils s'appliquent directement dans tous les États membres, sans loi de transposition. En 2026, onze Actes uniformes sont en vigueur.
+                </p>
+                <p>
+                    <strong>La première génération (1997-2003) : poser les fondations.</strong> Le 17 avril 1997 sont adoptés les trois premiers textes : droit commercial général, sociétés commerciales et GIE, sûretés. Suivent en 1998 les procédures de recouvrement et voies d'exécution, ainsi que les procédures collectives. L'arbitrage arrive en 1999, la comptabilité en 2000, le transport de marchandises par route en 2003.
+                </p>
+                <p>
+                    <strong>La deuxième génération (2010-2017) : moderniser.</strong> Après quinze ans de pratique, l'OHADA révise ses textes fondateurs :
+                </p>
+                <ul>
+                    <li><strong>2010 :</strong> nouveaux Actes sur le droit commercial général, qui crée le statut de l'entreprenant pour accompagner la sortie de l'informel, et sur les sûretés, qui institue l'agent des sûretés. Un Acte sur les sociétés coopératives voit aussi le jour.</li>
+                    <li><strong>2014 :</strong> le droit des sociétés est refondu et accueille la société par actions simplifiée (SAS), très attendue des investisseurs.</li>
+                    <li><strong>2015 :</strong> les procédures collectives sont réformées, avec la conciliation, des procédures simplifiées pour les petites entreprises et un statut des mandataires judiciaires.</li>
+                    <li><strong>2017 :</strong> l'année des grandes réformes. Le droit comptable devient l'AUDCIF, avec le SYSCOHADA révisé. L'Acte sur l'arbitrage et le Règlement d'arbitrage de la CCJA sont révisés, et un Acte uniforme sur la médiation est adopté le 23 novembre.</li>
+                </ul>
+                <p>
+                    <strong>La troisième génération (depuis 2022) : élargir et consolider.</strong> Le 22 décembre 2022 à Niamey, un Acte uniforme sur le système comptable des entités à but non lucratif étend le droit OHADA au monde associatif. Le 17 octobre 2023 à Kinshasa, jour du trentième anniversaire, le Conseil des ministres adopte un nouvel Acte sur les procédures simplifiées de recouvrement et les voies d'exécution. Entré en vigueur le 16 février 2024, il refond un texte de 1998 au contentieux abondant.
+                </p>
+                <p>
+                    Ce rythme illustre la philosophie de l'organisation : un droit vivant, évalué et corrigé à la lumière de la pratique. Les États de l'OHADA ont d'ailleurs souvent figuré parmi les réformateurs remarqués des classements internationaux du climat des affaires.
+                </p>
+                <h2>
+                    La CCJA, clé de voûte du système
+                </h2>
+                <p>
+                    Sans juge commun, un droit commun finit toujours par se fragmenter. La Cour commune de justice et d'arbitrage (CCJA), installée à Abidjan, est la réponse de l'OHADA à ce risque. L'UNIDA la présente comme l'unique expérience réussie de transfert de souveraineté judiciaire au monde.
+                </p>
+                <p>
+                    Ses pouvoirs sont considérables. Elle juge en cassation les décisions rendues en dernier ressort par les juridictions nationales en application des Actes uniformes. Surtout, lorsqu'elle casse, elle évoque : elle tranche elle-même le fond du litige, sans renvoi devant un juge national. Elle rend aussi des avis consultatifs à la demande des États ou des juridictions, et administre un centre d'arbitrage.
+                </p>
+                <h3>
+                    Des décisions qui ont fait le droit OHADA
+                </h3>
+                <p>
+                    <strong>L'avis du 30 avril 2001 : la supranationalité affirmée.</strong> Saisie par la Côte d'Ivoire, la CCJA livre la lecture de référence de l'article 10 du Traité. Les Actes uniformes s'appliquent directement et priment sur le droit interne, antérieur comme postérieur. Sauf dérogation prévue par les Actes eux-mêmes, toute disposition nationale contraire est abrogée, et toute disposition future contraire interdite. Cet avis reste, vingt-cinq ans après, la pierre angulaire du système (CCJA, avis n° 1/2001/EP du 30 avril 2001, Ohadata J-02-04).
+                </p>
+                <p>
+                    <strong>L'avis du 16 février 2017 : le législateur national encadré.</strong> Interrogée sur la compatibilité de la loi ivoirienne n° 2015-903 du 30 décembre 2015 avec l'Acte uniforme sur les sociétés commerciales, la Cour pose une règle nette. Dans les matières couvertes par le droit OHADA, seules sont admises les dispositions nationales que les Actes uniformes autorisent. La logique unificatrice est réaffirmée, dans le prolongement des avis de 1999, 2001 et 2012 (CCJA, avis n° 002/2017 du 16 février 2017, commenté dans L'Essentiel Droits africains des affaires, juin 2017).
+                </p>
+                <p>
+                    <strong>Le dialogue, parfois tendu, avec les cours suprêmes nationales.</strong> L'article 18 du Traité ouvre un recours en annulation lorsqu'une juridiction suprême nationale statue en méconnaissance de la compétence de la CCJA. La Cour a retenu sa compétence sur ce fondement à plusieurs reprises, comme le recense l'étude des grands arrêts de la CCJA présentée au séminaire de l'AHJUCAF à Rabat. Les doubles pourvois restent une réalité : dans une affaire guinéenne, une même décision avait été attaquée en 2007 devant la Cour de cassation de Guinée et devant la CCJA, qui a statué en 2015 puis en 2017 (CCJA, 1re ch., 27 avril 2017, commenté dans L'Essentiel Droits africains des affaires). Ces frictions rappellent que l'intégration judiciaire demande une vigilance constante.
+                </p>
+                <p>
+                    <strong>Une jurisprudence au service des praticiens.</strong> Au fil des années, la Cour a forgé une jurisprudence abondante, notamment sur l'injonction de payer et les saisies. Elle juge par exemple de façon constante que le président de la juridiction est compétent pour les difficultés d'exécution, sur le fondement de l'article 49 de l'Acte uniforme sur les voies d'exécution (grands arrêts de la CCJA, AHJUCAF). Ce contentieux du quotidien a directement nourri la réforme adoptée à Kinshasa en 2023.
+                </p>
+                <p>
+                    Le défi principal de la CCJA reste son engorgement et ses délais. Le Conseil des ministres réuni à Lomé le 27 juillet 2026 a d'ailleurs procédé à l'élection de nouveaux juges pour renforcer la Cour (communiqué final de la 61e session).
+                </p>
+                <h2>
+                    L'arbitrage OHADA : un pari réussi, des épreuves fondatrices
+                </h2>
+                <p>
+                    L'arbitrage était l'une des promesses du Traité de Port-Louis. Pour rassurer les investisseurs, l'OHADA leur offre un mode de règlement des litiges rapide, confidentiel et exécutoire dans tout l'espace.
+                </p>
+                <p>
+                    Le système repose sur deux piliers adoptés le 11 mars 1999. L'Acte uniforme relatif au droit de l'arbitrage constitue le droit commun de l'arbitrage dans les États membres. Le Règlement d'arbitrage de la CCJA organise un arbitrage institutionnel original. La Cour y joue un double rôle : elle administre les procédures, puis contrôle les sentences rendues sous son égide.
+                </p>
+                <p>
+                    La réforme du 23 novembre 2017 a modernisé l'ensemble. Elle renforce la transparence, la célérité et l'efficacité des procédures, et accueille l'arbitrage fondé sur un traité d'investissement. Elle s'accompagne de l'Acte uniforme sur la médiation, qui dote l'espace d'un cadre commun pour le règlement amiable.
+                </p>
+                <h3>
+                    L'affaire Getma contre Guinée : l'épreuve du feu
+                </h3>
+                <p>
+                    C'est l'affaire qui a fait connaître la CCJA au monde de l'arbitrage international. Le litige oppose la société Getma International à la République de Guinée, à propos d'une concession portuaire à Conakry.
+                </p>
+                <ol>
+                    <li>Après la résiliation par la Guinée, fin 2010, d'une concession de 25 ans sur le port de Conakry, Getma engage un arbitrage CCJA. Le tribunal lui accorde environ 39 millions d'euros, plus intérêts, par une sentence signée au printemps 2014.</li>
+                    <li>Mais en cours de procédure, les arbitres avaient réclamé une augmentation de leurs honoraires au-delà du barème de la CCJA. La Cour avait refusé à plusieurs reprises, et le tribunal avait poursuivi en obtenant un complément d'une partie.</li>
+                    <li>Le 19 novembre 2015, la CCJA annule la sentence à l'unanimité, pour violation de ses règles impératives sur les honoraires.</li>
+                    <li>Getma tente alors de faire exécuter la sentence aux États-Unis. En juin 2016, un tribunal fédéral de Washington refuse.</li>
+                    <li>En juillet 2017, la Cour d'appel fédérale du circuit de Washington confirme. Elle reconnaît la CCJA comme une autorité compétente au sens de la Convention de New York.</li>
+                </ol>
+                <p>
+                    <strong>Une saga largement couverte.</strong> L'affaire a dépassé le cercle des spécialistes africains. Aux États-Unis, Courthouse News a rendu compte du refus d'exécution d'une sentence d'environ 42 millions de dollars. Les revues et blogs de référence de l'arbitrage international l'ont analysée en détail : le Kluwer Arbitration Blog, Global Arbitration News ou Letters Blogatory. En Afrique, la Revue du droit des affaires en Afrique y a vu la preuve de la reconnaissance internationale de la CCJA. La saga a connu des prolongements devant la Cour de cassation française et dans un arbitrage parallèle devant le CIRDI (italaw).
+                </p>
+                <p>
+                    La portée de cette saga est considérable. L'affaire a démontré que l'arbitrage CCJA n'est pas un arbitrage de seconde zone. Ses règles s'imposent aux arbitres eux-mêmes, et ses décisions sont respectées par les juridictions les plus exigeantes du monde.
+                </p>
+                <p>
+                    Le chantier reste néanmoins ouvert. En 2023, le Conseil des ministres a demandé d'optimiser le centre d'arbitrage de la CCJA afin qu'il dégage davantage de ressources propres. Attirer les grands contentieux, encore souvent portés devant les places de Paris, Londres ou Genève, demeure un objectif stratégique.
+                </p>
+                <h2>
+                    Les autres moments qui ont façonné l'OHADA
+                </h2>
+                <p>
+                    <strong>Québec, 17 octobre 2008 : la refondation institutionnelle.</strong> Quinze ans jour pour jour après Port-Louis, le Traité est révisé au Canada. La réforme crée la Conférence des chefs d'État et de gouvernement, qui donne une impulsion politique au plus haut niveau. Elle rattache l'École régionale supérieure de la magistrature (ERSUMA), basée à Porto-Novo, au Secrétariat permanent. Elle confie l'adoption du budget au Conseil des ministres et consacre l'anglais, l'espagnol et le portugais comme langues de travail aux côtés du français.
+                </p>
+                <p>
+                    <strong>L'ERSUMA et la formation des acteurs.</strong> Un droit commun suppose des juges, des avocats, des greffiers et des huissiers formés aux mêmes règles. L'ERSUMA forme et perfectionne ces professionnels, et conduit des recherches en droit des affaires. À l'échelle nationale, les Commissions nationales OHADA servent de relais pour l'élaboration et la diffusion des textes.
+                </p>
+                <p>
+                    <strong>Une communauté vivante.</strong> Le droit OHADA est aussi porté par la société civile : clubs OHADA universitaires, associations professionnelles, revues spécialisées. Le Concours international Génies en herbe OHADA a tenu sa 17e édition à Lomé en septembre 2026, remportée par le Bénin pour la quatrième année consécutive.
+                </p>
+                <p>
+                    <strong>Kinshasa, 17 octobre 2023 : un trentième anniversaire réformateur.</strong> Réuni dans la capitale congolaise, le Conseil des ministres adopte le nouvel Acte uniforme sur les voies d'exécution. Il demande aussi au Secrétariat permanent d'organiser l'examen des propositions d'amendement du Traité.
+                </p>
+                <p>
+                    <strong>2025-2026 : l'heure de la gouvernance.</strong> Le 12 septembre 2025, le Conseil des ministres se dote d'un règlement codifiant son fonctionnement. Le 8 mai 2026 à Lomé, les ministres des Finances se réunissent en session spéciale, la première depuis dix-sept ans, pour traiter du financement durable de l'organisation. Le 27 juillet 2026, la 61e session du Conseil des ministres adopte un nouveau Règlement financier et une Charte d'audit interne, et élit de nouveaux juges à la CCJA. La présidence togolaise a rappelé à cette occasion que les réalisations des institutions dépassent largement la modicité de leurs moyens, et appelé les États à honorer leurs contributions.
+                </p>
+                <h2>
+                    Les défis d'aujourd'hui, l'horizon numérique de demain
+                </h2>
+                <p>
+                    À 33 ans, l'OHADA a gagné la bataille de la norme. Le défi qui s'ouvre est celui de l'effectivité : un droit commun n'a de valeur que s'il est connu, accessible et appliqué partout de la même façon.
+                </p>
+                <p>
+                    Quatre chantiers dominent.
+                </p>
+                <ul>
+                    <li><strong>Le financement.</strong> La soutenabilité financière des institutions est revenue au premier plan en 2026, preuve qu'une ambition commune exige des moyens communs.</li>
+                    <li><strong>Les délais de justice.</strong> La CCJA comme les juridictions nationales doivent traiter un contentieux croissant, alors que la célérité est la première attente des entreprises.</li>
+                    <li><strong>L'informel.</strong> Le statut de l'entreprenant a ouvert une voie, mais la formalisation des petites activités reste un chantier de long terme.</li>
+                    <li><strong>L'accès au droit.</strong> Textes, jurisprudence de la CCJA et décisions nationales restent inégalement diffusés, et rarement dans les quatre langues de l'organisation. Le Secrétariat permanent s'est fixé l'objectif de traduire l'ensemble des Actes uniformes et, à terme, la jurisprudence de la CCJA.</li>
+                </ul>
+                <p>
+                    <strong>L'élargissement, un chantier relancé.</strong> Après quatorze ans sans nouvelle adhésion, la question d'un 18e État membre est de nouveau d'actualité.
+                </p>
+                <p>
+                    Le <strong>Burundi</strong> est le candidat le plus avancé. En mai 2024, le Secrétaire permanent de l'OHADA s'est rendu à Bujumbura pour encourager la démarche (ABP, via OHADA.com). Les 27 et 28 mai 2025, un atelier national réuni à Gitega a validé une étude de faisabilité commandée par le ministère de la Justice (Iwacu). En novembre 2025, un ouvrage collectif de quarante experts, <i>OHADA Burundi : perspectives stratégiques et convergences juridiques</i>, a été présenté à Paris (OHADA.com). Un colloque organisé à Bujumbura en 2026 a conclu que la place du pays était à l'OHADA (Jimbere). La décision relève désormais de la volonté politique de Gitega.
+                </p>
+                <p>
+                    <strong>Madagascar</strong> est régulièrement cité comme candidat naturel, en raison de la proximité de son droit des affaires avec le modèle OHADA. Le débat académique s'y structure, avec le lancement d'une collection d'ouvrages « Madagascar-OHADA » consacrée au droit comparé (OHADA.com). Aucune procédure formelle d'adhésion n'a toutefois été engagée à ce jour.
+                </p>
+                <p>
+                    Au-delà, l'enjeu est de séduire des États non francophones, notamment en Afrique de l'Est et australe. L'adhésion de la RDC, membre de la Communauté d'Afrique de l'Est, et la pratique des quatre langues de travail sont des atouts. Le modèle inspire aussi au-delà du continent, comme en témoigne le projet OHADAC d'harmonisation du droit des affaires dans la Caraïbe (VeilleMag).
+                </p>
+                <p>
+                    Chaque adhésion pose les mêmes questions pratiques : former les magistrats et les avocats, adapter le droit national, traduire les textes et intégrer la jurisprudence. Autant de défis où l'accès numérique au droit OHADA peut faire gagner des années.
+                </p>
+                <h3>
+                    Le numérique, nouvelle frontière de l'harmonisation
+                </h3>
+                <p>
+                    L'OHADA a déjà engagé l'informatisation du Registre du commerce et du crédit mobilier, pour rendre l'information sur les entreprises et les sûretés accessible en temps réel. L'étape suivante concerne la donnée juridique elle-même : numériser les décisions, les structurer, les rendre interrogeables.
+                </p>
+                <p>
+                    C'est ici que l'intelligence artificielle et les legaltech africaines ont un rôle à jouer, à l'image de LegOmnia, plateforme d'IA de recherche juridique dédiée à l'Afrique francophone. Ces outils permettent de centraliser les textes et la jurisprudence de l'espace, d'y effectuer des recherches contextuelles en quelques secondes et d'analyser des documents juridiques. Ils peuvent surtout réduire le coût de l'information juridique, encore réservée à une minorité de professionnels.
+                </p>
+                <p>
+                    Cette transition pose aussi des questions neuves. La publication massive de décisions de justice impose une anonymisation rigoureuse, pour protéger l'identité, la situation familiale ou le genre des justiciables, mais aussi les magistrats. Elle soulève enfin un enjeu de souveraineté numérique : les États doivent garder la maîtrise de leurs données judiciaires.
+                </p>
+                <p>
+                    C'est le sens de l'initiative LegOmnia. La plateforme centralise les données juridiques de 17 pays d'Afrique francophone et propose une recherche juridique alimentée par l'IA. Elle accompagne aussi les États dans la numérisation, l'anonymisation et la diffusion sécurisée de leurs décisions, au sein de bases souveraines et interopérables. L'objectif rejoint celui de Port-Louis : faire du droit des affaires un levier de confiance et de développement, accessible à tous.
+                </p>
+                <h2>
+                    Chronologie express
+                </h2>
+                <div className="detail__table">
+                <table>
+                    <thead>
+                        <tr><th>Date</th><th>Événement</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>17 octobre 1993</td><td>Signature du Traité de Port-Louis par 14 États</td></tr>
+                        <tr><td>18 septembre 1995</td><td>Entrée en vigueur du Traité</td></tr>
+                        <tr><td>17 avril 1997</td><td>Trois premiers Actes uniformes : droit commercial général, sociétés, sûretés</td></tr>
+                        <tr><td>10 avril 1998</td><td>Actes uniformes sur les voies d'exécution et les procédures collectives</td></tr>
+                        <tr><td>11 mars 1999</td><td>Acte uniforme sur l'arbitrage et Règlement d'arbitrage de la CCJA</td></tr>
+                        <tr><td>24 mars 2000</td><td>Acte uniforme sur la comptabilité des entreprises</td></tr>
+                        <tr><td>30 avril 2001</td><td>Avis de la CCJA sur la portée supranationale de l'article 10</td></tr>
+                        <tr><td>22 mars 2003</td><td>Acte uniforme sur le transport de marchandises par route</td></tr>
+                        <tr><td>17 octobre 2008</td><td>Révision du Traité à Québec</td></tr>
+                        <tr><td>15 décembre 2010</td><td>Nouveaux Actes sur le droit commercial général et les sûretés ; Acte sur les coopératives</td></tr>
+                        <tr><td>12 septembre 2012</td><td>Entrée en vigueur pour la RDC, 17e État membre</td></tr>
+                        <tr><td>30 janvier 2014</td><td>Nouveau droit des sociétés et création de la SAS</td></tr>
+                        <tr><td>10 septembre 2015</td><td>Réforme des procédures collectives</td></tr>
+                        <tr><td>2017</td><td>AUDCIF et SYSCOHADA révisé ; réforme de l'arbitrage ; Acte uniforme sur la médiation</td></tr>
+                        <tr><td>Juillet 2017</td><td>La justice fédérale américaine reconnaît la CCJA comme autorité compétente</td></tr>
+                        <tr><td>22 décembre 2022</td><td>Acte uniforme sur la comptabilité des entités à but non lucratif</td></tr>
+                        <tr><td>17 octobre 2023</td><td>Nouvel Acte uniforme sur les voies d'exécution, adopté à Kinshasa</td></tr>
+                        <tr><td>27-28 mai 2025</td><td>Atelier de Gitega sur la faisabilité de l'adhésion du Burundi</td></tr>
+                        <tr><td>27 juillet 2026</td><td>61e session à Lomé : réformes de gouvernance et nouveaux juges à la CCJA</td></tr>
+                        <tr><td>17 octobre 2026</td><td>33e anniversaire de l'OHADA</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <h2>
+                    Conclusion : trente-trois ans, et l'essentiel devant soi
+                </h2>
+                <p>
+                    En trente-trois ans, l'OHADA a accompli ce que beaucoup jugeaient impossible. Dix-sept États souverains partagent un même droit des affaires, interprété par une même Cour, dans quatre langues. Peu d'expériences d'intégration juridique dans le monde peuvent revendiquer un tel bilan.
+                </p>
+                <p>
+                    Les défis n'en sont pas moins réels : financement, délais, diffusion du droit, élargissement. Mais l'histoire de l'OHADA est celle d'une organisation qui a toujours su se réformer. Après la génération de la norme puis celle de la modernisation, s'ouvre peut-être celle de l'accès : un droit OHADA numérique, ouvert et protecteur, à la portée de chaque entrepreneur et de chaque citoyen.
+                </p>
+                <p>
+                    Port-Louis avait posé les fondations. Il appartient désormais aux institutions, aux praticiens et aux innovateurs africains d'écrire, ensemble, le prochain chapitre.
+                </p>
+                <h2>
+                    Sources
+                </h2>
+                <ul>
+                    <li>Présentation générale de l'OHADA, UNIDA-OHADA.com : dates de ratification, Actes uniformes, institutions</li>
+                    <li>« À 30 ans, l'OHADA dans la force de l'âge », OHADA.com</li>
+                    <li>Avis CCJA n° 1/2001/EP du 30 avril 2001, Ohadata J-02-04</li>
+                    <li>CCJA, avis n° 002/2017 du 16 février 2017, L'Essentiel Droits africains des affaires</li>
+                    <li>Getma International v. Republic of Guinea, D.C. Circuit, 2017 (Justia)</li>
+                    <li>The Strange Case of Getma v. Guinea, Kluwer Arbitration Blog</li>
+                    <li>Révision de l'AUPSRVE, Kinshasa 2023, OHADA.com</li>
+                    <li>Règlement du Conseil des ministres du 12 septembre 2025, Lextenso</li>
+                    <li>Communiqué final de la 61e session du Conseil des ministres, OHADA.org</li>
+                    <li>« Lomé au cœur de la relance de l'OHADA », ministère des Finances du Togo</li>
+                    <li>« Annulled Arbitration », Courthouse News</li>
+                    <li>D.C. Circuit affirms refusal to enforce award, Global Arbitration News</li>
+                    <li>Getma v. Guinea, Letters Blogatory</li>
+                    <li>Arrêt de la Cour d'appel du circuit de D.C., 7 juillet 2017 (italaw)</li>
+                    <li>Revue du droit des affaires en Afrique, septembre 2016, OHADA.com</li>
+                    <li>« Le Burundi s'apprête à rejoindre les 17 États membres de l'OHADA », ABP via OHADA.com</li>
+                    <li>« Le Burundi explore son adhésion à l'OHADA », Iwacu</li>
+                    <li>Présentation de l'ouvrage OHADA Burundi, OHADA.com</li>
+                    <li>« Adhésion à l'OHADA : le Burundi face à un choix stratégique », Jimbere</li>
+                    <li>« OHADA : un modèle africain qui s'étend », VeilleMag</li>
+                </ul>
+            </>
+        ),
+    },
     {
         id: 1,
         slug: 'intellectual-property-and-data-protection',

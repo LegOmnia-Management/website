@@ -58,6 +58,7 @@ const STATIC_ROUTES = [
 
     // Pages détail articles (à ajouter manuellement à chaque nouvel article
     // tant que ArticlesList.jsx contient du JSX non importable côté Node)
+    '/blog/articles/ohada-33-ans-histoire-defis-droit-des-affaires',
     '/blog/articles/intellectual-property-and-data-protection',
     '/blog/articles/quand-l-intelligence-artificielle-met-le-droit-au-service-du-developpement-durable-en-afrique-francophone',
     '/blog/articles/gestion-electronique-des-documents',

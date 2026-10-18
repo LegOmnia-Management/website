@@ -284,6 +284,54 @@
         margin: 2rem auto;
         max-width: 100%;
     }
+
+    /* Texte justifié (articles longs) */
+    p,
+    li {
+        hyphens: auto;
+        text-align: justify;
+    }
+
+    ul,
+    ol {
+        margin: 0 0 1.5rem 2.5rem;
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    li {
+        margin-bottom: .7rem;
+    }
+
+    .detail__table {
+        margin-bottom: 2rem;
+        overflow-x: auto;
+    }
+
+    table {
+        border-collapse: collapse;
+        font-size: 1.5rem;
+        width: 100%;
+    }
+
+    th,
+    td {
+        border-bottom: 1px solid var(--blackOutline);
+        padding: 1rem;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        border-bottom: 2px solid var(--violet);
+        font-weight: 600;
+    }
 }
 
 /***************** Breakpoints *****************/
