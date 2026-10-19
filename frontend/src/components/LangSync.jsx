@@ -13,12 +13,29 @@ const readStoredLang = () => {
 };
 
 /**
+ * Langue préférée du navigateur, à la première visite uniquement :
+ * 'en' si l'anglais passe avant le français dans ses préférences
+ * (ex. navigateur américain), sinon null (on reste sur le français).
+ */
+const detectBrowserLang = () => {
+    // robots (Googlebot explore en anglais) / prerender : version par défaut
+    if (navigator.webdriver || /bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)) return null;
+
+    const prefs = (navigator.languages?.length ? navigator.languages : [navigator.language])
+        .filter(Boolean)
+        .map((l) => l.toLowerCase().slice(0, 2));
+    const en = prefs.indexOf('en');
+    const fr = prefs.indexOf('fr');
+    return en !== -1 && (fr === -1 || en < fr) ? 'en' : null;
+};
+
+/**
  * - Met à jour l'attribut lang de <html> selon l'URL.
  * - À l'arrivée sur la page d'accueil, redirige vers la langue choisie
- *   précédemment via le sélecteur FR / EN (uniquement si un choix a été
- *   mémorisé : pas de détection automatique, pour ne pas gêner l'indexation
- *   des moteurs). Un lien direct vers une page (ex. /en/contact) est toujours
- *   respecté.
+ *   précédemment via le sélecteur FR / EN ; sans choix mémorisé, vers
+ *   l'anglais si le navigateur le préfère au français. Les robots (qui
+ *   explorent en français) ne sont pas redirigés. Un lien direct vers une
+ *   page (ex. /en/contact ou /contact) est toujours respecté.
  */
 const LangSync = () => {
     const location = useLocation();
@@ -36,9 +53,10 @@ const LangSync = () => {
 
         const isHome = location.pathname === '/' || location.pathname === '/en';
         const stored = readStoredLang();
-        if (isHome && LANGS.includes(stored) && stored !== lang) {
+        const target = LANGS.includes(stored) ? stored : detectBrowserLang();
+        if (isHome && target && target !== lang) {
             const { pathname, search, hash } = location;
-            navigate(localizePath(pathname + search + hash, stored), { replace: true });
+            navigate(localizePath(pathname + search + hash, target), { replace: true });
         }
     }, [lang, location, navigate]);
 
