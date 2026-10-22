@@ -10,7 +10,7 @@ import { JURISDICTIONS } from '../data/juridictions';
 
 import '../assets/styles/jurisdiction.css';
 
-const BASE_URL = 'https://legomnia.com';
+const BASE_URL = 'https://www.legomnia.com';
 
 // Dimensions du support interactif (conçu à largeur fixe)
 const MAP_WIDTH = 1600;

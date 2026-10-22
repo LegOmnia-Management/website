@@ -63,7 +63,7 @@ const Home = () => {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "LegOmnia",
-        "url": "https://legomnia.com",
+        "url": "https://www.legomnia.com",
         "applicationCategory": "LegalTech",
         "operatingSystem": "Web",
         "offers": {
