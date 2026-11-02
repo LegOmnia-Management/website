@@ -14,7 +14,7 @@ import IconRing from '../components/IconRing';
 import SplitWords from '../components/SplitWords';
 import { initHomeMotion } from '../motion/legomnia-motion';
 
-import Video from '../assets/video/african_law_enter_in_new_era.mp4';
+import Video from '../assets/video/LegOmnia_15s_EN_v14_son.mp4';
 import Avocat from '../assets/img/pictos/avocat.svg';
 import Juriste from '../assets/img/pictos/juriste.svg';
 import Institution from '../assets/img/pictos/institution.svg';
