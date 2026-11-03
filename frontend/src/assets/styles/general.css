@@ -367,6 +367,8 @@
 
         .highlight {
             color: var(--violet);
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 900;
         }
     }
 

@@ -9,7 +9,7 @@ export default {
     mainLabel: 'Accueil LegOmnia',
     hero: {
         kicker: "L'IA juridique pour l'Afrique francophone",
-        title: <>Le droit africain entre <span className='break'>dans une <em className='highlight'>nouvelle ère</em></span></>,
+        title: <>Le droit africain entre <span className='break'>dans une <span className='highlight'>nouvelle ère</span></span></>,
         subtitle: <>Découvrez <span className='highlight'>Omnia</span>, notre application de recherche juridique d'Afrique francophone</>,
         searchPlaceholder: 'Commencez votre recherche ici...',
         searchLabel: 'Rechercher',
