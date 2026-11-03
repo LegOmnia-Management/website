@@ -25,7 +25,7 @@ const Faq = () => {
             <section className="faqPage">
                 <div className="container faqSection__container">
                     <h1 className="main-title">
-                        {tr("Questions", "Frequently asked")} <em className="highlight">{tr("fréquentes", "questions")}</em>
+                        {tr("Questions", "Frequently asked")} <span className="highlight">{tr("fréquentes", "questions")}</span>
                     </h1>
 
                     {FAQ_GROUPS.map((group) => (

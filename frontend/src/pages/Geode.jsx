@@ -55,7 +55,7 @@ const Geode = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            {tr("La gestion documentaire", "Document management")} <em className='highlight'>{tr("réinventée", "reinvented")}</em> <br/>
+                            {tr("La gestion documentaire", "Document management")} <span className='highlight'>{tr("réinventée", "reinvented")}</span> <br/>
                             {tr("pour les professionnels du droit", "for legal professionals")}
                         </h1>
                         <p className="subtitle">

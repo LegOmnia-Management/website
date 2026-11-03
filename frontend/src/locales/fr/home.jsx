@@ -17,7 +17,7 @@ export default {
         demo: 'Demander une démo',
     },
     presentation: {
-        title: <>Une vision simple : rendre le droit en Afrique francophone enfin <em className='highlight'>accessible, structuré et actionnable</em></>,
+        title: <>Une vision simple : rendre le droit en Afrique francophone enfin <span className='highlight'>accessible, structuré et actionnable</span></>,
         videoFallback: 'Votre navigateur ne supporte pas la vidéo HTML5',
         p1: <>Aujourd'hui, la donnée juridique est <span className="highlight">fragmentée, non digitalisée, difficilement exploitable</span>.</>,
         p2: <>LegOmnia propose <span className="highlight">un écosystème complet</span> permettant de passer de cette donnée non digitalisée à <span className="highlight">une intelligence juridique</span> unifiée et structurée.</>,

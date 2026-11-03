@@ -9,7 +9,7 @@ export default {
     mainLabel: 'LegOmnia home',
     hero: {
         kicker: 'Legal AI for French-speaking Africa',
-        title: <>African law enters <span className='break'>a <em className='highlight'>new era</em></span></>,
+        title: <>African law enters <span className='break'>a <span className='highlight'>new era</span></span></>,
         subtitle: <>Discover <span className='highlight'>Omnia</span>, our legal research application for French-speaking Africa</>,
         searchPlaceholder: 'Start your search here...',
         searchLabel: 'Search',
@@ -17,7 +17,7 @@ export default {
         demo: 'Request a demo',
     },
     presentation: {
-        title: <>A simple vision: making law in French-speaking Africa finally <em className='highlight'>accessible, structured and actionable</em></>,
+        title: <>A simple vision: making law in French-speaking Africa finally <span className='highlight'>accessible, structured and actionable</span></>,
         videoFallback: 'Your browser does not support HTML5 video',
         p1: <>Today, legal data is <span className="highlight">fragmented, non-digitized and hard to use</span>.</>,
         p2: <>LegOmnia offers <span className="highlight">a complete ecosystem</span> to turn this non-digitized data into unified, structured <span className="highlight">legal intelligence</span>.</>,

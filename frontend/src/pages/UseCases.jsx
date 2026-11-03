@@ -98,7 +98,7 @@ const UseCases = () => {
                     <div className="hero__title">
                         <h3 className='subtitle'>{tr("Cas d'usage par produit et profil client", "Use cases by product and client profile")}</h3>
                         <h1 className='main-title'>
-                            {tr("Une suite conçue pour", "A suite designed for")} <em className='highlight'>{tr("chaque acteur juridique", "every legal stakeholder")}</em>
+                            {tr("Une suite conçue pour", "A suite designed for")} <span className='highlight'>{tr("chaque acteur juridique", "every legal stakeholder")}</span>
                         </h1>
                         <p className="subtitle">{tr("Sélectionnez un produit, puis un profil client pour explorer les cas d'usage", "Select a product, then a client profile to explore the use cases")}</p>
                     </div>

@@ -26,7 +26,7 @@ const Juridictions = () => {
                     <div className="hero__title">
                         <p className="jurisdiction__eyebrow">{tr("Afrique francophone · espace OHADA", "French-speaking Africa · OHADA area")}</p>
                         <h1 className="main-title">
-                            {tr("Juridictions", "Jurisdictions")} <em className="highlight">{tr("couvertes", "covered")}</em>
+                            {tr("Juridictions", "Jurisdictions")} <span className="highlight">{tr("couvertes", "covered")}</span>
                         </h1>
                         <p className="jurisdiction__intro">
                             {tr(

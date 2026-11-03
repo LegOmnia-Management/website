@@ -88,7 +88,7 @@ const Omnia = () => {
                         <h1 className='main-title'>
                             {tr("L'intelligence juridique", "Legal intelligence")} <br/>
                             {tr("au service des", "serving")} <br/>
-                            <em className='highlight'>{tr("professionnels du droit", "legal professionals")}</em>
+                            <span className='highlight'>{tr("professionnels du droit", "legal professionals")}</span>
                         </h1>
                     </div>
                     <div className="hero__actions">
@@ -115,7 +115,7 @@ const Omnia = () => {
             <section className="bg__circle omnia__presentation">
                 <div className="container">
                     <h2 className='title__h2'>
-                        {tr("Première plateforme de", "The first")} <em className='highlight'>{tr("recherche et d'analyse juridique", "legal research and analysis platform")}</em> {tr("dédiée à l'Afrique francophone", "dedicated to French-speaking Africa")}</h2>
+                        {tr("Première plateforme de", "The first")} <span className='highlight'>{tr("recherche et d'analyse juridique", "legal research and analysis platform")}</span> {tr("dédiée à l'Afrique francophone", "dedicated to French-speaking Africa")}</h2>
                     <div className="structure__columns omnia__presentation--description">
                         <div className="structure__content">
                             <p>{tr("Recherche sémantique, analyse IA, génération de mémos", "Semantic search, AI analysis, memo generation")}<br/>
@@ -144,7 +144,7 @@ const Omnia = () => {
             <section className="omnia__platform">
                 <div className="container">
                     <h2 className='title__h2'>
-                        {tr("Une plateforme conçue pour l'", "A platform built for ")}<em className='highlight'>{tr("excellence juridique", "legal excellence")}</em>
+                        {tr("Une plateforme conçue pour l'", "A platform built for ")}<span className='highlight'>{tr("excellence juridique", "legal excellence")}</span>
                     </h2>
                     <p className='title__subtitle'>
                         {tr("Chaque outil de LegOmnia a été conçu avec et pour les juristes d'Afrique francophone.", "Every LegOmnia tool was designed with and for legal professionals in French-speaking Africa.")}<br/>
@@ -205,7 +205,7 @@ const Omnia = () => {
             {/* IA */}
             <section className="omnia__ia">
                 <div className="container">
-                    <h2 className='title__h2'>{tr("Lisez les décisions avec leur", "Read decisions with their")} <em className='highlight'>{tr("contexte légal intégré", "built-in legal context")}</em></h2>
+                    <h2 className='title__h2'>{tr("Lisez les décisions avec leur", "Read decisions with their")} <span className='highlight'>{tr("contexte légal intégré", "built-in legal context")}</span></h2>
                     <div className="structure__columns omnia__ia--description">
                         <img src={CadreLegalMobile} className='screen--mobile' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
                         <img src={CadreLegalDesktop} className='screen--desktop' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
@@ -237,7 +237,7 @@ const Omnia = () => {
             {/* Assistant */}
             <section className="bg__circle omnia__assistant">
                 <div className="container">
-                    <h2 className='title__h2'>{tr("Un assistant qui", "An assistant that")} <em className='highlight'> {tr("connaît votre dossier", "knows your case")}</em> {tr("par cœur", "inside out")}</h2>
+                    <h2 className='title__h2'>{tr("Un assistant qui", "An assistant that")} <span className='highlight'> {tr("connaît votre dossier", "knows your case")}</span> {tr("par cœur", "inside out")}</h2>
                     <div className="structure__columns omnia__assistant--description">
                         <img src={IaMobile} className='screen--mobile' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>
                         <img src={IaDesktop} className='screen--desktop' alt={tr("Application LegOmnia", "LegOmnia application")} loading="lazy"/>

@@ -58,8 +58,8 @@ const Omniscan = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            {tr("Des données juridiques", "From")} <em className='highlight'>{tr("brutes", "raw")}</em> <br/>
-                            {tr("à l'intelligence", "legal data to")} <em className='highlight'>{tr("structurée ", "structured intelligence")}</em>
+                            {tr("Des données juridiques", "From")} <span className='highlight'>{tr("brutes", "raw")}</span> <br/>
+                            {tr("à l'intelligence", "legal data to")} <span className='highlight'>{tr("structurée ", "structured intelligence")}</span>
                         </h1>
                         <p className="subtitle">
                             {tr("Scannez, structurez, enrichissez : vos documents juridiques deviennent enfin exploitables", "Scan, structure, enrich: your legal documents finally become usable")}

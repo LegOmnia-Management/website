@@ -22,7 +22,7 @@ const Cookies = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            Page <em className='highlight'>{tr("bientôt disponible", "coming soon")}</em>
+                            Page <span className='highlight'>{tr("bientôt disponible", "coming soon")}</span>
                         </h1>
                     </div>
                     <div className="hero__actions">

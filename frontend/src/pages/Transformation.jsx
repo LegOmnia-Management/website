@@ -35,7 +35,7 @@ const Transformation = () => {
                 <div className="container hero__container">
                     <div className="hero__title">
                         <h1 className='main-title'>
-                            {tr("Accélérateur de", "Accelerating")} <span className='break'><em className="highlight">{tr("transformation digitale", "digital transformation")}</em> {tr("juridique", "in the legal sector")}</span>
+                            {tr("Accélérateur de", "Accelerating")} <span className='break'><span className="highlight">{tr("transformation digitale", "digital transformation")}</span> {tr("juridique", "in the legal sector")}</span>
                         </h1>
                         <h3 className="subtitle">
                             {tr("Nous accompagnons les institutions judiciaires, ministères, cabinets d'avocats", "We support judicial institutions, ministries, law firms")} <span className='break'>{tr("et directions juridiques dans leur", "and legal departments in their")} <span className="highlight">{tr("transition numérique", "digital transition")}</span>.</span>

@@ -98,7 +98,7 @@ const CountryPage = () => {
                         </p>
                         <h1 className="main-title">
                             {c.hero.titlePrefix} <br/>
-                            <em className="highlight">{c.hero.titleCountry}</em>
+                            <span className="highlight">{c.hero.titleCountry}</span>
                         </h1>
                         <p className="jurisdiction__intro">{c.hero.intro}</p>
                     </div>

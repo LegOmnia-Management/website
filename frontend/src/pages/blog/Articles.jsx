@@ -28,7 +28,7 @@ const Articles = () => {
                 <div className="hero__title">
                         <h1 className='main-title'>
                             {tr("Le blog d'intelligence juridique", "The legal intelligence blog")} <br/>
-                            <em className='highlight'>{tr("au service de l'Afrique Francophone", "serving French-speaking Africa")}</em>
+                            <span className='highlight'>{tr("au service de l'Afrique Francophone", "serving French-speaking Africa")}</span>
                         </h1>
                         <h2 className='subtitle'>{tr("Découvrez nos derniers articles et actualités sur la transformation digitale des institutions juridiques.", "Discover our latest articles and news on the digital transformation of legal institutions.")}</h2>
                     </div>
