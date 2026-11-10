@@ -1,0 +1,890 @@
+<title>La Revue de Presse Juridique d'Afrique Francophone · numéro 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap">
+<style>
+/* Mise en page : une du Financial Times (papier saumon, filets noirs, serif de titrage), identité LegOmnia (violet, Ibarra Real Nova, Lato). */
+:root {
+  --paper: #fff1e5;
+  --paper-2: #f7e4d3;
+  --ink: #1a1a1a;
+  --muted: #66605c;
+  --rule: #1a1a1a;
+  --rule-soft: #d9cfc4;
+  --violet: #6b63d0;
+  --link: #4a0f9d;
+  --on-ink: #fff1e5;
+  --f-display: "Ibarra Real Nova", Georgia, "Times New Roman", serif;
+  --f-ui: Lato, "Helvetica Neue", Arial, sans-serif;
+  --gutter: clamp(16px, 4vw, 32px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1d1916; --paper-2: #26211d; --ink: #f4ebe2; --muted: #b5aaa0; --rule: #f4ebe2; --rule-soft: #3b342e;
+    --violet: #a9a3ff; --link: #c4bfff; --on-ink: #1d1916; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1d1916; --paper-2: #26211d; --ink: #f4ebe2; --muted: #b5aaa0; --rule: #f4ebe2; --rule-soft: #3b342e;
+  --violet: #a9a3ff; --link: #c4bfff; --on-ink: #1d1916; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-display); font-size: 18px; line-height: 1.6;
+  padding-inline: var(--gutter); padding-block: 0 56px;
+}
+a { color: var(--link); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+.wrap { max-width: 1040px; margin-inline: auto; }
+
+/* Bandeau de démonstration */
+.demo { font: 700 11px/1.5 var(--f-ui); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-align: center; padding: 10px 0 0; text-wrap: balance; }
+
+/* Titre du journal */
+.mast { border-top: 4px solid var(--rule); margin-top: 10px; padding-top: 14px; text-align: center; }
+.mast .eyebrow { font: 700 11px var(--f-ui); letter-spacing: .22em; text-transform: uppercase; color: var(--link); }
+.mast h1 { font-size: clamp(30px, 7vw, 52px); line-height: 1.05; font-weight: 700; margin: 6px 0 4px; letter-spacing: -.01em; }
+.mast .date { font: 13px var(--f-ui); color: var(--muted); }
+.dbl { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule-soft); height: 5px; margin-top: 14px; }
+
+/* Navigation par domaine */
+.chips { display: flex; flex-wrap: wrap; gap: 8px 10px; justify-content: center; padding: 16px 0 4px; }
+.chips button { font: 700 12px var(--f-ui); letter-spacing: .06em; text-transform: uppercase; background: transparent; color: var(--ink); border: 1px solid var(--rule); padding: 7px 12px; cursor: pointer; }
+.chips button:hover { background: var(--ink); color: var(--on-ink); }
+
+/* Chiffres */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-top: 22px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.stat { padding: 14px 16px 14px 0; background: none; border: 0; border-right: 1px solid var(--rule-soft); text-align: left; cursor: pointer; font: inherit; color: inherit; min-width: 0; }
+.stat:last-child { border-right: 0; }
+.stat + .stat { padding-left: 16px; }
+.stat b { display: block; font-size: 38px; line-height: 1.05; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat b small { font: 700 12px var(--f-ui); letter-spacing: .04em; margin-left: 6px; color: var(--link); text-transform: uppercase; }
+.stat span { display: block; font: 13px/1.4 var(--f-ui); color: var(--muted); margin-top: 4px; }
+.stat:hover b { color: var(--link); }
+@media (max-width: 600px) { .stat, .stat + .stat { padding-left: 0; border-right: 0; border-bottom: 1px solid var(--rule-soft); } .stat:last-child { border-bottom: 0; } }
+
+.label { font: 700 11px var(--f-ui); letter-spacing: .2em; text-transform: uppercase; color: var(--link); }
+
+/* Éditorial */
+.edito { max-width: 760px; margin: 30px auto 0; }
+.edito p { font-size: 21px; line-height: 1.55; font-style: italic; margin: 8px 0 0; text-wrap: pretty; }
+
+/* Illustrations */
+.art { background: var(--ab); aspect-ratio: 16 / 9; width: 100%; overflow: hidden; display: block; }
+.art svg { display: block; width: 100%; height: 100%; }
+.art[data-d="droit"]   { --ab: #4a0f9d; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="fisc"]    { --ab: #1f1a17; --af: #fff1e5; --aa: #e896f6; }
+.art[data-d="num"]     { --ab: #6b63d0; --af: #fff1e5; --aa: #1a1a1a; }
+.art[data-d="banque"]  { --ab: #12384a; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="commerce"] { --ab: #6b63d0; --af: #fff1e5; --aa: #1a1a1a; }
+.art[data-d="immo"] { --ab: #7a3b12; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="social"] { --ab: #7a3b12; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="penal"] { --ab: #1f1a17; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="invest"]  { --ab: #5b2a52; --af: #fff1e5; --aa: #e896f6; }
+.art .f  { fill: var(--af); }
+.art .fm { fill: var(--af); opacity: .45; }
+.art .a  { fill: var(--aa); }
+.art .sf { stroke: var(--af); fill: none; }
+.art .sa { stroke: var(--aa); fill: none; }
+.art .t    { font: 700 17px Lato, Arial, sans-serif; fill: var(--af); letter-spacing: .03em; }
+.art .tm   { font: 700 15px Lato, Arial, sans-serif; fill: var(--af); opacity: .85; }
+.art .tb   { font: 700 28px "Ibarra Real Nova", Georgia, serif; fill: var(--af); }
+.art .tbig { font: 700 72px "Ibarra Real Nova", Georgia, serif; fill: var(--af); text-anchor: middle; }
+
+/* À la une */
+.une { margin-top: 34px; border-top: 1px solid var(--rule); padding-top: 14px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.une h2 { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.1; font-weight: 700; margin: 8px 0 12px; text-wrap: balance; }
+.une h2 a, .card h3 a { color: inherit; text-decoration: none; }
+.une h2 a:hover, .card h3 a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.une .dek { font-size: 19px; color: var(--ink); margin: 0 0 14px; }
+.meta { font: 12px var(--f-ui); color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.tag { font: 700 10.5px var(--f-ui); letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--rule); padding: 3px 7px; color: var(--ink); }
+.read { font: 700 13px var(--f-ui); letter-spacing: .04em; text-transform: uppercase; color: var(--link); text-decoration: none; }
+.read:hover { text-decoration: underline; }
+@media (max-width: 760px) { .une { grid-template-columns: minmax(0, 1fr); } .une .art { order: -1; } }
+
+/* Rubriques */
+.sec { margin-top: 44px; }
+.sec-h { border-top: 2px solid var(--rule); padding-top: 8px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.sec-h h2 { font: 700 13px var(--f-ui); letter-spacing: .18em; text-transform: uppercase; margin: 0; }
+.sec-h span { font: 12px var(--f-ui); color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 30px 28px; margin-top: 18px; }
+.card { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.card .kick { font: 700 11px var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--link); }
+.card h3 { font-size: 26px; line-height: 1.15; font-weight: 700; margin: 0; text-wrap: balance; }
+.card p { font-size: 17px; line-height: 1.5; margin: 0; color: var(--ink); }
+.card .art-link { display: block; }
+
+/* Pied de page */
+.foot { margin-top: 56px; border-top: 4px solid var(--rule); padding-top: 14px; font: 12px/1.65 var(--f-ui); color: var(--muted); max-width: 760px; }
+.foot b { color: var(--link); }
+
+/* Lecture d'un article */
+.reader { max-width: 700px; margin-inline: auto; padding-top: 22px; }
+.back { font: 700 12px var(--f-ui); letter-spacing: .08em; text-transform: uppercase; background: none; border: 0; color: var(--link); cursor: pointer; padding: 6px 0; }
+.back:hover { text-decoration: underline; }
+.reader .kick { margin-top: 18px; }
+.reader h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.08; font-weight: 700; margin: 8px 0 14px; text-wrap: balance; }
+.reader .dek { font-size: 22px; line-height: 1.45; font-style: italic; margin: 0 0 18px; text-wrap: pretty; }
+.byline { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule-soft); padding: 10px 0; margin-bottom: 20px; }
+.reader .art { margin-bottom: 26px; }
+.prose p { margin: 0 0 1.05em; text-wrap: pretty; }
+.prose h2 { font-size: 26px; line-height: 1.2; margin: 1.6em 0 .5em; font-weight: 700; }
+.prose ul { margin: 0 0 1.2em; padding-left: 1.2em; }
+.prose li { margin-bottom: .45em; }
+.note { font: 15px/1.6 var(--f-ui); background: var(--paper-2); border-top: 2px solid var(--violet); padding: 12px 16px; margin: 1.6em 0; }
+.note b { color: var(--link); }
+.tablewrap { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font: 15px/1.45 var(--f-ui); min-width: 480px; }
+th { text-align: left; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; border-bottom: 2px solid var(--rule); padding: 8px 10px 8px 0; }
+td { border-bottom: 1px solid var(--rule-soft); padding: 9px 10px 9px 0; vertical-align: top; }
+td:first-child { font-weight: 700; }
+
+/* Fiche juridique */
+.fiche { border: 2px solid var(--rule); margin: 34px 0 28px; }
+.fiche-h { background: var(--ink); color: var(--on-ink); padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.fiche-h strong { font: 700 12px var(--f-ui); letter-spacing: .2em; text-transform: uppercase; }
+.fiche-h span { font: 700 10.5px var(--f-ui); letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--on-ink); padding: 3px 8px; }
+.fiche dl { margin: 0; font: 15px/1.5 var(--f-ui); }
+.fiche .row { display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 4px 16px; padding: 10px 16px; border-top: 1px solid var(--rule-soft); }
+.fiche .row:first-child { border-top: 0; }
+.fiche dt { font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 2px; }
+.fiche dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.fiche .verif { background: var(--paper-2); font: 13px/1.5 var(--f-ui); color: var(--muted); padding: 10px 16px; border-top: 1px solid var(--rule); }
+@media (max-width: 560px) { .fiche .row { grid-template-columns: minmax(0, 1fr); } }
+
+.src h2 { font: 700 12px var(--f-ui); letter-spacing: .2em; text-transform: uppercase; border-top: 2px solid var(--rule); padding-top: 8px; margin: 0 0 8px; }
+.src ul { font: 15px/1.5 var(--f-ui); margin: 0; padding-left: 1.1em; }
+.src li { margin-bottom: 6px; overflow-wrap: anywhere; }
+.pn { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 36px; border-top: 1px solid var(--rule); padding-top: 16px; }
+.pn a { text-decoration: none; color: inherit; display: block; }
+.pn small { display: block; font: 700 11px var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--link); margin-bottom: 4px; }
+.pn span { font-size: 18px; line-height: 1.25; font-weight: 700; }
+.pn a:hover span { text-decoration: underline; }
+.pn .next { text-align: right; }
+@media (max-width: 560px) { .pn { grid-template-columns: minmax(0, 1fr); } .pn .next { text-align: left; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+.score { display: inline-flex; gap: 3px; vertical-align: middle; }
+.score i { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--ink); display: inline-block; }
+.score i.on { background: var(--ink); }
+.sig { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.sig li { border-top: 1px solid var(--rule-soft); padding: 14px 0; }
+.sig b { font: 700 11px var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--link); margin-right: 8px; }
+.sig p { margin: 6px 0 2px; }
+.sig small { font: 400 13px var(--f-ui); color: var(--muted); }
+.sig-intro { font: 400 14px var(--f-ui); color: var(--muted); margin: 0 0 8px; }
+
+.actu-i { border-top: 1px solid var(--rule-soft); padding: 14px 0; }
+.actu-i h3 { margin: 4px 0; font-size: 1.25rem; }
+.btn { display: inline-block; background: var(--link); color: var(--paper); font: 700 13px var(--f-ui); padding: 10px 16px; text-decoration: none; }
+.btn-2 { background: transparent; color: var(--link); border: 2px solid var(--link); }
+.cta-site { margin: 12px 0 0; }
+.actu-i .kick { font: 700 11px var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--link); }
+.actu-i h3 a { color: var(--ink); text-decoration: none; }
+.par { font: 700 12px var(--f-ui); letter-spacing: .08em; color: var(--link); margin: -2px 0 6px; text-align: center; }
+
+</style>
+<div id="app"></div>
+<script>
+/* Numéro 2 · semaine du 2 au 9 novembre 2026. Faits tirés des sources citées (consultées le 9/11/2026). */
+const DOMAINS = {
+  invest: { label: "Investissement et rôle de l'État", short: "Investissement" },
+  banque: { label: "Banque, monnaie et paiements", short: "Paiements" },
+  fisc:   { label: "Finances publiques et conformité", short: "Finances" },
+  social: { label: "Protection sociale", short: "Protection sociale" },
+  penal:  { label: "Justice pénale", short: "Justice pénale" },
+  num:    { label: "Numérique et données", short: "Numérique" }
+};
+
+const ARTS = [
+/* ------------------------------------------------------------------ grand format */
+{
+  id: "etat-operateur-decrets", d: "invest", art: "scales", une: true, grand: true,
+  kicker: "Le grand format · Burkina Faso, Bénin, Togo",
+  title: "Après les annonces, les décrets : l'État s'installe en opérateur économique",
+  dek: "Dans notre premier numéro, trois États annonçaient vouloir davantage de prise sur l'économie. Cette semaine, des textes précis arrivent : sociétés d'État, fonds public, cadre des entreprises publiques. Ce qu'ils créent, et ce qu'on ignore encore.",
+  status: "Analyse · décrets adoptés",
+  score: { n: 5, off: 3, ind: 5 },
+  body: [
+    "Les 4, 5 et 6 novembre 2026, les Conseils des ministres du Bénin, du Burkina Faso et du Togo ont adopté des textes qui donnent une forme juridique à la présence de l'État dans l'économie. Il ne s'agit plus d'intentions : les décrets existent, mais leur contenu intégral n'est pas encore public.",
+    { h: "Ce qui a été adopté" },
+    { table: {
+      head: ["Pays", "Mesure", "Nature", "Précision"],
+      rows: [
+        ["Burkina Faso", "Société d'État FASO SANU (or artisanal et semi-mécanisé)", "Décret de création et décret de statuts", "Capital réparti à parts égales entre la SONASP et le Trésor public"],
+        ["Burkina Faso", "Décret sur la réorganisation des sites miniers illégaux, en conflit ou stratégiques", "Décret d'application du Code minier de 2024", "Conditions et modalités non détaillées"],
+        ["Burkina Faso", "Société d'économie mixte TADJI DU FASO (TAFA Energies), produits pétroliers et gaz", "Décret de création, décret de statuts", "SONABHY détient 60 % du capital, soit 600 millions de FCFA"],
+        ["Bénin", "Société porteuse du Fonds de développement industriel", "Statuts approuvés", "Capital de 100 milliards de FCFA, trois guichets"],
+        ["Togo", "Entreprises publiques : tutelle, contrôle, audit, dissolution", "Décret d'application de la loi n° 2025-005 du 1er avril 2025", "Autorisation préalable du ministre des Finances pour certains actes"]
+      ]
+    } },
+    { h: "Burkina Faso : l'or artisanal et le gaz passent par des sociétés publiques" },
+    "Le Conseil des ministres du 5 novembre a créé FASO SANU, société d'État destinée à encadrer l'exploitation aurifère artisanale et semi-mécanisée, en particulier sur des sites occupés illégalement, en conflit ou jugés stratégiques. Le décret de réorganisation de ces sites applique la loi n° 016-2024/ALT du 18 juillet 2024 portant Code minier. La Nouvelle Tribune rappelle que ce code subordonne l'autorisation d'exploitation artisanale à l'organisation en société coopérative.",
+    "Le même jour, le Conseil a créé TADJI DU FASO (TAFA Energies) pour garantir la disponibilité des produits pétroliers, notamment le gaz. Pour mémoire, le Conseil du 8 octobre avait approuvé un projet de loi interdisant la privatisation des entreprises stratégiques : ce projet n'est, à notre connaissance, pas encore adopté.",
+    { h: "Bénin : un fonds de 100 milliards de FCFA pour l'industrie" },
+    "Le Conseil du 4 novembre a approuvé les statuts de la société qui portera le Fonds de développement industriel du Bénin, capital de 100 milliards de FCFA. Trois guichets : Bénin Industrial Invest (fonds propres et quasi-fonds propres de long terme), Facilité de Garantie Industrielle (partage du risque sur les crédits bancaires et le crédit-bail), Usines Prêtes à l'Emploi (usines clés en main dans les pôles de développement). Les ministres de l'Économie et de l'Industrie doivent encore formaliser la création de la société. Le mois dernier, le Bénin avait par ailleurs adopté le décret créant SoBeMines, la société des mines.",
+    { h: "Togo : un cadre commun pour les entreprises publiques" },
+    "Le Conseil du 6 novembre a adopté le décret d'application de la loi de 2025 sur les entreprises publiques. Selon le communiqué, il précise l'exercice de la tutelle, le contrôle interne et externe, l'audit, le suivi des contrats de performance, les actes soumis à l'autorisation préalable du ministre des Finances, la création d'entreprises publiques par les collectivités territoriales, ainsi que la dissolution et la liquidation.",
+    { h: "Ce que l'on ne sait pas encore" },
+    { ul: [
+      "au Burkina Faso, le statut, les missions et les moyens de FASO SANU, les critères de classement des sites « stratégiques » ou « en conflit », et la place des coopératives ;",
+      "au Bénin, la forme juridique de la société porteuse, l'origine et le calendrier du versement des 100 milliards de FCFA, les critères d'éligibilité ;",
+      "au Togo, le texte intégral du décret, dont seul le communiqué décrit le contenu."
+    ] },
+    { h: "Lecture de la rédaction : le droit commun de l'État actionnaire reste à écrire" },
+    "Le Togo dote ses entreprises publiques d'un cadre de contrôle et d'audit. Au Burkina Faso et au Bénin, les sources consultées ne décrivent pas de règles équivalentes pour les nouvelles sociétés. Pour un partenaire privé, la question pratique sera de savoir qui contrôle, qui autorise, et selon quelles règles : les statuts, une fois publiés, le diront.",
+    { h: "Ce que les entreprises peuvent faire dès maintenant" },
+    { ul: [
+      "au Burkina Faso, les acteurs de l'or artisanal et les distributeurs de produits pétroliers et de gaz devraient suivre la publication des statuts et décrets ;",
+      "au Bénin, les industriels peuvent préparer leur dossier en attendant les critères du fonds ;",
+      "au Togo, les cocontractants d'entreprises publiques devraient vérifier quels actes exigent une autorisation préalable du ministre des Finances ;",
+      "dans les trois pays, attendre le Journal officiel avant toute décision."
+    ] },
+    { note: "Ce grand format s'appuie sur des communiqués et des articles de presse, non sur les textes intégraux. Il sera mis à jour à leur publication." }
+  ],
+  fiche: [
+    ["Autorités", "Conseils des ministres du Bénin (4 nov.), du Burkina Faso (5 nov.) et du Togo (6 nov. 2026)"],
+    ["Textes", "Burkina Faso : décrets FASO SANU, sites miniers, TAFA Energies. Bénin : statuts de la société du Fonds de développement industriel. Togo : décret d'application de la loi n° 2025-005 du 1er avril 2025"],
+    ["Entrée en vigueur", "Non précisée ; publication au Journal officiel non vérifiée"],
+    ["Règle", "Sociétés publiques et mixtes (or, gaz, financement industriel) ; cadre de tutelle et de contrôle des entreprises publiques (Togo)"],
+    ["Périmètre", "Or artisanal, produits pétroliers, financement de l'industrie, entreprises publiques"],
+    ["Personnes concernées", "Exploitants artisanaux, coopératives, distributeurs d'hydrocarbures, industriels, cocontractants d'entreprises publiques"],
+    ["Sanctions", "Non mentionnées"],
+    ["À vérifier", "Textes publiés, statuts, capital et actionnariat du fonds béninois"]
+  ],
+  verif: "Compte rendu du Conseil des ministres burkinabè (copie Burkina24), La Nouvelle Tribune, LeFaso.net et L-FRII pour le Burkina Faso. Compte rendu intégral (copie Bénin Web TV), Les 4 Vérités, Le Matinal et Triomphe Mag pour le Bénin. Communiqué officiel de la Présidence du Conseil et Republic of Togo pour le Togo. Aucun texte intégral consulté.",
+  sources: [
+    { t: "Burkina24 : compte rendu du Conseil des ministres du 5 novembre 2026", u: "https://burkina24.com/2026/11/05/compte-rendu-du-conseil-des-ministres-du-jeudi-5-novembre-2026/" },
+    { t: "La Nouvelle Tribune : le Burkina Faso crée Faso Sanu", u: "https://lanouvelletribune.info/2026/11/burkina-faso-ibrahim-traore-cree-faso-sanu-pour-reorganiser-lexploitation-artisanale-de-lor/" },
+    { t: "L-FRII : Conseil des ministres au Burkina Faso, les annonces majeures", u: "https://l-frii.com/conseil-des-ministres-au-burkina-faso-logements-cimenterie-numerique-les-annonces-majeures/" },
+    { t: "Bénin Web TV : intégralité du compte rendu du Conseil des ministres du 4 novembre 2026", u: "https://beninwebtv.bj/benin-integralite-du-compte-rendu-du-conseil-des-ministres-du-04-novembre-2026/" },
+    { t: "Les 4 Vérités : un fonds de 100 milliards FCFA pour accélérer l'industrialisation", u: "https://www.les4verites.bj/un-fonds-de-100-milliards-fcfa-pour-accelerer-lindustrialisation/" },
+    { t: "Togo, Présidence du Conseil : Conseil des ministres du 6 novembre 2026", u: "https://presidenceduconseil.gouv.tg/2026/11/06/conseil-des-ministres-du-06-novembre-2026/" },
+    { t: "Republic of Togo : sécurité sociale, foncier et orpaillage au menu", u: "https://www.republicoftogo.com/toutes-les-rubriques/politique/securite-sociale-foncier-et-orpaillage-au-menu" }
+  ]
+},
+/* ------------------------------------------------------------------ BCEAO */
+{
+  id: "bceao-plafonds-en-vigueur", d: "banque", art: "wallet",
+  kicker: "Paiements · UMOA",
+  title: "Monnaie électronique : les nouveaux plafonds de la BCEAO s'appliquent depuis le 2 novembre",
+  dek: "Solde maximal de 4 millions de FCFA, rechargements de 15 millions, et désormais passage obligatoire par la plateforme PI-SPI pour les transferts interopérables.",
+  status: "En vigueur depuis le 2 nov. 2026",
+  score: { n: 4, off: 1, ind: 3 },
+  body: [
+    "L'instruction n° 020 de la BCEAO, adoptée le 8 octobre 2026, est entrée en vigueur le lundi 2 novembre. Le solde maximal par client auprès d'un même émetteur de monnaie électronique passe de 2 à 4 millions de FCFA. Les rechargements mensuels cumulés passent de 10 à 15 millions de FCFA. Un dépassement exige l'autorisation préalable de la BCEAO.",
+    "Les dépôts à vue doivent représenter au moins 65 % des actifs de contrepartie. Les distributeurs et accepteurs agissant à titre professionnel ne sont pas concernés par les nouveaux plafonds.",
+    { h: "Transferts entre particuliers" },
+    "Selon Osiris, qui cite un communiqué de la BCEAO du 2 octobre 2026, les transferts interopérables dans l'UEMOA doivent passer par la plateforme PI-SPI. Les envois nationaux sont gratuits jusqu'à 8 000 FCFA cumulés par jour, par utilisateur et par établissement. Au-delà, les établissements peuvent facturer entre 0 et 0,8 % du montant hors taxes. La réception reste gratuite. Les mêmes règles s'appliqueront aux transferts entre pays de l'UEMOA à partir du 1er juin 2027.",
+    { note: "Limite. Le détail des transferts repose sur un seul média (Osiris) et sur un communiqué que nous n'avons pas relu. Les frais pratiqués au-delà du seuil de gratuité varient selon les opérateurs." }
+  ],
+  fiche: [
+    ["Autorité", "Banque centrale des États de l'Afrique de l'Ouest (BCEAO)"],
+    ["Texte", "Instruction n° 020 du 8 octobre 2026, modifiant l'instruction n° 008-05-2015 ; communiqué du 2 octobre 2026 sur les transferts"],
+    ["Entrée en vigueur", "2 novembre 2026 ; 1er juin 2027 pour les transferts entre pays de l'UEMOA"],
+    ["Règle", "Solde maximal 4 M FCFA ; rechargements mensuels 15 M FCFA ; gratuité des envois nationaux jusqu'à 8 000 FCFA par jour ; passage par PI-SPI"],
+    ["Périmètre", "Émetteurs de monnaie électronique et établissements de l'UMOA"],
+    ["Personnes concernées", "Émetteurs, clients, établissements ; distributeurs et accepteurs professionnels exemptés des plafonds"],
+    ["Sanctions", "Non mentionnées"],
+    ["À vérifier", "Communiqué du 2 octobre, modalités de demande de dépassement"]
+  ],
+  verif: "Instruction : page officielle de la BCEAO, Droit, Médias et Finances et Financial Afrik (voir numéro 1), Osiris pour la date d'application. Volet transferts : Osiris seul.",
+  sources: [
+    { t: "BCEAO : instruction n° 020 portant modification de l'instruction n° 008-05-2015", u: "https://www.bceao.int/fr/reglementations/instruction-ndeg-020-portant-modification-de-linstruction-ndeg-008-05-2015-du-21" },
+    { t: "Osiris : mobile money, ce qui change le 2 novembre", u: "https://www.osiris.sn/mobile-money-ce-qui-change-le-2-novembre-avec-les-nouvelles-regles-de-la-bceao.html" },
+    { t: "Droit, Médias et Finances : ce qui change avec l'instruction n° 020", u: "https://www.droitmediasfinance.com/index.php/actualites/droit-tech-fintech/1407-umoa-monnaie-electronique-ce-qui-change-avec-linstruction-n-020-du-8-octobre-2026-pour-les-activites-des-emetteurs-de-monnaie-electronique-eme" },
+    { t: "Financial Afrik : la BCEAO double le plafond des avoirs en monnaie électronique", u: "https://www.financialafrik.com/2026/10/09/umoa-la-bceao-double-le-plafond-des-avoirs-en-monnaie-electronique-a-4-millions-de-fcfa/" }
+  ]
+},
+/* ------------------------------------------------------------------ Burkina FASO SANU */
+{
+  id: "burkina-faso-sanu", d: "invest", art: "zones",
+  kicker: "Mines · Burkina Faso",
+  title: "Burkina Faso : FASO SANU, une société d'État pour l'or artisanal",
+  dek: "Créée par décret le 5 novembre, elle appuie la réorganisation des sites miniers illégaux, en conflit ou stratégiques.",
+  status: "Décret adopté",
+  score: { n: 4, off: 1, ind: 3 },
+  body: [
+    "Le Conseil des ministres du 5 novembre 2026 a adopté trois textes sur l'or artisanal : le décret de création de FASO SANU, société d'État, le décret approuvant ses statuts particuliers, et un décret fixant les conditions et modalités de réorganisation des sites miniers illégaux, en conflit ou à caractère stratégique, en application du Code minier de 2024.",
+    "Le capital de FASO SANU est détenu à parts égales par la SONASP et le Trésor public. Sa mission, selon le compte rendu : encadrer l'exploitation aurifère artisanale et semi-mécanisée illégale, pacifier les zones de conflit minier et sécuriser la valorisation de l'or. La Nouvelle Tribune la présente comme un outil technique pour appuyer l'application du décret sur les sites.",
+    { note: "Limite. Le statut détaillé, le périmètre, le calendrier, les moyens, les critères de classement des sites et le sort des exploitants actuels ne sont pas précisés. Aucun des textes n'a été consulté en intégralité." }
+  ],
+  fiche: [
+    ["Autorité", "Conseil des ministres du Burkina Faso, 5 novembre 2026"],
+    ["Texte", "Décrets de création et de statuts de FASO SANU ; décret de réorganisation des sites miniers (loi n° 016-2024/ALT du 18 juillet 2024, Code minier)"],
+    ["Entrée en vigueur", "Non précisée"],
+    ["Règle", "Société d'État pour l'or artisanal et semi-mécanisé ; réorganisation des sites illégaux, en conflit ou stratégiques"],
+    ["Périmètre", "Exploitation aurifère artisanale et semi-mécanisée"],
+    ["Personnes concernées", "Orpailleurs, coopératives, exploitants semi-mécanisés, acheteurs d'or"],
+    ["Sanctions", "Non précisées"],
+    ["À vérifier", "Textes publiés, statuts, critères de classement des sites"]
+  ],
+  verif: "Compte rendu officiel (copie Burkina24), La Nouvelle Tribune, LeFaso.net (titre) et L-FRII concordent. La Nouvelle Tribune reprend les annonces officielles sans analyse indépendante.",
+  sources: [
+    { t: "Burkina24 : compte rendu du Conseil des ministres du 5 novembre 2026", u: "https://burkina24.com/2026/11/05/compte-rendu-du-conseil-des-ministres-du-jeudi-5-novembre-2026/" },
+    { t: "La Nouvelle Tribune : Ibrahim Traoré crée Faso Sanu", u: "https://lanouvelletribune.info/2026/11/burkina-faso-ibrahim-traore-cree-faso-sanu-pour-reorganiser-lexploitation-artisanale-de-lor/" },
+    { t: "LeFaso.net : assainissement du secteur minier artisanal et création de Faso SANU", u: "https://lefaso.net/spip.php?article150557=" },
+    { t: "L-FRII : les annonces majeures du Conseil des ministres", u: "https://l-frii.com/conseil-des-ministres-au-burkina-faso-logements-cimenterie-numerique-les-annonces-majeures/" }
+  ]
+},
+/* ------------------------------------------------------------------ Bénin Fonds industriel */
+{
+  id: "benin-fonds-industriel", d: "invest", art: "columns",
+  kicker: "Investissement · Bénin",
+  title: "Bénin : un Fonds de développement industriel doté de 100 milliards de FCFA",
+  dek: "Les statuts de la société qui le porte sont approuvés. Trois guichets : fonds propres, garantie, usines prêtes à l'emploi.",
+  status: "Statuts approuvés",
+  score: { n: 4, off: 1, ind: 3 },
+  body: [
+    "Le Conseil des ministres du 4 novembre 2026 a approuvé les statuts de la société portant le Fonds de développement industriel du Bénin, au capital de 100 milliards de FCFA. Le Fonds doit apporter des fonds propres et quasi-fonds propres de long terme aux entreprises industrielles, partager le risque avec les banques et les sociétés de crédit-bail, et réduire les délais d'installation des usines.",
+    { ul: [
+      "Bénin Industrial Invest : accompagnement durable des entreprises par des instruments financiers adaptés ;",
+      "Facilité de Garantie Industrielle : partage du risque sur les financements bancaires et les crédits-bails ;",
+      "Usines Prêtes à l'Emploi : programme national d'usines clés en main dans les pôles de développement territorial."
+    ] },
+    "Les ministres de l'Économie et des Finances et de l'Industrie doivent encore formaliser la création de la société et la rendre opérationnelle.",
+    { note: "Limite. Forme juridique, origine et calendrier des 100 milliards, répartition entre les guichets, critères d'éligibilité et conditions financières ne sont pas précisés." }
+  ],
+  fiche: [
+    ["Autorité", "Conseil des ministres du Bénin, 4 novembre 2026"],
+    ["Texte", "Approbation des statuts de la société portant le Fonds de développement industriel"],
+    ["Entrée en vigueur", "Non précisée : création à formaliser"],
+    ["Règle", "Fonds de 100 milliards de FCFA, trois guichets (BII, FGI, UPE)"],
+    ["Périmètre", "Entreprises industrielles, financement long terme, garanties, usines clés en main"],
+    ["Personnes concernées", "Industriels, banques, sociétés de crédit-bail"],
+    ["Sanctions", "Non applicable"],
+    ["À vérifier", "Statuts publiés, critères d'éligibilité, calendrier"]
+  ],
+  verif: "Compte rendu intégral (copie Bénin Web TV), Les 4 Vérités, Triomphe Mag et Le Matinal concordent sur la création ; seul Les 4 Vérités détaille les guichets.",
+  sources: [
+    { t: "Bénin Web TV : intégralité du compte rendu du Conseil des ministres du 4 novembre 2026", u: "https://beninwebtv.bj/benin-integralite-du-compte-rendu-du-conseil-des-ministres-du-04-novembre-2026/" },
+    { t: "Les 4 Vérités : un fonds de 100 milliards FCFA pour accélérer l'industrialisation", u: "https://www.les4verites.bj/un-fonds-de-100-milliards-fcfa-pour-accelerer-lindustrialisation/" },
+    { t: "Triomphe Mag : les grandes décisions du Conseil des ministres du 4 novembre 2026", u: "https://triomphemag.bj/benin-les-grandes-decisions-du-conseil-des-ministres-du-mercredi-4-novembre-2026/" },
+    { t: "Le Matinal : Conseil des ministres du 4 novembre 2026", u: "https://lematinal.bj/conseil-des-ministres-du-4-novembre-2026-le-pag-2026-2033-approuve-plusieurs-reformes-majeures-engagees/" }
+  ]
+},
+/* ------------------------------------------------------------------ Bénin LBC / convention fiscale */
+{
+  id: "benin-lbc-convention-fiscale", d: "fisc", art: "shield",
+  kicker: "Conformité · Bénin",
+  title: "Bénin : une stratégie 2026-2030 contre le blanchiment, la CENTIF réorganisée, une convention fiscale avec les Pays-Bas",
+  dek: "Trois textes du Conseil du 4 novembre sur la lutte contre la criminalité financière et la double imposition.",
+  status: "Adopté et transmis",
+  score: { n: 3, off: 1, ind: 2 },
+  body: [
+    "Le Conseil des ministres du 4 novembre 2026 a adopté la stratégie nationale de lutte contre le blanchiment de capitaux, le financement du terrorisme et le financement de la prolifération des armes de destruction massive pour 2026-2030. Il a aussi adopté un décret sur les attributions, l'organisation et le fonctionnement de la CENTIF, la cellule nationale de traitement des informations financières.",
+    "Le Conseil a en outre transmis à l'Assemblée nationale, pour autorisation de ratification, la convention entre le Bénin et les Pays-Bas pour éliminer la double imposition en matière d'impôts sur le revenu et prévenir l'évasion et la fraude fiscales, signée le 21 mai 2026. Il ne s'agit pas d'une adoption : le Parlement doit encore autoriser la ratification.",
+    { note: "Limite. Le contenu du décret CENTIF, de la stratégie et de la convention n'est pas détaillé dans les sources consultées. Triomphe Mag confirme les trois points ; Le Matinal confirme la stratégie." }
+  ],
+  fiche: [
+    ["Autorité", "Conseil des ministres du Bénin, 4 novembre 2026"],
+    ["Texte", "Stratégie LBC/FT/FP 2026-2030 ; décret CENTIF ; décrets de transmission de la convention fiscale Bénin-Pays-Bas du 21 mai 2026"],
+    ["Entrée en vigueur", "Non précisée ; convention soumise à autorisation de ratification"],
+    ["Règle", "Cadre de lutte contre le blanchiment ; réorganisation de la CENTIF ; élimination de la double imposition"],
+    ["Périmètre", "Criminalité financière ; fiscalité des revenus entre le Bénin et les Pays-Bas"],
+    ["Personnes concernées", "Assujettis à la déclaration de soupçon, entreprises et résidents concernés par la convention"],
+    ["Sanctions", "Non précisées"],
+    ["À vérifier", "Textes publiés, calendrier de ratification de la convention"]
+  ],
+  verif: "Compte rendu intégral (copie Bénin Web TV), Triomphe Mag (trois points) et Le Matinal (stratégie) concordent.",
+  sources: [
+    { t: "Bénin Web TV : intégralité du compte rendu du Conseil des ministres du 4 novembre 2026", u: "https://beninwebtv.bj/benin-integralite-du-compte-rendu-du-conseil-des-ministres-du-04-novembre-2026/" },
+    { t: "Triomphe Mag : les grandes décisions du Conseil des ministres du 4 novembre 2026", u: "https://triomphemag.bj/benin-les-grandes-decisions-du-conseil-des-ministres-du-mercredi-4-novembre-2026/" },
+    { t: "Le Matinal : Conseil des ministres du 4 novembre 2026", u: "https://lematinal.bj/conseil-des-ministres-du-4-novembre-2026-le-pag-2026-2033-approuve-plusieurs-reformes-majeures-engagees/" }
+  ]
+},
+/* ------------------------------------------------------------------ Togo INSS */
+{
+  id: "togo-inss", d: "social", art: "donut",
+  kicker: "Protection sociale · Togo",
+  title: "Togo : un projet de loi fusionne la caisse de retraites et l'assurance maladie des agents publics",
+  dek: "L'Institut national de sécurité sociale regrouperait la CRT et l'INAM, avec un guichet unique. Le texte doit passer au Parlement.",
+  status: "Projet de loi adopté en Conseil",
+  score: { n: 3, off: 1, ind: 2 },
+  body: [
+    "Le Conseil des ministres du 6 novembre 2026 a adopté le projet de loi portant création de l'Institut national de sécurité sociale (INSS). Il fusionnerait la Caisse de retraites du Togo (CRT) et l'Institut national d'assurance maladie (INAM) pour gérer les retraites et l'assurance maladie des agents publics et assimilés, et de leurs ayants droit, avec un guichet unique.",
+    "Togo First cite, pour 2024, 40 943 pensionnés à la CRT et 509 902 assurés à l'INAM, avec des dépenses de fonctionnement d'environ 2 milliards de FCFA pour la première et 4,4 milliards pour la seconde. Le gouvernement invoque les doublons, les coûts de gestion et les écarts de qualité de service. La Caisse nationale de sécurité sociale, qui couvre notamment les salariés du privé, n'est pas concernée.",
+    { note: "Limite. Le projet doit encore être examiné par le Parlement. Calendrier, date de mise en service de l'INSS et modalités de transition ne sont pas précisés." }
+  ],
+  fiche: [
+    ["Autorité", "Conseil des ministres du Togo, 6 novembre 2026"],
+    ["Texte", "Projet de loi portant création de l'Institut national de sécurité sociale"],
+    ["Entrée en vigueur", "Non applicable : projet"],
+    ["Règle", "Fusion de la CRT et de l'INAM, guichet unique"],
+    ["Périmètre", "Retraites et assurance maladie des agents publics et assimilés"],
+    ["Personnes concernées", "Agents civils et militaires, retraités, ayants droit"],
+    ["Sanctions", "Non applicable"],
+    ["À vérifier", "Texte du projet, calendrier parlementaire, transition"]
+  ],
+  verif: "Communiqué officiel de la Présidence du Conseil, Togo First et Republic of Togo concordent. Chiffres de 2024 : Togo First seul.",
+  sources: [
+    { t: "Togo, Présidence du Conseil : Conseil des ministres du 6 novembre 2026", u: "https://presidenceduconseil.gouv.tg/2026/11/06/conseil-des-ministres-du-06-novembre-2026/" },
+    { t: "Togo First : le gouvernement veut réunir retraite et assurance maladie des agents publics", u: "https://www.togofirst.com/fr/gouvernance-economique/0911-20578-togo-le-gouvernement-veut-reunir-retraite-et-assurance-maladie-des-agents-publics" },
+    { t: "Republic of Togo : sécurité sociale, foncier et orpaillage au menu", u: "https://www.republicoftogo.com/toutes-les-rubriques/politique/securite-sociale-foncier-et-orpaillage-au-menu" }
+  ]
+},
+/* ------------------------------------------------------------------ Algérie PLF */
+{
+  id: "algerie-plf-2027-apn", d: "fisc", art: "budgets",
+  kicker: "Finances publiques · Algérie",
+  title: "Algérie : le budget 2027 en séance à l'APN, vote prévu le 16 novembre",
+  dek: "L'examen a débuté le 2 novembre. Après l'APN, le texte passera au Conseil de la nation. Entrée en vigueur visée : 1er janvier 2027.",
+  status: "Projet de loi de finances en discussion",
+  score: { n: 3, off: 0, ind: 3 },
+  body: [
+    "Les députés de l'Assemblée populaire nationale ont entamé le 2 novembre 2026 l'examen du projet de loi de finances 2027. Le ministre des Finances, Mohamed Lamine Lebbou, a présenté le texte en séance plénière : croissance prévue de 4,2 % en 2027, soutien à l'investissement productif, élargissement de l'assiette fiscale et lutte contre la fraude et l'évasion.",
+    "Selon Algérie360, le débat se poursuit toute la semaine et le vote est prévu le lundi 16 novembre, avant l'examen par le Conseil de la nation, la promulgation et l'entrée en vigueur au 1er janvier 2027. Le projet retient un prix de référence fiscal du baril de 60 dollars (prix de marché de 70 dollars), une inflation moyenne de 4 % et un taux de change moyen de 131 dinars pour un dollar sur 2027-2029. Le président a demandé qu'aucune taxe touchant le pouvoir d'achat ne figure dans le projet. Les députés ont salué l'absence de nouvelles charges fiscales, selon UpGrowth.",
+    { note: "Limite. Aucune source officielle n'a pu être consultée : le calendrier et les chiffres viennent de trois médias. Les montants globaux de dépenses diffèrent selon les sources et ne sont pas repris ici." }
+  ],
+  fiche: [
+    ["Autorité", "Assemblée populaire nationale ; gouvernement algérien"],
+    ["Texte", "Projet de loi de finances pour 2027"],
+    ["Entrée en vigueur", "1er janvier 2027 visé, après vote, passage au Conseil de la nation et promulgation"],
+    ["Règle", "Pas de nouvelle taxe touchant le pouvoir d'achat ; baril fiscal à 60 dollars ; inflation 4 % ; change 131 DA pour 1 dollar"],
+    ["Périmètre", "Budget de l'État 2027, prévisions 2028-2029"],
+    ["Personnes concernées", "Contribuables, entreprises, administrations"],
+    ["Sanctions", "Non applicable"],
+    ["À vérifier", "Ordre du jour officiel de l'APN, texte déposé, montants globaux"]
+  ],
+  verif: "Algérie360, Algérie Eco et UpGrowth concordent sur l'ouverture des débats le 2 novembre. Date de vote : Algérie360 seul. Règle des sources non satisfaite : aucune source officielle consultée.",
+  sources: [
+    { t: "Algérie360 : PLF 2027, examen à l'APN à partir du 2 novembre", u: "https://www.algerie360.com/plf-2027-apn-examen-2-novembre-salaires-impots/" },
+    { t: "Algérie Eco : Lebbou présente le PLF 2027 devant l'APN", u: "https://algerie-eco.com/?p=330656" },
+    { t: "UpGrowth : les députés de l'APN entament le débat", u: "https://www.upgrowth.dz/actualites/loi-de-finances-2027-en-algerie-les-deputes-de-l-apn-entament-le-debat" }
+  ]
+},
+/* ------------------------------------------------------------------ Justice pénale */
+{
+  id: "tanzanie-lissu", d: "penal", art: "scales",
+  kicker: "Justice pénale · Tanzanie",
+  title: "Tanzanie : Tundu Lissu acquitté de trahison, condamné à quatre ans pour incitation",
+  dek: "La Haute Cour retient l'incitation, qui ne figurait pas parmi les chefs d'accusation initiaux. Le Chadema annonce un appel.",
+  status: "Décision rendue le 6 nov. 2026",
+  score: { n: 4, off: 0, ind: 4 },
+  body: [
+    "Le 6 novembre 2026, la Haute Cour de Tanzanie, à Dar es Salaam, a acquitté l'opposant Tundu Lissu, chef du Chadema, du chef de trahison, infraction passible de la peine de mort. Selon The Citizen et NotreAfrik, la cour a jugé que l'accusation n'avait pas prouvé l'intention d'intimider le gouvernement, élément requis de l'infraction.",
+    "Elle l'a en revanche condamné à quatre ans de prison pour incitation (article 390 du Code pénal, qui prévoit jusqu'à cinq ans), à raison de propos tenus le 3 avril 2025 au siège du Chadema. Selon NotreAfrik, l'incitation ne figurait pas parmi les chefs initiaux : la cour s'est appuyée sur l'article 319 du Code de procédure pénale pour la retenir. Il avait passé 577 jours en détention.",
+    { h: "Réactions" },
+    { ul: [
+      "le Chadema annonce un appel et réclame sa libération ;",
+      "Amnesty International dénonce une « parodie de justice » et demande l'annulation du verdict ;",
+      "le point de savoir si la détention déjà subie sera imputée sur la peine, et si une remise en liberté sous caution est possible, n'est pas tranché dans les sources."
+    ] },
+    { note: "Limite. Aucune source officielle ni texte du jugement consultés. Le tribunal n'est pas nommé par RFI." }
+  ],
+  fiche: [
+    ["Autorité", "Haute Cour de Tanzanie, Dar es Salaam, formation de trois juges"],
+    ["Texte", "Jugement du 6 novembre 2026 ; article 390 du Code pénal ; article 319 du Code de procédure pénale"],
+    ["Entrée en vigueur", "Décision rendue ; appel annoncé"],
+    ["Règle", "Acquittement pour trahison ; condamnation à quatre ans pour incitation"],
+    ["Périmètre", "Propos du 3 avril 2025 sur le blocage des élections de 2025"],
+    ["Personnes concernées", "Tundu Lissu, chef du Chadema"],
+    ["Sanctions", "Quatre ans d'emprisonnement"],
+    ["À vérifier", "Texte du jugement, imputation de la détention, dépôt de l'appel"]
+  ],
+  verif: "RFI (via allAfrica), The Citizen, NotreAfrik, Amnesty International et Sahara Reporters concordent sur le verdict. Détails juridiques : NotreAfrik seul.",
+  sources: [
+    { t: "allAfrica (RFI) : Tundu Lissu condamné à 4 ans de prison pour incitation", u: "https://fr.allafrica.com/stories/202611060229.html" },
+    { t: "The Citizen : Lissu acquitted of treason but convicted of incitement", u: "https://thecitizen.co.tz/tanzania/news/national/lissu-acquitted-of-treason-but-convicted-of-incitement-5660696" },
+    { t: "NotreAfrik : Tundu Lissu acquitté de trahison, quatre ans pour incitation", u: "https://notreafrik.com/tundu-lissu-acquitte-condamne/" },
+    { t: "Amnesty International : conviction of Tundu Lissu, a travesty of justice", u: "https://www.amnesty.org/en/latest/news/2026/11/tanzania-conviction-and-sentencing-of-opposition-leader-tundu-lissu-a-travesty-of-justice/" }
+  ]
+},
+{
+  id: "kenya-shakahola", d: "penal", art: "shield",
+  kicker: "Justice pénale · Kenya",
+  title: "Kenya : 200 ans de prison pour Paul Mackenzie, le pasteur de Shakahola",
+  dek: "La Haute Cour de Mombasa le condamne pour le meurtre de 191 personnes, dont 190 enfants. La peine de mort requise n'a pas été retenue.",
+  status: "Peine prononcée le 6 nov. 2026",
+  score: { n: 5, off: 0, ind: 5 },
+  body: [
+    "Le 6 novembre 2026, la Haute Cour de Mombasa a condamné Paul Mackenzie à 200 ans de prison pour le meurtre de 190 enfants et d'un adulte, morts dans la forêt de Shakahola. Selon allAfrica, la juge a retenu comme circonstances aggravantes la préméditation, la durée des faits, la torture et la dissimulation des corps.",
+    "L'accusation avait requis la peine de mort. Les 28 coaccusés ont été condamnés à la perpétuité. Plus de 430 corps avaient été découverts dans des fosses en 2023. Son avocat a annoncé un appel.",
+    { note: "Limite. Aucune source officielle ni texte du jugement consultés. Les chiffres de victimes sont ceux de la presse." }
+  ],
+  fiche: [
+    ["Autorité", "Haute Cour de Mombasa, Kenya"],
+    ["Texte", "Jugement sur la peine du 6 novembre 2026"],
+    ["Entrée en vigueur", "Décision rendue ; appel annoncé"],
+    ["Règle", "200 ans d'emprisonnement ; perpétuité pour 28 coaccusés"],
+    ["Périmètre", "Meurtre de 191 personnes à Shakahola"],
+    ["Personnes concernées", "Paul Mackenzie et 28 coaccusés"],
+    ["Sanctions", "200 ans de prison ; perpétuité pour les coaccusés"],
+    ["À vérifier", "Texte du jugement, dépôt de l'appel"]
+  ],
+  verif: "allAfrica, Africanews, Nation, Kenyans.co.ke, Tchadinfos et d'autres médias concordent.",
+  sources: [
+    { t: "allAfrica : Massacre de Shakahola, le gourou condamné à « 200 ans de prison »", u: "https://fr.allafrica.com/stories/202611060570.html" },
+    { t: "Africanews : Kenyan doomsday cult leader sentenced to 200 years in prison", u: "https://www.africanews.com/2026/11/06/kenyan-doomsday-cult-leader-sentenced-to-200-years-in-prison-for-murder-of-191/" },
+    { t: "Kenyans.co.ke : Paul Mackenzie sentenced to 200 years in prison", u: "https://www.kenyans.co.ke/news/129194-paul-mackenzie-sentenced-200-years-prison" },
+    { t: "Tchadinfos : le pasteur Paul Mackenzie condamné à 200 ans de prison", u: "https://tchadinfos.com/2026/11/06/kenya-le-pasteur-paul-mackenzie-condamne-a-200-ans-de-prison-pour-la-mort-de-191-adeptes/" }
+  ]
+},
+{
+  id: "mali-verificateur-general", d: "penal", art: "budgets",
+  kicker: "Justice pénale · Mali",
+  title: "Mali : cinq ans avec sursis pour l'ancien Vérificateur général et son directeur financier",
+  dek: "La Cour d'appel de Bamako a statué le 5 novembre sur la gestion du Bureau du Vérificateur général entre 2004 et 2010. Le parquet avait requis 20 et 15 ans.",
+  status: "Arrêt rendu le 5 nov. 2026",
+  score: { n: 3, off: 0, ind: 3 },
+  body: [
+    "Le 5 novembre 2026, la chambre criminelle de la Cour d'appel de Bamako a condamné Sidi Sosso Diarra, ancien Vérificateur général, et Amadou Diop, ancien directeur administratif et financier, à cinq ans d'emprisonnement avec sursis. Le dossier porte sur la gestion du Bureau du Vérificateur général de 2004 à 2010, d'après deux rapports de la Section des comptes de la Cour suprême. Selon Abidjan TV, les poursuites visaient l'atteinte aux biens publics.",
+    "Le ministère public avait requis 20 ans de réclusion contre M. Diarra et 15 ans contre M. Diop. Des dommages-intérêts de 500 millions de FCFA, solidaires, ont été prononcés, ainsi que des sommes à verser à l'État.",
+    { note: "Limite. Les montants à payer divergent d'un média à l'autre (environ 413 à 477 millions de FCFA pour M. Diarra) et ne sont pas repris ici. Aucune source officielle consultée." }
+  ],
+  fiche: [
+    ["Autorité", "Cour d'appel de Bamako, chambre criminelle"],
+    ["Texte", "Arrêt du 5 novembre 2026"],
+    ["Entrée en vigueur", "Décision rendue ; voies de recours non précisées"],
+    ["Règle", "Cinq ans d'emprisonnement avec sursis pour chacun"],
+    ["Périmètre", "Gestion du Bureau du Vérificateur général, 2004-2010"],
+    ["Personnes concernées", "Sidi Sosso Diarra, Amadou Diop"],
+    ["Sanctions", "Sursis, amende, 500 millions de FCFA de dommages-intérêts solidaires"],
+    ["À vérifier", "Texte de l'arrêt, montants exacts, recours"]
+  ],
+  verif: "Abidjan TV et Journal du Mali concordent sur la date, le tribunal et les peines. Ils divergent sur les montants.",
+  sources: [
+    { t: "Abidjan TV : l'ancien Vérificateur général et son ex-DAF condamnés à 5 ans de prison", u: "https://abidjantv.net/afrique-3/mali-lancien-verificateur-general-et-son-ex-daf-ont-ete-condamnes-a-5-ans-de-prison/" },
+    { t: "Journal du Mali : cinq ans avec sursis dans le dossier de gestion du BVG", u: "https://journaldumali.com/cinq-ans-avec-sursis-dans-le-dossier-de-gestion-du-bvg/" },
+    { t: "Bamada : cinq ans avec sursis pour l'ancien Vérificateur général et son DAF", u: "https://bamada.net/justice-malienne-sidi-sosso-diarra-et-amadou-diop-condamnes-a-cinq-ans-avec-sursis" }
+  ]
+},
+/* ------------------------------------------------------------------ Numérique : rappel Sénégal */
+{
+  id: "senegal-cybersecurite-iic", d: "num", art: "phone",
+  kicker: "Numérique et données · Sénégal",
+  title: "Sénégal : la loi sur les infrastructures critiques et la sécurité numérique, ce qu'elle impose",
+  dek: "Adoptée par l'Assemblée le 20 août 2026, elle crée l'Autorité nationale de cybersécurité et encadre l'hébergement des données de l'État.",
+  status: "Adoptée le 20 août 2026",
+  score: { n: 5, off: 1, ind: 4 },
+  body: [
+    "Le projet de loi n° 25/2026 relatif à la protection des infrastructures d'information critiques et à la sécurité numérique a été présenté le 13 août 2026 à l'intercommission de l'Assemblée nationale par le ministre Samba Diouf ; l'intercommission l'a adopté à l'unanimité, puis l'Assemblée l'a voté en séance plénière le jeudi 20 août (127 voix pour, aucune contre, selon Gaël Conseil).",
+    { h: "Ce que le texte prévoit" },
+    { ul: [
+      "une Autorité nationale de cybersécurité, rattachée à la Présidence, dont l'organisation sera fixée par décret, et un CERT national ;",
+      "un régime renforcé pour les infrastructures d'information critiques, dont la liste reste secrète : les opérateurs concernés sont informés individuellement ;",
+      "l'hébergement des données de l'État sur le territoire national, avec des dérogations exceptionnelles, et l'agrément par l'Autorité des fournisseurs cloud privés ;",
+      "une assurance contre les cyberattaques, que les autorités peuvent rendre obligatoire pour certains secteurs ou acteurs exposés ;",
+      "une coordination avec l'ARTP et la Commission de protection des données personnelles (CDP)."
+    ] },
+    { h: "Détails à confirmer sur le texte" },
+    "Selon un seul blog spécialisé (A&D Forensics), les opérateurs devraient notifier tout incident sous 24 heures, mettre en place un programme de sécurité sous six mois et des capacités de surveillance (SOC) sous un an après classement, et risqueraient une amende pouvant aller jusqu'à 800 millions de FCFA ou 5 % du chiffre d'affaires. Ces éléments ne figurent pas dans le rapport de l'Assemblée que nous avons lu.",
+    { h: "Ce que les entreprises peuvent faire dès maintenant" },
+    { ul: [
+      "vérifier si elles fournissent des services numériques à l'État ou à des opérateurs vitaux au Sénégal ;",
+      "cartographier où sont hébergées leurs données et leurs sauvegardes ;",
+      "attendre la promulgation, la publication au Journal officiel et les décrets avant de décider d'un changement d'hébergeur."
+    ] },
+    { note: "Limite. Nous n'avons pas pu confirmer la promulgation ni la publication au Journal officiel, ni lire le texte voté. Le rapport de l'Assemblée porte sur le projet en commission." }
+  ],
+  fiche: [
+    ["Autorité", "Assemblée nationale du Sénégal ; ministère chargé des Télécommunications"],
+    ["Texte", "Loi n° 25/2026 sur la protection des infrastructures d'information critiques et la sécurité numérique"],
+    ["Entrée en vigueur", "Non précisée ; promulgation et décrets d'application à confirmer"],
+    ["Règle", "Autorité nationale de cybersécurité ; hébergement national des données de l'État ; agrément des fournisseurs cloud ; assurance possible"],
+    ["Périmètre", "Infrastructures d'information critiques, services numériques fournis au Sénégal, données de l'État"],
+    ["Personnes concernées", "Opérateurs publics et privés, fournisseurs cloud et de services de cybersécurité"],
+    ["Sanctions", "Administratives et pénales ; montants à confirmer (une source)"],
+    ["À vérifier", "Texte promulgué, décrets, notification des incidents, plafonds de sanctions"]
+  ],
+  verif: "Rapport de l'intercommission de l'Assemblée (13 août), allAfrica (21 août), Gaël Conseil, AfriqueITNews et A&D Forensics concordent sur l'objet et la structure. Notification sous 24 heures et sanctions chiffrées : A&D Forensics seul.",
+  sources: [
+    { t: "Assemblée nationale, rapport de l'intercommission sur le projet de loi n° 25/2026", u: "https://www.vie-publique.sn/docs/28c7e9ff-d2e3-4dd9-9bd0-577ace23d448/projet-loi-25-2026-protection-infrastructures-critiques-securite-numerique-assemblee-nationale-du-senegal.pdf" },
+    { t: "allAfrica : Sécurité numérique, l'Assemblée renforce le cadre juridique contre les cybermenaces", u: "https://fr.allafrica.com/stories/202608210229.html" },
+    { t: "Gaël Conseil : loi cybersécurité adoptée au Sénégal", u: "https://www.gaelconseil.com/actualite/loi-cybersecurite-adoptee-au-senegal/" },
+    { t: "AfriqueITNews : hébergement local obligatoire, le Sénégal dégaine sa nouvelle loi", u: "https://afriqueitnews.com/cybersecurite/hebergement-local-obligatoire-le-senegal-degaine-sa-nouvelle-loi-pour-verrouiller-son-cyberespace/" },
+    { t: "A&D Forensics : comprendre la loi sénégalaise sur les infrastructures d'information critiques", u: "https://adforensics.io/blog/comprendre-la-nouvelle-loi-senegalaise-sur-les-infrastructures-d-information-critiques-et-la" }
+  ]
+}
+];
+
+const SIGNAUX = [];
+
+const STATS = [
+  { n: "100", u: " Md FCFA", l: "capital du Fonds de développement industriel du Bénin", id: "benin-fonds-industriel" },
+  { n: "4", u: " M FCFA", l: "plafond de monnaie électronique dans l'UMOA, en vigueur depuis le 2 novembre", id: "bceao-plafonds-en-vigueur" },
+  { n: "16", u: " nov.", l: "vote prévu du budget 2027 à l'APN algérienne", id: "algerie-plf-2027-apn" }
+];
+
+const EDITO = "Dans notre premier numéro, trois États annonçaient vouloir davantage de prise sur l'économie. Cette semaine, les textes arrivent. Au Burkina Faso, le Conseil des ministres crée une société d'État pour l'or artisanal et une société d'économie mixte pour le gaz. Au Bénin, les statuts d'un fonds de 100 milliards de FCFA pour l'industrie sont approuvés. Au Togo, un décret encadre les entreprises publiques et un projet de loi fusionne retraites et assurance maladie des agents publics. Côté justice pénale, la Haute Cour de Tanzanie acquitte Tundu Lissu de trahison mais le condamne pour incitation, et le pasteur Paul Mackenzie écope de 200 ans de prison au Kenya. Côté monnaie, les nouveaux plafonds de la BCEAO s'appliquent depuis le 2 novembre. À Alger, le budget 2027 est en séance, avec un vote prévu le 16 novembre.";
+
+const ACTU = [
+  { k: "Blog LegOmnia", t: "OHADA : 33 ans d'histoire et de défis pour le droit des affaires", d: "Dans notre dernier article de blog, la rédaction LegOmnia revient sur l'histoire de l'OHADA et sur les défis du droit des affaires, 33 ans après le traité de 1993.", u: "https://www.legomnia.com/blog/articles/ohada-33-ans-histoire-defis-droit-des-affaires", b: "Lire l'article sur le blog" }
+];
+const SITE = "https://www.legomnia.com/";
+
+/* Illustrations originales (SVG), une par article. Palette portée par les classes .f .fm .a .sf .sa .t */
+const T = (x, y, s, cls = "t", anchor = "middle") => `<text x="${x}" y="${y}" class="${cls}" text-anchor="${anchor}">${s}</text>`;
+
+const ART = {
+  /* Arbitrage : balance déséquilibrée, pièces d'un côté, pièce de procédure de l'autre */
+  scales: () => `
+    <rect class="f" x="312" y="96" width="16" height="184" rx="2"/>
+    <rect class="f" x="244" y="280" width="152" height="14" rx="2"/>
+    <circle class="a" cx="320" cy="84" r="12"/>
+    <line class="sf" stroke-width="8" stroke-linecap="round" x1="170" y1="112" x2="470" y2="96"/>
+    <path class="sf" stroke-width="2.5" d="M170 112 L134 204 M170 112 L206 204 M470 96 L434 188 M470 96 L506 188"/>
+    <path class="a" d="M124 204 H216 Q170 252 124 204 Z"/>
+    <path class="f" d="M424 188 H516 Q470 236 424 188 Z"/>
+    <circle class="f" cx="150" cy="192" r="11"/><circle class="f" cx="172" cy="192" r="11"/><circle class="f" cx="194" cy="192" r="11"/><circle class="f" cx="161" cy="172" r="11"/><circle class="f" cx="183" cy="172" r="11"/>
+    <rect class="a" x="446" y="140" width="40" height="46" rx="3"/>
+    <path class="sf" stroke-width="3" d="M454 154 H478 M454 164 H478 M454 174 H470" style="stroke:var(--ab)"/>
+    `,
+
+  /* OHADA : fronton, cinq colonnes, 17 points pour les 17 États parties */
+  columns: () => `
+    <path class="f" d="M110 150 L320 66 L530 150 Z"/>
+    <circle class="a" cx="320" cy="116" r="14"/>
+    <rect class="f" x="110" y="156" width="420" height="14" rx="2"/>
+    ${[0,1,2,3,4].map(i => `<rect class="f" x="${125 + i*90}" y="178" width="30" height="102" rx="3"/>`).join("")}
+    <rect class="f" x="100" y="280" width="440" height="14" rx="2"/>
+    <rect class="fm" x="84" y="294" width="472" height="12" rx="2"/>
+    ${Array.from({length: 17}, (_, i) => `<circle class="a" cx="${120 + i*25}" cy="332" r="5.5"/>`).join("")}
+    `,
+
+  /* PLFR : déficit 5,4 % → 7,6 % du PIB, hauteurs à l'échelle (30 px par point) */
+  deficit: () => `
+    <line class="sf" stroke-width="2" x1="150" y1="290" x2="490" y2="290"/>
+    <rect class="fm" x="200" y="128" width="100" height="162"/>
+    <rect class="a" x="340" y="62" width="100" height="228"/>
+    <line class="sf" stroke-width="1.5" stroke-dasharray="6 6" x1="150" y1="128" x2="490" y2="128"/>
+    
+    `,
+
+  /* Budgets 2027 : Dakar recule, Kinshasa monte */
+  budgets: () => `
+    <line class="sf" stroke-width="2" x1="60" y1="280" x2="580" y2="280"/>
+    <rect class="fm" x="90" y="110" width="80" height="170"/>
+    <rect class="a" x="190" y="128" width="80" height="152"/>
+    <path class="sf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M110 80 L250 130 M225 134 L250 130 L233 111"/>
+    
+    ${[0,1,2,3].map(i => `<rect class="${i === 3 ? 'a' : 'fm'}" x="${352 + i*54}" y="${230 - i*42}" width="40" height="${50 + i*42}"/>`).join("")}
+    <path class="sf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M352 150 L520 70 M492 68 L522 68 L522 98"/>
+    `,
+
+  /* Données personnelles : bouclier entouré de 24 nœuds */
+  shield: () => {
+    const dots = Array.from({length: 24}, (_, i) => {
+      const a = (i * 15 - 90) * Math.PI / 180;
+      return `<circle class="${i % 6 === 0 ? 'f' : 'a'}" cx="${(320 + 128 * Math.cos(a)).toFixed(1)}" cy="${(180 + 128 * Math.sin(a)).toFixed(1)}" r="${i % 6 === 0 ? 8 : 6}"/>`;
+    }).join("");
+    return `
+    <circle class="sf" stroke-width="1.5" stroke-dasharray="3 7" cx="320" cy="180" r="128"/>
+    ${dots}
+    <path class="f" d="M320 104 L384 128 V190 Q384 240 320 270 Q256 240 256 190 V128 Z"/>
+    <circle class="a" cx="320" cy="180" r="15"/>
+    <rect class="a" x="315" y="190" width="10" height="32" rx="3"/>
+    `;
+  },
+
+  /* INTERPOL : anneau de 55 % (circonférence 628,3 → arc 345,6) */
+  donut: () => `
+    <circle class="sf" stroke-width="40" cx="320" cy="170" r="100" style="stroke:var(--af);opacity:.22"/>
+    <circle class="sa" stroke-width="40" cx="320" cy="170" r="100" stroke-dasharray="345.6 628.3" transform="rotate(-90 320 170)"/>
+    
+    
+    <path class="a" d="M110 92 L150 162 H70 Z"/>
+    <rect x="106" y="112" width="8" height="26" rx="2" style="fill:var(--ab)"/><circle cx="110" cy="148" r="4.5" style="fill:var(--ab)"/>
+    ${[0,1,2,3,4,5].map(i => `<rect class="${i % 2 ? 'fm' : 'a'}" x="${500 + (i % 3) * 30}" y="${110 + Math.floor(i / 3) * 40}" width="20" height="26" rx="2"/>`).join("")}`,
+
+  /* Virements gratuits : téléphone, flèches, 0 frais */
+  phone: () => `
+    <rect class="sf" stroke-width="7" x="250" y="40" width="140" height="270" rx="26"/>
+    <rect class="fm" x="296" y="52" width="48" height="6" rx="3"/>
+    
+    
+    
+    
+    <path class="sa" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M90 150 H214 M188 124 L216 150 L188 176"/>
+    <path class="sf" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M550 210 H426 M452 184 L424 210 L452 236"/>
+    <circle class="a" cx="90" cy="215" r="20"/><circle class="a" cx="130" cy="215" r="20"/>
+    <circle class="f" cx="550" cy="140" r="20"/><circle class="f" cx="510" cy="140" r="20"/>
+    `,
+
+  /* Plafonds : 2 → 4 M (verticales), 10 → 15 M (horizontales), à l'échelle */
+  wallet: () => `
+    <line class="sf" stroke-width="2" x1="110" y1="190" x2="400" y2="190"/>
+    <rect class="fm" x="130" y="120" width="90" height="70"/>
+    <rect class="a" x="270" y="50" width="90" height="140"/>
+    ${T(175, 110, "2 M", "tb")}${T(315, 40, "4 M", "tb")}
+    ${T(245, 212, "solde maximal (FCFA)", "tm")}
+    <path class="sf" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" d="M228 150 H262 M248 136 L264 150 L248 164"/>
+    <rect class="fm" x="110" y="250" width="200" height="24"/>
+    <rect class="a" x="110" y="292" width="300" height="24"/>
+    ${T(322, 268, "10 M", "tb", "start")}${T(422, 310, "15 M", "tb", "start")}
+    ${T(110, 238, "rechargements mensuels", "tm", "start")}
+    <rect class="f" x="470" y="60" width="120" height="86" rx="10"/>
+    <rect class="a" x="540" y="86" width="50" height="34" rx="8"/>
+    <circle cx="558" cy="103" r="6" style="fill:var(--ab)"/>`,
+
+  /* Côte d'Ivoire : trois zones concentriques A, B, C */
+  zones: () => `
+    <circle class="fm" cx="230" cy="180" r="140" style="opacity:.16"/>
+    <circle class="fm" cx="230" cy="180" r="92" style="opacity:.3"/>
+    <circle class="a" cx="230" cy="180" r="44"/>
+    
+    
+    
+    
+`,
+
+  /* Mauritanie : dunes, soleil, usine, deux seuils */
+  dunes: () => `
+    <circle class="a" cx="500" cy="96" r="38"/>
+    <path class="fm" d="M0 280 Q120 190 250 250 T520 230 T640 260 V360 H0 Z" style="opacity:.5"/>
+    <path class="f" d="M0 318 Q160 250 320 300 T640 292 V360 H0 Z" style="opacity:.9"/>
+    <rect class="f" x="90" y="200" width="150" height="62"/>
+    <rect class="f" x="106" y="152" width="22" height="50"/><rect class="f" x="146" y="168" width="22" height="34"/>
+    <path class="f" d="M90 200 L130 176 V200 Z M130 200 L170 176 V200 Z M170 200 L210 176 V200 Z M210 200 L240 184 V200 Z"/>
+    <rect x="108" y="222" width="16" height="16" style="fill:var(--ab)"/><rect x="140" y="222" width="16" height="16" style="fill:var(--ab)"/><rect x="172" y="222" width="16" height="16" style="fill:var(--ab)"/>
+    
+    `
+};
+
+function artSvg(kind, label) {
+  const fn = ART[kind];
+  return `<svg viewBox="0 0 640 360" role="img" aria-label="${label}" preserveAspectRatio="xMidYMid slice">${fn()}</svg>`;
+}
+
+/* Rendu et navigation : accueil et lecture d'un article, par ancre simple (#identifiant). */
+const $app = document.getElementById("app");
+const byId = Object.fromEntries(ARTS.map(a => [a.id, a]));
+
+/* Typographie française : espaces insécables avant ; : ! ? % et dans les nombres */
+function nb(s) {
+  return String(s)
+    .replace(/(\d) (\d{3})(?!\d)/g, "$1 $2")
+    .replace(/ ([%:;?!»])/g, " $1")
+    .replace(/« /g, "« ")
+    .replace(/(\d) (FCFA|M€|milliards?|millions?|dollars|USD|Md|M|k|ans?|min|pays|%)/g, "$1 $2");
+}
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const tx = s => nb(esc(s));
+const minutes = a => Math.max(2, Math.round(JSON.stringify(a.body).split(/\s+/).length / 210));
+const MOIS = "9 novembre 2026";
+const pastilles = n => `<span class="score" role="img" aria-label="Confiance ${n} sur 5">${[1,2,3,4,5].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
+
+function artBlock(a, cls = "") {
+  return `<div class="art ${cls}" data-d="${a.d}">${artSvg(a.art, esc(a.title))}</div>`;
+}
+
+function card(a) {
+  return `<article class="card">
+    <a class="art-link" href="#${a.id}" data-go="${a.id}" tabindex="-1" aria-hidden="true">${artBlock(a)}</a>
+    <div class="kick">${tx(a.kicker)}</div>
+    <h3><a href="#${a.id}" data-go="${a.id}">${tx(a.title)}</a></h3>
+    <p>${tx(a.dek)}</p>
+    <div class="meta"><span class="tag">${tx(a.status)}</span><span>${minutes(a)} min</span><a class="read" href="#${a.id}" data-go="${a.id}">Lire →</a></div>
+  </article>`;
+}
+
+function home() {
+  const une = ARTS.find(a => a.une);
+  const secs = Object.entries(DOMAINS).map(([k, d]) => {
+    const list = ARTS.filter(a => a.d === k && !a.une);
+    const all = ARTS.filter(a => a.d === k).length;
+    if (!list.length) return "";
+    return `<section class="sec" id="sec-${k}">
+      <div class="sec-h"><h2>${tx(d.label)}</h2><span>${all} article${all > 1 ? "s" : ""}</span></div>
+      <div class="grid">${list.map(card).join("")}</div>
+    </section>`;
+  });
+  return `
+  <div class="wrap">
+    <header class="mast">
+      <div class="eyebrow">Édition hebdomadaire</div>
+      <h1>La Revue de Presse Juridique d'Afrique Francophone</h1>
+      <div class="par">par LegOmnia</div>
+      <div class="date">Numéro 2 · semaine du 2 au 9 novembre 2026 · ${ARTS.length} sujets</div>
+      <div class="date ia">Préparée avec l'appui d'outils d'IA, relue et validée par l'équipe LegOmnia</div>
+      <div class="dbl"></div>
+    </header>
+    <nav class="chips" aria-label="Domaines">${Object.entries(DOMAINS).map(([k, d]) => `<button type="button" data-scroll="sec-${k}">${tx(d.short)}</button>`).join("")}</nav>
+    <div class="stats">${STATS.map(s => `<button type="button" class="stat" data-go="${s.id}"><b>${tx(s.n)}<small>${tx(s.u)}</small></b><span>${tx(s.l)}</span></button>`).join("")}</div>
+    <section class="edito"><div class="label">Éditorial</div><p>${tx(EDITO)}</p></section>
+    <section class="une" aria-label="À la une">
+      <div>
+        <div class="label">${une.grand ? "Le grand format" : "À la une"} · ${tx(DOMAINS[une.d].short)}</div>
+        <h2><a href="#${une.id}" data-go="${une.id}">${tx(une.title)}</a></h2>
+        <p class="dek">${tx(une.dek)}</p>
+        <div class="meta"><span class="tag">${tx(une.status)}</span><span>${minutes(une)} min de lecture</span><a class="read" href="#${une.id}" data-go="${une.id}">Lire l'article →</a></div>
+      </div>
+      <a class="art-link" href="#${une.id}" data-go="${une.id}" tabindex="-1" aria-hidden="true">${artBlock(une)}</a>
+    </section>
+    ${secs.join("")}
+    <section class="sec actu" id="sec-actu"><div class="sec-h"><h2>L'actualité LegOmnia</h2><span>blog et produits</span></div>${ACTU.map(x => `<article class="actu-i"><div class="kick">${tx(x.k)}</div><h3><a href="${x.u}" target="_blank" rel="noopener noreferrer">${tx(x.t)}</a></h3><p>${tx(x.d)}</p><a class="btn" href="${x.u}" target="_blank" rel="noopener noreferrer">${tx(x.b)}</a></article>`).join("")}<p class="cta-site"><a class="btn btn-2" href="${SITE}" target="_blank" rel="noopener noreferrer">Découvrir LegOmnia</a></p></section>
+    <footer class="foot">
+      <b>LegOmnia</b> · Infrastructure juridique de l'Afrique francophone. Cette newsletter informe et ne constitue pas un conseil juridique. Cette newsletter est préparée avec l'appui d'outils d'intelligence artificielle, puis relue et validée par l'équipe LegOmnia, qui en assume la responsabilité éditoriale. Les faits sont tirés des sources citées en fin de chaque article, consultées le ${MOIS} ; chaque article signale ce qui reste à vérifier dans les textes officiels. Les illustrations sont originales.
+    </footer>
+  </div>`;
+}
+
+function body(items) {
+  return items.map(b => {
+    if (typeof b === "string") return `<p>${tx(b)}</p>`;
+    if (b.h) return `<h2>${tx(b.h)}</h2>`;
+    if (b.ul) return `<ul>${b.ul.map(li => `<li>${tx(li)}</li>`).join("")}</ul>`;
+    if (b.note) {
+      const i = b.note.indexOf(".");
+      return `<div class="note"><b>${tx(b.note.slice(0, i + 1))}</b>${tx(b.note.slice(i + 1))}</div>`;
+    }
+    if (b.table) return `<div class="tablewrap"><table><thead><tr>${b.table.head.map(h => `<th>${tx(h)}</th>`).join("")}</tr></thead><tbody>${b.table.rows.map(r => `<tr>${r.map(c => `<td>${tx(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    return "";
+  }).join("");
+}
+
+function reader(a) {
+  const i = ARTS.indexOf(a);
+  const prev = ARTS[(i + ARTS.length - 1) % ARTS.length];
+  const next = ARTS[(i + 1) % ARTS.length];
+  return `
+  <div class="wrap">
+    <article class="reader">
+      <button type="button" class="back" data-go="">← Retour à la newsletter</button>
+      <div class="label kick">${tx(a.kicker)}</div>
+      <h1>${tx(a.title)}</h1>
+      <p class="dek">${tx(a.dek)}</p>
+      <div class="byline meta"><span>Rédaction LegOmnia · veille juridique</span><span>${MOIS}</span><span>${minutes(a)} min de lecture</span><span class="tag">${tx(DOMAINS[a.d].short)}</span></div>
+      ${artBlock(a)}
+      <div class="prose">${body(a.body)}</div>
+      <section class="fiche" aria-label="Fiche juridique">
+        <div class="fiche-h"><strong>Fiche juridique</strong><span>${tx(a.status)}</span></div>
+        <dl>${a.fiche.map(([k, v]) => `<div class="row"><dt>${tx(k)}</dt><dd>${tx(v)}</dd></div>`).join("")}</dl>
+        <div class="verif"><b>Vérification.</b> ${tx(a.verif)}</div>
+      </section>
+      <section class="src"><h2>Sources</h2><ul>${a.sources.map(s => `<li><a href="${s.u}" target="_blank" rel="noopener noreferrer">${tx(s.t)}</a></li>`).join("")}</ul></section>
+      <nav class="pn" aria-label="Autres articles">
+        <a href="#${prev.id}" data-go="${prev.id}"><small>← Précédent</small><span>${tx(prev.title)}</span></a>
+        <a class="next" href="#${next.id}" data-go="${next.id}"><small>Suivant →</small><span>${tx(next.title)}</span></a>
+      </nav>
+    </article>
+  </div>`;
+}
+
+let current;
+function show(id) {
+  const a = id && byId[id];
+  if (current === (a ? a.id : "") && $app.firstChild) return;
+  current = a ? a.id : "";
+  $app.innerHTML = a ? reader(a) : home();
+  document.title = a ? a.title + " · LegOmnia" : "La Revue de Presse Juridique d'Afrique Francophone · LegOmnia";
+  window.scrollTo(0, 0);
+}
+function go(id) {
+  show(id || "");
+  try { if ((location.hash.slice(1)) !== (id || "")) location.hash = id || ""; } catch (e) { /* hash indisponible : la navigation interne suffit */ }
+}
+
+document.addEventListener("click", e => {
+  const g = e.target.closest("[data-go]");
+  if (g) { e.preventDefault(); go(g.getAttribute("data-go")); return; }
+  const s = e.target.closest("[data-scroll]");
+  if (s) { const el = document.getElementById(s.getAttribute("data-scroll")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+});
+window.addEventListener("hashchange", () => show(location.hash.slice(1)));
+show(location.hash.slice(1));
+
+</script>
