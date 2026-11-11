@@ -6,6 +6,9 @@ import SEOHead from '../../components/SEOHead';
 
 import './Newsletter.css';
 
+// Formulaire d'abonnement hébergé par Brevo
+const SUBSCRIBE_URL = "https://4e427ef9.sibforms.com/serve/MUIFAPDN2gwe8jwDZl0aGcie0B3uC75gy81BpmfTjDjaZMl4l2UDQ8V4pBMHQXkv0K7ztKLUiG_HuSCfjUcynsor_GEADxz8vheB2F4VXt163RpFmARqeijLgEAbkHwWxMeoMv8ak1CAky9tyI9raej5kIGw3aH0E8OFjKfzh7-4S9YrHzGadwd6vcFG3tbZPAndWrX4aDMLkOxzpQ==";
+
 // Éditions de la newsletter : la page de chaque édition est une page statique (public/newsletter/...)
 const EDITIONS = [
     {
@@ -74,6 +77,20 @@ const Newsletter = () => {
                         </div>
                     </article>
                 ))}
+
+                {/* Abonnement */}
+                <section className="nl-subscribe">
+                    <h2>{tr("Recevoir la newsletter", "Get the newsletter")}</h2>
+                    <p>
+                        {tr(
+                            "Une fois par semaine, les textes et décisions de l'Afrique francophone, directement dans votre boîte mail.",
+                            "Once a week, the texts and decisions of French-speaking Africa, straight to your inbox."
+                        )}
+                    </p>
+                    <a className='ui__btn' href={SUBSCRIBE_URL} target="_blank" rel="noopener noreferrer">
+                        {tr("S'abonner", "Subscribe")}
+                    </a>
+                </section>
 
                 <p className="nl-back">
                     <Link to={lp("/")}>{tr("Retour à l'accueil", "Back to home")}</Link>
