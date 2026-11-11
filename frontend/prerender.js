@@ -52,6 +52,7 @@ const STATIC_ROUTES = [
     '/blog/articles',                                      // blog/Articles.jsx
     '/blog/ressources',                                    // blog/Ressources.jsx
     '/blog/webinaires',                                    // blog/Webinaires.jsx
+    '/blog/newsletter',                                    // blog/Newsletter.jsx
     '/cgu',                                                // Cgu.jsx
     '/confidentialite',                                    // Confidentialite.jsx
     // MentionsLegales.jsx volontairement exclue (noIndex={true})
