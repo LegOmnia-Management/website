@@ -35,6 +35,20 @@
 }
 
 /* Vignette « une » du journal : papier blanc cassé, filets de colonnes, cadre double */
+.nl-banner {
+    max-width: var(--width-md);
+    margin: 0 auto 2rem;
+    border-radius: var(--radiusMd);
+    overflow: hidden;
+    box-shadow: var(--boxShadowSimple);
+}
+
+.nl-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .nl-card__cover {
     position: relative;
     display: flex;

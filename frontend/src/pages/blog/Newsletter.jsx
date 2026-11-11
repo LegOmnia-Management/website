@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import HeroBg from '../../components/HeroBg';
@@ -5,6 +6,8 @@ import useLang from '../../i18n/useLang';
 import SEOHead from '../../components/SEOHead';
 
 import './Newsletter.css';
+
+import NewsletterBanniere from '../../assets/img/divers/newsletter-banniere.webp';
 
 // Formulaire d'abonnement hébergé par Brevo
 const SUBSCRIBE_URL = "https://4e427ef9.sibforms.com/serve/MUIFAPDN2gwe8jwDZl0aGcie0B3uC75gy81BpmfTjDjaZMl4l2UDQ8V4pBMHQXkv0K7ztKLUiG_HuSCfjUcynsor_GEADxz8vheB2F4VXt163RpFmARqeijLgEAbkHwWxMeoMv8ak1CAky9tyI9raej5kIGw3aH0E8OFjKfzh7-4S9YrHzGadwd6vcFG3tbZPAndWrX4aDMLkOxzpQ==";
@@ -62,7 +65,11 @@ const Newsletter = () => {
             {/* Éditions */}
             <section className="container nl-list">
                 {EDITIONS.map((edition) => (
-                    <article key={edition.id} className="nl-card">
+                    <Fragment key={edition.id}>
+                    <div className="nl-banner">
+                        <img src={NewsletterBanniere} alt={tr("Illustration de la newsletter juridique LegOmnia", "Illustration of the LegOmnia legal newsletter")} />
+                    </div>
+                    <article className="nl-card">
                         <div className="nl-card__cover">
                             <p className="nl-card__issue">
                                 n°{edition.number}
@@ -76,6 +83,7 @@ const Newsletter = () => {
                             <a className='ui__btn nl-card__btn' href={edition.href}>{tr("Lire l'édition", "Read the issue")}</a>
                         </div>
                     </article>
+                    </Fragment>
                 ))}
 
                 {/* Abonnement */}
