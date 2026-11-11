@@ -28,6 +28,7 @@ export const ROUTES = {
     articles:        { fr: '/blog/articles',                                 en: '/en/blog/articles' },
     ressources:      { fr: '/blog/ressources',                               en: '/en/blog/resources' },
     webinaires:      { fr: '/blog/webinaires',                               en: '/en/blog/webinars' },
+    newsletter:      { fr: '/blog/newsletter',                              en: '/en/blog/newsletter' },
 };
 
 // Routes à paramètre : préfixe FR -> préfixe EN (le reste du chemin est conservé)

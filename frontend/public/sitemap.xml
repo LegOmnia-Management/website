@@ -469,6 +469,21 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://legomnia.com/blog/newsletter</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/newsletter"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/newsletter"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/blog/newsletter"/>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://legomnia.com/newsletter/numero-2/</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/newsletter/numero-2/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://legomnia.com/newsletter/numero-2/"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://legomnia.com/blog/webinaires</loc>
         <xhtml:link rel="alternate" hreflang="fr" href="https://legomnia.com/blog/webinaires"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://legomnia.com/en/blog/webinars"/>

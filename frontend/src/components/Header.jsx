@@ -132,6 +132,7 @@ const Header = () => {
                                 <li><Link className='sublink' to={lp("/blog/articles")}>{txt.articles}</Link></li>
                                 <li><Link className='sublink' to={lp("/blog/webinaires")}>{txt.webinars}</Link></li>
                                 <li><Link className='sublink' to={lp("/blog/ressources")}>{txt.resources}</Link></li>
+                                <li><Link className='sublink' to={lp("/blog/newsletter")}>{txt.newsletter}</Link></li>
                             </ul>
                         </li>
 

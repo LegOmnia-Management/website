@@ -10,6 +10,7 @@ export default {
         articles: 'Articles',
         webinars: 'Webinaires',
         resources: 'Ressources',
+        newsletter: 'Newsletter',
         contact: 'Nous contacter',
         waitlist: "Inscription sur liste d'attente",
         langLabel: 'Choisir la langue',
