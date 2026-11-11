@@ -63,7 +63,6 @@ const Newsletter = () => {
                         <div className="nl-card__cover">
                             <p className="nl-card__issue">
                                 n°{edition.number}
-                                <small>{tr("Numéro", "Issue")}</small>
                             </p>
                         </div>
 
