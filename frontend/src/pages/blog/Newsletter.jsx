@@ -4,15 +4,18 @@ import HeroBg from '../../components/HeroBg';
 import useLang from '../../i18n/useLang';
 import SEOHead from '../../components/SEOHead';
 
+import './Newsletter.css';
+
 // Éditions de la newsletter : la page de chaque édition est une page statique (public/newsletter/...)
 const EDITIONS = [
     {
         id: 'numero-2',
+        number: '2',
         href: '/newsletter/numero-2/',
         date: { fr: 'Semaine du 2 au 9 novembre 2026', en: 'Week of 2 to 9 November 2026' },
         title: {
-            fr: "La Revue de Presse Juridique d'Afrique Francophone · numéro 2",
-            en: "The Legal Press Review of French-speaking Africa · issue 2",
+            fr: "La Revue de Presse Juridique d'Afrique Francophone",
+            en: "The Legal Press Review of French-speaking Africa",
         },
         intro: {
             fr: "Après les annonces, les décrets : l'État s'installe en opérateur économique. Dix autres sujets de la semaine, sourcés.",
@@ -36,14 +39,7 @@ const Newsletter = () => {
             />
 
             {/* Hero */}
-            <section className="hero"
-                style={{
-                    minHeight: "calc(100vh - 400px)",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    gap: "3rem"
-                }}>
+            <section className="hero nl-hero">
                 <HeroBg />
                 <div className="container hero__container">
                     <div className="hero__title">
@@ -61,19 +57,27 @@ const Newsletter = () => {
             </section>
 
             {/* Éditions */}
-            <section className="container" style={{ padding: "3rem 1rem" }}>
+            <section className="container nl-list">
                 {EDITIONS.map((edition) => (
-                    <article key={edition.id} style={{ borderTop: "3px solid currentColor", paddingTop: "1.5rem", maxWidth: "760px" }}>
-                        <p style={{ fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", margin: 0 }}>
-                            {tr(edition.date.fr, edition.date.en)}
-                        </p>
-                        <h2 style={{ margin: "0.5rem 0 0.75rem" }}>{tr(edition.title.fr, edition.title.en)}</h2>
-                        <p style={{ margin: "0 0 1.25rem" }}>{tr(edition.intro.fr, edition.intro.en)}</p>
-                        <a className='ui__btn' href={edition.href}>{tr("Lire l'édition", "Read the issue")}</a>
+                    <article key={edition.id} className="nl-card">
+                        <div className="nl-card__cover">
+                            <p className="nl-card__issue">
+                                n°{edition.number}
+                                <small>{tr("Numéro", "Issue")}</small>
+                            </p>
+                            <p className="nl-card__date">{tr(edition.date.fr, edition.date.en)}</p>
+                        </div>
+
+                        <div className="nl-card__body">
+                            <p className="nl-card__kicker">{tr("Dernière édition", "Latest issue")}</p>
+                            <h2 className="nl-card__title">{tr(edition.title.fr, edition.title.en)}</h2>
+                            <p className="nl-card__intro">{tr(edition.intro.fr, edition.intro.en)}</p>
+                            <a className='ui__btn nl-card__btn' href={edition.href}>{tr("Lire l'édition", "Read the issue")}</a>
+                        </div>
                     </article>
                 ))}
 
-                <p style={{ marginTop: "3rem" }}>
+                <p className="nl-back">
                     <Link to={lp("/")}>{tr("Retour à l'accueil", "Back to home")}</Link>
                 </p>
             </section>

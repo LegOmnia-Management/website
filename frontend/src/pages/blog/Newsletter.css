@@ -1,0 +1,147 @@
+/* Page Newsletter (Blog) */
+
+.nl-hero {
+    min-height: auto;
+    padding: 7rem 0 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nl-hero .hero__title p {
+    max-width: 640px;
+    margin: 1.25rem auto 0;
+}
+
+.nl-list {
+    padding: 3rem 1rem 5rem;
+}
+
+.nl-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    max-width: var(--width-md);
+    margin: 0 auto;
+    background: #fff;
+    border-radius: var(--radiusMd);
+    box-shadow: var(--boxShadowSimple);
+    overflow: hidden;
+    transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.nl-card:hover {
+    box-shadow: var(--boxShadow);
+    transform: translateY(-3px);
+}
+
+.nl-card__cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(160deg, var(--violetDark) 0%, var(--violet) 55%, var(--violetLight) 100%);
+    color: #fff;
+}
+
+.nl-card__issue {
+    font-family: 'Ibarra Real Nova', Georgia, serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+}
+
+.nl-card__issue small {
+    display: block;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    opacity: 0.85;
+}
+
+.nl-card__date {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.nl-card__body {
+    padding: 2rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.9rem;
+}
+
+.nl-card__kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin: 0;
+}
+
+.nl-card__title {
+    font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+    line-height: 1.25;
+    color: var(--text1);
+    margin: 0;
+}
+
+.nl-card__intro {
+    color: var(--text2);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.nl-card__btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+}
+
+.nl-back {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+@media (max-width: 760px) {
+    .nl-hero {
+        padding: 6rem 0 3rem;
+    }
+
+    .nl-card {
+        grid-template-columns: 1fr;
+    }
+
+    .nl-card__cover {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1.25rem;
+        padding: 1.5rem;
+    }
+
+    .nl-card__issue {
+        font-size: 3rem;
+    }
+
+    .nl-card__issue small {
+        display: inline;
+        margin: 0 0 0 0.5rem;
+    }
+
+    .nl-card__body {
+        padding: 1.5rem;
+    }
+
+    .nl-card__btn {
+        align-self: stretch;
+        text-align: center;
+    }
+}
