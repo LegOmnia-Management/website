@@ -24,6 +24,7 @@ import Articles from './pages/blog/Articles';
 import Article from './pages/blog/ArticleDetail';
 import Ressources from './pages/blog/Ressources';
 import Webinaires from './pages/blog/Webinaires';
+import Newsletter from './pages/blog/Newsletter';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -65,6 +66,7 @@ const PAGES = [
     { route: { fr: `${ROUTES.articles.fr}/:slug`, en: `${ROUTES.articles.en}/:slug` }, element: <Article/> },
     { route: ROUTES.ressources, element: <Ressources/> },
     { route: ROUTES.webinaires, element: <Webinaires/> },
+    { route: ROUTES.newsletter, element: <Newsletter/> },
 ];
 
 function App() {
