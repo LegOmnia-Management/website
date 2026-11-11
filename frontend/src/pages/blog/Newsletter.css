@@ -37,7 +37,7 @@
 .nl-card__cover {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1.5rem;
     padding: 2rem 1.5rem;
     background: linear-gradient(160deg, var(--violetDark) 0%, var(--violet) 55%, var(--violetLight) 100%);
@@ -64,10 +64,11 @@
 }
 
 .nl-card__date {
-    font-size: 0.85rem;
-    line-height: 1.4;
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--violet);
     margin: 0;
-    opacity: 0.9;
 }
 
 .nl-card__body {

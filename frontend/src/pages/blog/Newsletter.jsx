@@ -65,11 +65,10 @@ const Newsletter = () => {
                                 n°{edition.number}
                                 <small>{tr("Numéro", "Issue")}</small>
                             </p>
-                            <p className="nl-card__date">{tr(edition.date.fr, edition.date.en)}</p>
                         </div>
 
                         <div className="nl-card__body">
-                            <p className="nl-card__kicker">{tr("Dernière édition", "Latest issue")}</p>
+                            <p className="nl-card__date">{tr(edition.date.fr, edition.date.en)}</p>
                             <h2 className="nl-card__title">{tr(edition.title.fr, edition.title.en)}</h2>
                             <p className="nl-card__intro">{tr(edition.intro.fr, edition.intro.en)}</p>
                             <a className='ui__btn nl-card__btn' href={edition.href}>{tr("Lire l'édition", "Read the issue")}</a>
