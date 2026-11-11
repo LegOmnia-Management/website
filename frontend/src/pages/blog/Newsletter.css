@@ -142,6 +142,33 @@
     margin-top: 0.5rem;
 }
 
+.nl-subscribe {
+    max-width: var(--width-md);
+    margin: 3rem auto 0;
+    padding: 2.5rem 1.5rem;
+    background: #fff;
+    border-radius: var(--radiusMd);
+    box-shadow: var(--boxShadowSimple);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.nl-subscribe h2 {
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    color: var(--text1);
+    margin: 0;
+}
+
+.nl-subscribe p {
+    color: var(--text2);
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0;
+}
+
 .nl-back {
     text-align: center;
     margin-top: 3rem;
