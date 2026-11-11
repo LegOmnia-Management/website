@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import HeroBg from '../../components/HeroBg';
@@ -5,6 +6,8 @@ import useLang from '../../i18n/useLang';
 import SEOHead from '../../components/SEOHead';
 
 import './Newsletter.css';
+
+import NewsletterBanniere from '../../assets/img/divers/newsletter-banniere.webp';
 
 // Éditions de la newsletter : la page de chaque édition est une page statique (public/newsletter/...)
 const EDITIONS = [
@@ -59,7 +62,11 @@ const Newsletter = () => {
             {/* Éditions */}
             <section className="container nl-list">
                 {EDITIONS.map((edition) => (
-                    <article key={edition.id} className="nl-card">
+                    <Fragment key={edition.id}>
+                    <div className="nl-banner">
+                        <img src={NewsletterBanniere} alt={tr("Illustration de la newsletter juridique LegOmnia", "Illustration of the LegOmnia legal newsletter")} />
+                    </div>
+                    <article className="nl-card">
                         <div className="nl-card__cover">
                             <p className="nl-card__issue">
                                 n°{edition.number}
@@ -73,6 +80,7 @@ const Newsletter = () => {
                             <a className='ui__btn nl-card__btn' href={edition.href}>{tr("Lire l'édition", "Read the issue")}</a>
                         </div>
                     </article>
+                    </Fragment>
                 ))}
 
                 <p className="nl-back">
