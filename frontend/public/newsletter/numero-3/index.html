@@ -619,7 +619,6 @@ const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(
 const tx = s => nb(esc(s));
 const minutes = a => Math.max(2, Math.round(JSON.stringify(a.body).split(/\s+/).length / 210));
 const MOIS = "16 novembre 2026";
-const BANDEAU = "Brouillon soumis à validation éditoriale · contenus préparés avec l'appui d'agents IA, à valider avant diffusion";
 
 function artBlock(a, cls = "") {
   return `<div class="art ${cls}" data-d="${a.d}">${artSvg(a.art, esc(a.title))}</div>`;
@@ -648,13 +647,11 @@ function home() {
   });
   return `
   <div class="wrap">
-    <p class="demo">${BANDEAU}</p>
     <header class="mast">
       <div class="eyebrow">Édition hebdomadaire</div>
       <h1>La Revue de Presse Juridique d'Afrique Francophone</h1>
       <div class="par">par LegOmnia</div>
       <div class="date">Numéro 3 · semaine du 8 au 15 novembre 2026 · ${ARTS.length} sujets</div>
-      <div class="date ia">Préparée avec l'appui d'outils d'IA, relue et validée par l'équipe LegOmnia</div>
       <div class="dbl"></div>
     </header>
     <nav class="chips" aria-label="Domaines">${Object.entries(DOMAINS).map(([k, d]) => `<button type="button" data-scroll="sec-${k}">${tx(d.short)}</button>`).join("")}</nav>
@@ -697,7 +694,6 @@ function reader(a) {
   const next = ARTS[(i + 1) % ARTS.length];
   return `
   <div class="wrap">
-    <p class="demo">${BANDEAU}</p>
     <article class="reader">
       <button type="button" class="back" data-go="">← Retour à la newsletter</button>
       <div class="label kick">${tx(a.kicker)}</div>
