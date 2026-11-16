@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Revue de Presse Juridique d'Afrique Francophone · numéro 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap">
+<style>
+:root {
+  --paper: #fff1e5; --paper-2: #f7e4d3; --ink: #1f1a2e; --muted: #66605c; --rule: #1f1a2e; --rule-soft: #d9cfc4;
+  --violet: #6b63d0; --link: #4a0f9d; --on-ink: #fff1e5;
+  --f-display: "Ibarra Real Nova", Georgia, "Times New Roman", serif;
+  --f-ui: Lato, "Helvetica Neue", Arial, sans-serif;
+  --gutter: clamp(16px, 4vw, 32px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper: #1d1916; --paper-2: #26211d; --ink: #f4ebe2; --muted: #b5aaa0; --rule: #f4ebe2; --rule-soft: #3b342e; --violet: #a9a3ff; --link: #c4bfff; --on-ink: #1d1916; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--f-display); font-size: 18px; line-height: 1.6; padding-inline: var(--gutter); padding-block: 0 56px; }
+a { color: var(--link); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+.wrap { max-width: 1040px; margin-inline: auto; }
+.demo { font: 700 11px/1.5 var(--f-ui); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-align: center; padding: 10px 0 0; text-wrap: balance; }
+.mast { border-top: 4px solid var(--rule); margin-top: 10px; padding-top: 14px; text-align: center; }
+.mast .eyebrow { font: 700 11px var(--f-ui); letter-spacing: .22em; text-transform: uppercase; color: var(--link); }
+.mast h1 { font-size: clamp(30px, 7vw, 52px); line-height: 1.05; font-weight: 700; margin: 6px 0 4px; letter-spacing: -.01em; }
+.mast .date { font: 13px var(--f-ui); color: var(--muted); }
+.dbl { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule-soft); height: 5px; margin-top: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px 10px; justify-content: center; padding: 16px 0 4px; }
+.chips button { font: 700 12px var(--f-ui); letter-spacing: .06em; text-transform: uppercase; background: transparent; color: var(--ink); border: 1px solid var(--rule); padding: 7px 12px; cursor: pointer; }
+.chips button:hover { background: var(--ink); color: var(--on-ink); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-top: 22px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.stat { padding: 14px 16px 14px 0; background: none; border: 0; border-right: 1px solid var(--rule-soft); text-align: left; cursor: pointer; font: inherit; color: inherit; min-width: 0; }
+.stat:last-child { border-right: 0; }
+.stat + .stat { padding-left: 16px; }
+.stat b { display: block; font-size: 34px; line-height: 1.05; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat b small { font: 700 12px var(--f-ui); letter-spacing: .04em; margin-left: 6px; color: var(--link); text-transform: uppercase; }
+.stat span { display: block; font: 13px/1.4 var(--f-ui); color: var(--muted); margin-top: 4px; }
+.stat:hover b { color: var(--link); }
+@media (max-width: 600px) { .stat, .stat + .stat { padding-left: 0; border-right: 0; border-bottom: 1px solid var(--rule-soft); } .stat:last-child { border-bottom: 0; } }
+.label { font: 700 11px var(--f-ui); letter-spacing: .2em; text-transform: uppercase; color: var(--link); }
+.edito { max-width: 760px; margin: 30px auto 0; }
+.edito p { font-size: 21px; line-height: 1.55; font-style: italic; margin: 8px 0 0; text-wrap: pretty; }
+.art { background: var(--ab); aspect-ratio: 16 / 9; width: 100%; overflow: hidden; display: block; }
+.art svg { display: block; width: 100%; height: 100%; }
+.art[data-d="fisc"]    { --ab: #1f1a17; --af: #fff1e5; --aa: #e896f6; }
+.art[data-d="inst"]    { --ab: #4a0f9d; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="penal"]   { --ab: #1f1a17; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="banque"]  { --ab: #12384a; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="prof"]    { --ab: #5b2a52; --af: #fff1e5; --aa: #e896f6; }
+.art .f  { fill: var(--af); }
+.art .fm { fill: var(--af); opacity: .45; }
+.art .a  { fill: var(--aa); }
+.art .sf { stroke: var(--af); fill: none; }
+.art .sa { stroke: var(--aa); fill: none; }
+.art .t    { font: 700 17px Lato, Arial, sans-serif; fill: var(--af); letter-spacing: .03em; }
+.art .tm   { font: 700 15px Lato, Arial, sans-serif; fill: var(--af); opacity: .85; }
+.art .tb   { font: 700 28px "Ibarra Real Nova", Georgia, serif; fill: var(--af); }
+.une { margin-top: 34px; border-top: 1px solid var(--rule); padding-top: 14px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.une h2 { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.1; font-weight: 700; margin: 8px 0 12px; text-wrap: balance; }
+.une h2 a, .card h3 a { color: inherit; text-decoration: none; }
+.une h2 a:hover, .card h3 a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.une .dek { font-size: 19px; margin: 0 0 14px; }
+.meta { font: 12px var(--f-ui); color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.tag { font: 700 10.5px var(--f-ui); letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--rule); padding: 3px 7px; color: var(--ink); }
+.read { font: 700 13px var(--f-ui); letter-spacing: .04em; text-transform: uppercase; color: var(--link); text-decoration: none; }
+.read:hover { text-decoration: underline; }
+@media (max-width: 760px) { .une { grid-template-columns: minmax(0, 1fr); } .une .art { order: -1; } }
+.sec { margin-top: 44px; }
+.sec-h { border-top: 2px solid var(--rule); padding-top: 8px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.sec-h h2 { font: 700 13px var(--f-ui); letter-spacing: .18em; text-transform: uppercase; margin: 0; }
+.sec-h span { font: 12px var(--f-ui); color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 30px 28px; margin-top: 18px; }
+.card { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.card .kick { font: 700 11px var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--link); }
+.card h3 { font-size: 26px; line-height: 1.15; font-weight: 700; margin: 0; text-wrap: balance; }
+.card p { font-size: 17px; line-height: 1.5; margin: 0; }
+.card .art-link { display: block; }
+.foot { margin-top: 56px; border-top: 4px solid var(--rule); padding-top: 14px; font: 12px/1.65 var(--f-ui); color: var(--muted); max-width: 760px; }
+.foot b { color: var(--link); }
+.reader { max-width: 700px; margin-inline: auto; padding-top: 22px; }
+.back { font: 700 12px var(--f-ui); letter-spacing: .08em; text-transform: uppercase; background: none; border: 0; color: var(--link); cursor: pointer; padding: 6px 0; }
+.back:hover { text-decoration: underline; }
+.reader .kick { margin-top: 18px; }
+.reader h1 { font-size: clamp(32px, 6vw, 46px); line-height: 1.08; font-weight: 700; margin: 8px 0 14px; text-wrap: balance; }
+.reader .dek { font-size: 22px; line-height: 1.45; font-style: italic; margin: 0 0 18px; text-wrap: pretty; }
+.byline { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule-soft); padding: 10px 0; margin-bottom: 20px; }
+.reader .art { margin-bottom: 26px; }
+.prose p { margin: 0 0 1.05em; text-wrap: pretty; }
+.prose h2 { font-size: 26px; line-height: 1.2; margin: 1.6em 0 .5em; font-weight: 700; }
+.prose ul { margin: 0 0 1.2em; padding-left: 1.2em; }
+.prose li { margin-bottom: .45em; }
+.note { font: 15px/1.6 var(--f-ui); background: var(--paper-2); border-top: 2px solid var(--violet); padding: 12px 16px; margin: 1.6em 0; }
+.note b { color: var(--link); }
+.tablewrap { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font: 15px/1.45 var(--f-ui); min-width: 480px; }
+th { text-align: left; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; border-bottom: 2px solid var(--rule); padding: 8px 10px 8px 0; }
+td { border-bottom: 1px solid var(--rule-soft); padding: 9px 10px 9px 0; vertical-align: top; }
+td:first-child { font-weight: 700; }
+.fiche { border: 2px solid var(--rule); margin: 34px 0 28px; }
+.fiche-h { background: var(--ink); color: var(--on-ink); padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.fiche-h strong { font: 700 12px var(--f-ui); letter-spacing: .2em; text-transform: uppercase; }
+.fiche-h span { font: 700 10.5px var(--f-ui); letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--on-ink); padding: 3px 8px; }
+.fiche dl { margin: 0; font: 15px/1.5 var(--f-ui); }
+.fiche .row { display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 4px 16px; padding: 10px 16px; border-top: 1px solid var(--rule-soft); }
+.fiche .row:first-child { border-top: 0; }
+.fiche dt { font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 2px; }
+.fiche dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.fiche .verif { background: var(--paper-2); font: 13px/1.5 var(--f-ui); color: var(--muted); padding: 10px 16px; border-top: 1px solid var(--rule); }
+@media (max-width: 560px) { .fiche .row { grid-template-columns: minmax(0, 1fr); } }
+.src h2 { font: 700 12px var(--f-ui); letter-spacing: .2em; text-transform: uppercase; border-top: 2px solid var(--rule); padding-top: 8px; margin: 0 0 8px; }
+.src ul { font: 15px/1.5 var(--f-ui); margin: 0; padding-left: 1.1em; }
+.src li { margin-bottom: 6px; overflow-wrap: anywhere; }
+.pn { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 36px; border-top: 1px solid var(--rule); padding-top: 16px; }
+.pn a { text-decoration: none; color: inherit; display: block; }
+.pn small { display: block; font: 700 11px var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--link); margin-bottom: 4px; }
+.pn span { font-size: 18px; line-height: 1.25; font-weight: 700; }
+.pn a:hover span { text-decoration: underline; }
+.pn .next { text-align: right; }
+@media (max-width: 560px) { .pn { grid-template-columns: minmax(0, 1fr); } .pn .next { text-align: left; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+.actu-i { border-top: 1px solid var(--rule-soft); padding: 14px 0; }
+.actu-i h3 { margin: 4px 0; font-size: 1.25rem; }
+.btn { display: inline-block; background: var(--link); color: var(--paper); font: 700 13px var(--f-ui); padding: 10px 16px; text-decoration: none; }
+.btn-2 { background: transparent; color: var(--link); border: 2px solid var(--link); }
+.cta-site { margin: 12px 0 0; }
+.actu-i .kick { font: 700 11px var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--link); }
+.actu-i h3 a { color: var(--ink); text-decoration: none; }
+.par { font: 700 12px var(--f-ui); letter-spacing: .08em; color: var(--link); margin: -2px 0 6px; text-align: center; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/* Numéro 3 · semaine du 8 au 15 novembre 2026. Faits tirés des sources citées (consultées les 15 et 16/11/2026). */
+const DOMAINS = {
+  fisc:   { label: "Finances publiques et fiscalité", short: "Finances et fiscalité" },
+  inst:   { label: "Institutions et élections", short: "Institutions" },
+  penal:  { label: "Justice pénale", short: "Justice pénale" },
+  banque: { label: "Banque, monnaie et paiements", short: "Paiements" },
+  prof:   { label: "Professions réglementées", short: "Professions" }
+};
+
+const ARTS = [
+/* ------------------------------------------------------------------ À la une : Côte d'Ivoire */
+{
+  id: "ci-annexe-fiscale-2027", d: "fisc", art: "budgets", une: true,
+  kicker: "À la une · Côte d'Ivoire",
+  title: "Côte d'Ivoire : l'annexe fiscale 2027 adoptée en commission, avec des hausses sur le cajou, l'or, le tabac et les boissons",
+  dek: "Quarante et un articles votés à l'unanimité le 13 novembre, en même temps que le budget de 18 466,1 milliards de FCFA. Le texte doit encore passer en séance plénière.",
+  status: "Adopté en commission",
+  score: { n: 4, off: 0, ind: 4 },
+  body: [
+    "La Commission des affaires économiques et financières de l'Assemblée nationale a adopté à l'unanimité, le vendredi 13 novembre 2026, l'annexe fiscale à la loi de finances 2027. Le texte compte 41 articles. Il accompagne le projet de budget de l'État, arrêté à 18 466,1 milliards de FCFA et articulé autour de six priorités.",
+    { h: "Quatre mesures chiffrées" },
+    { table: {
+      head: ["Mesure", "Changement", "Rendement estimé"],
+      rows: [
+        ["Droit unique de sortie sur les noix de cajou brutes", "Passe de 5 % à 7 %", "15,13 Md FCFA"],
+        ["Taxe ad valorem sur l'or", "Révision progressive selon le cours de l'once, jusqu'à 12 % au-delà de 6 000 dollars", "69 Md FCFA"],
+        ["Marquage et authentification des boissons alcoolisées et gazeuses (hors eau)", "Extension du dispositif existant pour le tabac", "42,3 Md FCFA"],
+        ["Produits du tabac", "Taux global de taxation de 70 % à 75 %", "9,6 Md FCFA"]
+      ]
+    } },
+    "Additionnés, ces quatre rendements estimés atteignent environ 136 milliards de FCFA (calcul de la rédaction à partir des chiffres rapportés par l'AIP).",
+    { h: "Les autres mesures" },
+    { ul: [
+      "une taxe sur l'importation des véhicules de transport de marchandises de 5 tonnes et plus, âgés de plus de 5 ans (taux non précisé) ;",
+      "l'immatriculation fiscale générale des personnes physiques installées en Côte d'Ivoire ;",
+      "la suppression de l'impôt de régularisation lié à l'impôt minimum forfaitaire : les entreprises concernées ne retiennent que le minimum de perception de 3 millions de FCFA ;",
+      "l'exonération de TVA sur les aliments pour bétail et volailles, certains intrants agricoles et leurs emballages ;",
+      "l'extension du taux réduit de TVA de 9 % aux pâtes alimentaires contenant des céréales autres que le blé dur ;",
+      "un crédit d'impôt de 50 % sur les dépenses liées aux services d'aide aux personnes handicapées ;",
+      "des exonérations fiscales et douanières pour le cinéma, l'audiovisuel, le livre, la presse et l'agriculture, sans détail chiffré."
+    ] },
+    { note: "Budget 2027. Le projet de loi de finances s'établit à 18 466,1 milliards de FCFA, selon l'AIP et Koaci. Il a été défendu devant les députés le 10 novembre avant son adoption en commission." },
+    { h: "Calendrier" },
+    "L'adoption en commission n'est pas définitive : le texte doit être examiné en séance plénière, où il peut encore être amendé. Selon NotreAfrik, la plénière serait prévue vers le 26 novembre ; cette date ne repose que sur cette source. La date d'entrée en vigueur n'est pas indiquée à ce stade.",
+    { h: "Ce que cela change" },
+    "Pour les exportateurs de cajou, les exploitants aurifères, les producteurs et importateurs de boissons et de tabac, les barèmes de 2027 seraient relevés. Pour les entreprises soumises à l'impôt minimum forfaitaire, la suppression de l'impôt de régularisation simplifierait le calcul. Les personnes physiques installées en Côte d'Ivoire seraient concernées par l'immatriculation fiscale générale."
+  ],
+  fiche: [
+    ["Autorité", "Assemblée nationale, Commission des affaires économiques et financières"],
+    ["Texte", "Annexe fiscale à la loi de finances 2027 (41 articles) ; projet de loi de finances 2027"],
+    ["Entrée en vigueur", "Non précisée : texte adopté en commission, plénière à venir"],
+    ["Règle", "Cajou 5 % → 7 % ; taxe sur l'or jusqu'à 12 % ; tabac 70 % → 75 % ; marquage fiscal des boissons ; immatriculation fiscale des personnes physiques ; suppression de l'impôt de régularisation de l'IMF"],
+    ["Périmètre", "Fiscalité intérieure et droits de sortie, exercice 2027"],
+    ["Personnes concernées", "Exportateurs de cajou, exploitants d'or, producteurs et importateurs de boissons et de tabac, entreprises soumises à l'IMF, personnes physiques"],
+    ["Sanctions", "Non précisées"],
+    ["À vérifier", "Texte voté en plénière, taux définitifs, date d'entrée en vigueur"]
+  ],
+  verif: "Annexe fiscale : AIP (mesures, taux et rendements) ; rendement cumulé des quatre mesures : Shango (136 milliards), recalculé par la rédaction. Budget de 18 466,1 milliards de FCFA : AIP, Koaci et NotreAfrik. Date de la plénière : NotreAfrik seul.",
+  sources: [
+    { t: "AIP : annexe fiscale 2027, les députés adoptent à l'unanimité 41 mesures fiscales", u: "https://www.aip.ci/cote-divoire-aip-annexe-fiscale-2027-les-deputes-adoptent-a-lunanimite-41-mesures-fiscales/" },
+    { t: "Shango : quatre mesures fiscales devraient rapporter 136 milliards en 2027", u: "https://www.shango.media/benin-web-cote-divoire-quatre-mesures-fiscales-devraient-rapporter-136-milliards-en-2027-12053133" },
+    { t: "AIP : les députés adoptent en commission un budget de 18 466 milliards de FCFA pour 2027", u: "https://www.aip.ci/cote-divoire-aip-les-deputes-adoptent-en-commission-un-budget-de-18-466-milliards-fcfa-pour-2027/" },
+    { t: "AIP : le budget de l'État 2027 arrêté à 18 466 milliards de FCFA", u: "https://www.aip.ci/cote-divoire-aip-le-budget-de-letat-2027-arrete-a-18-466-milliards-fcfa/" },
+    { t: "Koaci : budget 2027, une enveloppe de 18 466,1 milliards de FCFA articulée autour de six priorités", u: "https://www.koaci.com/article/2026/11/10/cote-divoire/politique/cote-divoire-assemblee-nationale-budget-2027-adama-coulibaly-defend-une-enveloppe-de-18-4661-milliards-fcfa-articulee-autour-de-six-priorites_202477.html" },
+    { t: "NotreAfrik : budget 2027 de la Côte d'Ivoire et dette", u: "https://notreafrik.com/budget-cote-ivoire-2027-dette/" }
+  ]
+},
+/* ------------------------------------------------------------------ Format long : Sénégal */
+{
+  id: "senegal-budget-2027", d: "fisc", art: "deficit",
+  kicker: "Le format long · Sénégal",
+  title: "Sénégal : le budget 2027 rejeté en commission, la mise en vigueur par décret se profile",
+  dek: "Après le rejet de la loi de finances rectificative 2026 en plénière le 3 novembre, la commission des Finances a écarté les recettes, la dette et plusieurs budgets ministériels. Le délai constitutionnel de 60 jours expire vers le 11 décembre.",
+  status: "Projet de loi en cours d'examen",
+  score: { n: 4, off: 0, ind: 4 },
+  body: [
+    "Le projet de loi de finances initiale 2027 a été déposé à l'Assemblée nationale le 12 octobre 2026. Depuis le 7 novembre, la commission des Finances en rejette successivement les différentes parties. Ces votes ne sont pas définitifs, mais ils ouvrent une question juridique : que se passe-t-il si l'Assemblée ne vote pas le budget dans le délai prévu par la Constitution ?",
+    { h: "Le calendrier" },
+    { table: {
+      head: ["Date", "Étape"],
+      rows: [
+        ["12 octobre", "Dépôt du projet de loi de finances initiale 2027 à l'Assemblée nationale"],
+        ["28 octobre", "Au Conseil des ministres, le président Bassirou Diomaye Faye demande au Premier ministre de prendre les dispositions juridiques nécessaires pour assurer la continuité des pouvoirs publics (selon Fratmat)"],
+        ["3 novembre", "La loi de finances rectificative 2026 est rejetée en plénière ; ses hypothèses servent de base au cadrage 2027, critiqué par les commissaires"],
+        ["7 novembre", "Début des rejets en commission : recettes, dette publique, budgets de la Présidence, de la Primature, de l'Assemblée, du Conseil constitutionnel, de la Cour suprême et de la Cour des comptes"],
+        ["8 novembre", "Enseignement supérieur"],
+        ["9 novembre", "Santé et Hygiène publique (246,67 Md FCFA), Famille et Culture, Industrie et Commerce"],
+        ["10 novembre", "Affaires étrangères (75,35 Md en crédits de paiement), Fonction publique (12,83 Md), Pêches et Microfinance"],
+        ["11 novembre", "Énergie et Pétrole (64,2 Md en crédits de paiement), Mines (7,46 Md), Éducation nationale (980,8 Md en crédits de paiement)"],
+        ["Vers le 11 décembre", "Fin du délai constitutionnel de 60 jours, compté depuis le dépôt du 12 octobre (calcul de la rédaction)"]
+      ]
+    } },
+    { h: "Ce que dit le droit" },
+    "L'article 68 de la Constitution laisse à l'Assemblée nationale « soixante jours au plus » pour voter les lois de finances. Si le projet n'est pas voté définitivement à l'expiration du délai, il est mis en vigueur par décret. Ce décret tient compte des amendements votés par l'Assemblée et acceptés par le Président.",
+    "Les votes de commission ne sont pas des votes de l'Assemblée : les textes doivent encore passer en séance plénière.",
+    { h: "Des chiffres contestés" },
+    { ul: [
+      "croissance 2027 : 1,5 % selon le ministre, contre 2,4 % dans le projet, relève le groupe Pastef ;",
+      "déficit : 1 334 milliards de FCFA dans un document, 1 351,7 milliards dans un autre ;",
+      "le gouvernement annonce un déficit public ramené à 4,7 % du PIB."
+    ] },
+    { h: "Ce que cela change" },
+    "Pour les entreprises créancières de l'État, Agence Ecofin voit dans cette bataille budgétaire une source d'incertitude sur les paiements. La question pratique est celle du régime applicable en début d'année : budget voté, ou budget mis en vigueur par décret, avec ou sans les amendements retenus.",
+    { note: "Limite. Un rejet en commission n'est pas un rejet de la loi de finances. Les montants globaux du budget divergent d'un média à l'autre et ne sont pas repris ici." }
+  ],
+  fiche: [
+    ["Autorité", "Assemblée nationale du Sénégal, commission des Finances ; Présidence de la République"],
+    ["Texte", "Projet de loi de finances initiale 2027, déposé le 12 octobre 2026 ; loi de finances rectificative 2026, rejetée le 3 novembre"],
+    ["Entrée en vigueur", "Non applicable : projet ; mise en vigueur par décret possible après l'expiration du délai de 60 jours"],
+    ["Règle", "Article 68 de la Constitution : soixante jours au plus pour voter ; à défaut, mise en vigueur par décret"],
+    ["Périmètre", "Budget de l'État 2027"],
+    ["Personnes concernées", "Administrations, entreprises créancières de l'État, contribuables"],
+    ["Sanctions", "Non applicable"],
+    ["À vérifier", "Plénière, éventuel décret de mise en vigueur, montants du budget"]
+  ],
+  verif: "Africactu, Xalima, NotreAfrik, Agence Ecofin, allAfrica et Senegal24News concordent sur les rejets en commission. Calendrier détaillé et article 68 : Africactu ; demande du 28 octobre : Fratmat, rapportée par Africactu. Les montants du budget divergent entre Xalima et NotreAfrik et ne sont pas repris.",
+  sources: [
+    { t: "Africactu : Sénégal, budget 2027 rejeté en commission des Finances", u: "https://www.africactu.com/politique/senegal-budget-2027-rejet-commission-finances/" },
+    { t: "Agence Ecofin : la bataille du budget 2027 fait planer une incertitude sur les paiements aux entreprises", u: "https://www.agenceecofin.com/actualites-finance/0911-143238-senegal-la-bataille-du-budget-2027-fait-planer-une-incertitude-sur-les-paiements-aux-entreprises" },
+    { t: "Xalima : après la LFR 2026, le projet de budget 2027 rejeté en commission parlementaire", u: "https://xalimasn.com/2026/11/07/apres-la-lfr-2026-le-projet-de-budget-2027-rejete-en-commission-parlementaire/" },
+    { t: "NotreAfrik : budget 2027 du Sénégal et décret", u: "https://notreafrik.com/budget-2027-senegal-decret/" },
+    { t: "allAfrica : Sénégal, budget 2027", u: "https://fr.allafrica.com/stories/202611050470.html" },
+    { t: "Senegal24News : budget 2027, la commission des Finances rejette les recettes et des institutions", u: "https://www.senegal24news.com/politique/budget-2027-commission-finances-rejette-recettes-institutions/" }
+  ]
+},
+/* ------------------------------------------------------------------ RDC */
+{
+  id: "rdc-loi-referendum", d: "inst", art: "columns",
+  kicker: "Institutions · RDC",
+  title: "RDC : la loi n° 26/045 fixe le cadre de tout référendum, sans en convoquer aucun",
+  dek: "Promulguée le 9 novembre après le contrôle de la Cour constitutionnelle, elle abroge la loi de 2005. L'opposition y voit un risque pour l'article 220 de la Constitution.",
+  status: "Promulguée le 9 nov. 2026",
+  score: { n: 4, off: 0, ind: 4 },
+  body: [
+    "Le président Félix Tshisekedi a promulgué la loi n° 26/045 du 9 novembre 2026 fixant les conditions d'organisation du référendum. L'ordonnance de promulgation a été lue à la télévision nationale le 10 novembre. Le texte entre en vigueur immédiatement et abroge les dispositions contraires, dont la loi de 2005 adoptée pendant la transition.",
+    { h: "Ce que prévoit la loi" },
+    { ul: [
+      "le référendum est une consultation directe où le peuple répond par oui ou par non ;",
+      "participer est un devoir civique pour les citoyens inscrits sur la liste électorale, âgés de 18 ans révolus et jouissant de leurs droits civils et politiques ; nul ne peut voter plus d'une fois ;",
+      "le texte compte huit chapitres, couvrant notamment la campagne, le déroulement du vote et le contentieux ;",
+      "des sanctions pénales sont prévues, sans détail dans les sources consultées."
+    ] },
+    { h: "Qui peut initier un référendum" },
+    "Selon l'article 5 de la loi, quatre acteurs peuvent en prendre l'initiative : le président de la République ; le gouvernement, après délibération en Conseil des ministres ; la moitié des membres de chacune des deux chambres du Parlement ; et 100 000 Congolais, par une pétition adressée à l'une des deux chambres.",
+    { h: "Le contrôle de la Cour constitutionnelle" },
+    "Saisie par le chef de l'État, la Cour a déclaré la loi conforme à la Constitution le 28 juillet 2026, sous des réserves visant 13 articles (3, 4, 5, 7, 8, 9, 10, 12, 14, 19, 21, 23 et 43). Elle a exigé que son arrêt soit annexé à la loi publiée au Journal officiel, afin que ces réserves s'imposent à l'application. Le président a demandé le 10 août l'intégration de ces réserves dans le texte.",
+    { h: "Le parcours parlementaire" },
+    { ul: [
+      "Assemblée nationale : version corrigée adoptée le 23 octobre par 346 voix sur 347 votants, l'opposition ayant boycotté les travaux ;",
+      "Sénat : adoption définitive le 31 octobre à l'unanimité des 78 votants."
+    ] },
+    { h: "Portée et débat" },
+    "La promulgation ne convoque aucun référendum : elle crée seulement le cadre juridique qui permettrait d'en organiser un. Selon la Cour, chaque initiative de révision constitutionnelle requiert la majorité absolue de chaque chambre, et la révision n'est définitive qu'après approbation par référendum, convoqué par le président.",
+    "L'opposition craint un contournement de l'article 220 de la Constitution, qui interdit toute révision portant sur le nombre et la durée des mandats présidentiels, et y voit la préparation d'un maintien de Félix Tshisekedi au-delà de 2028. Le camp présidentiel défend un « retour au peuple souverain ».",
+    { note: "Limite. La publication au Journal officiel, avec l'arrêt de la Cour annexé, n'a pas été vérifiée, et les infractions prévues par la loi ne sont pas détaillées dans les sources consultées." }
+  ],
+  fiche: [
+    ["Autorité", "Président de la République ; Parlement ; Cour constitutionnelle"],
+    ["Texte", "Loi n° 26/045 du 9 novembre 2026 fixant les conditions d'organisation du référendum"],
+    ["Entrée en vigueur", "Immédiate, selon la presse ; abrogation des dispositions contraires dont la loi de 2005"],
+    ["Règle", "Quatre initiateurs possibles (art. 5) ; réserves de la Cour sur 13 articles ; huit chapitres"],
+    ["Périmètre", "Organisation de tout référendum : campagne, vote, contentieux"],
+    ["Personnes concernées", "Électeurs inscrits âgés de 18 ans révolus ; institutions initiatrices"],
+    ["Sanctions", "Sanctions pénales prévues, non détaillées"],
+    ["À vérifier", "Texte publié au Journal officiel, arrêt annexé, infractions"]
+  ],
+  verif: "Africactu, Mediacongo, Actualité.cd, RTNC et allAfrica concordent sur la loi et son contenu. Date de promulgation : le numéro de la loi porte le 9 novembre, la lecture à la télévision nationale date du 10 ; RTNC évoque « ce 10 novembre ».",
+  sources: [
+    { t: "Africactu : RDC, la loi référendaire promulguée", u: "https://www.africactu.com/politique/rdc-loi-referendum-promulguee/" },
+    { t: "Mediacongo : le président Tshisekedi promulgue une nouvelle loi fixant les conditions d'organisation du référendum", u: "https://www.mediacongo.net/article-actualite-169274_le_president_felix_tshisekedi_promulgue_une_nouvelle_loi_fixant_les_conditions_d_organisation_du_referendum.html" },
+    { t: "Actualité.cd : Tshisekedi promulgue la loi sur le référendum", u: "https://actualite.cd/2026/11/11/rdc-tshisekedi-promulgue-la-loi-sur-le-referendum" },
+    { t: "RTNC : le président Tshisekedi promulgue la loi référendaire", u: "https://rtnc.cd/rdc-le-president-tshisekedi-promulgue-la-loi-referendaire/" },
+    { t: "allAfrica : RDC, loi sur le référendum", u: "https://fr.allafrica.com/stories/202611110623.html" }
+  ]
+},
+/* ------------------------------------------------------------------ Cameroun */
+{
+  id: "cameroun-corps-electoral", d: "inst", art: "zones",
+  kicker: "Institutions · Cameroun",
+  title: "Cameroun : le décret n° 2026/345 convoque le corps électoral le 7 février 2027",
+  dek: "Législatives et municipales auront lieu le même jour, 90 jours après la signature du décret. Le calendrier détaillé d'ELECAM reste à publier.",
+  status: "Décret signé le 9 nov. 2026",
+  score: { n: 4, off: 0, ind: 4 },
+  body: [
+    "Le président Paul Biya a signé le 9 novembre 2026 le décret n° 2026/345 convoquant le corps électoral pour le dimanche 7 février 2027. Les élections législatives et municipales se tiendront le même jour, comme en 2020. Le scrutin sera ouvert de 8 heures à 18 heures.",
+    "Le décret vise la Constitution et la loi n° 2012/001 du 19 avril 2012 portant Code électoral, modifiée et complétée. Il doit être enregistré et publié selon la procédure d'urgence, puis inséré au Journal officiel en français et en anglais. Le même jour, un décret distinct a renouvelé les mandats du président et de la vice-présidente d'ELECAM, l'organe chargé des élections.",
+    { h: "Un calendrier en deux temps" },
+    "Entre la signature du décret et le scrutin s'écoulent 90 jours (calcul de la rédaction : 21 jours en novembre, 31 en décembre, 31 en janvier et 7 en février). Le mandat des conseillers municipaux avait été prorogé jusqu'au 28 février 2027 ; selon Koaci, celui des députés court jusqu'au 20 décembre 2026, à la suite d'une loi de mars 2026.",
+    { h: "Ce qui reste à fixer" },
+    "Selon Koaci, le calendrier détaillé d'ELECAM, les délais de dépôt des candidatures et les dates d'ouverture et de clôture de la campagne n'ont pas encore été annoncés.",
+    { note: "Limite. Le nombre de circonscriptions diffère selon les médias (360 circonscriptions pour Cameroun24, 180 circonscriptions législatives et 360 communes pour Koaci) ; il n'est pas repris ici." }
+  ],
+  fiche: [
+    ["Autorité", "Président de la République du Cameroun"],
+    ["Texte", "Décret n° 2026/345 du 9 novembre 2026 portant convocation du corps électoral ; loi n° 2012/001 du 19 avril 2012 portant Code électoral"],
+    ["Entrée en vigueur", "Publication selon la procédure d'urgence ; scrutin le 7 février 2027"],
+    ["Règle", "Législatives et municipales le même jour, de 8 h à 18 h"],
+    ["Périmètre", "Élections législatives et municipales, diaspora comprise selon Cameroun24"],
+    ["Personnes concernées", "Électeurs, partis politiques, candidats, ELECAM"],
+    ["Sanctions", "Non applicable"],
+    ["À vérifier", "Insertion au Journal officiel, calendrier d'ELECAM, nombre de circonscriptions"]
+  ],
+  verif: "Cameroun24 (numéro du décret, base légale, horaires) et Koaci (date, scrutins, contexte des mandats) concordent sur la date du scrutin et les deux élections convoquées. APA News et Cameroon Tribune confirment la convocation.",
+  sources: [
+    { t: "Cameroun24 : c'est officiel, le Cameroun votera le 7 février 2027 pour ses députés et ses maires", u: "https://cameroun24.net/article/76850-cest-officiel-le-cameroun-votera-le-7-fevrier-2027-pour-ses-deputes-et-ses-maires.html" },
+    { t: "Koaci : Paul Biya convoque les législatives et municipales pour le 7 février 2027", u: "https://www.koaci.com/article/2026/11/09/afrique/politique/cameroun-paul-biya-convoque-les-legislatives-et-municipales-pour-le-7-fevrier-2027_202437.html" },
+    { t: "APA News : convocation du corps électoral au Cameroun", u: "https://fr.apanews.net/?p=333329" },
+    { t: "Cameroon Tribune : convocation du corps électoral", u: "https://www.cameroon-tribune.cm/articles/12171/fr/details_2" }
+  ]
+},
+/* ------------------------------------------------------------------ Guinée */
+{
+  id: "guinee-crief-orpaillage", d: "penal", art: "scales",
+  kicker: "Justice pénale · Guinée",
+  title: "Guinée : 202 prévenus devant la CRIEF, premier volet du procès de l'orpaillage clandestin à Siguiri",
+  dek: "Sur 1 263 personnes interpellées, 202 ont comparu le 10 novembre. Elles ont reconnu les faits ; le tribunal a ordonné la jonction avec le dossier de 22 administrateurs territoriaux.",
+  status: "Procès ouvert le 10 nov. 2026",
+  score: { n: 4, off: 0, ind: 4 },
+  body: [
+    "Le procès des personnes interpellées dans la lutte contre l'orpaillage clandestin à Siguiri s'est ouvert le mardi 10 novembre 2026 devant la chambre de jugement de la Cour de répression des infractions économiques et financières (CRIEF). Selon le rôle d'audience affiché au siège de la Cour, 1 263 prévenus sont poursuivis. À la première audience, 202 ont été identifiés et interrogés. Ils sont de nationalités guinéenne, burkinabè, béninoise, togolaise et malienne, et placés sous mandat de dépôt.",
+    { h: "Les poursuites" },
+    "Les charges retenues sont l'exploitation illégale de mines, la dégradation de l'environnement, les destructions diverses et la pollution des eaux. Selon le rôle d'audience rapporté par Africaguinée, les faits sont prévus et punis par :",
+    { ul: [
+      "les articles 499, 526 (alinéa 2), 771 et 776 du Code pénal ;",
+      "les articles 3, 4 et 45 de la loi n° 041 du 4 juillet 2017 portant prévention, détection et répression de la corruption et des infractions assimilées ;",
+      "les articles 59, 66, 67, 71 et 172 à 181 et suivants du Code de l'environnement ;",
+      "les articles 29 et suivants du Code de la santé publique ;",
+      "l'article 207 du Code minier."
+    ] },
+    "L'État guinéen s'est constitué partie civile, représenté par l'Agent judiciaire de l'État.",
+    { h: "Le déroulement de la première audience" },
+    { ul: [
+      "les 202 prévenus entendus ont reconnu les faits qui leur sont reprochés ;",
+      "la défense affirme que 12 d'entre eux sont mineurs et demande un jugement selon le Code de l'enfant ; le procureur spécial soutient que tous sont majeurs et qu'aucune preuve de minorité n'a été produite ; le tribunal a rejeté la demande de la défense ;",
+      "à la demande du parquet, le tribunal s'est déclaré compétent et a ordonné la jonction avec la procédure visant 22 administrateurs territoriaux, déjà pendante devant la même chambre ;",
+      "les débats ont été renvoyés au 11 novembre."
+    ] },
+    { h: "Un contentieux réparti entre plusieurs juridictions" },
+    "Les 1 263 personnes interpellées à Siguiri ont été transférées à Conakry et leurs dossiers répartis entre la CRIEF et les tribunaux de première instance de la Cour d'appel de Conakry : Kaloum, Dixinn, Coyah, Dubréka et Forécariah. Le parquet rappelle que la Cour suprême avait déclaré le tribunal de première instance de Siguiri incompétent et renvoyé la répartition à la Cour d'appel de Conakry. Les chiffres de répartition diffèrent d'une source à l'autre et ne sont pas repris.",
+    { note: "Limite. Cet article s'arrête à la première audience du 10 novembre ; la suite des débats n'est pas couverte. L'intitulé exact des qualifications retenues pour chaque prévenu n'est pas précisé." }
+  ],
+  fiche: [
+    ["Autorité", "Cour de répression des infractions économiques et financières (CRIEF), chambre de jugement, Conakry"],
+    ["Texte", "Rôle d'audience du 10 novembre 2026 ; Code pénal, loi n° 041 du 4 juillet 2017, Code de l'environnement, Code de la santé publique, Code minier"],
+    ["Entrée en vigueur", "Non applicable : procès en cours, renvoi au 11 novembre"],
+    ["Règle", "Poursuites pour exploitation illégale de mines, dégradation de l'environnement, destructions diverses et pollution des eaux"],
+    ["Périmètre", "Orpaillage clandestin dans la région de Siguiri"],
+    ["Personnes concernées", "1 263 prévenus, dont 202 entendus le 10 novembre ; 22 administrateurs territoriaux (jonction)"],
+    ["Sanctions", "Non encore prononcées"],
+    ["À vérifier", "Qualifications par prévenu, situation des mineurs allégués, décision au fond"]
+  ],
+  verif: "Guinéelive, Mediaguinee et Guineenews (10 novembre) concordent sur l'ouverture du procès, les 202 prévenus entendus, les aveux, la contestation de minorité et la jonction. Base légale : rôle d'audience rapporté par Africaguinée. Le titre de Mediaguinee évoque un plaidoyer de culpabilité ; le corps de l'article indique que les prévenus ont reconnu les faits.",
+  sources: [
+    { t: "Africaguinée : ce qui est reproché aux 1 263 personnes jugées devant la CRIEF", u: "https://www.africaguinee.com/orpaillage-clandestin-a-siguiri-ce-qui-est-reproche-aux-1-263-personnes-jugees-devant-la-crief/" },
+    { t: "Guinéelive : orpaillages clandestins, les débats au fond dans le dossier des 1 263", u: "https://guineelive.com/2026/11/10/orpaillages-clandestins-les-debats-au-fond-dans-le-dossier-des-1-263-cest-demain-mercredi/" },
+    { t: "Mediaguinee : les 202 prévenus devant la CRIEF, jonction avec le dossier des 22 administrateurs territoriaux", u: "https://mediaguinee.com/2026/11/orpaillage-clandestin-a-siguiri-les-202-prevenus-plaident-coupables-devant-la-crief-jonction-avec-le-dossier-des-22-administrateurs-territoriaux" },
+    { t: "Guineenews : la défense évoque 12 mineurs parmi les 202 devant la CRIEF", u: "https://guineenews.org/2026/11/10/affaire-dorpaillage-a-siguiri-la-defense-evoque-12-mineurs-parmi-les-202-devant-la-crief/" }
+  ]
+},
+/* ------------------------------------------------------------------ Côte d'Ivoire pénal OHADA */
+{
+  id: "ci-penal-ohada-2017-727", d: "penal", art: "shield",
+  kicker: "Justice pénale · Côte d'Ivoire",
+  title: "Côte d'Ivoire : le Sénat adopte la modification de la loi n° 2017-727 sur la répression des infractions OHADA",
+  dek: "Le texte intègre dans le droit pénal ivoirien les infractions de deux actes uniformes OHADA récents. Vote unanime le 9 novembre.",
+  status: "Adopté par le Sénat",
+  score: { n: 3, off: 0, ind: 4 },
+  body: [
+    "Le Sénat ivoirien a adopté à l'unanimité, le lundi 9 novembre 2026 à Yamoussoukro, le projet de loi modifiant la loi n° 2017-727 du 9 novembre 2017 sur la répression des infractions prévues par les actes uniformes de l'OHADA. L'examen en commission (CAGICT) s'est déroulé en présence du garde des Sceaux, Jean Sansan Kambilé.",
+    "Le texte vise à intégrer dans le droit pénal ivoirien les nouvelles incriminations et sanctions issues du droit communautaire. Deux textes OHADA sont à l'origine de la réforme :",
+    { ul: [
+      "l'Acte uniforme relatif au système comptable des entités à but non lucratif, en vigueur depuis le 1er janvier 2024, qui prévoit des infractions visant la fiabilité des informations comptables et financières ;",
+      "la révision de l'Acte uniforme portant organisation des procédures simplifiées de recouvrement et des voies d'exécution, en vigueur depuis le 16 février 2024, qui sanctionne notamment les manœuvres rendant indisponibles des biens saisis."
+    ] },
+    "Le ministre a déclaré qu'il s'avérait nécessaire d'adapter la loi de 2017 à ce nouveau contexte.",
+    { h: "Pourquoi une loi nationale" },
+    "Les actes uniformes de l'OHADA définissent les règles de fond mais laissent aux États le soin de prévoir les sanctions pénales. La loi de 2017 est le texte ivoirien qui remplit ce rôle ; sa mise à jour permet de sanctionner les manquements aux deux actes uniformes cités.",
+    { note: "Limite. Les sources consultées ne détaillent ni les infractions précises, ni les peines encourues, ni les dispositions modifiées de la loi de 2017. Elles ne mentionnent pas encore la promulgation ni la publication du texte." }
+  ],
+  fiche: [
+    ["Autorité", "Sénat de Côte d'Ivoire ; ministère de la Justice"],
+    ["Texte", "Projet de loi modifiant la loi n° 2017-727 du 9 novembre 2017 sur la répression des infractions aux actes uniformes de l'OHADA"],
+    ["Entrée en vigueur", "Non applicable : projet adopté par le Sénat ; promulgation non mentionnée"],
+    ["Règle", "Nouvelles incriminations liées à l'Acte uniforme comptable des entités à but non lucratif et à la révision de l'Acte uniforme sur le recouvrement"],
+    ["Périmètre", "Droit pénal des affaires, actes uniformes OHADA"],
+    ["Personnes concernées", "Dirigeants et organes des entités à but non lucratif, débiteurs et tiers en matière de saisie"],
+    ["Sanctions", "Non détaillées"],
+    ["À vérifier", "Texte adopté, peines, date de promulgation et de publication"]
+  ],
+  verif: "RTI, AIP et Ivoireactu concordent sur l'objet du texte, la date du 9 novembre et l'unanimité. Détail des deux actes uniformes : RTI. Les sources divergent sur le stade exact du vote (commission ou séance).",
+  sources: [
+    { t: "RTI : le Sénat adopte à l'unanimité la modification de la loi sur la répression des infractions économiques", u: "https://rti.info/ohada-le-senat-adopte-a-lunanimite-la-modification-de-la-loi-sur-la-repression-des-infractions-economiques/" },
+    { t: "AIP : le Sénat adopte la modification de la loi sur la répression des infractions aux actes uniformes de l'OHADA", u: "https://www.aip.ci/cote-divoire-aip-le-senat-adopte-la-modification-de-la-loi-sur-la-repression-des-infractions-aux-actes-uniformes-de-lohada/" },
+    { t: "Ivoireactu : le Sénat ivoirien adopte une réforme majeure de la répression des infractions liées au droit OHADA", u: "https://www.ivoireactu.net/le-senat-ivoirien-adopte-une-reforme-majeure-de-la-repression-des-infractions-liees-au-droit-ohada/" },
+    { t: "OHADA : droit pénal interne complémentaire du droit OHADA, la Côte d'Ivoire à jour", u: "https://www.ohada.org/droit-penal-interne-complementaire-du-droit-ohada-la-cote-d-ivoire-a-jour/" }
+  ]
+},
+/* ------------------------------------------------------------------ UEMOA PI-SPI */
+{
+  id: "uemoa-pi-spi-api-business", d: "banque", art: "phone",
+  kicker: "Paiements · UEMOA",
+  title: "UEMOA : PI-SPI obligatoire depuis le 2 novembre, la BCEAO homologue des API Business",
+  dek: "Les transferts interopérables de monnaie électronique entre particuliers passent par la plateforme. Une liste actualisée au 9 novembre recense les participants dont les API Business sont homologuées.",
+  status: "En vigueur depuis le 2 nov. 2026",
+  score: { n: 4, off: 1, ind: 3 },
+  body: [
+    "Depuis le 2 novembre 2026, les transactions interopérables de monnaie électronique entre personnes physiques dans l'UEMOA doivent obligatoirement transiter par la plateforme interopérable PI-SPI, lancée le 30 septembre 2025. La mesure découle d'un communiqué de la BCEAO du 2 octobre 2026, rapporté par Droit, Médias et Finances. Elle vise à centraliser les flux, renforcer la traçabilité et améliorer l'interconnexion entre institutions.",
+    "Sont concernés les transferts entre un compte détenu auprès d'une banque ou d'une institution de microfinance et un compte ouvert chez un émetteur de monnaie électronique ou un établissement de paiement, ainsi que les transferts entre ces émetteurs et établissements.",
+    { h: "Les frais" },
+    { ul: [
+      "envoi national : gratuit jusqu'à 8 000 FCFA cumulés par jour, par utilisateur et par participant, sans limite du nombre d'opérations ; au-delà, les établissements peuvent facturer entre 0 et 0,8 % du montant hors taxes, ce taux étant un plafond ;",
+      "réception : gratuite, sans limite de montant ni de nombre d'opérations ;",
+      "transferts entre pays de l'UEMOA : mêmes conditions que les transferts nationaux à partir du 1er juin 2027."
+    ] },
+    { h: "Les API Business homologuées" },
+    "La BCEAO annonce l'homologation des API Business des participants figurant sur une liste annexée, afin de fournir des services de paiement intégrés via PI-SPI : envoi et réception de paiements, demandes de règlement groupé, opérations automatisées et sécurisées, suivi des transactions en temps réel, meilleure gestion de trésorerie. Ces services fonctionnent dans l'ensemble de l'UEMOA, quel que soit le prestataire du payeur ou du bénéficiaire, et les éditeurs de solutions informatiques peuvent s'appuyer sur ces API pour développer des services numériques.",
+    "L'homologation atteste la conformité aux exigences fonctionnelles, techniques, de performance et de sécurité de la BCEAO. La liste sera mise à jour au fur et à mesure que de nouveaux participants achèvent leur homologation ; la page de la BCEAO signale une liste actualisée au 9 novembre 2026.",
+    { h: "Calendrier" },
+    { table: {
+      head: ["Date", "Étape"],
+      rows: [
+        ["30 septembre 2025", "Lancement de PI-SPI"],
+        ["2 octobre 2026", "Communiqué de la BCEAO sur la révision tarifaire"],
+        ["2 novembre 2026", "PI-SPI obligatoire pour les transactions interopérables entre personnes physiques"],
+        ["9 novembre 2026", "Liste actualisée des API Business homologuées"],
+        ["1er juin 2027", "Mêmes conditions tarifaires pour les transferts entre pays de l'UEMOA"]
+      ]
+    } },
+    { note: "Limite. Le communiqué sur les API Business ne porte pas de date d'émission, et les participants homologués ne figurent que dans le document annexé." }
+  ],
+  fiche: [
+    ["Autorité", "Banque centrale des États de l'Afrique de l'Ouest (BCEAO)"],
+    ["Texte", "Communiqué du 2 octobre 2026 (obligation PI-SPI et tarifs) ; communiqué sur l'homologation des API Business, liste actualisée au 9 novembre 2026"],
+    ["Entrée en vigueur", "2 novembre 2026 ; 1er juin 2027 pour les transferts entre pays de l'UEMOA"],
+    ["Règle", "Passage obligatoire par PI-SPI ; envoi gratuit jusqu'à 8 000 FCFA par jour ; plafond de 0,8 % hors taxes au-delà ; réception gratuite"],
+    ["Périmètre", "Transferts interopérables de monnaie électronique entre personnes physiques dans l'UEMOA"],
+    ["Personnes concernées", "Banques, institutions de microfinance, émetteurs de monnaie électronique, établissements de paiement, éditeurs de solutions, utilisateurs"],
+    ["Sanctions", "Non mentionnées"],
+    ["À vérifier", "Liste annexée des participants homologués, communiqué du 2 octobre"]
+  ],
+  verif: "Page officielle de la BCEAO pour l'homologation des API Business ; Droit, Médias et Finances pour l'obligation et les frais ; Financial Afrik et Osiris recoupent le passage obligatoire par PI-SPI.",
+  sources: [
+    { t: "BCEAO : homologation des API Business de la plateforme interopérable du système de paiement instantané", u: "https://www.bceao.int/fr/communique-presse/homologation-des-api-business-de-la-plateforme-interoperable-du-systeme-de" },
+    { t: "BCEAO : transactions de monnaie électronique entre personnes physiques", u: "https://www.bceao.int/fr/communique-presse/transactions-de-monnaie-electronique-entre-personnes-physiques-par-0" },
+    { t: "Droit, Médias et Finances : la BCEAO rend PI-SPI obligatoire et élargit la gratuité des transferts dès le 2 novembre 2026", u: "https://droitmediasfinance.com/index.php/actualites/droit-tech-fintech/1402-uemoa-la-bceao-rend-pi-spi-obligatoire-et-elargit-la-gratuite-des-transferts-de-monnaie-electronique-des-le-2-novembre-2026" },
+    { t: "Financial Afrik : la BCEAO rend PI-SPI obligatoire et revoit ses tarifs", u: "https://www.financialafrik.com/2026/10/04/la-bceao-rend-pi-spi-obligatoire-revoit-ses-tarifs-et-pose-enfin-la-question-de-nouveaux-services-financiers-adosses-a-la-plateforme/" },
+    { t: "Osiris : paiements instantanés, ce que PI-SPI peut changer pour les entreprises", u: "https://www.osiris.sn/paiements-instantanes-ce-que-pi-spi-peut-changer-pour-les-entreprises-de-l.html" }
+  ]
+},
+/* ------------------------------------------------------------------ Mali */
+{
+  id: "mali-ingenieurs-geometres", d: "prof", art: "dunes",
+  kicker: "Brève · Mali",
+  title: "Mali : un cadre juridique unique et un Ordre national pour les ingénieurs géomètres-topographes",
+  dek: "Le Conseil des ministres du 13 novembre a adopté des projets de texte régissant la profession. Intitulés et contenu restent à publier.",
+  status: "Projets de texte adoptés",
+  score: { n: 3, off: 1, ind: 2 },
+  body: [
+    "Le Conseil des ministres du vendredi 13 novembre 2026 a adopté des projets de texte qui créent un cadre juridique unique régissant la profession d'ingénieur géomètre-topographe. Ils prévoient un Ordre national regroupant l'ensemble des professionnels qualifiés du secteur.",
+    "Le communiqué cite deux textes existants : la loi n° 97-026 du 20 mai 1997, modifiée, portant création de l'Ordre des géomètres-experts, et la loi n° 97-027 du 20 mai 1997, modifiée, régissant les entrepreneurs des travaux cartographiques et topographiques. Il ne dit pas ce qu'il advient de ces lois.",
+    { note: "Limite. Le communiqué ne donne ni l'intitulé exact des textes, ni leur nature (loi, décret ou ordonnance), ni le nom de l'Ordre. Le détail attendra la publication par le Secrétariat général du gouvernement ou au Journal officiel." }
+  ],
+  fiche: [
+    ["Autorité", "Conseil des ministres du Mali, 13 novembre 2026"],
+    ["Texte", "Projets de texte sur la profession d'ingénieur géomètre-topographe ; lois n° 97-026 et n° 97-027 du 20 mai 1997 citées"],
+    ["Entrée en vigueur", "Non applicable : projets adoptés en Conseil"],
+    ["Règle", "Cadre juridique unique de la profession ; Ordre national regroupant les professionnels qualifiés"],
+    ["Périmètre", "Profession d'ingénieur géomètre-topographe"],
+    ["Personnes concernées", "Ingénieurs géomètres-topographes, géomètres-experts, entrepreneurs de travaux topographiques"],
+    ["Sanctions", "Non mentionnées"],
+    ["À vérifier", "Intitulés, nature des textes, sort des lois de 1997"]
+  ],
+  verif: "Communiqué du Conseil des ministres du 13 novembre 2026, repris par Mali24, Bamada et Échos Médias.",
+  sources: [
+    { t: "Mali24 : communiqué du Conseil des ministres du vendredi 13 novembre 2026", u: "https://mali24.info/communique-du-conseil-des-ministres-du-vendredi-13-novembre-2026/" },
+    { t: "Bamada : communiqué du Conseil des ministres du vendredi 13 novembre 2026", u: "https://bamada.net/communique-du-conseil-des-ministres-du-vendredi-13-novembre-2026" },
+    { t: "Échos Médias : communiqué du Conseil des ministres du vendredi 13 novembre 2026", u: "https://www.echosmedias.org/communique-du-conseil-des-ministres-du-vendredi-13-novembre-2026/" }
+  ]
+}
+];
+
+const STATS = [
+  { n: "18 466,1", u: " Md FCFA", l: "budget 2027 de la Côte d'Ivoire, adopté en commission", id: "ci-annexe-fiscale-2027" },
+  { n: "41", u: " articles", l: "annexe fiscale ivoirienne 2027, adoptée à l'unanimité en commission", id: "ci-annexe-fiscale-2027" },
+  { n: "60", u: " jours", l: "délai constitutionnel pour voter le budget sénégalais, jusqu'au 11 décembre environ", id: "senegal-budget-2027" },
+  { n: "346", u: " voix", l: "sur 347 votants à l'Assemblée nationale de RDC pour la loi référendaire", id: "rdc-loi-referendum" },
+  { n: "202", u: " prévenus", l: "entendus le 10 novembre par la CRIEF, sur 1 263 interpellés à Siguiri", id: "guinee-crief-orpaillage" },
+  { n: "7", u: " févr. 2027", l: "législatives et municipales au Cameroun", id: "cameroun-corps-electoral" }
+];
+
+const EDITO = "Cette semaine, les budgets et les urnes occupent le terrain juridique. À Abidjan, la commission des députés adopte à l'unanimité le budget 2027 et son annexe fiscale, avec des hausses sur le cajou, l'or, le tabac et les boissons. À Dakar, c'est l'inverse : après la loi de finances rectificative, la commission rejette le budget, et la Constitution renvoie à un décret si le délai de 60 jours expire. Du côté des institutions, la RDC se dote d'une loi sur le référendum et le Cameroun fixe au 7 février 2027 ses législatives et ses municipales. En justice pénale, le procès des orpailleurs de Siguiri s'ouvre devant la CRIEF, et la Côte d'Ivoire met à jour sa loi de répression des infractions OHADA. Enfin, dans l'UEMOA, la plateforme PI-SPI est désormais le passage obligé des transferts interopérables.";
+
+const ACTU = [
+  { k: "Blog LegOmnia", t: "OHADA : 33 ans d'histoire et de défis pour le droit des affaires", d: "Dans notre dernier article de blog, la rédaction LegOmnia revient sur l'histoire de l'OHADA et sur les défis du droit des affaires, 33 ans après le traité de 1993.", u: "https://www.legomnia.com/blog/articles/ohada-33-ans-histoire-defis-droit-des-affaires", b: "Lire l'article sur le blog" }
+];
+const SITE = "https://www.legomnia.com/";
+
+/* Illustrations originales (SVG), une par article. */
+const ART = {
+  scales: () => `
+    <rect class="f" x="312" y="96" width="16" height="184" rx="2"/>
+    <rect class="f" x="244" y="280" width="152" height="14" rx="2"/>
+    <circle class="a" cx="320" cy="84" r="12"/>
+    <line class="sf" stroke-width="8" stroke-linecap="round" x1="170" y1="112" x2="470" y2="96"/>
+    <path class="sf" stroke-width="2.5" d="M170 112 L134 204 M170 112 L206 204 M470 96 L434 188 M470 96 L506 188"/>
+    <path class="a" d="M124 204 H216 Q170 252 124 204 Z"/>
+    <path class="f" d="M424 188 H516 Q470 236 424 188 Z"/>
+    <circle class="f" cx="150" cy="192" r="11"/><circle class="f" cx="172" cy="192" r="11"/><circle class="f" cx="194" cy="192" r="11"/><circle class="f" cx="161" cy="172" r="11"/><circle class="f" cx="183" cy="172" r="11"/>
+    <rect class="a" x="446" y="140" width="40" height="46" rx="3"/>
+    <path class="sf" stroke-width="3" d="M454 154 H478 M454 164 H478 M454 174 H470" style="stroke:var(--ab)"/>`,
+  columns: () => `
+    <path class="f" d="M110 150 L320 66 L530 150 Z"/>
+    <circle class="a" cx="320" cy="116" r="14"/>
+    <rect class="f" x="110" y="156" width="420" height="14" rx="2"/>
+    ${[0,1,2,3,4].map(i => `<rect class="f" x="${125 + i*90}" y="178" width="30" height="102" rx="3"/>`).join("")}
+    <rect class="f" x="100" y="280" width="440" height="14" rx="2"/>
+    <rect class="fm" x="84" y="294" width="472" height="12" rx="2"/>
+    ${Array.from({length: 17}, (_, i) => `<circle class="a" cx="${120 + i*25}" cy="332" r="5.5"/>`).join("")}`,
+  deficit: () => `
+    <line class="sf" stroke-width="2" x1="150" y1="290" x2="490" y2="290"/>
+    <rect class="fm" x="200" y="128" width="100" height="162"/>
+    <rect class="a" x="340" y="62" width="100" height="228"/>
+    <line class="sf" stroke-width="1.5" stroke-dasharray="6 6" x1="150" y1="128" x2="490" y2="128"/>`,
+  budgets: () => `
+    <line class="sf" stroke-width="2" x1="60" y1="280" x2="580" y2="280"/>
+    <rect class="fm" x="90" y="110" width="80" height="170"/>
+    <rect class="a" x="190" y="128" width="80" height="152"/>
+    <path class="sf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M110 80 L250 130 M225 134 L250 130 L233 111"/>
+    ${[0,1,2,3].map(i => `<rect class="${i === 3 ? 'a' : 'fm'}" x="${352 + i*54}" y="${230 - i*42}" width="40" height="${50 + i*42}"/>`).join("")}
+    <path class="sf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M352 150 L520 70 M492 68 L522 68 L522 98"/>`,
+  shield: () => {
+    const dots = Array.from({length: 24}, (_, i) => {
+      const a = (i * 15 - 90) * Math.PI / 180;
+      return `<circle class="${i % 6 === 0 ? 'f' : 'a'}" cx="${(320 + 128 * Math.cos(a)).toFixed(1)}" cy="${(180 + 128 * Math.sin(a)).toFixed(1)}" r="${i % 6 === 0 ? 8 : 6}"/>`;
+    }).join("");
+    return `
+    <circle class="sf" stroke-width="1.5" stroke-dasharray="3 7" cx="320" cy="180" r="128"/>
+    ${dots}
+    <path class="f" d="M320 104 L384 128 V190 Q384 240 320 270 Q256 240 256 190 V128 Z"/>
+    <circle class="a" cx="320" cy="180" r="15"/>
+    <rect class="a" x="315" y="190" width="10" height="32" rx="3"/>`;
+  },
+  phone: () => `
+    <rect class="sf" stroke-width="7" x="250" y="40" width="140" height="270" rx="26"/>
+    <rect class="fm" x="296" y="52" width="48" height="6" rx="3"/>
+    <path class="sa" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M90 150 H214 M188 124 L216 150 L188 176"/>
+    <path class="sf" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M550 210 H426 M452 184 L424 210 L452 236"/>
+    <circle class="a" cx="90" cy="215" r="20"/><circle class="a" cx="130" cy="215" r="20"/>
+    <circle class="f" cx="550" cy="140" r="20"/><circle class="f" cx="510" cy="140" r="20"/>`,
+  zones: () => `
+    <circle class="fm" cx="230" cy="180" r="140" style="opacity:.16"/>
+    <circle class="fm" cx="230" cy="180" r="92" style="opacity:.3"/>
+    <circle class="a" cx="230" cy="180" r="44"/>
+    <rect class="f" x="420" y="110" width="120" height="140" rx="6"/>
+    <rect class="a" x="446" y="138" width="68" height="14" rx="2"/>
+    <path class="sf" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M452 196 L474 218 L516 168" style="stroke:var(--ab)"/>`,
+  dunes: () => `
+    <circle class="a" cx="500" cy="96" r="38"/>
+    <path class="fm" d="M0 280 Q120 190 250 250 T520 230 T640 260 V360 H0 Z" style="opacity:.5"/>
+    <path class="f" d="M0 318 Q160 250 320 300 T640 292 V360 H0 Z" style="opacity:.9"/>
+    <path class="sf" stroke-width="4" stroke-linecap="round" d="M120 250 L220 190 M120 190 L220 250 M170 170 V270"/>
+    <circle class="a" cx="170" cy="220" r="12"/>`
+};
+
+function artSvg(kind, label) {
+  const fn = ART[kind];
+  return `<svg viewBox="0 0 640 360" role="img" aria-label="${label}" preserveAspectRatio="xMidYMid slice">${fn()}</svg>`;
+}
+
+const $app = document.getElementById("app");
+const byId = Object.fromEntries(ARTS.map(a => [a.id, a]));
+
+/* Typographie française : espaces insécables */
+function nb(s) {
+  return String(s)
+    .replace(/(\d) (\d{3})(?!\d)/g, "$1 $2")
+    .replace(/ ([%:;?!»])/g, " $1")
+    .replace(/« /g, "« ")
+    .replace(/(\d) (FCFA|M€|milliards?|millions?|dollars|USD|Md|M|k|ans?|min|pays|jours?|voix)/g, "$1 $2");
+}
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const tx = s => nb(esc(s));
+const minutes = a => Math.max(2, Math.round(JSON.stringify(a.body).split(/\s+/).length / 210));
+const MOIS = "16 novembre 2026";
+const BANDEAU = "Brouillon soumis à validation éditoriale · contenus préparés avec l'appui d'agents IA, à valider avant diffusion";
+
+function artBlock(a, cls = "") {
+  return `<div class="art ${cls}" data-d="${a.d}">${artSvg(a.art, esc(a.title))}</div>`;
+}
+
+function card(a) {
+  return `<article class="card">
+    <a class="art-link" href="#${a.id}" data-go="${a.id}" tabindex="-1" aria-hidden="true">${artBlock(a)}</a>
+    <div class="kick">${tx(a.kicker)}</div>
+    <h3><a href="#${a.id}" data-go="${a.id}">${tx(a.title)}</a></h3>
+    <p>${tx(a.dek)}</p>
+    <div class="meta"><span class="tag">${tx(a.status)}</span><span>${minutes(a)} min</span><a class="read" href="#${a.id}" data-go="${a.id}">Lire →</a></div>
+  </article>`;
+}
+
+function home() {
+  const une = ARTS.find(a => a.une);
+  const secs = Object.entries(DOMAINS).map(([k, d]) => {
+    const list = ARTS.filter(a => a.d === k && !a.une);
+    const all = ARTS.filter(a => a.d === k).length;
+    if (!list.length) return "";
+    return `<section class="sec" id="sec-${k}">
+      <div class="sec-h"><h2>${tx(d.label)}</h2><span>${all} article${all > 1 ? "s" : ""}</span></div>
+      <div class="grid">${list.map(card).join("")}</div>
+    </section>`;
+  });
+  return `
+  <div class="wrap">
+    <p class="demo">${BANDEAU}</p>
+    <header class="mast">
+      <div class="eyebrow">Édition hebdomadaire</div>
+      <h1>La Revue de Presse Juridique d'Afrique Francophone</h1>
+      <div class="par">par LegOmnia</div>
+      <div class="date">Numéro 3 · semaine du 8 au 15 novembre 2026 · ${ARTS.length} sujets</div>
+      <div class="date ia">Préparée avec l'appui d'outils d'IA, relue et validée par l'équipe LegOmnia</div>
+      <div class="dbl"></div>
+    </header>
+    <nav class="chips" aria-label="Domaines">${Object.entries(DOMAINS).map(([k, d]) => `<button type="button" data-scroll="sec-${k}">${tx(d.short)}</button>`).join("")}</nav>
+    <div class="stats">${STATS.map(s => `<button type="button" class="stat" data-go="${s.id}"><b>${tx(s.n)}<small>${tx(s.u)}</small></b><span>${tx(s.l)}</span></button>`).join("")}</div>
+    <section class="edito"><div class="label">Éditorial</div><p>${tx(EDITO)}</p></section>
+    <section class="une" aria-label="À la une">
+      <div>
+        <div class="label">À la une · ${tx(DOMAINS[une.d].short)}</div>
+        <h2><a href="#${une.id}" data-go="${une.id}">${tx(une.title)}</a></h2>
+        <p class="dek">${tx(une.dek)}</p>
+        <div class="meta"><span class="tag">${tx(une.status)}</span><span>${minutes(une)} min de lecture</span><a class="read" href="#${une.id}" data-go="${une.id}">Lire l'article →</a></div>
+      </div>
+      <a class="art-link" href="#${une.id}" data-go="${une.id}" tabindex="-1" aria-hidden="true">${artBlock(une)}</a>
+    </section>
+    ${secs.join("")}
+    <section class="sec actu" id="sec-actu"><div class="sec-h"><h2>L'actualité LegOmnia</h2><span>blog et produits</span></div>${ACTU.map(x => `<article class="actu-i"><div class="kick">${tx(x.k)}</div><h3><a href="${x.u}" target="_blank" rel="noopener noreferrer">${tx(x.t)}</a></h3><p>${tx(x.d)}</p><a class="btn" href="${x.u}" target="_blank" rel="noopener noreferrer">${tx(x.b)}</a></article>`).join("")}<p class="cta-site"><a class="btn btn-2" href="${SITE}" target="_blank" rel="noopener noreferrer">Découvrir LegOmnia</a></p></section>
+    <footer class="foot">
+      <b>LegOmnia</b> · Infrastructure juridique de l'Afrique francophone. Cette newsletter informe et ne constitue pas un conseil juridique. Elle est préparée avec l'appui d'outils d'intelligence artificielle, puis relue et validée par l'équipe LegOmnia, qui en assume la responsabilité éditoriale. Les faits sont tirés des sources citées en fin de chaque article, consultées le ${MOIS} ; chaque article signale ce qui reste à vérifier dans les textes officiels. Les illustrations sont originales.
+    </footer>
+  </div>`;
+}
+
+function body(items) {
+  return items.map(b => {
+    if (typeof b === "string") return `<p>${tx(b)}</p>`;
+    if (b.h) return `<h2>${tx(b.h)}</h2>`;
+    if (b.ul) return `<ul>${b.ul.map(li => `<li>${tx(li)}</li>`).join("")}</ul>`;
+    if (b.note) {
+      const i = b.note.indexOf(".");
+      return `<div class="note"><b>${tx(b.note.slice(0, i + 1))}</b>${tx(b.note.slice(i + 1))}</div>`;
+    }
+    if (b.table) return `<div class="tablewrap"><table><thead><tr>${b.table.head.map(h => `<th>${tx(h)}</th>`).join("")}</tr></thead><tbody>${b.table.rows.map(r => `<tr>${r.map(c => `<td>${tx(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    return "";
+  }).join("");
+}
+
+function reader(a) {
+  const i = ARTS.indexOf(a);
+  const prev = ARTS[(i + ARTS.length - 1) % ARTS.length];
+  const next = ARTS[(i + 1) % ARTS.length];
+  return `
+  <div class="wrap">
+    <p class="demo">${BANDEAU}</p>
+    <article class="reader">
+      <button type="button" class="back" data-go="">← Retour à la newsletter</button>
+      <div class="label kick">${tx(a.kicker)}</div>
+      <h1>${tx(a.title)}</h1>
+      <p class="dek">${tx(a.dek)}</p>
+      <div class="byline meta"><span>Rédaction LegOmnia · veille juridique</span><span>${MOIS}</span><span>${minutes(a)} min de lecture</span><span class="tag">${tx(DOMAINS[a.d].short)}</span></div>
+      ${artBlock(a)}
+      <div class="prose">${body(a.body)}</div>
+      <section class="fiche" aria-label="Fiche juridique">
+        <div class="fiche-h"><strong>Fiche juridique</strong><span>${tx(a.status)}</span></div>
+        <dl>${a.fiche.map(([k, v]) => `<div class="row"><dt>${tx(k)}</dt><dd>${tx(v)}</dd></div>`).join("")}</dl>
+        <div class="verif"><b>Vérification.</b> ${tx(a.verif)}</div>
+      </section>
+      <section class="src"><h2>Sources</h2><ul>${a.sources.map(s => `<li><a href="${s.u}" target="_blank" rel="noopener noreferrer">${tx(s.t)}</a></li>`).join("")}</ul></section>
+      <nav class="pn" aria-label="Autres articles">
+        <a href="#${prev.id}" data-go="${prev.id}"><small>← Précédent</small><span>${tx(prev.title)}</span></a>
+        <a class="next" href="#${next.id}" data-go="${next.id}"><small>Suivant →</small><span>${tx(next.title)}</span></a>
+      </nav>
+    </article>
+  </div>`;
+}
+
+let current;
+function show(id) {
+  const a = id && byId[id];
+  if (current === (a ? a.id : "") && $app.firstChild) return;
+  current = a ? a.id : "";
+  $app.innerHTML = a ? reader(a) : home();
+  document.title = a ? a.title + " · LegOmnia" : "La Revue de Presse Juridique d'Afrique Francophone · LegOmnia";
+  window.scrollTo(0, 0);
+}
+function go(id) {
+  show(id || "");
+  try { if ((location.hash.slice(1)) !== (id || "")) location.hash = id || ""; } catch (e) { /* navigation interne suffisante */ }
+}
+document.addEventListener("click", e => {
+  const g = e.target.closest("[data-go]");
+  if (g) { e.preventDefault(); go(g.getAttribute("data-go")); return; }
+  const s = e.target.closest("[data-scroll]");
+  if (s) { const el = document.getElementById(s.getAttribute("data-scroll")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+});
+window.addEventListener("hashchange", () => show(location.hash.slice(1)));
+show(location.hash.slice(1));
+</script>
+</body>
+</html>

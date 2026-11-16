@@ -15,6 +15,20 @@ const SUBSCRIBE_URL = "https://4e427ef9.sibforms.com/serve/MUIFAPDN2gwe8jwDZl0aG
 // Éditions de la newsletter : la page de chaque édition est une page statique (public/newsletter/...)
 const EDITIONS = [
     {
+        id: 'numero-3',
+        number: '3',
+        href: '/newsletter/numero-3/',
+        date: { fr: 'Semaine du 8 au 15 novembre 2026', en: 'Week of 8 to 15 November 2026' },
+        title: {
+            fr: "La Revue de Presse Juridique d'Afrique Francophone",
+            en: "The Legal Press Review of French-speaking Africa",
+        },
+        intro: {
+            fr: "Budgets et urnes au premier plan : Abidjan et Dakar, la RDC, le Cameroun, Siguiri, l'OHADA et PI-SPI. Huit sujets de la semaine, sourcés.",
+            en: "Budgets and elections in the spotlight: Abidjan and Dakar, the DRC, Cameroon, Siguiri, OHADA and PI-SPI. Eight stories of the week, sourced.",
+        },
+    },
+    {
         id: 'numero-2',
         number: '2',
         href: '/newsletter/numero-2/',
