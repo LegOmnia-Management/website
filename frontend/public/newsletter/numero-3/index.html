@@ -652,7 +652,6 @@ function home() {
       <h1>La Revue de Presse Juridique d'Afrique Francophone</h1>
       <div class="par">par LegOmnia</div>
       <div class="date">Numéro 3 · semaine du 8 au 15 novembre 2026 · ${ARTS.length} sujets</div>
-      <div class="date ia">Préparée avec l'appui d'outils d'IA, relue et validée par l'équipe LegOmnia</div>
       <div class="dbl"></div>
     </header>
     <nav class="chips" aria-label="Domaines">${Object.entries(DOMAINS).map(([k, d]) => `<button type="button" data-scroll="sec-${k}">${tx(d.short)}</button>`).join("")}</nav>
