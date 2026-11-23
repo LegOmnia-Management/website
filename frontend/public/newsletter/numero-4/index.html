@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Revue de Presse Juridique d'Afrique Francophone · numéro 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap">
+<style>
+/* Mise en page : papier saumon, filets noirs, serif de titrage ; identité LegOmnia (violet, Ibarra Real Nova, Lato). */
+:root {
+  --paper: #fff1e5; --paper-2: #f7e4d3; --ink: #1a1a1a; --muted: #66605c; --rule: #1a1a1a; --rule-soft: #d9cfc4;
+  --violet: #6b63d0; --link: #4a0f9d; --on-ink: #fff1e5;
+  --f-display: "Ibarra Real Nova", Georgia, "Times New Roman", serif;
+  --f-ui: Lato, "Helvetica Neue", Arial, sans-serif;
+  --gutter: clamp(16px, 4vw, 32px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1d1916; --paper-2: #26211d; --ink: #f4ebe2; --muted: #b5aaa0; --rule: #f4ebe2; --rule-soft: #3b342e;
+    --violet: #a9a3ff; --link: #c4bfff; --on-ink: #1d1916; color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-display); font-size: 18px; line-height: 1.6; margin: 0; padding-inline: var(--gutter); padding-block: 0 56px; }
+a { color: var(--link); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+.wrap { max-width: 1040px; margin-inline: auto; }
+
+.mast { border-top: 4px solid var(--rule); margin-top: 18px; padding-top: 14px; text-align: center; }
+.mast .eyebrow { font: 700 11px var(--f-ui); letter-spacing: .22em; text-transform: uppercase; color: var(--link); }
+.mast h1 { font-size: clamp(30px, 7vw, 52px); line-height: 1.05; font-weight: 700; margin: 6px 0 4px; letter-spacing: -.01em; text-wrap: balance; }
+.mast .date { font: 13px var(--f-ui); color: var(--muted); }
+.par { font: 700 12px var(--f-ui); letter-spacing: .08em; color: var(--link); margin: -2px 0 6px; text-align: center; }
+.dbl { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule-soft); height: 5px; margin-top: 14px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px 10px; justify-content: center; padding: 16px 0 4px; }
+.chips button { font: 700 12px var(--f-ui); letter-spacing: .06em; text-transform: uppercase; background: transparent; color: var(--ink); border: 1px solid var(--rule); padding: 7px 12px; cursor: pointer; }
+.chips button:hover { background: var(--ink); color: var(--on-ink); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-top: 22px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.stat { padding: 14px 16px 14px 0; background: none; border: 0; border-right: 1px solid var(--rule-soft); text-align: left; cursor: pointer; font: inherit; color: inherit; min-width: 0; }
+.stat:last-child { border-right: 0; }
+.stat + .stat { padding-left: 16px; }
+.stat b { display: block; font-size: 36px; line-height: 1.05; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat b small { font: 700 12px var(--f-ui); letter-spacing: .04em; margin-left: 4px; color: var(--link); text-transform: uppercase; }
+.stat span { display: block; font: 13px/1.4 var(--f-ui); color: var(--muted); margin-top: 4px; }
+.stat:hover b { color: var(--link); }
+@media (max-width: 600px) { .stat, .stat + .stat { padding-left: 0; border-right: 0; border-bottom: 1px solid var(--rule-soft); } .stat:last-child { border-bottom: 0; } }
+
+.label { font: 700 11px var(--f-ui); letter-spacing: .2em; text-transform: uppercase; color: var(--link); }
+.edito { max-width: 760px; margin: 30px auto 0; }
+.edito p { font-size: 21px; line-height: 1.55; font-style: italic; margin: 8px 0 0; text-wrap: pretty; }
+
+.art { background: var(--ab); aspect-ratio: 16 / 9; width: 100%; overflow: hidden; display: block; }
+.art svg { display: block; width: 100%; height: 100%; }
+.art[data-d="fisc"]     { --ab: #1f1a17; --af: #fff1e5; --aa: #e896f6; }
+.art[data-d="mines"]    { --ab: #5b2a52; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="banque"]   { --ab: #12384a; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="commerce"] { --ab: #7a3b12; --af: #fff1e5; --aa: #5ce1e6; }
+.art[data-d="num"]      { --ab: #6b63d0; --af: #fff1e5; --aa: #1a1a1a; }
+.art .f  { fill: var(--af); }
+.art .fm { fill: var(--af); opacity: .45; }
+.art .a  { fill: var(--aa); }
+.art .sf { stroke: var(--af); fill: none; }
+.art .sa { stroke: var(--aa); fill: none; }
+
+.une { margin-top: 34px; border-top: 1px solid var(--rule); padding-top: 14px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.une h2 { font-size: clamp(28px, 4.4vw, 42px); line-height: 1.1; font-weight: 700; margin: 8px 0 12px; text-wrap: balance; }
+.une h2 a, .card h3 a { color: inherit; text-decoration: none; }
+.une h2 a:hover, .card h3 a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.une .dek { font-size: 19px; margin: 0 0 14px; }
+.meta { font: 12px var(--f-ui); color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.tag { font: 700 10.5px var(--f-ui); letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--rule); padding: 3px 7px; color: var(--ink); }
+.read { font: 700 13px var(--f-ui); letter-spacing: .04em; text-transform: uppercase; color: var(--link); text-decoration: none; }
+.read:hover { text-decoration: underline; }
+@media (max-width: 760px) { .une { grid-template-columns: minmax(0, 1fr); } .une .art-link { order: -1; } }
+
+.sec { margin-top: 44px; }
+.sec-h { border-top: 2px solid var(--rule); padding-top: 8px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.sec-h h2 { font: 700 13px var(--f-ui); letter-spacing: .18em; text-transform: uppercase; margin: 0; }
+.sec-h span { font: 12px var(--f-ui); color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 30px 28px; margin-top: 18px; }
+.card { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.card .kick { font: 700 11px var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--link); }
+.card h3 { font-size: 24px; line-height: 1.17; font-weight: 700; margin: 0; text-wrap: balance; }
+.card p { font-size: 17px; line-height: 1.5; margin: 0; }
+.card .art-link { display: block; }
+
+.btn { display: inline-block; background: var(--link); color: var(--paper); font: 700 13px var(--f-ui); padding: 10px 16px; text-decoration: none; }
+.btn-2 { background: transparent; color: var(--link); border: 2px solid var(--link); }
+.cta-site { margin: 18px 0 0; }
+
+.foot { margin-top: 56px; border-top: 4px solid var(--rule); padding-top: 14px; font: 12px/1.65 var(--f-ui); color: var(--muted); max-width: 760px; }
+.foot b { color: var(--link); }
+
+.reader { max-width: 700px; margin-inline: auto; padding-top: 22px; }
+.back { font: 700 12px var(--f-ui); letter-spacing: .08em; text-transform: uppercase; background: none; border: 0; color: var(--link); cursor: pointer; padding: 6px 0; }
+.back:hover { text-decoration: underline; }
+.reader .kick { margin-top: 18px; }
+.reader h1 { font-size: clamp(30px, 5.6vw, 46px); line-height: 1.08; font-weight: 700; margin: 8px 0 14px; text-wrap: balance; }
+.reader .dek { font-size: 21px; line-height: 1.45; font-style: italic; margin: 0 0 18px; text-wrap: pretty; }
+.byline { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule-soft); padding: 10px 0; margin-bottom: 20px; }
+.reader .art { margin-bottom: 26px; }
+.prose p { margin: 0 0 1.05em; text-wrap: pretty; }
+.prose h2 { font-size: 25px; line-height: 1.2; margin: 1.5em 0 .5em; font-weight: 700; }
+.prose ul { margin: 0 0 1.2em; padding-left: 1.2em; }
+.prose li { margin-bottom: .45em; }
+.note { font: 15px/1.6 var(--f-ui); background: var(--paper-2); border-top: 2px solid var(--violet); padding: 12px 16px; margin: 1.6em 0; }
+.note b { color: var(--link); }
+.tablewrap { overflow-x: auto; margin: 0 0 1.4em; }
+table { border-collapse: collapse; width: 100%; font: 15px/1.45 var(--f-ui); min-width: 440px; }
+th { text-align: left; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; border-bottom: 2px solid var(--rule); padding: 8px 10px 8px 0; }
+td { border-bottom: 1px solid var(--rule-soft); padding: 9px 10px 9px 0; vertical-align: top; }
+td:first-child { font-weight: 700; }
+
+.fiche { border: 2px solid var(--rule); margin: 34px 0 28px; }
+.fiche-h { background: var(--ink); color: var(--on-ink); padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.fiche-h strong { font: 700 12px var(--f-ui); letter-spacing: .2em; text-transform: uppercase; }
+.fiche-h span { font: 700 10.5px var(--f-ui); letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--on-ink); padding: 3px 8px; }
+.fiche dl { margin: 0; font: 15px/1.5 var(--f-ui); }
+.fiche .row { display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 4px 16px; padding: 10px 16px; border-top: 1px solid var(--rule-soft); }
+.fiche .row:first-child { border-top: 0; }
+.fiche dt { font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 2px; }
+.fiche dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.fiche .verif { background: var(--paper-2); font: 13px/1.5 var(--f-ui); color: var(--muted); padding: 10px 16px; border-top: 1px solid var(--rule); }
+@media (max-width: 560px) { .fiche .row { grid-template-columns: minmax(0, 1fr); } }
+
+.src h2 { font: 700 12px var(--f-ui); letter-spacing: .2em; text-transform: uppercase; border-top: 2px solid var(--rule); padding-top: 8px; margin: 0 0 8px; }
+.src ul { font: 15px/1.5 var(--f-ui); margin: 0; padding-left: 1.1em; }
+.src li { margin-bottom: 6px; overflow-wrap: anywhere; }
+.pn { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 36px; border-top: 1px solid var(--rule); padding-top: 16px; }
+.pn a { text-decoration: none; color: inherit; display: block; }
+.pn small { display: block; font: 700 11px var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--link); margin-bottom: 4px; }
+.pn span { font-size: 18px; line-height: 1.25; font-weight: 700; }
+.pn a:hover span { text-decoration: underline; }
+.pn .next { text-align: right; }
+@media (max-width: 560px) { .pn { grid-template-columns: minmax(0, 1fr); } .pn .next { text-align: left; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+.foot .ia { margin: 10px 0 0; font: 700 12px var(--f-ui); color: var(--ink); }
+</style></head>
+<body><div id="app"></div>
+<script>
+/* Numéro 4 · semaine du 15 au 23 novembre 2026. Faits tirés des sources citées (consultées le 23/11/2026). */
+const NUMERO = 4;
+const SEMAINE = "semaine du 15 au 23 novembre 2026";
+const MOIS = "23 novembre 2026";
+
+const DOMAINS = {
+  fisc:     { label: "Finances publiques", short: "Finances publiques" },
+  mines:    { label: "Mines, énergie et infrastructures", short: "Mines et énergie" },
+  banque:   { label: "Banque et finance", short: "Banque" },
+  commerce: { label: "Concurrence et santé", short: "Concurrence" },
+  num:      { label: "Numérique et données", short: "Numérique" }
+};
+
+const ARTS = [
+/* ------------------------------------------------------------------ À la une : Sénégal */
+{
+  id: "senegal-lfr-decret", d: "fisc", art: "deficit", une: true,
+  kicker: "Finances publiques · Sénégal",
+  title: "Sénégal : la loi de finances rectificative 2026 mise en vigueur par décret, le budget 2027 bloqué à l'Assemblée",
+  dek: "Rejetée le 3 novembre, la LFR 2026 s'applique depuis le décret n° 2026-2416 du 19 novembre. La veille, les députés avaient repoussé la première partie du budget 2027. L'article 68 de la Constitution est au cœur du débat.",
+  status: "Décret pris le 19 nov. 2026",
+  body: [
+    "Le Sénégal traverse une séquence budgétaire inédite. Le 3 novembre 2026, l'Assemblée nationale a rejeté sans l'examiner au fond le projet de loi n° 40/2026 portant loi de finances rectificative (LFR) pour 2026, en adoptant une question préalable déposée par le député Amadou Ba. Le 18 novembre, elle a rejeté la première partie du projet de loi de finances initiale (LFI) pour 2027. Le 19 novembre, le président Bassirou Diomaye Faye a mis en vigueur la LFR 2026 par décret.",
+    { h: "Le décret du 19 novembre" },
+    "La décision a été annoncée par un communiqué de la présidence signé du ministre, secrétaire général de la présidence, Oumar Samba Ba. Elle est matérialisée par le décret n° 2026-2416 du 19 novembre 2026. Le chef de l'État s'y présente comme « gardien de la Constitution et garant du fonctionnement régulier des pouvoirs publics ainsi que la continuité de l'État ».",
+    "La LFR, déposée le 18 septembre, révise fortement les équilibres de 2026 : le déficit passe de 1 245,1 milliards de FCFA (5,4 % du PIB) dans la loi initiale à 1 735,2 milliards (7,6 % du PIB). Les recettes fiscales sont ramenées à 4 931,5 milliards, soit 453,3 milliards de moins que prévu.",
+    { h: "L'article 68 de la Constitution, lu de deux façons" },
+    "L'article 68 donne à l'Assemblée nationale soixante jours au plus pour voter les projets de lois de finances. Si le texte n'est pas voté définitivement à l'expiration de ce délai, il peut être mis en vigueur par décret, en tenant compte des amendements votés par l'Assemblée et acceptés par le président.",
+    { ul: [
+      "pour la présidence, par la voix du directeur de cabinet Mary Teuw Niane, ce mécanisme s'applique aussi aux lois de finances rectificatives ;",
+      "pour le constitutionnaliste Mouhamadou Ngouda Mboup, il ne peut viser un texte rejeté dans les délais : un rejet n'est pas une absence de vote ;",
+      "aucune saisine du Conseil constitutionnel n'a été annoncée à ce jour."
+    ] },
+    { h: "Le budget 2027 arrêté dès les recettes" },
+    "Le 18 novembre, sur 147 députés votants, 126 ont voté contre la première partie du projet de LFI 2027, 18 pour et 3 se sont abstenus. Cette partie porte sur les recettes, les plafonds de dépenses du budget général et les emprunts. Selon l'article 59 de la loi organique relative aux lois de finances du 26 février 2020, la seconde partie, consacrée aux crédits des ministères, ne peut être examinée avant l'adoption de la première. Le président de l'Assemblée, Ousmane Sonko, en a tiré la conséquence en séance.",
+    { table: {
+      head: ["Projet de LFI 2027", "Montant", "Observation"],
+      rows: [
+        ["Recettes du budget général", "5 653,9 Md FCFA", "Chiffre du ministre Cheikh Diba"],
+        ["Dépenses du budget général", "7 005,6 Md FCFA", "Rapport de la commission des finances"],
+        ["Déficit", "1 351,7 Md FCFA", "4,7 % du PIB, contre 7,6 % dans la LFR 2026"]
+      ]
+    } },
+    "Plusieurs médias citent un autre couple de chiffres, 6 012,1 milliards de recettes et 7 363,7 milliards de dépenses, qui conduit au même déficit. L'écart, identique des deux côtés (358,2 milliards), correspond vraisemblablement à un périmètre plus large que le seul budget général.",
+    { h: "Ce que cela change" },
+    { ul: [
+      "l'exécution de 2026 se poursuit sur la base de la LFR mise en vigueur par décret, dont la régularité est discutée ;",
+      "pour 2027, le gouvernement n'a pas encore indiqué la voie qu'il suivra : nouvelle délibération, mise en vigueur par décret à l'expiration du délai constitutionnel, ou reconduction des services votés si aucune loi n'est en vigueur au 1er janvier ;",
+      "les fournisseurs et créanciers de l'État, ainsi que les bénéficiaires de programmes sociaux, devraient suivre de près les textes d'exécution qui seront pris d'ici la fin de l'année."
+    ] },
+    { note: "À confirmer. Le texte du décret n° 2026-2416 et sa publication au Journal officiel ; le décompte exact du vote du 3 novembre sur la question préalable, qui diffère d'une source à l'autre." }
+  ],
+  fiche: [
+    ["Autorités", "Présidence de la République ; Assemblée nationale"],
+    ["Textes", "Décret n° 2026-2416 du 19 novembre 2026 ; projet de loi n° 40/2026 (LFR 2026) ; projet de LFI 2027"],
+    ["Statut", "LFR 2026 : rejetée le 3 nov., mise en vigueur par décret le 19 nov. LFI 2027 : première partie rejetée en plénière le 18 nov."],
+    ["Base juridique invoquée", "Article 68 de la Constitution ; article 59 de la loi organique relative aux lois de finances du 26 février 2020"],
+    ["Chiffres clés", "LFR 2026 : déficit 1 735,2 Md FCFA (7,6 % du PIB). LFI 2027 : déficit 1 351,7 Md FCFA (4,7 % du PIB)"],
+    ["Personnes concernées", "Administrations, fournisseurs et créanciers de l'État, bénéficiaires de programmes publics"],
+    ["À vérifier", "Publication du décret ; suite donnée au budget 2027 ; éventuel recours"]
+  ],
+  verif: "Décret et communiqué : APA, Le Soleil, Ndarinfo et allAfrica concordent. Vote du 18 novembre : Dakaractu, Bénin Web TV et Senego concordent (126 contre, 18 pour, 3 abstentions). Chiffres du budget 2027 : APS (via allAfrica), APA et rapport de la commission des finances publié sur vie-publique.sn. Chiffres de la LFR : APA.",
+  sources: [
+    { t: "APA : Diomaye Faye met en vigueur par décret la LFR 2026", u: "https://fr.apanews.net/?p=335508" },
+    { t: "Le Soleil : LFR 2026, les prérogatives présidentielles à l'épreuve du rejet parlementaire", u: "https://lesoleil.sn/actualites/lfr-2026-les-prerogatives-presidentielles-a-lepreuve-du-rejet-parlementaire/" },
+    { t: "Ndarinfo : le président met en vigueur par décret la LFR 2026 rejetée par l'Assemblée", u: "https://www.ndarinfo.com/Le-president-Diomaye-Faye-met-en-vigueur-par-decret-la-LFR-2026-rejetee-par-l-Assemblee_a47270.html" },
+    { t: "allAfrica (APS) : l'Assemblée nationale rejette partiellement le projet de loi de finances 2027", u: "https://fr.allafrica.com/stories/202611190163.html" },
+    { t: "Dakaractu : le projet de loi de finances 2027 rejeté par 126 voix contre 18", u: "https://www.dakaractu.com/Assemblee-nationale-Le-projet-de-loi-de-finances-2027-rejete-par-126-voix-contre-18_a278360.html" },
+    { t: "Vie publique Sénégal : rapport de la commission des finances sur le PLFI 2027", u: "https://www.vie-publique.sn/documents/14590/rapport-commission-finances-controle-budgetaire-plfi-2027" },
+    { t: "APA : la LFR 2026 porte le déficit à 7,6 % du PIB", u: "https://fr.apanews.net/?p=321706" }
+  ]
+},
+/* ------------------------------------------------------------------ SIREXE */
+{
+  id: "cote-divoire-sirexe-bilan", d: "mines", art: "mine",
+  kicker: "Mines et énergie · Côte d'Ivoire",
+  title: "SIREXE 2026 : 27 conventions signées et 4 913 milliards de FCFA d'investissements annoncés à Abidjan",
+  dek: "Le salon des ressources extractives et de l'énergie s'est clos le 22 novembre. Les montants sont des perspectives, et le contenu des conventions n'est pas encore public.",
+  status: "Salon clos le 22 nov. 2026",
+  body: [
+    "La deuxième édition du Salon international des ressources extractives et énergétiques (SIREXE) s'est tenue du 18 au 22 novembre 2026 au Parc des expositions d'Abidjan, sur le thème « Industries extractives et énergétiques : quelles infrastructures pour soutenir le développement économique en Afrique ? ». La clôture a été présidée par le Premier ministre, Robert Beugré Mambé. Le Botswana était le pays invité d'honneur.",
+    { h: "Le bilan annoncé" },
+    { ul: [
+      "107 164 participants et visiteurs, selon le commissariat général du salon ;",
+      "27 conventions signées, pour 4 913 milliards de FCFA de perspectives d'investissement ;",
+      "parmi les engagements cités, plus de 700 milliards de FCFA annoncés par Endeavour Mining pour le projet aurifère d'Assafou-Dibibango ;",
+      "selon 7info, 4 118 milliards de FCFA auraient été effectivement investis au titre des engagements pris lors de la première édition, en 2024, et 19 projets ont été présentés aux investisseurs dans le cadre de « SIREXE Invest »."
+    ] },
+    { h: "Deux accords d'État à État" },
+    "Le salon a servi de cadre à un protocole d'accord gazier entre la Côte d'Ivoire, le Bénin et le Togo (voir l'article dédié). Il a aussi prolongé la coopération avec le Botswana : les deux pays avaient signé à Gaborone, le 30 juillet 2026, leur premier accord de coopération dans les mines et l'énergie, et des collaborations techniques sont envisagées entre la société d'exploration botswanaise et la SODEMI ivoirienne.",
+    { h: "Ce que cela change" },
+    "Pour un juriste, la portée réelle dépendra de la nature des 27 conventions : conventions minières, contrats pétroliers, accords de financement ou simples protocoles d'intention n'engagent pas de la même façon. Les montants annoncés sont des perspectives d'investissement, non des engagements fermes.",
+    { note: "À confirmer. La liste, la nature juridique et les parties des 27 conventions, et la ventilation des 4 913 milliards de FCFA." }
+  ],
+  fiche: [
+    ["Événement", "SIREXE 2026, 2e édition, Abidjan, 18-22 novembre 2026"],
+    ["Autorités", "Ministère des Mines, du Pétrole et de l'Énergie ; Primature"],
+    ["Actes annoncés", "27 conventions ; protocole d'accord gazier Côte d'Ivoire-Bénin-Togo ; coopération Côte d'Ivoire-Botswana"],
+    ["Montants", "4 913 Md FCFA de perspectives d'investissement (non mobilisés)"],
+    ["Périmètre", "Mines, pétrole, gaz, énergie"],
+    ["Personnes concernées", "Sociétés minières et pétrolières, sous-traitants, financeurs"],
+    ["À vérifier", "Texte et nature des conventions ; décrets d'attribution éventuels"]
+  ],
+  verif: "Bilan chiffré : APA, Nordsud, 7info et Afriksoir concordent (107 164 participants, 27 conventions, 4 913 Md FCFA). Endeavour Mining : Afriksoir seul. Investissements réalisés depuis 2024 et SIREXE Invest : 7info seul. Accord avec le Botswana : Koaci et 7info.",
+  sources: [
+    { t: "APA : SIREXE 2026, 4 913 Mds FCFA de perspectives d'affaires", u: "https://fr.apanews.net/news/rci-sirexe-2026-4-913-mds-fcfa-de-perspectives-daffaires/" },
+    { t: "Nordsud : SIREXE 2026, 4 913 milliards FCFA de perspectives d'investissement", u: "https://www.nordsud.info/sirexe-2026-4-913-milliards-fcfa-de-perspectives-dinvestissement/" },
+    { t: "7info : SIREXE 2026, 4 118 milliards FCFA d'investissements réalisés", u: "https://7info.ci/article/sirexe-2026-4-118-milliards-fcfa-dinvestissements-realises-plus-de-107-000-visiteurs" },
+    { t: "Afriksoir : 4 913 milliards FCFA de promesses d'investissement", u: "https://afriksoir.net/sirexe-2026-4-913-milliards-fcfa-de-promesses-dinvestissement-et-plus-de-107-000-visiteurs-a-abidjan/" },
+    { t: "Koaci : le Botswana invite Abidjan à éviter le piège de la dépendance à l'or", u: "https://www.koaci.com/article/2026/11/18/cote-divoire/economie/cote-divoire-sirexe-2026-ressources-minieres-le-botswana-invite-abidjan-a-eviter-le-piege-de-la-dependance-a-lor_202772.html" }
+  ]
+},
+/* ------------------------------------------------------------------ Gaz tripartite */
+{
+  id: "gaz-ci-benin-togo", d: "mines", art: "pipe",
+  kicker: "Énergie · Côte d'Ivoire, Bénin, Togo",
+  title: "Gaz : la Côte d'Ivoire, le Bénin et le Togo signent un protocole pour un marché régional",
+  dek: "Signé le 19 novembre en marge du SIREXE, il crée un groupe de travail tripartite et ouvre l'étude d'achats groupés de GNL et d'un corridor gazier.",
+  status: "Protocole d'accord signé",
+  body: [
+    "Le 19 novembre 2026, en marge du SIREXE à Abidjan, la Côte d'Ivoire, le Bénin et le Togo ont signé un protocole d'accord de coopération gazière, avec l'appui de la Banque mondiale. Le texte fait suite au sommet régional sur le gaz tenu à Abidjan le 7 décembre 2025, où les trois ministres de l'Énergie avaient posé le principe d'un cadre commun.",
+    { h: "Ce que prévoit le protocole" },
+    { ul: [
+      "un groupe de travail tripartite chargé d'harmoniser les prévisions de demande en gaz et de partager les données techniques ;",
+      "l'examen d'achats groupés de gaz naturel liquéfié (GNL) et des modalités d'échanges gaziers entre les trois pays ;",
+      "l'étude de faisabilité d'un corridor gazier régional et d'infrastructures communes de transport, notamment des gazoducs."
+    ] },
+    { h: "Le financement" },
+    "Le projet régional PRIME-GAS de la Banque mondiale, financé par l'Association internationale de développement, accompagne la démarche : 140 millions de dollars, dont 55 millions pour la Côte d'Ivoire, 45 millions pour le Bénin et 40 millions pour le Togo, selon le communiqué de la Banque. L'Agence ivoirienne de presse fait état, de son côté, d'un premier financement de 150 millions de dollars. La Banque mondiale prévoit de soumettre à son conseil, d'ici mai, un second programme sur dix ans pour les investissements en infrastructures.",
+    { h: "Ce que cela change" },
+    "Un protocole d'accord fixe une méthode, pas encore des obligations d'achat ou de transport. Pour les producteurs d'électricité, les opérateurs gaziers et les investisseurs en infrastructures, les étapes à suivre sont l'installation du groupe de travail, puis les études de faisabilité, qui conditionneront les futurs accords intergouvernementaux et contrats.",
+    { note: "À confirmer. Le texte du protocole, l'identité du signataire béninois, le calendrier du groupe de travail et le montant exact du premier financement." }
+  ],
+  fiche: [
+    ["Parties", "Côte d'Ivoire, Bénin, Togo ; appui de la Banque mondiale"],
+    ["Acte", "Protocole d'accord de coopération gazière, signé à Abidjan le 19 novembre 2026"],
+    ["Objet", "Groupe de travail tripartite ; achats groupés de GNL ; échanges gaziers ; corridor gazier régional"],
+    ["Financement", "PRIME-GAS (IDA) : 140 M$ selon la Banque mondiale (55 M$ Côte d'Ivoire, 45 M$ Bénin, 40 M$ Togo)"],
+    ["Portée", "Engagement de coopération, sans obligation d'achat ni de transport à ce stade"],
+    ["Personnes concernées", "Producteurs d'électricité, opérateurs gaziers, investisseurs en infrastructures"],
+    ["À vérifier", "Texte du protocole ; calendrier ; second programme de la Banque mondiale"]
+  ],
+  verif: "Signature et contenu : Agence ivoirienne de presse et Koaci concordent. Montants par pays : communiqué de la Banque mondiale. Écart sur le montant global : 140 M$ (Banque mondiale) contre 150 M$ (AIP). Contexte de décembre 2025 : allAfrica et Koaci.",
+  sources: [
+    { t: "AIP : SIREXE 2026, trois pays ouest-africains concluent un accord pour sécuriser leur accès au gaz", u: "https://www.aip.ci/cote-divoire-aip-sirexe-2026-trois-pays-ouest-africains-concluent-un-accord-pour-securiser-leur-acces-au-gaz/" },
+    { t: "Koaci : Abidjan, Cotonou et Lomé s'unissent pour bâtir un marché gazier régional", u: "https://www.koaci.com/article/2026/11/19/cote-divoire/politique/cote-divoire-sirexe-2026-abidjan-cotonou-et-lome-sunissent-pour-batir-un-marche-gazier-regional_202824.html" },
+    { t: "Banque mondiale : développement des marchés gaziers au Bénin, en Côte d'Ivoire et au Togo", u: "https://www.banquemondiale.org/fr/news/press-release/2026/07/20/gas-market-development-lower-energy-costs-create-jobs-unlock-private-investment" },
+    { t: "allAfrica : la Côte d'Ivoire, le Togo et le Bénin lancent les bases d'une coopération gazière", u: "https://fr.allafrica.com/stories/202512080520.html" }
+  ]
+},
+/* ------------------------------------------------------------------ Simandou */
+{
+  id: "guinee-simandou-summit", d: "mines", art: "rail",
+  kicker: "Mines · Guinée",
+  title: "Simandou Mining Summit : Conakry promet la stabilité des accords et la fin de l'exportation des minerais bruts",
+  dek: "Premier sommet minier international de la Guinée, du 11 au 14 novembre. Trois engagements de l'État envers les investisseurs, quatre projets de 3,8 milliards de dollars présentés, mais aucun nouveau texte.",
+  status: "Sommet tenu du 11 au 14 nov. 2026",
+  body: [
+    "Un an après le lancement de l'exploitation du minerai de fer de Simandou, la Guinée a réuni du 11 au 14 novembre 2026 la première édition du Simandou Mining Summit, sur le thème « L'industrie minière, moteur de la diversification économique à l'ère de Simandou 2040 ». Le président Mamadi Doumbouya l'a ouvert le 11 novembre sur l'île de Kassa. Selon les organisateurs, 2 240 participants venus de 41 pays et 101 sponsors, exposants et partenaires y ont pris part.",
+    { h: "Trois engagements de l'État" },
+    "Le 12 novembre, Djiba Diakité, ministre directeur de cabinet de la présidence et président du Comité stratégique de Simandou, a pris trois engagements envers les investisseurs :",
+    { ul: [
+      "le respect des accords conclus : « Les accords signés ici seront appliqués. Le Comité stratégique de Simandou existe précisément pour cela » ;",
+      "la visibilité sur les priorités, les règles, les calendriers d'exécution et les réformes envisagées ;",
+      "la formation de compétences nationales, notamment par le programme Simandou Academy."
+    ] },
+    "En contrepartie, l'État attend des investissements « respectueux de nos lois », des emplois, du contenu local et des transferts de compétences et de technologies. Le ministre a déclaré que « l'ère de l'exploitation de nos minerais à l'état brut est révolue », sans préciser de calendrier, de base juridique ni de liste de minerais.",
+    { h: "Le cadre existant" },
+    "Cette orientation prolonge des textes déjà en vigueur. Un décret de juillet 2026 impose le raffinage en Guinée de tout l'or avant exportation et, en application de l'article 139 du Code minier, l'approvisionnement prioritaire des raffineries agréées installées dans le pays. La première d'entre elles, Nimba Gold Refinery, a été inaugurée le 1er novembre 2026. Selon le ministre, l'État détient au moins 15 % des chemins de fer, 15 % des ports et 15 % de la future aciérie du projet Simandou.",
+    { h: "Les projets présentés" },
+    "Le programme Simandou 2040 compte 122 mégaprojets et 36 réformes, sur quinze ans, avec une ambition d'investissement supérieure à 200 milliards de dollars. Quatre projets prioritaires, d'un montant total estimé à 3,8 milliards de dollars, ont été présentés aux investisseurs : transport urbain du Grand Conakry (bus à haut niveau de service et transport ferroviaire), Route côtière Sud, et deux centrales solaires avec stockage par batteries à Dabola et à Faranah. Ces montants sont présentés au marché, sans financement mobilisé à ce stade.",
+    { h: "Ce que cela change" },
+    "Aucun accord signé n'a été rendu public à l'issue du sommet. Pour les investisseurs, les signaux juridiques à suivre sont les futurs textes sur la transformation locale des minerais, au-delà de l'or, et les exigences de contenu local et de sous-traitance, débattues lors du Forum national de la sous-traitance minière (FONASEM) le 13 novembre.",
+    { note: "À confirmer. Le calendrier et la base juridique de la fin annoncée des exportations de minerais bruts, et les montants de chacun des quatre projets." }
+  ],
+  fiche: [
+    ["Événement", "Simandou Mining Summit, 1re édition, Kassa et Conakry, 11-14 novembre 2026"],
+    ["Autorités", "Comité stratégique de Simandou ; ministère des Mines et de la Géologie ; Guinea Development Board"],
+    ["Annonces", "Respect des accords ; prévisibilité des règles ; fin annoncée de l'exportation des minerais bruts"],
+    ["Cadre en vigueur", "Décret de juillet 2026 sur l'exportation de l'or raffiné ; article 139 du Code minier"],
+    ["Projets présentés", "4 projets, 3,8 Md$ au total (transport, route côtière, solaire)"],
+    ["Personnes concernées", "Sociétés minières, investisseurs en infrastructures et en énergie, sous-traitants guinéens"],
+    ["À vérifier", "Accords signés ; textes d'application sur la transformation locale"]
+  ],
+  verif: "Déroulé et chiffres : Guinéenews, Financial Afrik et Tchadinfos concordent (2 240 participants, 41 pays, quatre projets de 3,8 Md$). Engagements de Djiba Diakité : Guinéenews et Financial Afrik. Participations de 15 % : Guinéenews seul. Décret sur l'or : Guinéenews (juillet 2026).",
+  sources: [
+    { t: "Guinéenews : 2 240 participants de 41 pays et quatre projets de 3,8 milliards de dollars", u: "https://guineenews.org/2026/11/13/simandou-mining-summit-2026-2-240-participants-de-41-pays-et-quatre-projets-de-38-milliards-de-dollars-presentes-aux-investisseurs/?amp=1" },
+    { t: "Guinéenews : Djiba Diakité annonce trois engagements et la fin de l'exportation des minerais bruts", u: "https://guineenews.org/2026/11/12/simandou-mining-summit-le-ministre-djiba-diakite-annonce-trois-engagements-et-la-fin-de-lexportation-des-minerais-bruts/?amp=1" },
+    { t: "Financial Afrik : la Guinée présente 3,8 milliards de dollars de projets aux investisseurs", u: "https://www.financialafrik.com/2026/11/13/simandou-mining-summit-la-guinee-presente-38-milliards-de-dollars-de-projets-aux-investisseurs-internationaux/" },
+    { t: "Tchadinfos : le gouvernement guinéen entend développer la transformation locale des minerais", u: "https://tchadinfos.com/2026/11/12/guinee-le-gouvernement-entend-developper-la-transformation-locale-des-minerais/" },
+    { t: "Guinéenews : exportation de l'or, le raffinage local devient obligatoire", u: "https://guineenews.org/2026/07/08/exportation-de-lor-le-president-doumbouya-impose-le-raffinage-local-obligatoire-prealable/?amp=1" },
+    { t: "Guinéenews : inauguration de la première raffinerie d'or du pays", u: "https://guineenews.org/2026/11/01/guinee-mamadi-doumbouya-inaugure-la-premiere-raffinerie-dor-du-pays-a-gbessia/?amp=1" }
+  ]
+},
+/* ------------------------------------------------------------------ Perkoa */
+{
+  id: "burkina-perkoa", d: "mines", art: "mine",
+  kicker: "Mines · Burkina Faso",
+  title: "Burkina Faso : la mine de zinc de Perkoa relancée par une société publique",
+  dek: "Le Conseil des ministres du 19 novembre accorde un permis d'exploitation industrielle de grande mine à SOPAMIB Perkoa SA, quatre ans après la suspension du précédent permis.",
+  status: "Décret adopté le 19 nov. 2026",
+  body: [
+    "Le Conseil des ministres du 19 novembre 2026 a adopté un décret portant octroi d'un permis d'exploitation industrielle de grande mine de zinc à la société SOPAMIB Perkoa SA, dans la commune de Réo (province du Sanguié). Le précédent permis, accordé pour vingt ans à Nantou Mining Burkina Faso SA, avait été suspendu après la catastrophe du 16 avril 2022 sur le site.",
+    { h: "Les chiffres du projet" },
+    { ul: [
+      "production prévue de 576 000 tonnes de concentré polymétallique, sur une durée de vie estimée à quatre ans ;",
+      "investissement de 37 milliards de FCFA et chiffre d'affaires prévisionnel de 270 milliards ;",
+      "84,8 milliards de FCFA de contribution directe au budget de l'État et 2,7 milliards pour le Fonds minier sur la durée du projet ;",
+      "400 emplois directs et environ 850 emplois indirects, selon le ministre des Mines."
+    ] },
+    { h: "Ce que cela change" },
+    "Après la mine d'or de Bouboulou en juillet, la Société de participation minière du Burkina (SOPAMIB) s'affirme comme opérateur direct par l'intermédiaire de filiales. Pour les sous-traitants, fournisseurs et acheteurs de concentré, l'interlocuteur est désormais une société à capitaux publics.",
+    { note: "À confirmer. La durée du nouveau permis, la répartition du capital de SOPAMIB Perkoa SA et le sort des droits de l'ancien titulaire." }
+  ],
+  fiche: [
+    ["Autorité", "Conseil des ministres du Burkina Faso, 19 novembre 2026"],
+    ["Texte", "Décret portant octroi d'un permis d'exploitation industrielle de grande mine de zinc"],
+    ["Titulaire", "SOPAMIB Perkoa SA"],
+    ["Localisation", "Commune de Réo, province du Sanguié"],
+    ["Chiffres", "37 Md FCFA d'investissement ; 576 000 t de concentré ; 84,8 Md FCFA pour l'État"],
+    ["Personnes concernées", "Sous-traitants miniers, fournisseurs, acheteurs de concentré, collectivités"],
+    ["À vérifier", "Durée du permis ; actionnariat ; publication du décret"]
+  ],
+  verif: "Octroi du permis et emplois : Burkina24, compte rendu publié par Faso Amazone et synthèse APO concordent. Chiffres financiers et rappel de 2022 : compte rendu intégral (Faso Amazone). Précédent de Bouboulou : APA.",
+  sources: [
+    { t: "Faso Amazone : intégralité du Conseil des ministres du 19 novembre 2026", u: "https://www.fasoamazone.net/2026/11/20/burkina-faso-integralite-du-conseil-des-ministres-du-jeudi-19-novembre-2026/" },
+    { t: "Burkina24 : Conseil des ministres, relance de la mine de zinc de Perkoa", u: "https://burkina24.com/?p=461811" },
+    { t: "APO Group : synthèse du Conseil des ministres du 19 novembre 2026", u: "https://www.africa-newsroom.com/press/burkina-faso--synthese-du-conseil-des-ministres-du-19-novembre-2026?lang=fr" },
+    { t: "APA : le Burkina lance sa première mine d'or publique", u: "https://fr.apanews.net/business/le-burkina-lance-sa-premiere-mine-dor-publique/" }
+  ]
+},
+/* ------------------------------------------------------------------ Pharmaciens */
+{
+  id: "burkina-syndicat-pharmaciens", d: "commerce", art: "scales",
+  kicker: "Concurrence · Burkina Faso",
+  title: "Burkina Faso : le Syndicat des pharmaciens dissous après une sanction de la Commission de l'UEMOA",
+  dek: "Le décret du 19 novembre vise la hausse du coefficient appliqué aux médicaments de spécialité, déjà sanctionnée en février par l'autorité communautaire de la concurrence.",
+  status: "Décret adopté le 19 nov. 2026",
+  body: [
+    "Le Conseil des ministres du 19 novembre 2026 a adopté un décret portant dissolution du Syndicat des pharmaciens du Burkina Faso (SPBF), « pour exercice d'activités contraires à ses statuts ». Le texte se fonde sur la loi n° 011-2025/ALT du 17 juillet 2025 portant liberté d'association.",
+    { h: "Les faits reprochés" },
+    "Selon le gouvernement, le syndicat a écrit en 2022 et 2023 aux grossistes-répartiteurs pour obtenir le relèvement du coefficient de calcul des prix des médicaments de spécialité, d'abord de 1,32, valeur en vigueur depuis 1994, à 1,42, puis à 1,48. Trois grossistes ont appliqué le coefficient de 1,48, ce qui a renchéri ces médicaments.",
+    { h: "La sanction communautaire" },
+    "Par décision n° 04/2026/COM/UEMOA du 27 février 2026, la Commission de l'UEMOA a constaté une entrave au libre jeu de la concurrence. Elle a infligé une amende de 1 million de FCFA au syndicat et de 50 millions de FCFA à chacun des trois grossistes ; une quatrième société a été mise hors de cause. Le gouvernement estime que cette amende ne le dispense pas de tirer ses propres conséquences des faits.",
+    { h: "Ce que cela change" },
+    { ul: [
+      "le ministre assure que la dissolution ne porte pas atteinte à l'exercice de la pharmacie ;",
+      "la décision illustre le cumul possible d'une sanction communautaire de concurrence et d'une mesure nationale visant l'association professionnelle ;",
+      "pour les organisations professionnelles de la zone UEMOA, toute recommandation de prix ou de marge adressée aux membres ou aux fournisseurs présente un risque au regard du droit de la concurrence."
+    ] },
+    { note: "À confirmer. Le texte du décret, sa date de publication et les éventuelles voies de recours." }
+  ],
+  fiche: [
+    ["Autorités", "Conseil des ministres du Burkina Faso ; Commission de l'UEMOA"],
+    ["Textes", "Décret de dissolution du 19 novembre 2026 ; loi n° 011-2025/ALT du 17 juillet 2025 ; décision n° 04/2026/COM/UEMOA du 27 février 2026"],
+    ["Règle", "Dissolution d'une association pour activités contraires à ses statuts ; sanction d'une entente sur les prix"],
+    ["Sanctions", "Dissolution ; amendes communautaires de 1 M FCFA (syndicat) et 50 M FCFA par grossiste"],
+    ["Périmètre", "Prix des médicaments de spécialité"],
+    ["Personnes concernées", "Pharmaciens d'officine, grossistes-répartiteurs, organisations professionnelles"],
+    ["À vérifier", "Publication du décret ; recours"]
+  ],
+  verif: "Dissolution et motif : Burkina24, Koaci, Wakat Séra et synthèse APO concordent. Base légale, coefficients et décision de l'UEMOA : compte rendu intégral (Faso Amazone) et Koaci.",
+  sources: [
+    { t: "Faso Amazone : intégralité du Conseil des ministres du 19 novembre 2026", u: "https://www.fasoamazone.net/2026/11/20/burkina-faso-integralite-du-conseil-des-ministres-du-jeudi-19-novembre-2026/" },
+    { t: "Koaci : le gouvernement dissout le syndicat des pharmaciens pour hausse illégale du prix des médicaments", u: "https://www.koaci.com/article/2026/11/19/burkina-faso/sante/burkina-faso-le-gouvernement-dissout-le-syndicat-des-pharmaciens-pour-hausse-illegale-du-prix-des-medicaments_202823.html" },
+    { t: "Burkina24 : dissolution du Syndicat des pharmaciens du Burkina Faso", u: "https://burkina24.com/?p=461811" },
+    { t: "Wakat Séra : compte rendu du Conseil des ministres du 19 novembre 2026", u: "https://www.wakatsera.com/burkina-compte-rendu-du-conseil-des-ministres-du-jeudi-19-novembre-2026/" }
+  ]
+},
+/* ------------------------------------------------------------------ ARCOD */
+{
+  id: "burkina-arcod", d: "num", art: "shield",
+  kicker: "Données personnelles · Burkina Faso",
+  title: "Burkina Faso : les dix membres de l'ARCOD, nouveau régulateur des médias et des données personnelles, sont nommés",
+  dek: "Issue de la fusion du Conseil supérieur de la communication et de la Commission de l'informatique et des libertés, l'autorité devient l'interlocuteur des responsables de traitement.",
+  status: "Décret de nomination adopté",
+  body: [
+    "Le Conseil des ministres du 19 novembre 2026 a adopté un décret portant nomination des dix membres de l'Autorité de régulation de la communication et du traitement des données à caractère personnel (ARCOD), en application de la loi organique n° 038-2026/ALP du 3 août 2026, qui fixe sa dénomination, ses attributions, sa composition et son fonctionnement.",
+    { h: "Une autorité unique" },
+    "L'ARCOD réunit les missions du Conseil supérieur de la communication (CSC) et de la Commission de l'informatique et des libertés (CIL), conformément à la Constitution révisée le 20 janvier 2026. Le Parlement avait adopté en août, avec la loi organique, une nouvelle loi sur la protection des personnes physiques à l'égard du traitement des données à caractère personnel. Le président de l'ARCOD avait été nommé par décret du 16 octobre 2026.",
+    { h: "Composition" },
+    { ul: [
+      "deux membres désignés par le Président du Faso ;",
+      "deux par le président de l'Assemblée législative de transition ;",
+      "un par le président du Conseil constitutionnel ;",
+      "trois par les associations professionnelles des médias ;",
+      "deux par les associations de professionnels des technologies de l'information et de la communication."
+    ] },
+    { h: "Ce que cela change" },
+    "Avec un collège désormais complet, l'ARCOD peut délibérer. Les entreprises qui traitent des données personnelles au Burkina Faso, banques, opérateurs, plateformes, employeurs, devraient vérifier que leurs formalités, déclarations ou demandes d'autorisation sont conformes à la nouvelle loi et adressées à la nouvelle autorité.",
+    { note: "À confirmer. Les textes d'application de la loi sur les données personnelles et le sort des formalités accomplies auprès de l'ancienne CIL." }
+  ],
+  fiche: [
+    ["Autorité", "Conseil des ministres du Burkina Faso, 19 novembre 2026"],
+    ["Textes", "Décret de nomination ; loi organique n° 038-2026/ALP du 3 août 2026 ; loi sur la protection des données à caractère personnel (août 2026)"],
+    ["Règle", "Collège de dix membres ; fusion du CSC et de la CIL"],
+    ["Périmètre", "Régulation de la communication et protection des données personnelles"],
+    ["Personnes concernées", "Médias, responsables de traitement et sous-traitants de données"],
+    ["Sanctions", "Prévues par la loi sur les données ; non détaillées ici"],
+    ["À vérifier", "Textes d'application ; transfert des dossiers de la CIL"]
+  ],
+  verif: "Nomination et répartition des sièges : compte rendu intégral du Conseil des ministres publié par Faso Amazone. Création de l'ARCOD et numéro de la loi organique : Burkina24 et Wakat Séra (août et octobre 2026). Loi sur les données : allAfrica (août 2026).",
+  sources: [
+    { t: "Faso Amazone : intégralité du Conseil des ministres du 19 novembre 2026", u: "https://www.fasoamazone.net/2026/11/20/burkina-faso-integralite-du-conseil-des-ministres-du-jeudi-19-novembre-2026/" },
+    { t: "Burkina24 : l'ARCOD, nouvelle autorité chargée de la régulation des médias et de la protection des données", u: "https://burkina24.com/2026/08/04/burkina-faso-larcod-nouvelle-autorite-chargee-de-la-regulation-des-medias-et-de-la-protection-des-donnees/" },
+    { t: "Burkina24 : nomination du président de l'ARCOD", u: "https://burkina24.com/?p=458283" },
+    { t: "Wakat Séra : le CSC et la CIL deviennent l'ARCOD", u: "https://www.wakatsera.com/burkina-le-csc-et-la-cil-deviennent-larcod/" },
+    { t: "allAfrica : l'Assemblée législative du peuple adopte les projets de lois sur les données personnelles", u: "https://fr.allafrica.com/stories/202608040299.html" }
+  ]
+},
+/* ------------------------------------------------------------------ Cyber Africa Forum */
+{
+  id: "benin-cyber-africa-forum", d: "num", art: "nodes",
+  kicker: "Cybersécurité · Bénin",
+  title: "Cyber Africa Forum : à Cotonou, le Bénin met en avant son Code du numérique et sa nouvelle agence de cybersécurité",
+  dek: "La 6e édition, les 16 et 17 novembre, s'est conclue sur trois recommandations pour une confiance numérique africaine fondée sur l'interopérabilité et la protection des données dès la conception.",
+  status: "Forum tenu les 16 et 17 nov. 2026",
+  body: [
+    "La sixième édition du Cyber Africa Forum s'est tenue les 16 et 17 novembre 2026 au Sofitel de Cotonou, sur le thème « Construire la confiance numérique de demain », avec l'appui des ministères béninois de l'Économie et des Finances et de la Transformation numérique. Des délégations d'une quarantaine de pays y ont participé.",
+    { h: "Les messages des autorités béninoises" },
+    { ul: [
+      "le ministre de la Transformation numérique et de l'Innovation, Mahuna Akplogan, a cité la création récente de l'Agence nationale de cybersécurité et de résilience (ANCR) et appelé l'Afrique à peser sur l'élaboration des règles mondiales ;",
+      "le garde des Sceaux, Yvon Détchénou, a présenté le Code du numérique comme garant de la sécurité juridique des usagers et de la fiabilité des systèmes."
+    ] },
+    { h: "Trois recommandations" },
+    "Le collège d'experts du forum a présenté à la clôture, le 17 novembre, trois recommandations :",
+    { ul: [
+      "un socle africain commun de confiance numérique : standards ouverts, interopérabilité des systèmes d'identité et reconnaissance mutuelle, dans le respect de la souveraineté des États ;",
+      "une gouvernance intégrée des infrastructures publiques numériques, avec cybersécurité et protection des données dès la conception, et des dispositifs d'audit et de traçabilité ;",
+      "l'expérimentation de services d'intelligence artificielle fiables, notamment dans les paiements et l'administration, reposant sur des identités vérifiables, des autorisations révocables et une supervision humaine."
+    ] },
+    { h: "Ce que cela change" },
+    "Le forum n'a pas produit de nouveau texte. Il confirme toutefois l'orientation des États de la région : protection des données et cybersécurité intégrées dès la conception des systèmes, et responsabilité accrue des opérateurs de services numériques. Les entreprises actives au Bénin devraient suivre les textes d'organisation de l'ANCR.",
+    { note: "À confirmer. Le texte créant l'ANCR, sa date et ses attributions précises." }
+  ],
+  fiche: [
+    ["Événement", "Cyber Africa Forum, 6e édition, Cotonou, 16-17 novembre 2026"],
+    ["Autorités", "Ministère de la Transformation numérique et de l'Innovation ; ministère de la Justice et de la Législation"],
+    ["Textes cités", "Code du numérique du Bénin ; création de l'Agence nationale de cybersécurité et de résilience (ANCR)"],
+    ["Recommandations", "Socle commun de confiance numérique ; gouvernance des infrastructures publiques numériques ; IA de confiance"],
+    ["Personnes concernées", "Opérateurs de services numériques, établissements de paiement, administrations"],
+    ["À vérifier", "Texte de création de l'ANCR"]
+  ],
+  verif: "Interventions ministérielles : Bénin Web TV (16 novembre). Recommandations : Bénin Web TV (18 novembre). Dates, lieu et thème : Fraternité Matin, AIP, CIO Mag et Digital Business Africa concordent.",
+  sources: [
+    { t: "Bénin Web TV : le Bénin érige la confiance et la souveraineté numériques en priorités", u: "https://beninwebtv.bj/en/cyber-africa-forum-2026-benin-prioritizes-digital-trust-and-sovereignty/" },
+    { t: "Bénin Web TV : trois recommandations pour renforcer la confiance numérique en Afrique", u: "https://beninwebtv.bj/cyber-africa-forum-2026-trois-recommandations-pour-renforcer-la-confiance-numerique-en-afrique/" },
+    { t: "Fraternité Matin : protection des données, gouvernance numérique et IA au menu", u: "https://www.fratmat.info/article/2643383/societe/cyber-africa-forum-protection-des-donnees-gouvernance-numerique-et-lia-au-menu" },
+    { t: "CIO Mag : à Cotonou, la confiance numérique s'impose comme un enjeu stratégique", u: "https://cio-mag.com/?p=60490" }
+  ]
+},
+/* ------------------------------------------------------------------ Gabon LF 2027 */
+{
+  id: "gabon-lf-2027", d: "fisc", art: "budgets",
+  kicker: "Finances publiques · Gabon",
+  title: "Gabon : les députés adoptent le budget 2027 après l'avoir réduit de 224,6 milliards de FCFA",
+  dek: "Le projet passe de 6 223,1 à 5 998,5 milliards de FCFA. Les députés demandent la maîtrise de la masse salariale et un compte rendu régulier de la gestion de la dette.",
+  status: "Adopté en plénière le 18 nov. 2026",
+  body: [
+    "Réunie en plénière le 18 novembre 2026 au Palais Léon-Mba, l'Assemblée nationale du Gabon a adopté à l'unanimité le projet de loi de finances pour 2027, après en avoir ramené l'enveloppe de 6 223,1 à 5 998,5 milliards de FCFA, soit une baisse de 224,6 milliards (environ 3,6 %). Le budget rectifié de 2026 s'élevait à 5 495,2 milliards.",
+    "Le texte avait été examiné en commission du 21 octobre au 16 novembre. Le ministre de l'Économie et des Finances, Thierry Minko, a fait adopter des amendements aux articles 90, 91, 93 et 104, destinés à donner plus de souplesse à la stratégie d'endettement.",
+    { h: "Le poids de la dette" },
+    "Dans la version initiale du projet, les recettes budgétaires étaient évaluées à 3 291,7 milliards de FCFA et les dépenses budgétaires à 4 200,7 milliards, pour un déficit de 909 milliards. Les charges financières de la dette atteignaient 667,3 milliards, en hausse de 37 %, et les charges de trésorerie 2 022,4 milliards, dont 1 879,5 milliards d'amortissement de la dette et 142,9 milliards d'apurement des arriérés. La ventilation de la réduction votée n'est pas encore publiée.",
+    { h: "Les recommandations des députés" },
+    { ul: [
+      "respecter les délais constitutionnels de dépôt du projet de loi de finances ;",
+      "élargir l'assiette fiscale et renforcer les contrôles fiscaux et douaniers ;",
+      "maîtriser la masse salariale et réduire la dette publique ;",
+      "rendre compte régulièrement au Parlement de la gestion de la trésorerie et de la dette."
+    ] },
+    { note: "À confirmer. La répartition de la réduction de 224,6 milliards entre recettes et dépenses, et la suite de la procédure jusqu'à la promulgation." }
+  ],
+  fiche: [
+    ["Autorité", "Assemblée nationale du Gabon"],
+    ["Texte", "Projet de loi de finances pour l'exercice 2027"],
+    ["Statut", "Adopté en plénière le 18 novembre 2026, à l'unanimité"],
+    ["Montant", "5 998,5 Md FCFA, contre 6 223,1 Md FCFA dans le projet du gouvernement"],
+    ["Dispositions modifiées", "Articles 90, 91, 93 et 104 (stratégie d'endettement)"],
+    ["Personnes concernées", "Administrations, fournisseurs de l'État, contribuables"],
+    ["À vérifier", "Texte voté ; ventilation de la réduction ; promulgation"]
+  ],
+  verif: "Montant voté et réduction : Gabonreview, Gabonmediatime, Infos Gabon et Ecomatin concordent (5 998,5 Md FCFA). Chiffres initiaux et charges de la dette : Ecomatin. Amendements : Gabonreview et Gabonmediatime.",
+  sources: [
+    { t: "Gabonreview : les députés réduisent de 224,6 milliards de francs CFA le budget 2027", u: "https://www.gabonreview.com/gabon-les-deputes-reduisent-de-2246-milliards-de-francs-cfa-le-budget-2027-de-letat/" },
+    { t: "Gabonmediatime : les députés réduisent le budget 2027 et l'adoptent à 5 998,5 milliards de FCFA", u: "https://gabonmediatime.com/assemblee-nationale-les-deputes-reduisent-le-budget-2027-de-2246-milliards-et-ladoptent-a-5-9985-milliards-de-fcfa/" },
+    { t: "Infos Gabon : budget 2027 et gouvernance bancaire, un double tournant parlementaire", u: "https://fr.infosgabon.com/?p=91862" },
+    { t: "Ecomatin : le Parlement adopte le budget 2027", u: "https://ecomatin.net/gabon-le-parlement-adopte-a-lunanimite-un-budget-2027-de-6-223-milliards-fcfa-en-hausse-de-13" }
+  ]
+},
+/* ------------------------------------------------------------------ Gabon DG banques */
+{
+  id: "gabon-dg-banques", d: "banque", art: "bank",
+  kicker: "Banque et microfinance · Gabon",
+  title: "Gabon : la direction générale des banques et des établissements de microfinance réservée aux nationaux",
+  dek: "Adoptée par l'Assemblée nationale le 18 novembre, la loi réserve la fonction aux Gabonais, sauf dérogation du Comité national économique et financier.",
+  status: "Adoptée en plénière le 18 nov. 2026",
+  body: [
+    "Lors de la plénière du 18 novembre 2026, l'Assemblée nationale du Gabon a adopté le projet de loi fixant certaines conditions d'accès et d'exercice de la fonction de directeur général des établissements de crédit et de microfinance. Le texte est issu d'un accord trouvé en commission mixte paritaire entre l'Assemblée et le Sénat le 20 octobre 2026.",
+    { h: "Ce que prévoit la loi" },
+    "Le texte consacre le principe selon lequel la fonction de directeur général des banques, des établissements financiers et des institutions de microfinance opérant au Gabon est réservée aux personnes de nationalité gabonaise, sauf dérogation accordée par le Comité national économique et financier (CNEF). La mesure avait été annoncée en Conseil des ministres en septembre 2025, puis défendue devant les députés en avril 2026 par le ministre Thierry Minko.",
+    { h: "Ce que cela change" },
+    { ul: [
+      "les établissements dirigés par un non-Gabonais devront organiser une succession ou solliciter une dérogation du CNEF ;",
+      "l'articulation avec la réglementation communautaire de la CEMAC, qui soumet les dirigeants d'établissements de crédit à l'agrément de la COBAC, reste à préciser ;",
+      "les groupes bancaires régionaux et internationaux devraient intégrer cette contrainte dans leurs plans de nomination au Gabon."
+    ] },
+    { note: "À confirmer. Le texte définitif, les critères et la procédure de dérogation, les délais de mise en conformité et la date d'entrée en vigueur." }
+  ],
+  fiche: [
+    ["Autorités", "Assemblée nationale et Sénat du Gabon ; Comité national économique et financier"],
+    ["Texte", "Loi fixant certaines conditions d'accès et d'exercice de la fonction de directeur général des établissements de crédit et de microfinance"],
+    ["Statut", "Adoptée en plénière le 18 novembre 2026, sur le texte de la commission mixte paritaire du 20 octobre"],
+    ["Règle", "Fonction de directeur général réservée aux nationaux, sauf dérogation du CNEF"],
+    ["Périmètre", "Banques, établissements financiers, institutions de microfinance opérant au Gabon"],
+    ["Personnes concernées", "Établissements de crédit et de microfinance, groupes bancaires, dirigeants"],
+    ["À vérifier", "Texte promulgué ; régime transitoire ; articulation avec l'agrément COBAC"]
+  ],
+  verif: "Adoption : Gabonmediatime (unanimité, 18 novembre) et Gabonreview (« très large majorité », séance datée du 17 novembre) divergent sur la date et le décompte. Contenu : Gabonreview et Ecomatin (communiqué du Conseil des ministres de septembre 2025). Audition d'avril 2026 : Gabonreview et Bénin Web TV.",
+  sources: [
+    { t: "Gabonreview : le budget 2027 et la gouvernance bancaire adoptés à une large majorité", u: "https://www.gabonreview.com/assemblee-nationale-le-budget-2027-et-la-gouvernance-bancaire-adoptes-a-une-large-majorite/" },
+    { t: "Gabonmediatime : les députés réduisent le budget 2027 et l'adoptent à 5 998,5 milliards de FCFA", u: "https://gabonmediatime.com/assemblee-nationale-les-deputes-reduisent-le-budget-2027-de-2246-milliards-et-ladoptent-a-5-9985-milliards-de-fcfa/" },
+    { t: "Ecomatin : seuls les nationaux vont désormais diriger les banques et établissements financiers", u: "https://ecomatin.net/gabon-seuls-les-nationaux-vont-desormais-diriger-les-banques-et-etablissements-financiers" },
+    { t: "Bénin Web TV : la gabonisation des directions bancaires à l'étude par les députés", u: "https://beninwebtv.bj/gabon-la-gabonisation-des-directions-bancaires-en-etude-par-les-deputes/" }
+  ]
+}
+];
+
+const STATS = [
+  { n: "4 913", u: " Md FCFA", l: "perspectives d'investissement annoncées au SIREXE d'Abidjan", id: "cote-divoire-sirexe-bilan" },
+  { n: "126", u: " voix", l: "contre la première partie du budget 2027 du Sénégal, pour 18", id: "senegal-lfr-decret" },
+  { n: "224,6", u: " Md FCFA", l: "retranchés par les députés gabonais au projet de budget 2027", id: "gabon-lf-2027" },
+  { n: "140", u: " M$", l: "projet PRIME-GAS de la Banque mondiale pour la Côte d'Ivoire, le Bénin et le Togo", id: "gaz-ci-benin-togo" }
+];
+
+const EDITO = "Deux lectures du pouvoir budgétaire s'opposent cette semaine. À Dakar, le président met en vigueur par décret une loi de finances rectificative rejetée par les députés, qui venaient de repousser le budget 2027 dès ses recettes : l'article 68 de la Constitution est désormais au centre du débat. À Libreville, les députés votent le budget 2027 à l'unanimité, mais après l'avoir réduit de 224,6 milliards de FCFA, et réservent la direction des banques aux nationaux. Dans les ressources naturelles, les États cherchent à capter davantage de valeur : la Guinée promet la fin de l'exportation des minerais bruts, le Burkina Faso relance la mine de zinc de Perkoa par une société publique, et Abidjan, Cotonou et Lomé posent les bases d'un marché régional du gaz. Côté régulation, Ouagadougou dissout le Syndicat des pharmaciens après une sanction de l'UEMOA et installe son nouveau régulateur des données personnelles.";
+
+const ACTU = [];
+const SITE = "https://www.legomnia.com/";
+
+/* Illustrations originales (SVG), palette portée par les classes .f .fm .a .sf .sa */
+const ART = {
+  /* Finances : deux barres, la seconde plus haute, ligne de référence */
+  deficit: () => `
+    <line class="sf" stroke-width="2" x1="150" y1="290" x2="490" y2="290"/>
+    <rect class="fm" x="200" y="128" width="100" height="162"/>
+    <rect class="a" x="340" y="62" width="100" height="228"/>
+    <line class="sf" stroke-width="1.5" stroke-dasharray="6 6" x1="150" y1="128" x2="490" y2="128"/>
+    <path class="sf" stroke-width="5" stroke-linecap="round" d="M120 70 L520 300" style="opacity:.55"/>`,
+
+  /* Budget réduit : colonnes, la dernière rognée */
+  budgets: () => `
+    <line class="sf" stroke-width="2" x1="80" y1="290" x2="560" y2="290"/>
+    ${[0,1,2,3].map(i => `<rect class="fm" x="${110 + i*90}" y="${230 - i*38}" width="60" height="${60 + i*38}"/>`).join("")}
+    <rect class="a" x="470" y="138" width="60" height="152"/>
+    <rect class="sf" stroke-width="2.5" stroke-dasharray="6 5" x="470" y="104" width="60" height="34"/>
+    <path class="sf" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M500 66 V96 M488 84 L500 98 L512 84"/>`,
+
+  /* Mine : chevalement, montagne, wagonnet */
+  mine: () => `
+    <path class="fm" d="M0 300 L150 150 L260 240 L380 110 L640 300 V360 H0 Z"/>
+    <path class="sf" stroke-width="7" stroke-linejoin="round" d="M430 300 L470 120 L510 300 M446 230 H494 M455 180 H485"/>
+    <circle class="a" cx="470" cy="112" r="16"/>
+    <line class="sf" stroke-width="3" x1="470" y1="112" x2="560" y2="230"/>
+    <rect class="f" x="150" y="262" width="120" height="44" rx="4"/>
+    <circle class="a" cx="176" cy="314" r="12"/><circle class="a" cx="244" cy="314" r="12"/>
+    <circle class="a" cx="180" cy="252" r="12"/><circle class="a" cx="208" cy="246" r="14"/><circle class="a" cx="238" cy="252" r="12"/>
+    <line class="sf" stroke-width="4" x1="60" y1="328" x2="600" y2="328"/>`,
+
+  /* Gaz : trois nœuds reliés par une conduite */
+  pipe: () => `
+    <path class="sf" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" d="M110 250 H250 Q290 250 290 210 V160 Q290 120 330 120 H530" style="opacity:.55"/>
+    <path class="sa" stroke-width="5" stroke-dasharray="14 12" stroke-linecap="round" d="M110 250 H250 Q290 250 290 210 V160 Q290 120 330 120 H530"/>
+    <circle class="f" cx="110" cy="250" r="30"/><circle class="f" cx="290" cy="185" r="30"/><circle class="f" cx="530" cy="120" r="30"/>
+    <circle class="a" cx="110" cy="250" r="12"/><circle class="a" cx="290" cy="185" r="12"/><circle class="a" cx="530" cy="120" r="12"/>
+    <rect class="fm" x="430" y="220" width="130" height="70" rx="35"/>
+    <rect class="f" x="470" y="200" width="50" height="20" rx="4"/>`,
+
+  /* Rail : voie ferrée vers un port, minerai */
+  rail: () => `
+    <path class="fm" d="M250 360 L300 120 H340 L390 360 Z"/>
+    ${[0,1,2,3,4,5,6].map(i => { const y = 140 + i*32, w = 36 + i*16; return `<rect class="f" x="${320 - w}" y="${y}" width="${w*2}" height="7" rx="2"/>`; }).join("")}
+    <path class="sf" stroke-width="5" d="M310 120 L265 360 M330 120 L375 360"/>
+    <circle class="a" cx="320" cy="84" r="26"/>
+    <path class="f" d="M470 250 H600 L585 290 H485 Z"/>
+    <rect class="f" x="520" y="210" width="40" height="40"/>
+    ${[0,1,2,3,4].map(i => `<circle class="a" cx="${80 + i*28}" cy="${300 - (i%2)*14}" r="13"/>`).join("")}
+    <path class="sf" stroke-width="2" d="M0 300 H640" style="opacity:.4"/>`,
+
+  /* Concurrence : balance */
+  scales: () => `
+    <rect class="f" x="312" y="96" width="16" height="184" rx="2"/>
+    <rect class="f" x="244" y="280" width="152" height="14" rx="2"/>
+    <circle class="a" cx="320" cy="84" r="12"/>
+    <line class="sf" stroke-width="8" stroke-linecap="round" x1="170" y1="112" x2="470" y2="96"/>
+    <path class="sf" stroke-width="2.5" d="M170 112 L134 204 M170 112 L206 204 M470 96 L434 188 M470 96 L506 188"/>
+    <path class="a" d="M124 204 H216 Q170 252 124 204 Z"/>
+    <path class="f" d="M424 188 H516 Q470 236 424 188 Z"/>
+    <rect class="f" x="146" y="168" width="48" height="26" rx="13"/><rect class="a" x="170" y="168" width="24" height="26" rx="0"/>
+    <rect class="a" x="446" y="140" width="40" height="46" rx="3"/>
+    <path class="sf" stroke-width="3" d="M454 154 H478 M454 164 H478 M454 174 H470" style="stroke:var(--ab)"/>`,
+
+  /* Données : bouclier entouré de nœuds */
+  shield: () => {
+    const dots = Array.from({length: 24}, (_, i) => {
+      const a = (i * 15 - 90) * Math.PI / 180;
+      return `<circle class="${i % 6 === 0 ? 'f' : 'a'}" cx="${(320 + 128 * Math.cos(a)).toFixed(1)}" cy="${(180 + 128 * Math.sin(a)).toFixed(1)}" r="${i % 6 === 0 ? 8 : 6}"/>`;
+    }).join("");
+    return `
+    <circle class="sf" stroke-width="1.5" stroke-dasharray="3 7" cx="320" cy="180" r="128"/>
+    ${dots}
+    <path class="f" d="M320 104 L384 128 V190 Q384 240 320 270 Q256 240 256 190 V128 Z"/>
+    <circle class="a" cx="320" cy="180" r="15"/>
+    <rect class="a" x="315" y="190" width="10" height="32" rx="3"/>`;
+  },
+
+  /* Réseau : maillage de nœuds, cadenas central */
+  nodes: () => {
+    const pts = [[110,90],[230,60],[380,80],[530,110],[90,230],[220,270],[420,280],[560,240],[320,170]];
+    const links = [[0,1],[1,2],[2,3],[0,4],[4,5],[5,6],[6,7],[3,7],[1,8],[2,8],[5,8],[6,8],[4,8],[7,8]];
+    return `
+    ${links.map(([a,b]) => `<line class="sf" stroke-width="2" x1="${pts[a][0]}" y1="${pts[a][1]}" x2="${pts[b][0]}" y2="${pts[b][1]}" style="opacity:.55"/>`).join("")}
+    ${pts.slice(0,8).map(([x,y],i) => `<circle class="${i%3 ? 'f' : 'a'}" cx="${x}" cy="${y}" r="${i%3 ? 11 : 15}"/>`).join("")}
+    <rect class="f" x="282" y="168" width="76" height="62" rx="8"/>
+    <path class="sf" stroke-width="9" d="M298 170 V148 Q298 124 320 124 Q342 124 342 148 V170"/>
+    <circle cx="320" cy="196" r="8" style="fill:var(--ab)"/><rect x="316" y="198" width="8" height="18" rx="2" style="fill:var(--ab)"/>`;
+  },
+
+  /* Banque : fronton, colonnes, clé */
+  bank: () => `
+    <path class="f" d="M140 140 L320 64 L500 140 Z"/>
+    <rect class="f" x="140" y="146" width="360" height="12" rx="2"/>
+    ${[0,1,2,3].map(i => `<rect class="f" x="${168 + i*88}" y="168" width="40" height="104" rx="3"/>`).join("")}
+    <rect class="f" x="128" y="272" width="384" height="14" rx="2"/>
+    <circle class="a" cx="320" cy="114" r="13"/>
+    <circle class="sa" stroke-width="7" cx="560" cy="210" r="26"/>
+    <path class="sa" stroke-width="7" stroke-linecap="round" d="M560 236 V310 M560 286 H582 M560 302 H576"/>`
+};
+
+function artSvg(kind, label) {
+  const fn = ART[kind];
+  return `<svg viewBox="0 0 640 360" role="img" aria-label="${label}" preserveAspectRatio="xMidYMid slice">${fn()}</svg>`;
+}
+
+const $app = document.getElementById("app");
+const byId = Object.fromEntries(ARTS.map(a => [a.id, a]));
+
+/* Typographie française : espaces insécables avant ; : ! ? % » et dans les nombres */
+function nb(s) {
+  return String(s)
+    .replace(/(\d) (\d{3})(?!\d)/g, "$1 $2")
+    .replace(/ ([%:;?!»])/g, " $1")
+    .replace(/« /g, "« ")
+    .replace(/(\d) (FCFA|milliards?|millions?|dollars|Md|M\$|M|ans?|pays|%|t|voix|membres|emplois)/g, "$1 $2");
+}
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const tx = s => nb(esc(s));
+const minutes = a => Math.max(2, Math.round(JSON.stringify(a.body).split(/\s+/).length / 210));
+
+function artBlock(a) { return `<div class="art" data-d="${a.d}">${artSvg(a.art, esc(a.title))}</div>`; }
+
+function card(a) {
+  return `<article class="card">
+    <a class="art-link" href="#${a.id}" data-go="${a.id}" tabindex="-1" aria-hidden="true">${artBlock(a)}</a>
+    <div class="kick">${tx(a.kicker)}</div>
+    <h3><a href="#${a.id}" data-go="${a.id}">${tx(a.title)}</a></h3>
+    <p>${tx(a.dek)}</p>
+    <div class="meta"><span class="tag">${tx(a.status)}</span><span>${minutes(a)} min</span><a class="read" href="#${a.id}" data-go="${a.id}">Lire →</a></div>
+  </article>`;
+}
+
+function home() {
+  const une = ARTS.find(a => a.une);
+  const secs = Object.entries(DOMAINS).map(([k, d]) => {
+    const list = ARTS.filter(a => a.d === k && !a.une);
+    if (!list.length) return "";
+    return `<section class="sec" id="sec-${k}">
+      <div class="sec-h"><h2>${tx(d.label)}</h2><span>${list.length} article${list.length > 1 ? "s" : ""}</span></div>
+      <div class="grid">${list.map(card).join("")}</div>
+    </section>`;
+  });
+  const chips = Object.entries(DOMAINS).filter(([k]) => ARTS.some(a => a.d === k && !a.une));
+  return `
+  <div class="wrap">
+    <header class="mast">
+      <div class="eyebrow">Édition hebdomadaire</div>
+      <h1>La Revue de Presse Juridique d'Afrique Francophone</h1>
+      <div class="par">par LegOmnia</div>
+      <div class="date">Numéro ${NUMERO} · ${SEMAINE} · ${ARTS.length} sujets</div>
+      <div class="dbl"></div>
+    </header>
+    <nav class="chips" aria-label="Domaines">${chips.map(([k, d]) => `<button type="button" data-scroll="sec-${k}">${tx(d.short)}</button>`).join("")}</nav>
+    <div class="stats">${STATS.map(s => `<button type="button" class="stat" data-go="${s.id}"><b>${tx(s.n)}<small>${tx(s.u)}</small></b><span>${tx(s.l)}</span></button>`).join("")}</div>
+    <section class="edito"><div class="label">Éditorial</div><p>${tx(EDITO)}</p></section>
+    <section class="une" aria-label="À la une">
+      <div>
+        <div class="label">À la une · ${tx(DOMAINS[une.d].short)}</div>
+        <h2><a href="#${une.id}" data-go="${une.id}">${tx(une.title)}</a></h2>
+        <p class="dek">${tx(une.dek)}</p>
+        <div class="meta"><span class="tag">${tx(une.status)}</span><span>${minutes(une)} min de lecture</span><a class="read" href="#${une.id}" data-go="${une.id}">Lire l'article →</a></div>
+      </div>
+      <a class="art-link" href="#${une.id}" data-go="${une.id}" tabindex="-1" aria-hidden="true">${artBlock(une)}</a>
+    </section>
+    ${secs.join("")}
+    <p class="cta-site"><a class="btn btn-2" href="${SITE}" target="_blank" rel="noopener noreferrer">Découvrir LegOmnia</a></p>
+    <footer class="foot">
+      <b>LegOmnia</b> · Infrastructure juridique de l'Afrique francophone. Cette newsletter informe et ne constitue pas un conseil juridique. Les faits sont tirés des sources citées en fin de chaque article, consultées le ${MOIS}. Les illustrations sont originales.
+    </footer>
+  </div>`;
+}
+
+function body(items) {
+  return items.map(b => {
+    if (typeof b === "string") return `<p>${tx(b)}</p>`;
+    if (b.h) return `<h2>${tx(b.h)}</h2>`;
+    if (b.ul) return `<ul>${b.ul.map(li => `<li>${tx(li)}</li>`).join("")}</ul>`;
+    if (b.note) { const i = b.note.indexOf("."); return `<div class="note"><b>${tx(b.note.slice(0, i + 1))}</b>${tx(b.note.slice(i + 1))}</div>`; }
+    if (b.table) return `<div class="tablewrap"><table><thead><tr>${b.table.head.map(h => `<th>${tx(h)}</th>`).join("")}</tr></thead><tbody>${b.table.rows.map(r => `<tr>${r.map(c => `<td>${tx(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    return "";
+  }).join("");
+}
+
+function reader(a) {
+  const i = ARTS.indexOf(a);
+  const prev = ARTS[(i + ARTS.length - 1) % ARTS.length];
+  const next = ARTS[(i + 1) % ARTS.length];
+  return `
+  <div class="wrap">
+    <article class="reader">
+      <button type="button" class="back" data-go="">← Retour à la newsletter</button>
+      <div class="label kick">${tx(a.kicker)}</div>
+      <h1>${tx(a.title)}</h1>
+      <p class="dek">${tx(a.dek)}</p>
+      <div class="byline meta"><span>Rédaction LegOmnia · veille juridique</span><span>${MOIS}</span><span>${minutes(a)} min de lecture</span><span class="tag">${tx(DOMAINS[a.d].short)}</span></div>
+      ${artBlock(a)}
+      <div class="prose">${body(a.body)}</div>
+      <section class="fiche" aria-label="Fiche juridique">
+        <div class="fiche-h"><strong>Fiche juridique</strong><span>${tx(a.status)}</span></div>
+        <dl>${a.fiche.map(([k, v]) => `<div class="row"><dt>${tx(k)}</dt><dd>${tx(v)}</dd></div>`).join("")}</dl>
+        <div class="verif"><b>Vérification.</b> ${tx(a.verif)}</div>
+      </section>
+      <section class="src"><h2>Sources</h2><ul>${a.sources.map(s => `<li><a href="${s.u}" target="_blank" rel="noopener noreferrer">${tx(s.t)}</a></li>`).join("")}</ul></section>
+      <nav class="pn" aria-label="Autres articles">
+        <a href="#${prev.id}" data-go="${prev.id}"><small>← Précédent</small><span>${tx(prev.title)}</span></a>
+        <a class="next" href="#${next.id}" data-go="${next.id}"><small>Suivant →</small><span>${tx(next.title)}</span></a>
+      </nav>
+    </article>
+  </div>`;
+}
+
+let current;
+function show(id) {
+  const a = id && byId[id];
+  if (current === (a ? a.id : "") && $app.firstChild) return;
+  current = a ? a.id : "";
+  $app.innerHTML = a ? reader(a) : home();
+  document.title = a ? a.title + " · LegOmnia" : `La Revue de Presse Juridique d'Afrique Francophone · numéro ${NUMERO}`;
+  window.scrollTo(0, 0);
+}
+function go(id) {
+  show(id || "");
+  try { if (location.hash.slice(1) !== (id || "")) location.hash = id || ""; } catch (e) { /* navigation interne suffisante */ }
+}
+document.addEventListener("click", e => {
+  const g = e.target.closest("[data-go]");
+  if (g) { e.preventDefault(); go(g.getAttribute("data-go")); return; }
+  const s = e.target.closest("[data-scroll]");
+  if (s) { const el = document.getElementById(s.getAttribute("data-scroll")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+});
+window.addEventListener("hashchange", () => show(location.hash.slice(1)));
+show(location.hash.slice(1));
+</script>
+</body></html>
+

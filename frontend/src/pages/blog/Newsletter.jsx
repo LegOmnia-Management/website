@@ -15,6 +15,20 @@ const SUBSCRIBE_URL = "https://4e427ef9.sibforms.com/serve/MUIFAPDN2gwe8jwDZl0aG
 // Éditions de la newsletter : la page de chaque édition est une page statique (public/newsletter/...)
 const EDITIONS = [
     {
+        id: 'numero-4',
+        number: '4',
+        href: '/newsletter/numero-4/',
+        date: { fr: 'Semaine du 15 au 23 novembre 2026', en: 'Week of 15 to 23 November 2026' },
+        title: {
+            fr: "La Revue de Presse Juridique d'Afrique Francophone",
+            en: "The Legal Press Review of French-speaking Africa",
+        },
+        intro: {
+            fr: "Budgets, mines et gaz au premier plan : Dakar, Abidjan, Conakry, Ouagadougou, Libreville et Cotonou. Dix sujets de la semaine, sourcés.",
+            en: "Budgets, mining and gas in the spotlight: Dakar, Abidjan, Conakry, Ouagadougou, Libreville and Cotonou. Ten stories of the week, sourced.",
+        },
+    },
+    {
         id: 'numero-3',
         number: '3',
         href: '/newsletter/numero-3/',
